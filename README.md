@@ -1,2 +1,2 @@
 # mudeo
-site de partage (musique et vidéo) entre professionnels
+site de partage (de musiques et vidéos) entre professionnels
