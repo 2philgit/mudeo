@@ -3,6 +3,7 @@
 namespace Manager;
 
 //la classe de base du framework pour les fichiers
+// par défaut, tous les champs utilses sont passés à la requête dans l'odre croissant de la colonne title (de la bdd)
 class FileManager extends \W\Manager\Manager {
 
 
@@ -10,6 +11,9 @@ class FileManager extends \W\Manager\Manager {
 
 		$inputSearch = $_GET['input_search'];
 		$result_string = "";
+		$column = "title";
+		$order = "ASC";
+		if (!empty($_GET['order'])) {$order = $_GET['order'];}
 		$selectSearch = "(title LIKE '%$inputSearch%'
 							OR user_id LIKE '%$inputSearch%'
 							OR file_type LIKE '%$inputSearch%'
@@ -19,9 +23,8 @@ class FileManager extends \W\Manager\Manager {
 							OR description LIKE '%$inputSearch%' 
 							OR licence LIKE '%$inputSearch%'
 							OR content_type LIKE '%$inputSearch%'
-							OR created LIKE '%$inputSearch%'
-							)";
-		
+							OR created LIKE '%$inputSearch%')";
+		// SELECT * FROM `files` WHERE title LIKE '%tit%' ORDER BY `title` ASC 
 
 		// test sur le formulaire validé
 		if ($_GET) {
@@ -63,12 +66,21 @@ class FileManager extends \W\Manager\Manager {
 						$selectSearch = array_shift($inArrays). " LIKE '%$inputSearch%'";
 					}
 				}
-				var_dump($selectSearch);
-				//die();
+				// var_dump($selectSearch);
+				// die();
+
+				// TEST SUR L'ORDRE D'AFFICHAGE DES RESULTATS DE RECHERCHE
+				print_r($_SERVER ['REDIRECT_QUERY_STRING']);
+				$queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
+				var_dump($queryString);
+				// #^u$#
+				// if () {
+
+				// }
 						
 				// pdo	
 				// création de la requête de recherche (sur title)
-				$statement = $this->dbh->prepare("SELECT * FROM files WHERE $selectSearch;");
+				$statement = $this->dbh->prepare("SELECT * FROM files WHERE $selectSearch ORDER BY $column $order;");
 				$statement->execute();
 				$result = $statement->fetchAll();
 
@@ -81,5 +93,6 @@ class FileManager extends \W\Manager\Manager {
 
 				}
 		}
+
 	}
 }

@@ -14,6 +14,8 @@
 		</ul>
 	</section>
 
+	<hr />
+
 	<!-- Affiche chaque ligne de résultat de la recherche de la bdd dans un double-bloc "section" -->
 	<?php 
 
@@ -23,33 +25,51 @@
 
 
 		// teste si le tableau des résultats de la recherche n'est pas vide (donc qu'au moins 1 résultat de recherche existe)
-		if ($results) {
+		if ($results) { ?>
 
-			foreach ($results as $result): ?>
+			<section class="search-result">
 
-				<section class="search-result clearfix">
-					<h3><?= $result['title'] ?></h3>
-					<ul>
-						<li><?= $result['category'] ?></li>
-						<li><?= $result['nb_like'] ?></li>
-						<li><?= $result['licence'] ?></li>
-						<li><?= $result['created'] ?></li>
-					</ul>
-				</section>
+				<table class="tableau">
+					  <thead>
+					    <tr>
+					        <th>Titre <span class="order-click"><a href="?input_search=<?= $_GET['input_search'];?>&order=ASC"><</a></span><span class="order-click"><a href=''>></a></span></th>
+					        <th>Auteur</th>
+					        <th>Popularité</th>
+					        <th>Catégorie</th>
+					        <th>Description</th>
+					        <th>Public ciblé</th>
+					        <th>Date</th>
+					    </tr>
+					  </thead>
 
-				<section class="search-result">
-					<p><?= $result['description'] ?></p>
-					<hr>
-				</section>
+					  <tbody>
 
-			<?php endforeach; 
+						<?php foreach ($results as $result): ?>
+						  
+						    <tr>
+						    	<td><h3><?php echo str_ireplace($_GET['input_search'], '<span class="highlight">'. $_GET['input_search'] . "</span>", $result['title']); ?></h3></td>
+						        <td><?= $result['user_id'] ?></td>
+						        <td><?= $result['nb_like'] ?></td>
+						        <td><?php echo str_ireplace($_GET['input_search'], '<span class="highlight">' . $_GET['input_search'] . "</span>", $result['category']); ?></td>
+						        <td><?php echo str_ireplace($_GET['input_search'], '<span class="highlight">' . $_GET['input_search'] . "</span>", $result['description']); ?></td>
+						        <td><?php echo str_ireplace($_GET['input_search'], '<span class="highlight">' . $_GET['input_search'] . "</span>", $result['licence']); ?></td>
+						        <td><?= $result['created'] ?></td>
+						    </tr>
 
-		} else {echo "Aucun résultat n'a été trouvé";}
+						<?php endforeach; ?> 
 
-	} else {
+					  </tbody>
+				</table>
+
+		<?php } else {echo "Aucun résultat n'a été trouvé";}
+
+		} else {
 
 		echo $resultString . '<br />'; // affiche le message attribué dans le FileManager (cf aucune recherche lancée)
 
 	  } ?>
+
+	  		</section>
+// <?php //print_r($_SERVER); ?>
 
 <?php $this->stop('main_content') ?>

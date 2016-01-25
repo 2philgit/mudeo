@@ -29,5 +29,11 @@ class SearchController extends Controller
 		]);
 	}
 
+	public function completedSearch() {
+
+		$fileManager = new \Manager\FileManager;
+		$results = $fileManager->search();
+		$this->showJson($results);
+	}
 
 }

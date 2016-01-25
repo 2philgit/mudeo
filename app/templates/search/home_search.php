@@ -4,11 +4,12 @@
 
 	<h2>Recherches</h2>
 
-	<form method="GET" action="<?php echo $this->url('result_search') ?>" novalidate>
+	<form method="GET" id="form-search" action="<?php echo $this->url('result_search') ?>" novalidate>
 
-		<input type="text" name="input_search" placeholder="Recherche...">
+		<input type="text" name="input_search" id="input-search" placeholder="Recherche..." autocomplete="off">
 
 		<button type="submit">Rechercher</button>
+		<section id="show-selected"></section>
 
 		<p>Critères de recherche :</p>
 
@@ -25,5 +26,10 @@
 		<input type="checkbox" name="in[in_created]" value="created"> date de création (dépôt)
 		
 	</form>
+
+	<?php var_dump($_GET)?>
+
+	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+	<script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
 
 <?php $this->stop('main_content') ?>
