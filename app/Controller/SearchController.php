@@ -25,7 +25,7 @@ class SearchController extends Controller
 		$resultString = $fileManager->search();
 		$this->show('search/result_search', [
 			'results'=>$results,
-			'resultString'=>$resultString
+			'resultString'=>$resultString,
 		]);
 	}
 

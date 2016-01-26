@@ -12,6 +12,7 @@ class FileManager extends \W\Manager\Manager {
 		$inputSearch = $_GET['input_search'];
 		$result_string = "";
 		$column = "title";
+		if (!empty($_GET['column'])) {$column = $_GET['column'];}
 		$order = "ASC";
 		if (!empty($_GET['column'])) {$column = $_GET['column'];}
 		if (!empty($_GET['order'])) {$order = $_GET['order'];}
@@ -40,42 +41,47 @@ class FileManager extends \W\Manager\Manager {
 				// RECHERCHE MULTICRITERES, construction de la requête sql
 				// s'il y a des critères sélectionnés pour la recherche (si non, par défaut, tout les champs utiles sont transmis à la requête)
 				if (count($_GET) > 1) {
-					
-					$inArrays = $_GET['in'];
-					//var_dump($inArrays);
-					//die();
-					if (count($inArrays) >= 3) {
-						$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
-						$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
-					
-						$selectSearch = "";
-					
-						foreach ( $inArrays as $inArray ) {
+					if (array_key_exists('in', $_GET)) {
+						// var_dump($_GET['in']);
+						$inArrays = $_GET['in'];
+						
+						//var_dump($inArrays);
+						//die();
+						if (count($inArrays) >= 3) {
+							$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
+							$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
+						
+							$selectSearch = "";
+						
+							foreach ( $inArrays as $inArray ) {
 
-							$selectSearch .= " OR " .$inArray . " LIKE '%$inputSearch%'" ;
-					
+								$selectSearch .= " OR " .$inArray . " LIKE '%$inputSearch%'" ;
+						
+							}
+						
+							$selectSearch .= $selectSearchEnd;
+						
+							$selectSearchDb .= $selectSearch;
+
+							$selectSearch = $selectSearchDb;
+						} elseif (count($inArrays) == 2) {
+							$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
+							$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
+							$selectSearch = $selectSearchDb . $selectSearchEnd;
+						} else {
+							$selectSearch = array_shift($inArrays). " LIKE '%$inputSearch%'";
 						}
-					
-						$selectSearch .= $selectSearchEnd;
-					
-						$selectSearchDb .= $selectSearch;
-
-						$selectSearch = $selectSearchDb;
-					} elseif (count($inArrays) == 2) {
-						$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
-						$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
-						$selectSearch = $selectSearchDb . $selectSearchEnd;
-					} else {
-						$selectSearch = array_shift($inArrays). " LIKE '%$inputSearch%'";
-					}
+					}// fin if test 'in'
 				}
-				// var_dump($selectSearch);
+				//var_dump($_GET);
 				// die();
 
 				// TEST SUR L'ORDRE D'AFFICHAGE DES RESULTATS DE RECHERCHE
-				//print_r($_SERVER ['REDIRECT_QUERY_STRING']);
-				//$queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
-				//var_dump($queryString);
+
+				// print_r($_SERVER ['REDIRECT_QUERY_STRING']);
+				// $queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
+				// var_dump($queryString);
+
 				// #^u$#
 				// if () {
 
