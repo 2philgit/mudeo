@@ -8,9 +8,9 @@
 		['GET', '/logout', 'Logger#logout', 'logout'],
 		['GET', '/profile', 'User#profile', 'profile'],
 		['GET', '/forget', 'Logger#forgetpassword', 'forget'],
-		['GET', '/mail', 'Mail#mail', 'mail'],
+		['GET', '/mail/[:token]/[:id]', 'Mail#mail', 'mail'],
 		['GET', '/deleteaccount', 'User#deleteaccount', 'deleteAccount'],
-		['GET', '/', 'Logger#veriftoken', 'verifToken'],
+		['GET', '/veriftoken', 'Logger#veriftoken', 'verifToken'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
 	);

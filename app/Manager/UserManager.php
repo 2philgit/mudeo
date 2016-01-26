@@ -8,7 +8,9 @@ namespace Manager;
 class UserManager extends \W\Manager\UserManager {
 
 	public function lastID(){
-		return $this->dbh::lastInsertId();
+		// $e = new \W\Manager();
+
+		// return $e->dbh::lastInsertId();
 	}
 
 }
