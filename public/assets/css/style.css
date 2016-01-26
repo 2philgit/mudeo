@@ -24,3 +24,12 @@ h1 {
 h2 {
 	color: #66D9EF;
 }
+
+.logError{
+	display: none;
+	color: red;
+}
+
+#loginUpdateBlock{
+	display: none;
+}
