@@ -27,8 +27,6 @@
 		
 	</form>
 
-	<?php var_dump($_GET)?>
-
 	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
 

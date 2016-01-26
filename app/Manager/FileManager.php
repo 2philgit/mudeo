@@ -25,7 +25,8 @@ class FileManager extends \W\Manager\Manager {
 							OR content_type LIKE '%$inputSearch%'
 							OR created LIKE '%$inputSearch%')";
 		// SELECT * FROM `files` WHERE title LIKE '%tit%' ORDER BY `title` ASC 
-
+	echo "FileManager.php: ";
+	var_dump($_GET);
 		// test sur le formulaire validé
 		if ($_GET) {
 
@@ -37,42 +38,44 @@ class FileManager extends \W\Manager\Manager {
 				// RECHERCHE MULTICRITERES, construction de la requête sql
 				// s'il y a des critères sélectionnés pour la recherche (si non, par défaut, tout les champs utiles sont transmis à la requête)
 				if (count($_GET) > 1) {
-					
-					$inArrays = $_GET['in'];
-					//var_dump($inArrays);
-					//die();
-					if (count($inArrays) >= 3) {
-						$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
-						$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
-					
-						$selectSearch = "";
-					
-						foreach ( $inArrays as $inArray ) {
+					if ($_GET['in']) {
+						$inArrays = $_GET['in'];
+						echo 'IN : ';
+						var_dump($inArrays);
+						//die();
+						if (count($inArrays) >= 3) {
+							$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
+							$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
+						
+							$selectSearch = "";
+						
+							foreach ( $inArrays as $inArray ) {
 
-							$selectSearch .= " OR " .$inArray . " LIKE '%$inputSearch%'" ;
-					
+								$selectSearch .= " OR " .$inArray . " LIKE '%$inputSearch%'" ;
+						
+							}
+						
+							$selectSearch .= $selectSearchEnd;
+						
+							$selectSearchDb .= $selectSearch;
+
+							$selectSearch = $selectSearchDb;
+						} elseif (count($inArrays) == 2) {
+							$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
+							$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
+							$selectSearch = $selectSearchDb . $selectSearchEnd;
+						} else {
+							$selectSearch = array_shift($inArrays). " LIKE '%$inputSearch%'";
 						}
-					
-						$selectSearch .= $selectSearchEnd;
-					
-						$selectSearchDb .= $selectSearch;
-
-						$selectSearch = $selectSearchDb;
-					} elseif (count($inArrays) == 2) {
-						$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
-						$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
-						$selectSearch = $selectSearchDb . $selectSearchEnd;
-					} else {
-						$selectSearch = array_shift($inArrays). " LIKE '%$inputSearch%'";
-					}
+					}// fin if test 'in'
 				}
 				// var_dump($selectSearch);
 				// die();
 
 				// TEST SUR L'ORDRE D'AFFICHAGE DES RESULTATS DE RECHERCHE
-				print_r($_SERVER ['REDIRECT_QUERY_STRING']);
-				$queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
-				var_dump($queryString);
+				// print_r($_SERVER ['REDIRECT_QUERY_STRING']);
+				// $queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
+				// var_dump($queryString);
 				// #^u$#
 				// if () {
 

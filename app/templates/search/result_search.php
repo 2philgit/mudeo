@@ -18,7 +18,7 @@
 
 	<!-- Affiche chaque ligne de résultat de la recherche de la bdd dans un double-bloc "section" -->
 	<?php 
-
+	echo "result_search.php: "; var_dump($_GET);
 	// teste si $results_string est vide (teste donc si une recherche a bien été effectuée)
 	// die(var_dump($results));
 	if (!$_GET['input_search']=="") {
@@ -32,7 +32,7 @@
 				<table class="tableau">
 					  <thead>
 					    <tr>
-					        <th>Titre <span class="order-click"><a href="?input_search=<?= $_GET['input_search'];?>&order=ASC"><</a></span><span class="order-click"><a href=''>></a></span></th>
+					        <th>Titre <span class="order-click"><a href="?input_search=<?= $_GET['input_search'];?>&column=title&order=ASC&in=0"><</a></span><span class="order-click"><a href=''>></a></span></th>
 					        <th>Auteur</th>
 					        <th>Popularité</th>
 					        <th>Catégorie</th>
