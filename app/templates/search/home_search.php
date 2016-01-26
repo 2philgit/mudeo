@@ -13,17 +13,17 @@
 
 		<p>Critères de recherche :</p>
 
-		<input type="checkbox" name="in[in_title]" value="title"> titre
-		<input type="checkbox" name="in[in_user]" value="user_id"> auteur
-		<input type="checkbox" name="in[in_file]" value="file_type"> type de fichier
-		<input type="checkbox" name="in[in_like]" value="nb_like"> popularité
-		<input type="checkbox" name="in[in_category]" value="category"> catégorie
+		<input type="checkbox" name="in[]" value="title"> titre
+		<input type="checkbox" name="in[]" value="user_id"> auteur
+		<input type="checkbox" name="in[]" value="file_type"> type de fichier
+		<input type="checkbox" name="in[]" value="nb_like"> popularité
+		<input type="checkbox" name="in[]" value="category"> catégorie
 		<br/>
-		<input type="checkbox" name="in[in_keywords]" value="keywords"> mots-clés
-		<input type="checkbox" name="in[in_description]" value="description"> description
-		<input type="checkbox" name="in[in_licence]" value="licence"> public ciblé
-		<input type="checkbox" name="in[in_content]" value="content_type"> type de média
-		<input type="checkbox" name="in[in_created]" value="created"> date de création (dépôt)
+		<input type="checkbox" name="in[]" value="keywords"> mots-clés
+		<input type="checkbox" name="in[]" value="description"> description
+		<input type="checkbox" name="in[]" value="licence"> public ciblé
+		<input type="checkbox" name="in[]" value="content_type"> type de média
+		<input type="checkbox" name="in[]" value="created"> date de création (dépôt)
 		
 	</form>
 

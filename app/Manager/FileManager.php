@@ -12,6 +12,7 @@ class FileManager extends \W\Manager\Manager {
 		$inputSearch = $_GET['input_search'];
 		$result_string = "";
 		$column = "title";
+		if (!empty($_GET['column'])) {$column = $_GET['column'];}
 		$order = "ASC";
 		if (!empty($_GET['order'])) {$order = $_GET['order'];}
 		$selectSearch = "(title LIKE '%$inputSearch%'
@@ -25,8 +26,7 @@ class FileManager extends \W\Manager\Manager {
 							OR content_type LIKE '%$inputSearch%'
 							OR created LIKE '%$inputSearch%')";
 		// SELECT * FROM `files` WHERE title LIKE '%tit%' ORDER BY `title` ASC 
-	echo "FileManager.php: ";
-	var_dump($_GET);
+
 		// test sur le formulaire validé
 		if ($_GET) {
 
@@ -38,10 +38,11 @@ class FileManager extends \W\Manager\Manager {
 				// RECHERCHE MULTICRITERES, construction de la requête sql
 				// s'il y a des critères sélectionnés pour la recherche (si non, par défaut, tout les champs utiles sont transmis à la requête)
 				if (count($_GET) > 1) {
-					if ($_GET['in']) {
+					if (array_key_exists('in', $_GET)) {
+						// var_dump($_GET['in']);
 						$inArrays = $_GET['in'];
-						echo 'IN : ';
-						var_dump($inArrays);
+						
+						//var_dump($inArrays);
 						//die();
 						if (count($inArrays) >= 3) {
 							$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
@@ -69,7 +70,7 @@ class FileManager extends \W\Manager\Manager {
 						}
 					}// fin if test 'in'
 				}
-				// var_dump($selectSearch);
+				//var_dump($_GET);
 				// die();
 
 				// TEST SUR L'ORDRE D'AFFICHAGE DES RESULTATS DE RECHERCHE
