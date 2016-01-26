@@ -5,7 +5,7 @@
 
 $controller = new \W\Controller\Controller();
 
-			$lien = '<a href="127.0.0.1/projects/mudeo/public/?to='.$token.'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+			$lien = '<a href="localhost/projects/mudeo/public/?to='.$token.'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 			$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 			
 			$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
