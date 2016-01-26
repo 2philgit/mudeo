@@ -32,7 +32,7 @@
 				<table class="tableau">
 					  <thead>
 					    <tr>
-					        <th>Titre <span class="order-click"><a href="?input_search=<?= $_GET['input_search'];?>&order=ASC"><</a></span><span class="order-click"><a href=''>></a></span></th>
+					        <th>Titre <span class="order-click"><a href="?input_search=<?= $_GET['input_search'];?>&column=title&order=ASC"><</a></span><span class="order-click"><a href=''>></a></span></th>
 					        <th>Auteur</th>
 					        <th>Popularité</th>
 					        <th>Catégorie</th>

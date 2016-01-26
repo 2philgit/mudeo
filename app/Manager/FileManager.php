@@ -13,6 +13,7 @@ class FileManager extends \W\Manager\Manager {
 		$result_string = "";
 		$column = "title";
 		$order = "ASC";
+		if (!empty($_GET['column'])) {$column = $_GET['column'];}
 		if (!empty($_GET['order'])) {$order = $_GET['order'];}
 		$selectSearch = "(title LIKE '%$inputSearch%'
 							OR user_id LIKE '%$inputSearch%'
@@ -31,6 +32,8 @@ class FileManager extends \W\Manager\Manager {
 
 			// teste si le champ de recherche est "non vide"
 			if (!empty($inputSearch)) {
+
+				var_dump($flag);
 
 				$inputSearch = htmlentities($inputSearch);  //conversion pour éviter les injections de code
 
@@ -70,9 +73,9 @@ class FileManager extends \W\Manager\Manager {
 				// die();
 
 				// TEST SUR L'ORDRE D'AFFICHAGE DES RESULTATS DE RECHERCHE
-				print_r($_SERVER ['REDIRECT_QUERY_STRING']);
-				$queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
-				var_dump($queryString);
+				//print_r($_SERVER ['REDIRECT_QUERY_STRING']);
+				//$queryString = explode ( "=", $_SERVER ['REDIRECT_QUERY_STRING']);
+				//var_dump($queryString);
 				// #^u$#
 				// if () {
 
