@@ -187,16 +187,21 @@ class LoggerController extends Controller
 
 	public function forgetpassword(){
 		$passwordError = "";
+		
 
+		
 		$this->show('logger/forgetpassword', [
 			"passwordError" => $passwordError
 			]);					
 	}
 
 	public function veriftoken(){
-
-
-		//$this->redirectToRoute('home');
+		
+		$usermanager = new \Manager\UserManager();
+		$lastID = $usermanager->lastID();
+		$usermanager->update(['token' => ''],$lastID);		
+		
+		$this->redirectToRoute('home', ["passwordError" => "Account validate! MF"]);
 	}
 
 	public function register(){
