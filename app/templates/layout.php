@@ -109,40 +109,41 @@
 
 
   <div class="container">
-    <header>
+    <header id="top_Anchor">      
       <!-- <h1><?php //$this->e($title) ?></h1> -->
-      
-      
+        
+        
+      <nav class="wrap">
 
-    <nav class="wrap">
+        <!--Pour smartphone et tablette-->
+        <h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+        <!--Burger menu-->
+        <span id="burger_Menu"></span>
+        <!--Pour desktop-->
+        <h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
 
-      <!--Pour smartphone et tablette-->
-      <h1 id="logoMin"><a href="<?=$this->url('home') ?>" title="mudéo, renvoi à l'accueil"><img src="<?= $this->assetUrl('img_site/logo_min.png') ?>" alt="mudéo"></a></h1>
-      <!--Burger menu-->
-      <span id="burgerMenu"></span>
-      <!--Pour desktop-->
-      <h1 id="logo"><a href="<?=$this->url('home') ?>" title="mudéo, renvoi à l'accueil"><img src="<?= $this->assetUrl('img_site/logo.png') ?>" alt="mudéo"></a></h1>
+        <ul id="main_Menu" class="hide">
+          <li><a href="home_content.html">Regarder</a></li>
+          <li><a href="upload.html">Mettre en ligne</a></li>
+          <!--Apparait seulement si non-connecté-->
+          <li><a href="index.html#logger">Connection</a></li>
+          <!--Apparait seulement si connecté sur smartphone et tablette-->
+          <li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+          <!--Seulement pour smartphone et tablette-->
+          <li><a class="desktop_Hide" href="help_Center.html">Aide</a></li>
+          <!--Compte upgrade-->
+          <li><a href="helpCenter.html">Abonnement</a></li>
+        </ul>
 
-      <ul id="mainMenu" class="hide">
-        <li><a href="home.html">Regarder</a></li>
-        <li><a href="upload.html">Mettre en ligne</a></li>
-        <!--Apparait seulement si non-connecté-->
-        <li><a href="index.html#logger">Connection</a></li>
-        <!--Apparait seulement si connecté sur smartphone et tablette-->
-        <li><a class="desktopHide" href="profil.html">Profil</a></li>
-        <!--Seulement pour smartphone et tablette-->
-        <li><a class="desktopHide" href="helpCenter.html">Aide</a></li>
-        <!--Compte upgrade-->
-        <li><a href="helpCenter.html">Abonnement</a></li>
-      </ul>
+        <a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
 
-      <form id="searchField" method="GET">
-        <input id="search" type="text" name="searchInput" placeholder="Rechercher dans mudeo"></input>
-        <span id="searchIcon"><a href="" title="Rechercher"><img src="<?= $this->assetUrl('img_site/search.png') ?>" alt="Recherche icône"></a></span>
-      </form>
-      <a id="userProfil" href="profil.html" title="accès au profil"><img src="<?= $this->assetUrl('img_site/user.png') ?>" alt="profil"></a>
+        <form id="search_Field" method="GET">
+          <input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
+          <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
+        </form>
 
-    </nav>
+      </nav>
+    </header>
 
     <!-- <section> -->
       <?= $this->section('main_content') ?>
@@ -182,7 +183,7 @@
 
         <section id="bottomPart">
           <span><p>&copy; 2016</p></span>
-          <a href="#mainMenu" title="Retour en haut"><img src="<?= $this->assetUrl('img_site/backtotop.png') ?>" alt="Retour en haut"></a>
+          <a href="#top_Anchor" title="Retour en haut"><img src="<?= $this->assetUrl('img_site/backtotop.png') ?>" alt="Retour en haut"></a>
         </section>
 
     </footer>

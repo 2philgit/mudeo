@@ -217,7 +217,7 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 			</figure>
 
 			<!--Pour de l'audio-->
-			<figure>
+			<figure class="clearfix">
 				<video id="mamusique" controls poster="img_site/moutainsmin.jpg">
 				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 

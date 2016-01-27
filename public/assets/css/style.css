@@ -9,7 +9,8 @@ a{
 	text-decoration: none;
 	color: #557b83;
 }
-.clearfix{
+.clearfix:after{
+	display: block;
 	content: "";
 	clear: both;
 }
@@ -28,24 +29,25 @@ h4{
 	font-size: 1em;
 	color: #FFF;
 }
-/*Styles communs(optimisation)*/
+/*Styles communs smartphone(optimisation)*/
 input, textarea, figcaption{
 	border: 1px solid #c1c1c1;
 	background-color: #FFF;
 	height: 1.25em;
 }
-input, textarea, #mainMenu a, #logoMin a, #logo a, button, figcaption, #connect_Button, #inscription_Button{
+input, textarea, #main_Menu a, #logoMin a, #logo a, button, figcaption, 
+#connect_Button, #inscription_Button, #tri_All, #tri_Like, #tri_New, #tri_Music{
 	box-sizing: border-box;
 }
-header, footer, #mainMenu{
+header, footer, #main_Menu, #main_Menu ul li{
 	width: 100%;
 }
 #logo_Min, #logo, #search, #connect_Button, #connect_Link, #other_Link a, 
 #facebook_Connect img, video, figcaption, .info_Top, .info_Bottom, 
-.info_Top h3, .social_Nav a{
+.info_Top h3, .social_Nav a, #tri_Second nav{
 	float: left;
 }
-#search_Field, #search_Icon, #join_Link, .social_Nav {
+#search_Field, #search_Icon, #join_Link, .social_Nav, #inscription_Button {
 	float: right;
 }
 #main_Menu, #burger_Menu, #burger_Menu::after, #burger_Menu::before{
@@ -118,6 +120,7 @@ header, #bottom_Part{
 	left: 0;
 	text-align: center;
 	background-color: rgba(255, 255, 255, 0.9);
+	z-index: 50;
 }
 #main_Menu li{
 	border-bottom: 1px solid #39aea9;
@@ -131,16 +134,26 @@ header, #bottom_Part{
 	height: 3.125em;
 }
 #search_Icon{
-	line-height: 2.8em;
+	line-height: 2.4em;
 }
 #search_Icon{
 	padding: 0.25em 0.5em 0;
+}
+#search_Icon input{
+	 /* Remove default */
+  	border: none;
+  	width: 20px;
+  	height: 19px;
+  	background-color: #f2f2f2;
+  	background-image: url(../img_site/search.png);
+  	background-repeat: no-repeat;
 }
 #search{
 	width: 12em;
 	margin: 1em 0;
 }
 /*Fin Header*/
+
 
 /********
 INDEX.HTML
@@ -197,7 +210,7 @@ INDEX.HTML
 	margin-top: 2em;
 }
 .g-recaptcha.marge{
-	margin-top: 4em;
+	margin-top: 1em;
 }
 .g-recaptcha, #rc-imageselect{
 	margin-left: 0.25em;
@@ -282,11 +295,13 @@ button, #connect_Button, #inscription_Button{
 figure{
 	min-width: 320px;
 	max-width: 320px;	
+	height: 100%;
 	margin: 1em auto; 
 }
 /*video player*/
 video{
 	margin: 0 auto;
+	height: auto;
 }
 figcaption{
 	height: 5em;
@@ -352,6 +367,88 @@ figcaption{
 FIN INDEX.HTML
 ********/
 
+
+/********
+HOME_CONTENT.HTML
+********/
+
+/*Barre de tri*/
+#tri_Section{
+	margin: 0 auto;
+	padding: 2em 0 3em;
+}
+#tri ul li, #tri_Second ul li{
+	display: inline-block;
+}
+#tri, #tri_Second{
+	width: 18.750em;
+	height: 2em;
+	margin: auto;
+	text-align: center;
+}
+#tri{
+	margin-top: 1em;
+	background-color: #39aea9;
+}
+#tri ul li a{
+	line-height: 2em;
+	padding: 0.407em 1.46em;
+	color: #FFF;
+}
+#tri_Min ul li a:hover{
+	background-color: : #a2d5ab;
+}
+.selected{
+	background-color: #a2d5ab;
+}
+#tri_Desktop{
+	display: none;
+}
+#tri_All, #tri_Music{
+	border-right: 1px solid #FFF;
+}
+#tri_New, #tri_Like{
+	border-right: 1px solid #557b83;
+}
+#tri_Second{
+	font-size: 0.75em;
+}
+#tri_Second nav{
+	margin: 1em -3.5em 1em;	
+}
+#tri-second h4{
+	font-size: 0.75em;
+	float: left;
+}
+#tri_Second ul li a{
+	padding: 0.25em 0.5em;
+}
+#tri_Second ul li a:hover{
+	font-weight: bold;
+}
+.selected_2{
+	color: #a2d5ab;
+}
+#tri_Complet{
+	display: none;
+}
+/*contenu (fourre-tout)*/
+#load_More{
+	float: left;
+	font-size: 0.75em;
+	margin: 3em 0 4em 1em;
+	height: 3em;
+	width: 100%;
+}
+#load_More a{
+	border-top: 1px solid #557b83;
+}
+
+/********
+FIN HOME_CONTENT.HTML
+********/
+
+
 /*Footer*/
 #top_Part{
 	display: none;
@@ -413,15 +510,21 @@ FIN INDEX.HTML
 		display: none;
 	}
 	#user_Profil{
+		float: right;
 		display: block;
 		width: 1em;
-		position: absolute;
-		right: 2em;
-		top: 0.5em;
+		margin: 0 1em 0 1em;
+		padding: 0 1em;
+		line-height: 4em;
+		border-left: 1px solid;
+		height: 3.125em;
 	}
 	#user_Profil img{
 		width: 2em;
 	}
+	/***
+	INDEX
+	***/
 
 	/*logsection*/
 	/*Logger*/
@@ -483,6 +586,81 @@ FIN INDEX.HTML
 		background-color: #000;
 		min-height: 180px;
 	}
+	/***
+	FIN INDEX
+	***/
+
+
+	/***
+	HOME_CONTENT
+	***/
+	/*Tri*/
+	#tri_Section, #tri-Desktop, .home_Content #content_Container,
+	#tri_Desktop h4, #tri_Desktop ul, #tri_Second{
+		float: left;
+	}
+	#tri_Second nav{
+		margin-left: 0;
+	}
+	#tri_Min{
+		display: none;
+	}
+	#tri{
+		width: 37.5em;
+	}
+	#tri_Desktop{
+		display: block;
+	}
+	#tri_Desktop h4{
+		line-height: 1.75em;
+	}
+	#tri_Desktop ul{
+		margin-left: 2em;
+	}
+	#tri_Complet{
+		float: right;
+		display: block;
+		width: 386px;
+		padding-bottom: 1em;
+	}
+	#tri_Complet h4{
+		text-align: center;
+		color: #557b83;
+		font-size: 1.5em;
+		padding-bottom: 0.5em;
+		border-bottom: 1px solid;
+	}
+	#tri_Complet h5{
+		margin-top: 1em;
+	}
+	#tri_Complet h5:first-child{
+		color: #39aea9;
+	}
+	#tri_Complet h5:nth-child(2n){
+		color: #a2d5ab;
+	}
+	#tri_Complet nav{
+		border-bottom: 1px solid;
+		padding: 1em;
+	}
+	#tri_Complet nav ul li{
+		margin-bottom: 0.5em;
+	}
+	#tri_Complet nav ul li a:hover{
+		color: #a2d5ab;
+	}
+	/*Content*/
+	.home_Content #content_Container{
+		min-width: 640px;
+		max-width: 774px;
+	}
+	.home_Content #content_Container figure{
+		min-width: 640px;
+	}
+
+	/***
+	FIN HOME_CONTENT
+	***/
 
 	/*Footer*/
 	h5{
@@ -517,6 +695,9 @@ FIN INDEX.HTML
 	}
 	#bottom_Part{
 		background-color: #FFF;
+	}
+	#bottom_Part a{
+		padding: 0 1em;
 	}
 }
 
