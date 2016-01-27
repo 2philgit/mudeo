@@ -107,7 +107,7 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 			<!--Pour de l'audio-->
 			<figure>
-				<video id="mamusique" controls poster="<?= $this->assetUrl('img_site/mountainmin.png') ?>">
+				<video id="mamusique" controls poster="<?= $this->assetUrl('img_site/moutainsmin.jpg') ?>">
 				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
 				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
