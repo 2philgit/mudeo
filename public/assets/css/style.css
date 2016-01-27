@@ -28,6 +28,46 @@ h2 {
 
 /* AJOUT PHIL */
 
+/* pour la page recherche (user connecté*/ 
+
+ul {
+	list-style: none;
+}
+
+#header-tri ul {
+	float: left;
+}
+
+#header-tri ul li {
+	float: left;
+	font-size: 14px;
+	padding: 10px;
+}
+
+#header-tri h2 {
+	margin: 0;
+}
+
+#header-voir ul {
+	float: left;
+}
+
+#header-voir ul li {
+	float: left;
+	font-size: 14px;
+	padding: 10px;
+}
+
+#header-voir h2 {
+	margin: 0;
+}
+
+#box-right {
+	float: right;
+}
+
+/* pour page résultats de recherche */
+
 .highlight {
 	font-weight: bold;
 	background-color: orange;
@@ -39,14 +79,6 @@ up a, down a {
 
 up a:hover, down a:hover {
 	background-color: green;
-}
-
-
-#show-selected {
-	position: absolute;
-	width: 200px;
-	background-color: #FFF;
-	color:#000;
 }
 
 .search-result h3, .search-result ul {
@@ -63,6 +95,8 @@ up a:hover, down a:hover {
 	font-size: 14px;
 	padding: 10px;
 }
+
+/* commun */
 
 .clearfix:after {
 	display: block;
