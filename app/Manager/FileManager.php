@@ -86,17 +86,30 @@ class FileManager extends \W\Manager\Manager {
 				// 		$selectSearch = "content_type LIKE 'video'";
 				// }
 
-					switch ($_GET['type']) {
-						    case "video":
-						        $selectSearch = "content_type LIKE 'video'";
-						        break;
-						    case "music":
-						        $selectSearch = "content_type LIKE 'music'";
-						        break;
-						    case "vm":
-						        $selectSearch = "content_type LIKE 'video' OR content_type LIKE 'music'";
-						        break;
-						}
+				switch ($_GET['type']) {
+					    case "video":
+					        $selectSearch = "content_type LIKE 'video'";
+					        break;
+					    case "music":
+					        $selectSearch = "content_type LIKE 'music'";
+					        break;
+					    case "vm":
+					        $selectSearch = "content_type LIKE 'video' OR content_type LIKE 'music'";
+					        break;
+					}
+
+				switch ($_GET['column']) {
+					    case "created":
+					        $selectSearch = "created ORDER BY DESC";
+					        break;
+					    case "nb_like":
+					        $selectSearch = "nb_like ORDER BY DESC";
+					        break;
+					    case "///":
+					        $selectSearch = "content_type LIKE 'video' OR content_type LIKE 'music'";
+					        break;
+					}
+
 
 				// }
 

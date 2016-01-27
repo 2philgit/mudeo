@@ -25,7 +25,7 @@
 		<section id="header-voir" class="clearfix">
 			<ul>
 				<li><h2>Voir par :</h2></li>
-				<li><a class="select-search" data-type2="created" href="#">Nouveauté</a></li>
+				<li><a class="select-search" data-column="created" data-order="DESC" href="#">Nouveauté</a></li>
 				<li><a class="select-search" data-type2="nb_like" href="#">J'aime</a></li>
 				<li><a class="select-search" data-type2="created+user_id" href="#">Upload</a></li>
 			</ul>
