@@ -467,8 +467,22 @@ FIN HOME_CONTENT.HTML
 }
 /*Fin Footer*/
 
+/*Fin smartphone*/
+
 /*Tablette*/
 @media  screen and (min-width: 640px){
+	/***
+	HOME_CONTENT
+	***/
+
+	/*Content*/
+	.home_Content #content_Container figure{
+		max-width: 640px;
+	}
+
+	/***
+	FIN HOME_CONTENT
+	***/
 	
 }
 /*Fin Tablette*/
@@ -613,6 +627,7 @@ FIN HOME_CONTENT.HTML
 	}
 	#tri_Desktop h4{
 		line-height: 1.75em;
+		margin-left: 1em;
 	}
 	#tri_Desktop ul{
 		margin-left: 2em;

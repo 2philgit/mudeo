@@ -1,16 +1,15 @@
-<?php //session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 	
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	  
   <title><?= $this->e($title) ?></title>
   
   <!--CSS/reset+perso-->
   <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
   
   <!--Font-->
   <!--Favicon-->
@@ -26,9 +25,10 @@
 </head>
 <body>
 <pre><?php debug($_SESSION); ?> </pre>
+
 <script type="text/javascript">
-	   // Load the SDK asynchronously
-	  (function(d, s, id){
+     // Load the SDK asynchronously
+    (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
@@ -106,7 +106,6 @@
     });
   }
 </script>
-
 
 
 	<!--Header-->
@@ -189,5 +188,6 @@
 			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
 	</div>
+
 </body>
 </html>
