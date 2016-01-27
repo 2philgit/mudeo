@@ -9,7 +9,7 @@ $("#burgerMenu").on("click", function(e){
 /*Inscription/Connection switch*/
 //switch1
 $("#joinLink").on("click", function(e){
-	e.preventDefault();
+	//e.preventDefault();
 	$("#repeatPassword").toggleClass("hide");
 	$(".g-recaptcha").toggleClass("hide");
 	$("#logger p").toggleClass("hide");

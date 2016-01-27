@@ -106,7 +106,7 @@ class LoggerController extends Controller
 		
 			if($_POST)
 			{
-
+die('fuck');
 				if($_POST['logger'] == null || $_POST['password'] == null){
 					$passwordError = "vide!";
 				}
@@ -191,7 +191,7 @@ class LoggerController extends Controller
 									$passwordError = "Log correct !";
 								}				
 
-								$this->show('logger/log', [
+								$this->redirectToRoute('home', [
 									"passwordError" => $passwordError
 									]);		
 							}else{
@@ -208,7 +208,9 @@ class LoggerController extends Controller
 				
 			}
 		
-		$this->show('logger/log', [
+		$passwordError = "Log with success !";
+
+		$this->redirectToRoute('home', [
 			"passwordError" => $passwordError
 			]);					
 	}

@@ -6,54 +6,83 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 	<section id="logSection">
 		<h2><strong>Entre musique et vidéo</strong></h2>
 
-		<form id="logger" action ="" method="POST">
-			<input name="email" type="email" placeholder="Votre email"></input>
-			<!--<div class="errorLogger">
-				<h6>Le champs email n'est pas au bon format !</h6>
-			</div>-->
-			<input name="password" type="text" placeholder="Votre mot de passe"></input>
-			<!--<div class="errorLogger">
-				<h6>Le champs email n'est pas au bon format !</h6>
-			</div>-->
-			<input id="repeatPassword" class="hide" name="passwordRepeat" type="text" placeholder="Répétez votre mot de passe"></input>
-			<!--<div class="errorLogger">
-				<h6>Le champs email n'est pas au bon format !</h6>
-			</div>-->
-
 			<!--switch lien/button-->
 			<div id="switch" class="clearfix">
 
 				<!--Switch1 : se connecter-->
 				<div id="switch1" class="clearfix">	
+					
 					<!--Button Se connecter-->
 					<a href="#logger"><button id="connectButton">Se connecter</button></a>
 					<!--Lien pour faire apparaître le button S'inscrire-->
 					<a id="joinLink" href="#logger" title="S'inscrire">S'incrire</a>
+					
+					<form id="logger" action ="" method="POST">
+
+						<input name="text" type="logger" placeholder="Votre email"></input>
+						<!--<div class="errorLogger">
+							<h6>Le champs email n'est pas au bon format !</h6>
+						</div>-->
+						<input name="password" type="password" placeholder="Votre mot de passe"></input>
+
+						<button type="submit" name="btn_log" href="<?=$this->url('log')?>">OK!</button>
+						<a type="submit" href="<?=$this->url('log')?>">ok</a>
+						<!--Se souvenir de moi-->
+						<div id="rememberMe">
+							<input type="checkbox" name="remember" id="rememberUser"></input>
+							<label for="remember">Se souvenir de moi</label>
+						</div>
+
+					</form>
 				</div>
 
 				<!--Switch2 : s'inscrire-->
 				<div id="switch2" class="hide clearfix">
+					
+					<form id="logger" action ="" method="POST">
+
+						<input name="email1" type="email" placeholder="Votre email"></input>
+						<!--<div class="errorLogger">
+							<h6>Le champs email n'est pas au bon format !</h6>
+						</div>-->
+						<input name="password1" type="text" placeholder="Votre mot de passe"></input>
+						<!--<div class="errorLogger">
+							<h6>Le champs email n'est pas au bon format !</h6>
+						</div>-->
+						<input id="repeatPassword1" class="hide" name="passwordRepeat" type="text" placeholder="Répétez votre mot de passe"></input>
+						<!--<div class="errorLogger">
+							<h6>Le champs email n'est pas au bon format !</h6>
+						</div>-->
+
+					</form>
+
 					<!--Lien pour faire apparaître le button Se connecter-->
 					<a id="connectLink" href="#logger" title="Se connecter">Se connecter</a>
 					<!--Button S'inscrire-->
 					<a href="#logger"><button id="inscriptionButton">S'inscrire</button></a>
+					<button type="submit" name="btn_insc">OK!!</button>
+					
+					
 				</div>
 
 			</div>
 
 			<!--lien de connection/récupération-->
 			<div id="otherLink" class="clearfix">
-				<!--Se souvenir de moi-->
-				<div id="rememberMe">
-					<input type="checkbox" name="remember" id="rememberUser"></input>
-					<label for="remember">Se souvenir de moi</label>
-				</div>
+				
 				<!--Utiliser facebook pour la connexion/inscription-->
-				<a id="facebookConnect" href=""><img src="<?= $this->assetUrl('img_site/facebook_connect.png') ?>" alt="Connection par facebook"><p>Utiliser facebook</p></a>
+					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+					</fb:login-button>
+
+					<div id="status">
+					</div>				
 				<!--Mot de passe oublié-->
-				<a id="forgetMdp" href="">Mot de passe oublié?</a>
+				<a id="forgetMdp" href="<?=$this->url('forget') ?>">Mot de passe oublié?</a>
 				<!--Apparaît quand on click sur MDP oublié-->
-				<input id="recoverMdp" class="hide" type="email" name="passwordRecovery" placeholder="Tapez votre email"></input>
+				<form>
+					<input id="recoverMdp" class="hide" type="email" name="passwordRecovery" placeholder="Tapez votre email"></input>
+					<button type="submit" name="btnforgetmdp">Ok</button>
+				</form>
 				<!--<div class="errorLogger">
 					<h6>Le champs email n'est pas au bon format !</h6>
 				</div>-->
@@ -65,7 +94,7 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 			<!--Blabla certifier opquast de merde-->
 			<p class="hide lastP">En vous inscrivant, vous acceptez nos <a href="" title="conditions d'utilisation"><strong>conditions d'utilisation</strong></a> et notre <a href="" title="politique de confidentialité"><strong>politique de confidentialité</strong></a>.</p>
 		</form>
-		
+		<?php echo $passwordError; ?>
 		<div id="discoverMore">
 			<h4>Découvrir mudéo</h4>
 			<a href=""><img src="<?= $this->assetUrl('img_site/discover.png') ?>"></a>			
@@ -107,7 +136,7 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 			<!--Pour de l'audio-->
 			<figure>
-				<video id="mamusique" controls poster="<?= $this->assetUrl('img_site/mountainmin.png') ?>">
+				<video id="mamusique" controls poster="<?= $this->assetUrl('img_site/mountainsmin.jpg') ?>">
 				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
 				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
