@@ -25,6 +25,7 @@
 	
 </head>
 <body>
+<pre><?php var_dump($_SESSION); ?> </pre>
 <script type="text/javascript">
 	   // Load the SDK asynchronously
 	  (function(d, s, id){

@@ -16,7 +16,7 @@ class LoggerController extends Controller
 
 			$isValid = true;
 			
-			if($_POST['email'] == null || $_POST['password1'] == null || $_POST['password2'] == null ){
+			if($_POST['email'] == null || $_POST['password'] == null || $_POST['password_repeat'] == null ){
 
 				$isValid = false;
 				$passwordError = "vide!";
@@ -24,18 +24,15 @@ class LoggerController extends Controller
 			}else{
 
 				$email = $_POST['email'];
-				$password1 = $_POST['password1'];
-				$password2 = $_POST['password2'];				
+				$password = $_POST['password'];
+				$passwordRepeat = $_POST['password_repeat'];				
 
 				
 
-				if ($password1 != $password2) {
+				if ($password != $passwordRepeat) {
 					$isValid = false;
 					$passwordError= "Les mots de passe ne correspondent pas !";
-				}
-				else{
-					$password = $password1;
-				}
+				}				
 
 				$usermanager = new \Manager\UserManager();				
 
@@ -49,7 +46,8 @@ class LoggerController extends Controller
 						// on insère en bdd
 						
 						$token = \W\Security\StringUtils::randomString(32);
-						$tokentime = time() + (3*60);
+
+						$tokentime = time() + (20*60);
 						
 						$usermanager->insert([
 							"id" => "",
@@ -62,7 +60,7 @@ class LoggerController extends Controller
 							"biography" => "",
 							"subscription" => 1,
 							"created" => date("Y-m-d H:i:s"),
-							"token" => $token,
+							"token" => password_hash($token, PASSWORD_DEFAULT),
 							"token_timestamp" => $tokentime
 						]);
 						
@@ -92,21 +90,22 @@ class LoggerController extends Controller
 			}
 		}
 
-		$this->show('logger/quickRegister', [
+		$this->redirectToRoute('home', [
 			"passwordError" => $passwordError
 			]);					
 	}
 
 	public function log(){
 
+		//die(var_dump($_POST));
 		$usermanager = new \Manager\UserManager();
 		$auth = new \W\Security\AuthentificationManager();
-
+//debug($usermanager);
 		$passwordError = "";
 		
 			if($_POST)
 			{
-die('fuck');
+				
 				if($_POST['logger'] == null || $_POST['password'] == null){
 					$passwordError = "vide!";
 				}
@@ -121,7 +120,7 @@ die('fuck');
 					if($pos === false){
 
 						$username = $logger;
-
+//die('E');
 						if ($usermanager->usernameExists($username) ){
 													
 							if($auth->isValidLoginInfo($username,$password)){
@@ -137,7 +136,7 @@ die('fuck');
 								if($user['token_timestamp'] != 0 && $user['token_timestamp'] < time()){
 									$passwordError = "Please check your mail for confirmation's account !";
 								}
-								if(time() > $user['token_timestamp']){
+								if($user['token_timestamp'] != 0 && time() > $user['token_timestamp']){
 
 									$usermanager->delete($_SESSION['user']['id']);		
 									$auth->logUserOut();
@@ -148,7 +147,7 @@ die('fuck');
 								}								
 								
 
-								$this->show('logger/log', [
+								$this->redirectToRoute('logger/log', [
 									"passwordError" => $passwordError
 									]);		
 							}else{
@@ -181,7 +180,7 @@ die('fuck');
 									$passwordError = "Please check your mail for confirmation's account !";
 								}
 
-								if(time() > $user['token_timestamp']){
+								if($user['token_timestamp'] != 0 && time() > $user['token_timestamp']){
 
 									$usermanager->delete($_SESSION['user']['id']);		
 									$auth->logUserOut();
@@ -225,22 +224,47 @@ die('fuck');
 
 	public function forgetpassword(){
 		$passwordError = "";
-		
-		if(isset($_POST['email_confirm'])){
+		//die('eee');
+		if(isset($_POST['emailPasswordRecovery'])){
 			
+			$emailPasswordRecovery = $_POST['emailPasswordRecovery'];
+
 			$usermanager = new \Manager\UserManager();
 			
-			if($usermanager->emailExists($_POST['email'])){
-				$email_confirm = true;
+			if($usermanager->emailExists($emailPasswordRecovery)){
+					
+				
+				$token = \W\Security\StringUtils::randomString(32);
+				$tokentime = time() + (20*60);
+
+				$user = $usermanager->getUserByUsernameOrEmail($emailPasswordRecovery);
+	
+				$passwordError = "Please tcheck your email for change your password !";
+				// on redirige l"utilisateur
+
+				$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+				$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
+
+				$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
+				$msg .= "<h4>MFF Corp.</h4><br/><br/>";
+				$msg .= "Pour pouvoir changer de mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
+				$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
+
+				require_once 'assets/inc/mailer.php';
+
+				smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);
+
+
+
 			}else{
-				$passwordError = "MDP inexistant !";
+				$passwordError = "Email inexistant !";
 			}
 
 
 
-			$this->show('logger/forget', [
-			"passwordError" => $passwordError,
-			"email_confirm" => $email_confirm 
+			$this->show('Default/home', [
+			"passwordError" => $passwordError
+			//"email_confirm" => $email_confirm 
 			]);
 
 		}else{

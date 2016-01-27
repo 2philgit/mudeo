@@ -1,6 +1,6 @@
 /*BurgerMenu animation*/
 $("#burgerMenu").on("click", function(e){
-	e.preventDefault();
+	//e.preventDefault();
 	$("#mainMenu").stop(true).slideToggle(250);
 	$("#burgerMenu").toggleClass("active");
 });
@@ -18,7 +18,7 @@ $("#joinLink").on("click", function(e){
 });
 //switch2
 $("#connectLink").on("click", function(e){
-	e.preventDefault();
+	//e.preventDefault();
 	$("#repeatPassword").toggleClass("hide");
 	$(".g-recaptcha").toggleClass("hide");
 	$("#logger p").toggleClass("hide");
@@ -29,8 +29,8 @@ $("#connectLink").on("click", function(e){
 
 /*MDP oublié*/
 $("#forgetMdp").on("click", function(e){
-	e.preventDefault();
-	$("#recoverMdp").toggleClass("hide");
-	$(".g-recaptcha").toggleClass("marge");//hack de merde
+	//e.preventDefault();
+	//$("#recoverMdp").toggleClass("hide");
+	//$(".g-recaptcha").toggleClass("marge");//hack de merde
 });
 /*fin MDP oublié*/
