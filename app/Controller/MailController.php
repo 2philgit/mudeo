@@ -10,15 +10,15 @@ class MailController extends Controller
 	public function mail($token,$id)
 	{
 		$passwordError = '';
-		//die($to);
+
 		if(isset($token) && isset($id)){
 
-			//$lastID = $usermanager->lastID();
 			$usermanager = new \Manager\UserManager();
 			
 			$user = $usermanager->find($id);
 			
 			$tokenVerif = $user['token'];
+			$tokenVerif = password_verify($tokenVerif,PASSWORD_DEFAULT);
 
 			if($token == $tokenVerif){				
 				

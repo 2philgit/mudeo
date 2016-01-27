@@ -17,16 +17,15 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 					<!--Lien pour faire apparaître le button S'inscrire-->
 					<a id="joinLink" href="#logger" title="S'inscrire">S'incrire</a>
 					
-					<form id="logger" action ="" method="POST">
+					<form id="logger" name="logger" action ="<?=$this->url('log')?>" method="POST">
 
-						<input name="text" type="logger" placeholder="Votre email"></input>
+						<input name="logger" type="text" placeholder="Votre email/login"></input>
 						<!--<div class="errorLogger">
 							<h6>Le champs email n'est pas au bon format !</h6>
 						</div>-->
 						<input name="password" type="password" placeholder="Votre mot de passe"></input>
 
-						<button type="submit" name="btn_log" href="<?=$this->url('log')?>">OK!</button>
-						<a type="submit" href="<?=$this->url('log')?>">ok</a>
+						<button type="submit" form="logger" name="btn_log">OK!</button>
 						<!--Se souvenir de moi-->
 						<div id="rememberMe">
 							<input type="checkbox" name="remember" id="rememberUser"></input>
@@ -39,28 +38,28 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 				<!--Switch2 : s'inscrire-->
 				<div id="switch2" class="hide clearfix">
 					
-					<form id="logger" action ="" method="POST">
+					<form id="loggerregister" name="form2" action ="<?=$this->url('quickRegister')?>" method="POST">
 
-						<input name="email1" type="email" placeholder="Votre email"></input>
+						<input name="email" type="email" placeholder="Votre email"></input>
 						<!--<div class="errorLogger">
 							<h6>Le champs email n'est pas au bon format !</h6>
 						</div>-->
-						<input name="password1" type="text" placeholder="Votre mot de passe"></input>
+						<input name="password" type="password" placeholder="Votre mot de passe"></input>
 						<!--<div class="errorLogger">
 							<h6>Le champs email n'est pas au bon format !</h6>
 						</div>-->
-						<input id="repeatPassword1" class="hide" name="passwordRepeat" type="text" placeholder="Répétez votre mot de passe"></input>
+						<input id="repeat_password" name="password_repeat" type="password" placeholder="Répétez votre mot de passe"></input>
 						<!--<div class="errorLogger">
 							<h6>Le champs email n'est pas au bon format !</h6>
 						</div>-->
-
+						<button type="submit" form="loggerregister" name="btn_insc">OK!!</button>
 					</form>
 
 					<!--Lien pour faire apparaître le button Se connecter-->
 					<a id="connectLink" href="#logger" title="Se connecter">Se connecter</a>
 					<!--Button S'inscrire-->
 					<a href="#logger"><button id="inscriptionButton">S'inscrire</button></a>
-					<button type="submit" name="btn_insc">OK!!</button>
+					
 					
 					
 				</div>
@@ -69,7 +68,8 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 			<!--lien de connection/récupération-->
 			<div id="otherLink" class="clearfix">
-				
+				<!--Captcha google-->
+			<div class="g-recaptcha hide marge" data-sitekey="6LfqUBYTAAAAAECHlJlb4E3z3y8IGzOxqvRQxbq2"></div>
 				<!--Utiliser facebook pour la connexion/inscription-->
 					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 					</fb:login-button>
@@ -77,11 +77,15 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 					<div id="status">
 					</div>				
 				<!--Mot de passe oublié-->
-				<a id="forgetMdp" href="<?=$this->url('forget') ?>">Mot de passe oublié?</a>
+				<a id="forgetMdp" href="">Mot de passe oublié?</a>
 				<!--Apparaît quand on click sur MDP oublié-->
-				<form>
-					<input id="recoverMdp" class="hide" type="email" name="passwordRecovery" placeholder="Tapez votre email"></input>
-					<button type="submit" name="btnforgetmdp">Ok</button>
+			<!-- 	<form method="POST" action="">
+					<input type="email" name="emailPasswordRecovery" />
+					<input type="submit" />
+				</form> -->
+				<form id="forgeta" name="formForget" method="POST" action="<?=$this->url('forget')?>" >
+					<input id="recoverMdp" class="" type="email" name="emailPasswordRecovery" placeholder="Tapez votre email" />
+					<button type="submit" form="formForget" class="" name="btn_forget_mdp">Ok</button>
 				</form>
 				<!--<div class="errorLogger">
 					<h6>Le champs email n'est pas au bon format !</h6>
@@ -89,8 +93,7 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 			</div>
 
-			<!--Captcha google-->
-			<div class="g-recaptcha hide marge" data-sitekey="your_site_key"></div>
+			
 			<!--Blabla certifier opquast de merde-->
 			<p class="hide lastP">En vous inscrivant, vous acceptez nos <a href="" title="conditions d'utilisation"><strong>conditions d'utilisation</strong></a> et notre <a href="" title="politique de confidentialité"><strong>politique de confidentialité</strong></a>.</p>
 		</form>
