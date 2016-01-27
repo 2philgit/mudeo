@@ -25,7 +25,7 @@
 	
 </head>
 <body>
-<pre><?php var_dump($_SESSION); ?> </pre>
+<pre><?php debug($_SESSION); ?> </pre>
 <script type="text/javascript">
 	   // Load the SDK asynchronously
 	  (function(d, s, id){
@@ -109,84 +109,82 @@
 
 
 
-	<div class="container">
-		<header>
-			<!-- <h1><?php //$this->e($title) ?></h1> -->
-			
-			
-
+	<!--Header-->
+  <header id="top_Anchor">
     <nav class="wrap">
 
       <!--Pour smartphone et tablette-->
-      <h1 id="logoMin"><a href="<?=$this->url('home') ?>" title="mudéo, renvoi à l'accueil"><img src="<?= $this->assetUrl('img_site/logo_min.png') ?>" alt="mudéo"></a></h1>
+      <h1 id="logo_Min"><a href="<?=$this->url('home')?>" title="mudéo, renvoi à l'accueil"><img src="<?=$this->assetUrl('img_site/logo_min.png')?>" alt="mudéo"></a></h1>
       <!--Burger menu-->
-      <span id="burgerMenu"></span>
+      <span id="burger_Menu"></span>
       <!--Pour desktop-->
-      <h1 id="logo"><a href="<?=$this->url('home') ?>" title="mudéo, renvoi à l'accueil"><img src="<?= $this->assetUrl('img_site/logo.png') ?>" alt="mudéo"></a></h1>
+      <h1 id="logo"><a href="<?=$this->url('home')?>" title="mudéo, renvoi à l'accueil"><img src="<?=$this->assetUrl('img_site/logo.png')?>" alt="mudéo"></a></h1>
 
-      <ul id="mainMenu" class="hide">
-        <li><a href="home.html">Regarder</a></li>
-        <li><a href="upload.html">Mettre en ligne</a></li>
+      <ul id="main_Menu" class="hide">
+        <li><a href="<?php//$this->url('')?>">Regarder</a></li>
+        <li><a href="<?php//$this->url('')?>">Mettre en ligne</a></li>
         <!--Apparait seulement si non-connecté-->
         <li><a href="index.html#logger">Connection</a></li>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
-        <li><a class="desktopHide" href="profil.html">Profil</a></li>
+        <li><a class="desktop_Hide" href="profil.html">Profil</a></li>
         <!--Seulement pour smartphone et tablette-->
-        <li><a class="desktopHide" href="helpCenter.html">Aide</a></li>
+        <li><a class="desktop_Hide" href="helpCenter.html">Aide</a></li>
         <!--Compte upgrade-->
         <li><a href="helpCenter.html">Abonnement</a></li>
       </ul>
 
-      <form id="searchField" method="GET">
-        <input id="search" type="text" name="searchInput" placeholder="Rechercher dans mudeo"></input>
-        <span id="searchIcon"><a href="" title="Rechercher"><img src="<?= $this->assetUrl('img_site/search.png') ?>" alt="Recherche icône"></a></span>
+    <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl('img_site/user.png')?>" alt="profil"></a>
+
+      <form id="search_Field" method="GET">
+        <input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
+        <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
       </form>
-      <a id="userProfil" href="profil.html" title="accès au profil"><img src="<?= $this->assetUrl('img_site/user.png') ?>" alt="profil"></a>
 
     </nav>
+  </header>
+
 
 		<!-- <section> -->
 			<?= $this->section('main_content') ?>
 		<!-- </section> -->
 
-		<footer>
+		  <footer>
+    <!--Version Desktop uniquement-->
+    <section id="top_Part">
+      <div id="centered_Menu">
+        <nav id="mudeo_Menu">
+          <h5>Mudeo</h5>
+          <ul>
+            <li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
+            <li><a href="" title="Règles du site">Règles</a></li>
+            <li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+            <li><a href="" title="Confidentialité">Confidentialité</a></li>
+          </ul>
+        </nav>
+        <nav id="aide_Menu">
+          <h5>Aide</h5>
+          <ul>
+            <li><a href="" title="Centre d'aide">Centre d'aide</a></li>
+            <li><a href="" title="FAQ">FAQ</a></li>
+            <li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
+          </ul>
+        </nav>
+        <nav id="Plus_Menu">
+          <h5>Plus</h5>
+          <ul>
+            <li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
+            <li><a href="" title="Plan du site">Plan du site</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
-          <!--Version Desktop uniquement-->
-        <section id="topPart">
-          <div id="centeredMenu">
-            <nav id="mudeoMenu">
-              <h5>Mudeo</h5>
-              <ul>
-                <li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
-                <li><a href="" title="Règles du site">Règles</a></li>
-                <li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
-                <li><a href="" title="Confidentialité">Confidentialité</a></li>
-              </ul>
-            </nav>
-            <nav id="aideMenu">
-              <h5>Aide</h5>
-              <ul>
-                <li><a href="" title="Centre d'aide">Centre d'aide</a></li>
-                <li><a href="" title="FAQ">FAQ</a></li>
-                <li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
-              </ul>
-            </nav>
-            <nav id="PlusMenu">
-              <h5>Plus</h5>
-              <ul>
-                <li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
-                <li><a href="" title="Plan du site">Plan du site</a></li>
-              </ul>
-            </nav>
-          </div>
-        </section>
+    <section id="bottom_Part">
+      <span><p>&copy; 2016</p></span>
+      <a href="#header" title="Retour en haut"><img src="<?=$this->assetUrl('img_site/backtotop.png')?>" alt="Retour en haut"></a>
+    </section>
+  </footer>
 
-        <section id="bottomPart">
-          <span><p>&copy; 2016</p></span>
-          <a href="#mainMenu" title="Retour en haut"><img src="<?= $this->assetUrl('img_site/backtotop.png') ?>" alt="Retour en haut"></a>
-        </section>
-
-		</footer>
 			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
