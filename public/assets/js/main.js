@@ -1,49 +1,36 @@
-$("#email").change(function(){
-
-	var emailRegex = new RegExp('@');
-	var rep = emailRegex.test($("#email").val());
-
-	if(rep == false){
-		$("#email").css("border","3px solid red");
-		$("#emailError").css("display","initial");
-	}else{
-		$("#email").css("border","3px solid green");
-		$("#emailError").css("display","none");
-	}
-	
+/*BurgerMenu animation*/
+$("#burgerMenu").on("click", function(e){
+	e.preventDefault();
+	$("#mainMenu").stop(true).slideToggle(250);
+	$("#burgerMenu").toggleClass("active");
 });
+/*fin BurgerMenu animation*/
 
-$("#login").change(function(){
-
-	var emailRegex = new RegExp('@');
-	var rep = emailRegex.test($("#login").val());
-
-	if(rep){
-		$("#login").css("border","3px solid red");
-		$("#loginError").css("display","initial");
-	}else{
-		$("#login").css("border","3px solid green");
-		$("#loginError").css("display","none");
-	}
-	
+/*Inscription/Connection switch*/
+//switch1
+$("#joinLink").on("click", function(e){
+	e.preventDefault();
+	$("#repeatPassword").toggleClass("hide");
+	$(".g-recaptcha").toggleClass("hide");
+	$("#logger p").toggleClass("hide");
+	$("#switch2").removeClass("hide");
+	$("#switch1").addClass("hide");
 });
-
-$("#password2").change(function(){
-	
-	if($("#password1").val() != $("#password2").val()){
-
-		$("#password1").css("border","3px solid red");
-		$("#password2").css("border","3px solid red");
-		$("#passwordError").css("display","initial");
-
-	}else{
-		$("#password1").css("border","3px solid green");
-		$("#password2").css("border","3px solid green");
-		$("#passwordError").css("display","none");
-	}
-	
+//switch2
+$("#connectLink").on("click", function(e){
+	e.preventDefault();
+	$("#repeatPassword").toggleClass("hide");
+	$(".g-recaptcha").toggleClass("hide");
+	$("#logger p").toggleClass("hide");
+	$("#switch1").removeClass("hide");
+	$("#switch2").addClass("hide");
 });
+/*fin inscription/connection switch*/
 
-$('#userUpdate').on("click",function(){
-	$('#loginUpdateBlock').css("display","initial");
+/*MDP oublié*/
+$("#forgetMdp").on("click", function(e){
+	e.preventDefault();
+	$("#recoverMdp").toggleClass("hide");
+	$(".g-recaptcha").toggleClass("marge");//hack de merde
 });
+/*fin MDP oublié*/

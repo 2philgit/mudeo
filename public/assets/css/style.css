@@ -1,35 +1,515 @@
-html, body {
-	font-family: Consolas, monaco, monospace;
-	background-color: #272822;
-	color: #F8F8F2;
+/*Pour tous*/
+body{
+	font-family: Verdana, Arial, Sans-serif;
+	font-size: 1em;
+	background-color: #FFF;
+	color: #557b83;
 }
-
-.container {
-	margin: 50px;
-}
-
-a {
+a{
 	text-decoration: none;
-	color: #A6E22E;
+	color: #557b83;
 }
-
-a:hover {
-	color: #F92672;
+.clearfix{
+	content: "";
+	clear: both;
 }
-
-h1 {
-	color: #F92672;
+.wrap{
+	max-width: 72.5em;	
+	margin: 0 auto;
 }
-
-h2 {
-	color: #66D9EF;
+strong{
+	font-weight: bold;
 }
-
-.logError{
+h2{
+	font-size: 1.5em;
+	padding-top: 1.5em;
+}
+h4{
+	font-size: 1em;
+	color: #FFF;
+}
+/*Styles communs(optimisation)*/
+input, textarea, figcaption{
+	border: 1px solid #c1c1c1;
+	background-color: #FFF;
+	height: 1.25em;
+}
+input, textarea, #mainMenu a, #logoMin a, #logo a, button, figcaption{
+	box-sizing: border-box;
+}
+header, footer, #mainMenu{
+	width: 100%;
+}
+#logoMin, #logo, #search, #connectButton, #connectLink, #otherLink a, 
+#facebookConnect img, video, figcaption, .infoTop, .infoBottom, 
+.infoTop h3, .socialNav a{
+	float: left;
+}
+#searchField, #searchIcon, #joinLink, .socialNav {
+	float: right;
+}
+#mainMenu, #burgerMenu, #burgerMenu::after, #burgerMenu::before{
+	position: absolute;
+}
+#logo, .hide, #userProfil{
 	display: none;
+}
+#rememberMe label, #joinLink, #connectLink{
+	font-size: 0.75em;
+}
+header, figcaption, .follow button, #bottomPart{
+	background-color: #F2F2F2;
+}
+
+/*Header*/
+header a{
+	color: #39aea9;
+}
+header, #bottomPart{
+	height: 3.125em;
+}
+#logoMin, #logo{
+	line-height: 3.5em;
+}
+#logoMin a, #logo a{
+	padding: 0.5em 0.5em;
+	height: 3.125em;
+}
+/*Burger Menu animation*/
+#burgerMenu, #burgerMenu::after, #burgerMenu::before{
+	display: block;
+	width: 0.875em;
+	height: 0.2em;
+	transition: all 250ms ease-in-out;
+}
+#burgerMenu{
+	top: 1.35em;
+	left: 3.5em;
+	background-color: #39aea9;
+}
+#burgerMenu::after, #burgerMenu::before{
+	width: 0.875em;
+	height: 0.2em;
+	content:"";
+	cursor: pointer;
+	background-color: #39aea9;
+}
+#burgerMenu::after{
+	top: -0.3em;
+}
+#burgerMenu::before{
+	top: 0.35em;
+}
+#burgerMenu.active::after, #burgerMenu.active::before{
+	top: 0;
+}
+#burgerMenu.active{
+	background-color: transparent; 
+}
+#burgerMenu.active::before{
+ 	transform: rotate(45deg);
+ }	
+#burgerMenu.active::after{
+	 transform: rotate(-45deg);
+}
+/*Fin Burger Menu animation*/
+#mainMenu{
+	top: 50px;
+	left: 0;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+#mainMenu li{
+	border-bottom: 1px solid #39aea9;
+}
+#mainMenu a{
+	padding: 0.4em 6em;
+	line-height: 2em;
+}
+#searchField, #searchIcon{
+	line-height: 3em;
+	height: 3.125em;
+}
+#searchIcon{
+	line-height: 2.8em;
+}
+#searchIcon{
+	padding: 0.25em 0.5em 0;
+}
+#search{
+	width: 12em;
+	margin: 1em 0;
+}
+/*Fin Header*/
+
+
+/*logSection*/
+#logSection{
+	text-align: center;
+	background-image: url(../img_site/moutains.jpg);
+	background-repeat: no-repeat;
+	background-position: 40%;
+	background-size: cover;
+	padding-bottom: 1em;
+}
+#logSection h1{
+	visibility: hidden;
+}
+#logSection h2{
+	color: #FFF;
+}
+#discoverMore{
+	display: none;
+}
+/*Logger*/
+#logger{
+	width: 13.75em;
+	min-height: 18em;
+	margin: 2em auto;
+	background-color: rgba(85, 123, 131, 0.5); 
+	border-radius: 0.188em;
+}
+#logger input, #otherLink a, .g-recaptcha, #logger p, #logger button{
+	margin-top: 0.75em;
+}
+#logger p, #otherLink a{
+	color: #FFF;
+	font-size: 0.75em;
+}
+#otherLink a{
+	padding: 0 3em;
+}
+#logger p{
+	color: #FFF;
+	margin: 0 auto;
+}
+#logger p:last-child{
+	padding-bottom: 1em;
+}
+#logger p a strong{
+	color: #a2d5ab;
+}
+/*Resize google captcha*/
+.g-recaptcha{
+	margin-top: 2em;
+}
+.g-recaptcha.marge{
+	margin-top: 4em;
+}
+.g-recaptcha, #rc-imageselect{
+	margin-left: 0.25em;
+	transform:scale(0.7);
+	-webkit-transform:scale(0.7);
+	transform-origin:0 0;
+	-webkit-transform-origin:0 0;
+}
+/*champs d'erreur*/
+.errorLogger{
+	padding: 0.5em 0;
+	font-size: 0.75em;
+	width: 100%;
+	margin: auto;
+	text-align: center;
 	color: red;
+	float: left;
 }
+/*switch button*/
+#switch{
+	width: 10.625em;
+	margin: 0.5em auto;
+}
+button{
+	border: none;
+	border-radius: 0.375em;
+	height: 1.875em;
+}
+#connectButton, #inscriptionButton{
+	background-color: #a2d5ab;	
+	color: #FFF;
+}
+#joinLink, #connectLink{
+	line-height: 3.8em;
+	color: #FFF;
+}
+/*otherLink*/
+#otherLink{
+	margin-top: 0.5em;
+}
+#otherLink a{
+	height: 1.75em;
+	display: block;
+}
+/*Se souvenir de moi div*/
+#rememberMe{
+	display: inline-block;
+	margin-bottom: 0.5em;
+	width: 100%;
+}
+#rememberMe label{
+	margin-bottom: 0.25em;
+	color: #FFF;
+}
+#rememberMe label, #joinLink, #connectLink{
+	font-size: 0.75em;
+}
+/*Facebook connection*/
+#facebookConnect p{
+	font-size: 1em;
+	line-height: 2em;
+	display: inline-block;
+}
+/*Fin logSection*/
 
-#loginUpdateBlock{
+
+/*ContentSection*/
+#latestContent, figure, video, figcaption{
+	width: 100%;
+}
+#latestContent h2{
+	font-weight: bold;
+	text-align: center;
+	margin: 1em auto 2em ;
+}
+#contentContainer{
+	width: 100%;
+	min-width: 320px;
+	max-width: 640px;
+	margin: auto;
+}
+figure{
+	min-width: 320px;
+	max-width: 320px;	
+	margin: 1em auto; 
+}
+/*video player*/
+video{
+	margin: 0 auto;
+}
+figcaption{
+	height: 5em;
+	margin-bottom: 1em;
+}
+.alert{
+	color: #000;
+}
+/*Player info*/
+.infoTop, .infoBottom{
+	height: 2em;
+	width: 80%;
+	margin-left: 10%;
+}
+.infoTop h3{
+	font-weight: bold;
+	line-height: 2em;
+}
+.socialNav{
+	line-height: 2em;
+}
+.follow button{
+	border: 1px solid #a2d5ab;
+	color: #a2d5ab;
+}
+.follow button.following{
+	background-color: #a2d5ab;
+	color: #FFF;	
+}
+.like img{
+	margin: 0.4em 0 0 0.75em;
+}
+.infoBottom a{
+	float: left;
+	margin-right: 1em;
+}
+.userMin{
+	width: 2em;
+}
+.infoBottom span{
+	font-size: 0.6em;
+	width: 60%;
+	line-height: 1.75em;
+}
+.infoBottom h4{
+	font-size: 1.5em;
+	color: #a2d5ab;
+}
+#seeMore{
+	width: 8em;
+	margin: auto;
+}
+#seeMore button{
+	width: 100%;
+	margin: 2em auto 3em;
+	background-color: #557b83;
+	color: #FFF;
+}
+/*Fin video player*/
+/*Fin ContentSection*/
+
+/*Footer*/
+#topPart{
 	display: none;
 }
+#bottomPart p, #bottomPart a{
+	line-height: 4em;
+	font-size: 0.75em;
+}
+#bottomPart span{
+	float: left;
+	margin-left: 1em;
+}
+#bottomPart a{
+	float: right;
+	margin-right: 1em;
+}
+/*Fin Footer*/
+
+/*Tablette*/
+@media  screen and (min-width: 640px){
+	
+}
+/*Fin Tablette*/
+
+/*Menu complet*/
+@media (min-width: 1160px){
+	
+	a:hover{
+		text-decoration: underline;
+	}
+	/*header*/
+	#burgerMenu, #logoMin{
+		display: none;
+	}
+	#logo{
+		display: block;
+	}
+	#mainMenu{
+		position: relative;
+		display: inline-block;
+		width: 50%;
+		top: 0;
+		left: 0;
+		background-color: #F2F2F2;
+	}
+	#mainMenu li{
+		border: none;
+		display: inline-block;
+	}
+	#mainMenu a{
+		padding: 0;
+		margin: 0 1em;
+		line-height: 3em;
+	}
+	#search{
+		width: 16em;
+	}
+	.desktopHide{
+		display: none;
+	}
+
+	/*logsection*/
+	/*Logger*/
+	#logger{
+		width: 21.25em; 
+		min-height: 20em;
+	}
+	button{
+		height: 2.25em;
+		width: 8em;
+	}
+	section input{
+		height: 2.5em;
+		width: 21em;
+	}
+	input[type="checkbox"]{
+		height: 1.25em;
+		width: 1.25em;
+	}
+	#rememberMe label{
+	}
+	#switch, #otherLink{
+		width: 17.5em;
+		margin: 0.5em auto;
+	}
+	#joinLink, #inscriptionButton{
+		float: right;
+	}
+	#logger .lastP{
+		margin-top: 1em;
+	}
+	/*Google captcha*/
+	.g-recaptcha, #rc-imageselect{
+		margin-left: 1.25em;
+		transform:scale(1);
+		-webkit-transform:scale(1);
+		transform-origin:0 0;
+		-webkit-transform-origin:0 0;
+	}
+
+	/*Content*/
+	#contentContainer{
+		column-width: 320px;
+		column-gap: 1em;
+		width: 75%;
+		min-width: 1000px;
+		max-width: 1160px;
+		margin: 1em auto;
+	}
+	#contentContainer figure{
+		min-width: 290px;
+		max-width: 320px;
+		column-break-inside: avoid;
+		display: inline-block;
+		float: none;
+		margin: 0;
+	}
+	video{
+		background-color: #000;
+		min-height: 180px;
+	}
+
+	/*Footer*/
+	h5{
+		font-size: 1.15em;
+		margin-bottom: 1.5em;
+	}
+	#centeredMenu{
+		width: 30em;
+		margin: 1.5em auto;
+	}
+	footer nav{
+		float: left;
+		margin-right: 2em;
+	}
+	footer nav li{
+		margin-bottom: 0.75em;
+		font-size: 0.85em;
+	}
+	#mudeoMenu h5{
+		color: #39aea9;
+	}
+	#aideMenu h5{
+		color: #a2d5ab;
+	}
+	#plusMenu h5{
+		color: ;
+	}
+	#topPart{
+		display: block;
+		height: 12.5em;
+		background-color: #F2F2F2;
+		border-top: 1px solid #c1c1c1;
+		border-bottom: 1px solid #c1c1c1;
+		box-sizing: border-box;
+	}
+	#bottomPart{
+		background-color: #FFF;
+	}
+}
+
+/*Desktop*/
+@media screen and (min-width: 1280px){
+	#centeredMenu{
+		margin: 1.5em auto;
+	}
+}
+/*Fin Desktop*/

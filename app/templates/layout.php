@@ -2,11 +2,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title><?= $this->e($title) ?></title>
-
+	
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <title><?= $this->e($title) ?></title>
+  
+  <!--CSS/reset+perso-->
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-	<script src='https://www.google.com/recaptcha/api.js'></script>
+  
+  <!--Font-->
+  <!--Favicon-->
+  <link rel="icon" type="image/png" href="<?= $this->assetUrl('img_site/favicon.png') ?>" />
+  <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+
+  <!--jQuery CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!--Recaptcha Google-->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
 	
 </head>
 <body>
@@ -95,27 +110,81 @@
 
 	<div class="container">
 		<header>
-			<h1><?= $this->e($title) ?></h1>
+			<!-- <h1><?php //$this->e($title) ?></h1> -->
 			
-			<p> Vous êtes logger en tant que <?php if(isset($_SESSION['user'])) echo $_SESSION['user']['username']; else echo "spectateur";?></p>
+			
 
-			<nav>
-				<ul>
-					<li><a href="<?php echo $this->url('home') ?>" title="Accueil">Accueil</a></li>					
-					<li><a href="<?php echo $this->url('log') ?>" title="Login">Login</a></li>					
-					<li><a href="<?php echo $this->url('quickRegister') ?>" title="Quick Register">Quick Register</a></li>					
-					<li><a href="<?php echo $this->url('register') ?>" title="Register">Register</a></li>					
-					<?php if(isset($_SESSION['user'])){ ?><li><a href="<?php echo $this->url('profile') ?>" title="Your profile">Your profile</a></li><?php } ?>					
-					<?php if(isset($_SESSION['user'])){ ?><li><a href='<?=$this->url("logout")?>' title="Logout">Logout</a></li> <?php } ?>
-				</ul>
-			</nav>
-		</header>
+    <nav class="wrap">
 
-		<section>
+      <!--Pour smartphone et tablette-->
+      <h1 id="logoMin"><a href="<?=$this->url('home') ?>" title="mudéo, renvoi à l'accueil"><img src="<?= $this->assetUrl('img_site/logo_min.png') ?>" alt="mudéo"></a></h1>
+      <!--Burger menu-->
+      <span id="burgerMenu"></span>
+      <!--Pour desktop-->
+      <h1 id="logo"><a href="<?=$this->url('home') ?>" title="mudéo, renvoi à l'accueil"><img src="<?= $this->assetUrl('img_site/logo.png') ?>" alt="mudéo"></a></h1>
+
+      <ul id="mainMenu" class="hide">
+        <li><a href="home.html">Regarder</a></li>
+        <li><a href="upload.html">Mettre en ligne</a></li>
+        <!--Apparait seulement si non-connecté-->
+        <li><a href="index.html#logger">Connection</a></li>
+        <!--Apparait seulement si connecté sur smartphone et tablette-->
+        <li><a class="desktopHide" href="profil.html">Profil</a></li>
+        <!--Seulement pour smartphone et tablette-->
+        <li><a class="desktopHide" href="helpCenter.html">Aide</a></li>
+        <!--Compte upgrade-->
+        <li><a href="helpCenter.html">Abonnement</a></li>
+      </ul>
+
+      <form id="searchField" method="GET">
+        <input id="search" type="text" name="searchInput" placeholder="Rechercher dans mudeo"></input>
+        <span id="searchIcon"><a href="" title="Rechercher"><img src="<?= $this->assetUrl('img_site/search.png') ?>" alt="Recherche icône"></a></span>
+      </form>
+      <a id="userProfil" href="profil.html" title="accès au profil"><img src="<?= $this->assetUrl('img_site/user.png') ?>" alt="profil"></a>
+
+    </nav>
+
+		<!-- <section> -->
 			<?= $this->section('main_content') ?>
-		</section>
+		<!-- </section> -->
 
 		<footer>
+
+          <!--Version Desktop uniquement-->
+        <section id="topPart">
+          <div id="centeredMenu">
+            <nav id="mudeoMenu">
+              <h5>Mudeo</h5>
+              <ul>
+                <li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
+                <li><a href="" title="Règles du site">Règles</a></li>
+                <li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+                <li><a href="" title="Confidentialité">Confidentialité</a></li>
+              </ul>
+            </nav>
+            <nav id="aideMenu">
+              <h5>Aide</h5>
+              <ul>
+                <li><a href="" title="Centre d'aide">Centre d'aide</a></li>
+                <li><a href="" title="FAQ">FAQ</a></li>
+                <li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
+              </ul>
+            </nav>
+            <nav id="PlusMenu">
+              <h5>Plus</h5>
+              <ul>
+                <li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
+                <li><a href="" title="Plan du site">Plan du site</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+
+        <section id="bottomPart">
+          <span><p>&copy; 2016</p></span>
+          <a href="#mainMenu" title="Retour en haut"><img src="<?= $this->assetUrl('img_site/backtotop.png') ?>" alt="Retour en haut"></a>
+        </section>
+
 		</footer>
 			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
