@@ -22,11 +22,13 @@ class SearchController extends Controller
 	{
 		$fileManager = new \Manager\FileManager;
 		$results = $fileManager->search();
-		$resultString = $fileManager->search();
-		$this->show('search/result_search', [
-			'results'=>$results,
-			'resultString'=>$resultString,
-		]);
+
+		$this->showJson($results);
+		//$resultString = $fileManager->search();
+		//$this->show('search/result_search', [
+			//'results'=>$results,
+			//'resultString'=>$resultString,
+		//]);
 	}
 
 	public function completedSearch() {
