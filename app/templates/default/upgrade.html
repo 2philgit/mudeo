@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mudéo | Entre musique et vidéo</title>
+	<!--Tag for responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery CDN-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--Recaptcha Google-->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--CSS/reset+perso-->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--Font-->
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="img_site/favicon.png" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+</head>
+<body>
+
+	<!--Header-->
+	<header id="top_Anchor">
+		<nav class="wrap">
+
+			<!--Pour smartphone et tablette-->
+			<h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+			<!--Burger menu-->
+			<span id="burger_Menu"></span>
+			<!--Pour desktop-->
+			<h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
+
+			<ul id="main_Menu" class="hide">
+				<li><a href="home_content.html">Regarder</a></li>
+				<li><a href="upload.html">Mettre en ligne</a></li>
+				<!--Apparait seulement si non-connecté-->
+				<li><a href="index.html#logger">Connection</a></li>
+				<!--Apparait seulement si connecté sur smartphone et tablette-->
+				<li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+				<!--Seulement pour smartphone et tablette-->
+				<li><a class="desktop_Hide" href="help_Center.html">Aide</a></li>
+				<!--Compte upgrade-->
+				<li><a href="upgrade.html">Abonnement</a></li>
+			</ul>
+
+			<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
+
+			<form id="search_Field" method="GET">
+				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
+				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></span>
+			</form>
+
+		</nav>
+	</header>
+
+
+	<!--Choix de l'abonnement-->
+	<section id="abonnement" class="wrap clearfix">
+		<h2><strong>Découvrez nos formules</strong></h2>
+		
+		<!--Centrage pour la version desktop-->
+		<div id="table_wrap" class="clearfix">
+
+			<!--Mudéo basic : formule de base gratuite, souscrit à l'inscription-->
+			<table id="basic_Abo">
+				<thead>
+					<tr>
+						<th>
+							<h3><strong>Mudeo Basic</strong></h3>
+							<p>Pour un avant gout de mudeo</p>
+							<!--Souscrit par défaut-->
+							<a href=""><button>Déjà souscrit</button></a>
+							<!--En cas de souscription à un autre compte-->
+							<!--<a href=""><button>Souscrire</button></a>-->
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<h5>500MB/semaine</h5>
+							<p>Soit 25Gb par an</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Vie privée</h5>
+							<p>Protection de base</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Support</h5>
+							<p>Réponse aux emails sous 3 jours ouvrés</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Statistiques</h5>
+							<p>Fréquentation uniquement</p>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+
+			<!--Mudeo plus-->
+			<table id="plus_Abo">
+				<thead>
+					<tr>
+						<th>
+							<h3><strong>Mudeo Plus</strong></h3>
+							<p>Pour tous</p>
+							<!--Si pas souscrit-->
+							<a href=""><button>Souscrire</button></a>
+							<!--Si déjà souscrit-->
+							<!--<a href=""><button>Déjà souscrit</button></a>-->
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<h5>5GB/semaine</h5>
+							<p>Soit 250Gb par an</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Vie privée</h5>
+							<p>Protection de base</p>
+							<p>Nom de domaine protégé</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Support</h5>
+							<p>Réponse aux emails sous 4h en semaine et 24h le week-end</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Statistiques</h5>
+							<p>Fréquentation</p>
+							<p>Like</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Customisation</h5>
+							<p>Player customisable</p>
+						</th>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>
+							<h5>49.95€ par an</h5>
+							<p>ou 7.95€ par mois</p>
+						</th>
+					</tr>
+				</tfoot>
+			</table>
+
+
+			<!--Mudeo pro-->
+			<table id="pro_Abo">
+				<thead>
+					<tr>
+						<th>
+							<h3><strong>Mudeo Pro</strong></h3>
+							<p>Pour les professionnels</p>
+							<!--Si pas souscrit-->
+							<a href=""><button>Souscrire</button></a>
+							<!--Si déjà souscrit-->
+							<!--<a href=""><button>Déjà souscrit</button></a>-->
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<h5>20GB/semaine</h5>
+							<p>Soit 1Tb par an</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Vie privée</h5>
+							<p>Protection de base</p>
+							<p>Nom de domaine protégé</p>
+							<p>Pages privées</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Support</h5>
+							<p>Réponse aux emails sous 1h en semaine et 24h le week-end</p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Statistiques</h5>
+							<p>Statistiques complètes/p>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h5>Customisation</h5>
+							<p>Player customisable</p>
+							<p>Page customisable</p>
+							<p>Support des API tiers</p>
+						</th>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>
+							<h5>159€ par an</h5>
+							<p>ou 359€ par an pour passer à 3Tb/an</p>
+						</th>
+					</tr>
+				</tfoot>
+			</table>
+
+		</div>
+
+	</section>
+
+	<!--Section secondaire-->
+	<aside id="cook_Question" class="wrap">
+
+		<div id="cooking">
+			<h2>Tous les comptes mudeo sont fournis avec d'incroyables ingrédients</h2>
+
+			<div id="min_Cook" class="clearfix">
+				<figure class="img_Cook">
+					<img src="img_site/support_picture/add.png" alt="pas de publicité">
+				<figcaption>
+					<p>Pas de publicité, avant, après ou pendant vos contenus</p>
+				</figcaption>
+				</figure>
+				<figure class="img_Cook">
+					<img src="img_site/support_picture/stat.png" alt="Statistiques de vos contenus">
+				<figcaption>
+					<p>Obtenez les statistiques sur vos contenus</p>
+				</figcaption>
+				</figure>
+				<figure class="img_Cook">
+					<img src="img_site/support_picture/priv.png" alt="vie privée">
+				<figcaption>
+					<p>Respect de la vie privée</p>
+				</figcaption>
+				</figure>
+				<figure class="img_Cook">
+					<img src="img_site/support_picture/tool.png" alt="Support 24heure sur 24 en semaine">
+				<figcaption>
+					<p>Un support humain, 24h/24 en semaine</p>
+				</figcaption>
+				</figure>
+				<figure class="img_Cook">
+					<img src="img_site/support_picture/control.png" alt="Possibilité de customisation">
+				<figcaption>
+					<p>Customisation possible</p>
+				</figcaption>
+				</figure>
+				<figure class="img_Cook">
+					<img src="img_site/support_picture/screen.png" alt="Disponible sur plusieurs supports">
+				<figcaption>
+					<p>Accessible sur plusieurs supports</p>
+				</figcaption>
+				</figure>
+			</div>
+		</div>
+
+		<div id="question">
+			<h2>Des questions?</h2>
+			<p>Contactez notre support, ouvert 24h/24h en semaine</p>
+			<div id="support_Img">
+				<img src="img_site/support_picture/2.jpg" alt="support">
+				<img src="img_site/support_picture/9.jpg" alt="support">
+				<img src="img_site/support_picture/27.jpg" alt="support">
+				<img src="img_site/support_picture/31.jpg" alt="support">
+				<img src="img_site/support_picture/41.jpg" alt="support">
+				<img src="img_site/support_picture/52.jpg" alt="support">
+				<img src="img_site/support_picture/78.jpg" alt="support">
+				<img src="img_site/support_picture/80.jpg" alt="support">
+				<img src="img_site/support_picture/81.jpg" alt="support">
+				<img src="img_site/support_picture/93.jpg" alt="support">
+				<img src="img_site/support_picture/96.jpg" alt="support">
+				<img src="img_site/support_picture/99.jpg" alt="support">
+			</div>
+			
+		</div>
+	</aside>
+
+
+	<!--Footer-->
+	<footer>
+		<!--Version Desktop uniquement-->
+		<section id="top_Part">
+			<div id="centered_Menu">
+				<nav id="mudeo_Menu">
+					<h5>Mudeo</h5>
+					<ul>
+						<li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
+						<li><a href="" title="Règles du site">Règles</a></li>
+						<li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+						<li><a href="" title="Confidentialité">Confidentialité</a></li>
+					</ul>
+				</nav>
+				<nav id="aide_Menu">
+					<h5>Aide</h5>
+					<ul>
+						<li><a href="" title="Centre d'aide">Centre d'aide</a></li>
+						<li><a href="" title="FAQ">FAQ</a></li>
+						<li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
+					</ul>
+				</nav>
+				<nav id="Plus_Menu">
+					<h5>Plus</h5>
+					<ul>
+						<li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
+						<li><a href="" title="Plan du site">Plan du site</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section id="bottom_Part">
+			<span>
+				<realised>Réalisé par:</realised>
+				<jerem>Jeremie,</jerem>
+				<etienne>Etienne,</etienne>
+				<philippe>Philippe,</philippe>
+				<arthur>Arthur</arthur>
+			</span>
+			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+		</section>
+	</footer>
+
+<!--jQuery pour le site-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
