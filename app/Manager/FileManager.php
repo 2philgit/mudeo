@@ -46,51 +46,18 @@ class FileManager extends \W\Manager\Manager {
 				// RECHERCHE MULTICRITERES, construction de la requête sql
 				// s'il y a des critères sélectionnés pour la recherche (si non, par défaut, tout les champs utiles sont transmis à la requête)
 				if (count($_GET) > 1) {
-					// if (array_key_exists('in', $_GET)) {
-					// 	// var_dump($_GET['in']);
-					// 	$inArrays = $_GET['in'];
-						
-					// 	//var_dump($inArrays);
-					// 	//die();
-					// 	if (count($inArrays) >= 3) {
-					// 		$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
-					// 		$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
-						
-					// 		$selectSearch = "";
-						
-					// 		foreach ( $inArrays as $inArray ) {
-
-					// 			$selectSearch .= " OR " .$inArray . " LIKE '%$inputSearch%'" ;
-						
-					// 		}
-						
-					// 		$selectSearch .= $selectSearchEnd;
-					// 		$selectSearchDb .= $selectSearch;
-					// 		$selectSearch = $selectSearchDb;
-
-					// 	} elseif (count($inArrays) == 2) {
-					// 		$selectSearchDb = array_shift($inArrays). " LIKE '%$inputSearch%'";
-					// 		$selectSearchEnd = " OR " . array_pop($inArrays) . " LIKE '%$inputSearch%'";
-					// 		$selectSearch = $selectSearchDb . $selectSearchEnd;
-					// 	} else {
-					// 		$selectSearch = array_shift($inArrays). " LIKE '%$inputSearch%'";
-					// 	}
-					// }// fin if test 'in'
+		
 				}
 				// var_dump($_GET);
 				// die();
 
 				// Sélection des critères des options des résultats de recherche
-				// if ($_GET['type']== "vm") {
-				   
-				// 		$selectSearch = "content_type LIKE 'video'";
-				// }
 
 				switch ($_GET['type']) {
 					    case "video":
 					        $selectSearch = "content_type LIKE 'video'";
 					        break;
-					    case "music":
+					    case "musique":
 					        $selectSearch = "content_type LIKE 'music'";
 					        break;
 					    case "vm":
@@ -98,36 +65,22 @@ class FileManager extends \W\Manager\Manager {
 					        break;
 					}
 
-				switch ($_GET['column']) {
-					    case "created":
-					        $selectSearch = "created ORDER BY DESC";
-					        break;
-					    case "nb_like":
-					        $selectSearch = "nb_like ORDER BY DESC";
-					        break;
-					    case "///":
-					        $selectSearch = "content_type LIKE 'video' OR content_type LIKE 'music'";
-					        break;
-					}
+					
 
+				// switch ($_GET['column'] && $_GET['order']) {
+				// 	    case "created" && "DESC" :
+				// 	    	$column = "created";
+				// 	    	$order = "DESC";
+				// 	        break;
+				// 	    case "nb_like" && "DESC":
+				// 	        $column = "nb_like";
+				// 	    	$order = "DESC";
+				// 	        break;
+				// 	    // case "///":
+				// 	    //     $selectSearch = "content_type LIKE 'video' OR content_type LIKE 'music'";
+				// 	    //     break;
+				// 	}
 
-				// }
-
-				// if (array_key_exists('type', $_GET)) {
-
-					// switch ($_GET['type']) {
-					// 	    case "video":
-					// 	        echo "c'est de la video";
-					// 	        break;
-					// 	    case "music":
-					// 	        echo "c'est de la music";
-					// 	        break;
-					// 	    case "vm":
-					// 	        echo "c'est du vm";
-					// 	        break;
-					// 	}
-
-				// }
 						
 				// pdo	
 				// création de la requête de recherche (sur title)

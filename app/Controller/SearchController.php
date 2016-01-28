@@ -12,15 +12,10 @@ class SearchController extends Controller
 	 */
 	public function search()
 	{
+		$user=$this->getUser();
+		if ($user) {
 		$this->show('search/home_search');
-		// de la function resltSearch
-		$fileManager = new \Manager\FileManager;
-		$results = $fileManager->search();
-		$resultString = $fileManager->search();
-		$this->show('search/home_search', [
-			'results'=>$results,
-			'resultString'=>$resultString,
-		]);
+		} else (die("pas connecté"));
 
 	}
 
