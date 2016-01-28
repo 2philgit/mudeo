@@ -107,7 +107,8 @@ class LoggerController extends Controller
 			{
 				
 				if($_POST['logger'] == null || $_POST['password'] == null){
-					$passwordError = "vide!";
+					$error[0] = 1;
+					$error[1] = "vide!";
 				}
 				else{
 
@@ -122,7 +123,7 @@ class LoggerController extends Controller
 						$username = $logger;
 
 						if ($usermanager->usernameExists($username) ){
-				//die('E');									
+												
 							if($auth->isValidLoginInfo($username,$password)){
 
 								$user = $usermanager->getUserByUsernameOrEmail($username);
@@ -133,32 +134,20 @@ class LoggerController extends Controller
 									setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', '127.0.0.1', false, true);
 								}
 								
-								if($user['token_timestamp'] != 0 && $user['token_timestamp'] < time()){
-									$passwordError = "Please check your mail for confirmation's account !";
-								}
-								if($user['token_timestamp'] != 0 && time() > $user['token_timestamp']){
+								$error = \confirmAccount($user['token_timestamp']);	
 
-									$usermanager->delete($_SESSION['user']['id']);		
-									$auth->logUserOut();
-									setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-									$passwordError = "Account deleted Mother Fucker!";
-								}else{
-									$passwordError = "Log correct !";
-								}								
-								
-
-								$this->redirectToRoute('logger/log', [
-									"passwordError" => $passwordError
-									]);		
 							}else{
-								$passwordError = "Wrong login/mp couple!";
+								$error[0] = 1;
+								$error[1] = "Wrong login/mp couple!";								
 							}
 
-
 						}else{ 
-
-							$passwordError = "Login not found!";
+							$error[0] = 1;
+							$error[1] = "Login not found!";
 						}
+
+						\displayInfo($error);
+						//if($error[0] == 2) $this->redirectToRoute('userhome'); else $this->redirectToRoute('home');
 
 					}else{ //sinon le log contient un @ c'est un email dc verification dans la BDD sur le champ email
 
@@ -171,35 +160,24 @@ class LoggerController extends Controller
 							$user = $usermanager->getUserByUsernameOrEmail($email);
 							$auth->logUserIn($user);
 
+							
 							if(isset($_POST['remember'])){
 
 								setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'localhost', false, true);
 							}		
 							
-							if($user['token_timestamp'] != 0 && $user['token_timestamp'] < time()){
-									$passwordError = "Please check your mail for confirmation's account !";
-								}
+							$error = \confirmAccount($user['token_timestamp']);
 
-								if($user['token_timestamp'] != 0 && time() > $user['token_timestamp']){
-
-									$usermanager->delete($_SESSION['user']['id']);		
-									$auth->logUserOut();
-									setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-									$passwordError = "Account deleted Mother Fucker!";
-								}else{
-									$passwordError = "Log correct !";
-								}				
-
-								$this->redirectToRoute('home', [
-									"passwordError" => $passwordError
-									]);		
+								$this->redirectToRoute('home');		
 							}else{
-								$passwordError = "Wrong email/mp couple!";
+								$error[0] = 1;
+								$error[1] = "Wrong email/mp couple!";
 							}
 							
 						}else{
 
-							$passwordError = "Email not found";
+							$error[0] = 1;
+							$error[1] = "Email not found";
 						}			
 					}
 			
@@ -207,11 +185,11 @@ class LoggerController extends Controller
 				
 			}
 		
-		$passwordError = "Log with success !";
+		// $error[0] = 2;
+		// $error[1] = "Log with success !";
 
-		$this->redirectToRoute('home', [
-			"passwordError" => $passwordError
-			]);					
+		\displayInfo($error);
+		if($error[0] == 2) $this->redirectToRoute('userhome'); else $this->redirectToRoute('home');	
 	}
 
 	public function logout(){
@@ -290,7 +268,7 @@ class LoggerController extends Controller
 		$passwordError = "";
 
 		if($_POST){
-
+			die('register');
 			$isValid = true;
 			
 			if($_POST['login'] == null || $_POST['email'] == null || $_POST['password1'] == null || $_POST['password2'] == null || $_POST['birthday'] == null ){

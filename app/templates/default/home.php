@@ -78,7 +78,7 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 			<p class="hide last_P">En vous inscrivant, vous acceptez nos <a href="" title="conditions d'utilisation"><strong>conditions d'utilisation</strong></a> et notre <a href="" title="politique de confidentialité"><strong>politique de confidentialité</strong></a>.</p>
 		
 
-		<span style="color:red"><?=$passwordError?></span>
+		
 		
 		<div id="discover_More">
 			<h4>Découvrir mudéo</h4>
