@@ -135,7 +135,8 @@
         <li><a href="helpCenter.html">Abonnement</a></li>
       </ul>
 
-    <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl('img_site/user.png')?>" alt="profil"></a>
+    <!-- <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?php//$this->assetUrl("img_site/user/$_SESSION['user']['urlpicture']")?>" alt="profil"></a> -->
+    <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="profil"></a>
       <?php if(isset($_SESSION['user'])) echo "<span id='linkUserMenu'>".$_SESSION['user']['username']." (<a href='".$this->url('logout')."'>Deconnect</a>) </span>"; ?>
       <form id="search_Field" method="GET">
         <input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
