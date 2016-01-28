@@ -15,6 +15,7 @@ a{
 	clear: both;
 }
 .wrap{
+	min-width: 20em;
 	max-width: 72.5em;	
 	margin: 0 auto;
 }
@@ -28,9 +29,15 @@ h2{
 	font-size: 1.5em;
 	padding-top: 1.5em;
 }
+h3{
+	font-size: 1.25em
+}
 h4{
-	font-size: 1em;
+	font-size: 1.125em;
 	color: #FFF;
+}
+h5{
+	font-size: 1.125em;
 }
 /*Styles communs smartphone(optimisation)*/
 input, textarea, figcaption{
@@ -67,6 +74,9 @@ header, figcaption, .follow button, #bottom_Part{
 }
 
 /*Header*/
+header{
+	border-bottom: 1px solid #c1c1c1;
+}
 header a{
 	color: #39aea9;
 }
@@ -170,6 +180,7 @@ INDEX.HTML
 	background-position: 40%;
 	background-size: cover;
 	padding-bottom: 1em;
+	min-height: 32.5em;
 }
 #log_Section h1{
 	visibility: hidden;
@@ -321,7 +332,7 @@ figcaption{
 }
 .info_Top h3{
 	font-weight: bold;
-	line-height: 2em;
+	line-height: 1.75em;
 }
 .social_Nav{
 	line-height: 2em;
@@ -531,6 +542,84 @@ FIN UPLOAD.HTML
 ********/
 
 
+/********
+CONTENT.HTML
+********/
+#page_Content{
+	margin-top: 5em;
+}
+#page_Content figcaption{
+	margin-bottom: 0;
+}
+#describe{
+	padding-bottom: 2em;
+}
+#describe h3, #comments_Form h3, #show_Comments h3{
+	padding-left: 1em;
+	margin-bottom: 2em;
+}
+#comments_Form h3{
+	padding-left: 0;
+}
+#describe p{
+	width: 90%;
+	margin: 0.5em auto;
+}
+#comments_Form{
+	padding: 1em;
+	margin-bottom: 2em;
+	background-color: #a2d5ab;
+	border-top: 1px solid #a2d5ab;
+	border-bottom: 1px solid #a2d5ab;
+}
+#comments_Form textarea{
+	width: 100%;
+	max-width: 45.5em;
+	min-height: 10em;
+	max-height: 40em;
+}
+#comments_Form input{
+	float: right;
+	width: 5em;
+	height: 1.75em;
+	margin: 1em auto 0.5em;
+	color: #557b83;
+}
+#show_Comments{
+	margin: 1em auto 2em;
+}
+.comment_Box{
+	width: 90%;
+	margin: 1em auto;
+	border: 1px solid #f2f2f2;
+	padding: 0.5em;
+}
+.user_Box{
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #f2f2f2;
+}
+.user_Box img{
+	float: left;
+}
+.user_Box a:nth-child(2n){
+	margin-left: 1em;
+	line-height: 2.5em
+}
+.user_Box p{
+	margin-left: 6.75em;
+	font-size: 0.75em;
+}
+.text_Box{
+	margin-top: 0.5em;
+}
+.text_Box p{
+	margin: 1em auto;
+}
+/********
+FIN CONTENT.HTML
+********/
+
+
 /*Footer*/
 #top_Part{
 	display: none;
@@ -561,10 +650,11 @@ FIN UPLOAD.HTML
 	.home_Content #content_Container figure{
 		max-width: 640px;
 	}
-
 	/***
 	FIN HOME_CONTENT
 	***/
+
+
 	/********
 	UPLOAD.HTML
 	********/
@@ -597,6 +687,22 @@ FIN UPLOAD.HTML
 	/********
 	FIN UPLOAD.HTML
 	********/
+
+
+	/********
+	CONTENT.HTML
+	********/
+	#page_Content figure{
+		max-width: 600px; 
+	}
+	#comments_Form textarea{
+		max-width: 80.5em;
+		max-height: 30em;
+	}
+	/********
+	FIN CONTENT.HTML
+	********/
+
 /*Fin Tablette*/
 
 /*Menu complet*/
@@ -648,12 +754,16 @@ FIN UPLOAD.HTML
 	#user_Profil img{
 		width: 2em;
 	}
+
+
 	/***
 	INDEX
 	***/
-
 	/*logsection*/
 	/*Logger*/
+	#log_Section{
+		min-height: 35.625em;
+	}
 	#logger{
 		width: 21.25em; 
 		min-height: 20em;
@@ -690,8 +800,15 @@ FIN UPLOAD.HTML
 		transform-origin:0 0;
 		-webkit-transform-origin:0 0;
 	}
-
+	#other_Link a{
+		margin-left: 2.9em;
+	}
 	/*Content*/
+	.info_Top, .info_Bottom {
+    	height: 2em;
+    	width: 90%;
+    	margin: 0 5%;
+	}
 	#content_Container{
 		column-width: 320px;
 		column-gap: 1em;
@@ -711,6 +828,9 @@ FIN UPLOAD.HTML
 	video{
 		background-color: #000;
 		min-height: 180px;
+	}
+	.follow button{
+		width: 5em;
 	}
 	/***
 	FIN INDEX
@@ -784,7 +904,6 @@ FIN UPLOAD.HTML
 	.home_Content #content_Container figure{
 		min-width: 640px;
 	}
-
 	/***
 	FIN HOME_CONTENT
 	***/
@@ -838,8 +957,12 @@ FIN UPLOAD.HTML
 		width: 51.875em;
 		float: right;
 		border: 1px dotted #c1c1c1;
+		border-radius: 6px;
 		height: 25em;
 		margin-right: 0.5em; 
+	}
+	#upload_Zone:hover{
+		background-color: #f2f2f2;
 	}
 	#zone_Row{
 		width: auto;
@@ -892,9 +1015,80 @@ FIN UPLOAD.HTML
 		float: left;
 		margin: 0 40em 5em;
 	}
+	#upload_Content input[type="submit"]:hover{
+		background-color: #a2d5ab;
+		color: #FFF;
+	}
+
 	/********
 	FIN UPLOAD.HTML
 	********/
+
+
+	/********
+	CONTENT.HTML
+	********/
+	#page_Content figure{
+		max-width: 57.5em; 
+		margin-bottom: 0;
+	}
+	#describe, #comments_Form, #show_Comments{
+		width: 57.5em;
+		padding: 0;
+		margin: auto;
+		overflow: hidden;
+	}
+	#describe h3{
+		margin: 1em 0;
+	}
+	#describe{
+		background-color: #F2F2F2;
+		border: 1px solid #c1c1c1;
+		margin-top: 0;
+		box-sizing: border-box;
+	}
+	#comments_Form{
+		margin: 2em auto;
+		background-color: transparent;
+		border: none;
+	}
+	#comments_Form textarea{
+		margin-left: 4em;
+		max-width: 60em;
+		min-height: 15em;
+		max-height: 40em;
+	}
+	#comments_Form input{
+		width: 8em;
+		height: 2.5em;
+		margin-right: 5em;
+		background-color: #a2d5ab;
+		color: #FFF;
+		border: none;
+		border-radius: 6px;
+	}
+	#comments_Form input:hover{
+		background-color: #FFF;
+		color: #a2d5ab;		
+		border: 1px solid #a2d5ab;
+	}
+	#comments_Form h3, #show_Comments h3{
+		background-color: #a2d5ab;
+		width: 100%;
+		padding: 0.5em 0.5em; 
+		color: #FFF;
+	}
+	.comment_Box{
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#show_Comments{
+		margin-bottom: 3em;
+	}
+	/********
+	FIN CONTENT.HTML
+	********/
+
 
 	/*Footer*/
 	h5{

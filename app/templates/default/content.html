@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mudéo | Entre musique et vidéo</title>
+	<!--Tag for responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery CDN-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--Recaptcha Google-->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--CSS/reset+perso-->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--Font-->
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="img_site/favicon.png" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+</head>
+<body>
+
+	<!--Header-->
+	<header id="top_Anchor">
+		<nav class="wrap">
+
+			<!--Pour smartphone et tablette-->
+			<h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+			<!--Burger menu-->
+			<span id="burger_Menu"></span>
+			<!--Pour desktop-->
+			<h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
+
+			<ul id="main_Menu" class="hide">
+				<li><a href="home_content.html">Regarder</a></li>
+				<li><a href="upload.html">Mettre en ligne</a></li>
+				<!--Apparait seulement si non-connecté-->
+				<li><a href="index.html#logger">Connection</a></li>
+				<!--Apparait seulement si connecté sur smartphone et tablette-->
+				<li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+				<!--Seulement pour smartphone et tablette-->
+				<li><a class="desktop_Hide" href="help_Center.html">Aide</a></li>
+				<!--Compte upgrade-->
+				<li><a href="helpCenter.html">Abonnement</a></li>
+			</ul>
+
+			<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
+
+			<form id="search_Field" method="GET">
+				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
+				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></span>
+			</form>
+
+		</nav>
+	</header>
+
+
+	<!--Content section-->
+	<section id="page_Content" class="wrap">
+
+		<!--Vidéo-->
+		<figure class="clearfix">
+			<!--Caption first-->
+			<figcaption>
+					<div class="info_Top">
+						<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+						<span class="social_Nav">
+							<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+							<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+						</span>
+					</div>
+					<div class="info_Bottom">
+						<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png"></a>
+
+						<span class="author">
+							<h4><strong>Ross Heng</strong></h4>
+							<p>publier le 21/01/2016</p>
+						</span>
+					</div>
+			</figcaption>
+			<!--Contenu-->
+			<video id="mavideo" controls>
+			    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+			    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+			    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+			    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+			</video>
+		</figure>
+
+			<!--Description du contenu-->
+			<div id="describe">
+				<h3><strong>Description</strong></h3>
+				<p>"Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."</p>
+
+				<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."</p>
+			</div>
+
+			<!--Comments form-->
+			<form id="comments_Form" class="clearfix">
+				<h3>Ajouter un commentaire</h3>
+				<textarea name="commentaire" placeholder="Votre commentaire"></textarea>
+				<input  type="submit" value="Envoyer" name="send_Comment">
+			</form>
+
+			<!--Show comments-->
+			<div id="show_Comments">
+
+				<h3>Commentaires</h3>
+				<!--Commentaire poster-->
+				<div class="comment_Box">
+					<div class="user_Box clearfix">
+						<a href="profil.html" title="Voir le profil de Ross Hang"><img src="img_site/user.png" alt="photo de Ross Hang"></a>
+						<a href="profil.html"><strong>Ross Hang</strong></a>
+						<p>Publié le 21/01/2016</p>
+					</div>
+					<div class="text_Box">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					</div>
+				</div>
+
+				<!--Commentaire poster-->
+				<div class="comment_Box">
+					<div class="user_Box clearfix">
+						<a href="profil.html" title="Voir le profil de Ross Hang"><img src="img_site/user.png" alt="photo de Ross Hang"></a>
+						<a href="profil.html"><strong>Ross Hang</strong></a>
+						<p>Publié le 21/01/2016</p>
+					</div>
+					<div class="text_Box">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					</div>
+				</div>
+
+				<!--Commentaire poster-->
+				<div class="comment_Box">
+					<div class="user_Box clearfix">
+						<a href="profil.html" title="Voir le profil de Ross Hang"><img src="img_site/user.png" alt="photo de Ross Hang"></a>
+						<a href="profil.html"><strong>Ross Hang</strong></a>
+						<p>Publié le 21/01/2016</p>
+					</div>
+					<div class="text_Box">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					</div>
+				</div>
+				
+				<!--Commentaire poster-->
+				<div class="comment_Box">
+					<div class="user_Box clearfix">
+						<a href="profil.html" title="Voir le profil de Ross Hang"><img src="img_site/user.png" alt="photo de Ross Hang"></a>
+						<a href="profil.html"><strong>Ross Hang</strong></a>
+						<p>Publié le 21/01/2016</p>
+					</div>
+					<div class="text_Box">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					</div>
+				</div>
+
+
+				<!--Pour charger plus de commentaire-->
+				<div id="load_More" class="clearfix">
+					<a href="content.html" title="Charger plus de contenu">Charger plus de commentaire</a>
+				</div>
+			</div>
+
+	</section>
+
+	<!--Footer-->
+	<footer>
+		<!--Version Desktop uniquement-->
+		<section id="top_Part">
+			<div id="centered_Menu">
+				<nav id="mudeo_Menu">
+					<h5>Mudeo</h5>
+					<ul>
+						<li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
+						<li><a href="" title="Règles du site">Règles</a></li>
+						<li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+						<li><a href="" title="Confidentialité">Confidentialité</a></li>
+					</ul>
+				</nav>
+				<nav id="aide_Menu">
+					<h5>Aide</h5>
+					<ul>
+						<li><a href="" title="Centre d'aide">Centre d'aide</a></li>
+						<li><a href="" title="FAQ">FAQ</a></li>
+						<li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
+					</ul>
+				</nav>
+				<nav id="Plus_Menu">
+					<h5>Plus</h5>
+					<ul>
+						<li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
+						<li><a href="" title="Plan du site">Plan du site</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section id="bottom_Part">
+			<span><p>&copy; 2016</p></span>
+			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+		</section>
+	</footer>
+
+<!--jQuery pour le site-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
