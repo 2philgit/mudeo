@@ -133,16 +133,16 @@
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
         var login = response.name;
-        $.ajax({
-            "url": <?=$this->url('register')?>, 
-            "type": "POST", 
-            "data": login
-        })
-        .done(function(response){
+    //     $.ajax({
+    //         "url": <?=$this->url('register')?>, 
+    //         "type": "POST", 
+    //         "data": login
+    //     })
+    //     .done(function(response){
 
-        })
+    //     })
 
-    });
+    // });
   }
 </script>
 <!-- Affichage des erreurs  -->

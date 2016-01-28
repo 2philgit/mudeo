@@ -105,7 +105,7 @@ class LoggerController extends Controller
 		
 			if($_POST)
 			{
-				
+			die('ttt');	
 				if($_POST['logger'] == null || $_POST['password'] == null){
 					$error[0] = 1;
 					$error[1] = "vide!";
@@ -152,7 +152,7 @@ class LoggerController extends Controller
 					}else{ //sinon le log contient un @ c'est un email dc verification dans la BDD sur le champ email
 
 						$email = $logger;
-
+die('iuf');
 						if ($usermanager->emailExists($email) ){
 
 							if($auth->isValidLoginInfo($email,$password)){
