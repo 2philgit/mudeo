@@ -3,6 +3,8 @@
 	//autochargement des classes
 	require("../vendor/autoload.php");
 
+    include('assets/inc/functions.php'); 
+	
 	//configuration
 	require("../app/config.php");
 
