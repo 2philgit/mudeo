@@ -72,7 +72,8 @@ class LoggerController extends Controller
 						$passwordError = "Please tcheck your email and confirm your registration !";
 						// on redirige l"utilisateur
 
-						$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+						// $lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+						$lien ="";
 						$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 						$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
