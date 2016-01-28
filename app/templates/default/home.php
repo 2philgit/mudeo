@@ -40,7 +40,6 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 						</div>-->
 						<input name="password" type="password" placeholder="Votre mot de passe"></input>
 
-						<button type="submit" form="logger" name="btn_log">OK!</button>
 						<!--Se souvenir de moi-->
 						<div id="rememberMe">
 							<input type="checkbox" name="remember" id="rememberUser"></input>
@@ -56,7 +55,6 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 				<!--Switch2 : s'inscrire-->
 				<div id="switch_2" class="hide clearfix">
->>>>>>> 47a49b2b072620a947589bfb1673645dda906e23
 					<!--Lien pour faire apparaître le button Se connecter-->
 					<a id="connect_Link" href="#logger" title="Se connecter">Se connecter</a>
 					<!--Button S'inscrire-->
@@ -93,7 +91,6 @@ k<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 				</form> -->
 				<form id="forgeta" name="formForget" method="POST" action="<?=$this->url('forget')?>" >
 					<input id="recoverMdp" class="" type="email" name="emailPasswordRecovery" placeholder="Tapez votre email" />
-					<button type="submit" form="formForget" class="" name="btn_forget_mdp">Ok</button>
 				</form>
 
 				<!--<div class="errorLogger">

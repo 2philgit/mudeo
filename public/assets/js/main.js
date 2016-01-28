@@ -1,4 +1,4 @@
-/*BurgerMenu animation*/
+BurgerMenu animation*/
 
 $("#burgerMenu").on("click", function(e){
 	//e.preventDefault();
@@ -36,8 +36,8 @@ $("#connectLink").on("click", function(e){
 /*MDP oublié*/
 
 $("#forget_Mdp").on("click", function(e){
-	e.preventDefault();
+	// e.preventDefault();
 	$("#recover_Mdp").toggleClass("hide");
 	$(".g-recaptcha").toggleClass("marge");//hack de merde
 });
-/*fin MDP oublié*/
+/*fin MDP oublié
