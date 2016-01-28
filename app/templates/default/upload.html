@@ -116,6 +116,8 @@
 			<div id="upload_Zone" class="clearfix">
 				<div id="zone_Row">
 					<input type="file" name="file_Upload" value="Choisir un fichier" accept="video/mp4, video/avi, video/mov, audio/mp3, audio/aac">
+					<!--Limite la taille du fichier-->
+					<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
 					<p class="min_Advice">Formats: .mov, .mpeg4, .avi, .wmv, .flv, h264, .mp3, .alac, .flac, .aac, .wma, .mp4<p>
 					<label for="file_upload">Ou glisser un fichier ici</label>
 				</div>
@@ -130,6 +132,8 @@
 				<!--Miniature-->
 				<div id="thumbs_Upload">
 					<input type="file" name="thumb" accept="image/jpg, image/png, image/gif">
+					<!--Limite la taille du fichier-->
+					<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
 					<p class="min_Advice">Formats: jpg, png, gif<p>
 					<h6 id="thumb_Error" class="upload_Error">Le fichier n'est pas au bon format !</h6>
 				</div>
