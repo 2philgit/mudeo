@@ -72,7 +72,9 @@ header, footer, #main_Menu, #main_Menu ul li{
 header, figcaption, .follow button, #bottom_Part{
 	background-color: #F2F2F2;
 }
-
+#upload_Content, #abonnement{
+	margin-top: 3.75em;
+}
 /*Header*/
 header{
 	border-bottom: 1px solid #c1c1c1;
@@ -620,6 +622,48 @@ FIN CONTENT.HTML
 ********/
 
 
+/********
+UPGRADE.HTML
+********/
+#abonnement table, #abonnement tr{
+	box-sizing: border-box;
+	border: 1px solid #c1c1c1;
+}
+#abonnement table{
+	margin: 2em auto 4em;
+	text-align: center;
+	width: 18.75em;
+}
+#abonnement table thead{
+	background-color: #f2f2f2;
+}
+#abonnement table thead th{
+	height: 9.375em;
+}
+#basic_Abo button{
+	background-color: #557b83;
+	color: #FFF;
+}
+#plus_Abo tfoot, #plus_Abo button{
+	background-color: #a2d5ab;
+	color: #FFF;
+}
+#pro_Abo tfoot, #pro_Abo button{
+	background-color: #557b83;
+	color: #FFF;
+}
+#abonnement table h3, #abonnement table h5{
+	margin: 1.5em auto 0.5em
+}
+#abonnement table p{
+	font-size: 0.75em;
+	padding-bottom: 1.5em;
+}
+/********
+FIN UPGRADE.HTML
+********/
+
+
 /*Footer*/
 #top_Part{
 	display: none;
@@ -710,6 +754,9 @@ FIN CONTENT.HTML
 	
 	a:hover{
 		text-decoration: underline;
+	}
+	.wrap h2{
+	text-align: left;
 	}
 	/*header*/
 	#burger_Menu, #logo_Min{
@@ -853,6 +900,7 @@ FIN CONTENT.HTML
 	}
 	#tri{
 		width: 37.5em;
+		margin-right: 35em;
 	}
 	#tri_Desktop{
 		display: block;
@@ -1089,6 +1137,17 @@ FIN CONTENT.HTML
 	FIN CONTENT.HTML
 	********/
 
+
+	/********
+	UPGRADE.HTML
+	********/
+	#abonnement table{
+		float: left;
+		margin-left: 5.375em;
+	}
+	/********
+	FIN UPGRADE.HTML
+	********/
 
 	/*Footer*/
 	h5{
