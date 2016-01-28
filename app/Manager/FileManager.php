@@ -55,13 +55,13 @@ class FileManager extends \W\Manager\Manager {
 
 				switch ($_GET['type']) {
 					    case "video":
-					        $selectSearch = "content_type LIKE 'video'";
+					        $selectSearch .= " AND (content_type LIKE 'video')";
 					        break;
 					    case "musique":
-					        $selectSearch = "content_type LIKE 'music'";
+					        $selectSearch .= " AND (content_type LIKE 'music')";
 					        break;
 					    case "vm":
-					        $selectSearch = "content_type LIKE 'video' OR content_type LIKE 'music'";
+					        $selectSearch .= " AND (content_type LIKE 'video' OR content_type LIKE 'music')";
 					        break;
 					}
 

@@ -14,3 +14,4 @@ class DefaultController extends Controller
 	{
 		$this->show('default/home');
 	}
+}

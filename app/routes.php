@@ -13,7 +13,7 @@
 		['GET', '/veriftoken', 'Logger#veriftoken', 'verifToken'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
-		['GET', '/recherche/', 'Search#search', 'home_search'],
+		['GET', '/recherche/', 'Search#search', 'home_user'],
 		//['GET', '/recherche/', 'Search#resultSearch', 'home_search'],
 		['GET', '/autocompletion/', 'Search#completedSearch', 'completed_search'],
 	);

@@ -148,8 +148,8 @@ class LoggerController extends Controller
 								}								
 								
 
-								$this->redirectToRoute('logger/log', [
-									"passwordError" => $passwordError
+								$this->redirectToRoute('home_user', [
+									// "passwordError" => $passwordError
 									]);		
 							}else{
 								$passwordError = "Wrong login/mp couple!";
@@ -191,8 +191,8 @@ class LoggerController extends Controller
 									$passwordError = "Log correct !";
 								}				
 
-								$this->redirectToRoute('home', [
-									"passwordError" => $passwordError
+								$this->redirectToRoute('home_user', [
+									// "passwordError" => $passwordError
 									]);		
 							}else{
 								$passwordError = "Wrong email/mp couple!";

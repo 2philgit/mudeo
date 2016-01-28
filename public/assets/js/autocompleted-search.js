@@ -15,7 +15,7 @@ function doSearch(){
 		// récupère tous ce qui a dans le champ
 
 		$.ajax({
-			"url":$("#input-search").attr('data-url'),
+			"url":$("#search").attr('data-url'),
 			"type": "GET",
 			// "data": $('#form-search').serialize()
 			"data": obj_search
@@ -25,7 +25,7 @@ function doSearch(){
 			// showContent(response);
 
 			// vider la liste
-			$('#search-result').html(""); // ici on remplace le contenu du html par une chaîne vide
+			$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
 
 			for (var i = 0; i < response.length; i++) {
 				var show = response[i];
@@ -36,10 +36,10 @@ function doSearch(){
 				var article = $("<article>");
 				article.addClass("show");
 				// on ajoute la variable dans l'article
-				article.append(content);
+				// article.append(content);
 				article.append('<br />' + '<a rel="title" href="#">' + title + " " + category +'</a>');
 				// ajoute l'article crée dans la balise avec l'id "show-select"
-				$('#search-result').append(article);
+				$('#content_Container').append(article);
 			}
 			console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order);
 		});
@@ -51,7 +51,8 @@ function doSearch(){
 function autocompletedSearch() {
 
 // test sur le nb de caractères sur le champ de recherche (3 caractères minimum)
-	search = $("#input-search").val();
+	search = $("#search").val();
+	// console.log(search);
 	// si 3 caractères
 	if (search.length >= 3) {
 		// on recupère l'adresse du lien
@@ -67,12 +68,12 @@ function autocompletedSearch() {
 
 // mise sous écoute du champ de recherche
 
-$("#input-search").on("keyup", autocompletedSearch);
+$("#search").on("keyup", autocompletedSearch);
 
 // mise sous écoute du bouton de recherche
 // $('#button-search').on("click", function() {
 // 	$.ajax({
-// 			"url":$("#input-search").attr('data-url'),
+// 			"url":$("#search").attr('data-url'),
 // 			"type": "GET",
 // 			"data": $('#form-search').serialize()
 // 		}).done(function(response){

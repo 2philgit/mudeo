@@ -90,7 +90,7 @@
 	<section id="latest_Content" class="wrap clearfix">
 
 		<h2><strong>Découvrez les contenus produits par notre communauté</strong></h2>
-		<div id="content_Container">
+		<div id="content_Container" id="search-result">
 		<!--Pour une vidéo-->
 			<figure class="clearfix">
 				<video id="mavideo" controls>
