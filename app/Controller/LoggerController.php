@@ -16,7 +16,7 @@ class LoggerController extends Controller
 
 			$isValid = true;
 			
-			if($_POST['email'] == null || $_POST['password'] == null || $_POST['password_repeat'] == null ){
+			if($_POST['email'] == null || $_POST['password'] == null || $_POST['passwordRepeat'] == null ){
 
 				$isValid = false;
 				$passwordError = "vide!";
@@ -25,7 +25,7 @@ class LoggerController extends Controller
 
 				$email = $_POST['email'];
 				$password = $_POST['password'];
-				$passwordRepeat = $_POST['password_repeat'];				
+				$passwordRepeat = $_POST['passwordRepeat'];				
 
 				
 
@@ -97,7 +97,7 @@ class LoggerController extends Controller
 
 	public function log(){
 
-		//die(var_dump($_POST));
+		//die(debug($_POST));
 		$usermanager = new \Manager\UserManager();
 		$auth = new \W\Security\AuthentificationManager();
 //debug($usermanager);
@@ -120,9 +120,9 @@ class LoggerController extends Controller
 					if($pos === false){
 
 						$username = $logger;
-//die('E');
+
 						if ($usermanager->usernameExists($username) ){
-													
+				//die('E');									
 							if($auth->isValidLoginInfo($username,$password)){
 
 								$user = $usermanager->getUserByUsernameOrEmail($username);

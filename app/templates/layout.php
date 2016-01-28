@@ -136,7 +136,7 @@
       </ul>
 
     <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl('img_site/user.png')?>" alt="profil"></a>
-
+      <?php if(isset($_SESSION['user'])) echo "<span id='linkUserMenu'>".$_SESSION['user']['username']." (<a href='".$this->url('logout')."'>Deconnect</a>) </span>"; ?>
       <form id="search_Field" method="GET">
         <input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
