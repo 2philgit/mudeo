@@ -46,7 +46,10 @@
 		<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
 
 			<form id="search_Field" method="GET">
-				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
+				<input id="search" list="autocomplete" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
+				<datalist id="autocomplete">
+					
+				</datalist>
 				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></span>
 			</form>
 
@@ -54,8 +57,8 @@
 	</header>
 
 	<!--Logger section-->
-	<section id="log_Section">
-		<h2><strong>Entre musique et vidéo</strong></h2>
+	<section id="log_Section" class="wrap">
+		<h2>Entre musique et vidéo</h2>
 
 		<form id="logger" action ="" method="POST">
 			<input name="email" type="email" placeholder="Votre email">
@@ -67,9 +70,9 @@
 				<h6>Le champs email n'est pas au bon format !</h6>
 			</div>-->
 			<input id="repeat_Password" class="hide" name="passwordRepeat" type="text" placeholder="Répétez votre mot de passe">
-			<!--<div class="errorLogger">
+			<div class="error_Logger">
 				<h6>Le champs email n'est pas au bon format !</h6>
-			</div>-->
+			</div>
 
 			<!--switch lien/button-->
 			<div id="switch" class="clearfix">
@@ -77,7 +80,7 @@
 				<!--Switch1 : se connecter-->
 				<div id="switch_1" class="clearfix">	
 					<!--Button Se connecter-->
-					<a href="#logger"><input id="connect_Button" type="submit" value="Se connecter"></a>
+					<input id="connect_Button" type="submit" value="Se connecter">
 					<!--Lien pour faire apparaître le button S'inscrire-->
 					<a id="join_Link" href="#logger" title="S'inscrire">Inscription</a>
 				</div>
@@ -87,7 +90,7 @@
 					<!--Lien pour faire apparaître le button Se connecter-->
 					<a id="connect_Link" href="#logger" title="Se connecter">Se connecter</a>
 					<!--Button S'inscrire-->
-					<a href="#logger"><input id="inscription_Button" type="submit" value="S'inscrire"></a>
+					<input id="inscription_Button" type="submit" value="S'inscrire">
 				</div>
 
 			</div>
@@ -104,7 +107,8 @@
 				<!--Mot de passe oublié-->
 				<a id="forget_Mdp" href="">Mot de passe oublié?</a>
 				<!--Apparaît quand on click sur MDP oublié-->
-				<input id="recover_Mdp" class="hide" type="email" name="password_Recovery" placeholder="Tapez votre email"></input>
+				<input id="recover_Mdp" class="hide" type="email" name="password_Recovery" placeholder="Tapez votre email">
+				<input id="recover_Button" class="hide" type="submit" value="Envoyer">
 				<!--<div class="errorLogger">
 					<h6>Le champs email n'est pas au bon format !</h6>
 				</div>-->
@@ -124,7 +128,7 @@
 	</section>
 
 	<!--Content section-->
-	<section id="latest_Content" class="wrap clearfix">
+	<section id="latest_Content" class="wrap index_Content clearfix">
 
 		<h2><strong>Découvrez les contenus produits par notre communauté</strong></h2>
 		<div id="content_Container">
@@ -158,10 +162,41 @@
 
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
-				<video id="mamusique" controls poster="img_site/moutainsmin.jpg">
-				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+				<div class="poster">
+					<img id="poster" src="img_site/moutainsmin.jpg">
+					<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
-				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					</audio>
+				</div>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
 				</video>
 				<figcaption>
 						<div class="info_Top">
@@ -201,6 +236,120 @@
 						</div>
 						<div class="info_Bottom">
 							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+				</video>
+				<figcaption>
+						<div class="info_Top">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour de l'audio-->
+			<figure class="clearfix">
+				<div class="poster">
+					<img id="poster" src="img_site/moutainsmin.jpg">
+					<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+
+					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					</audio>
+				</div>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+				</video>
+				<figcaption>
+						<div class="info_Top">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour de l'audio-->
+			<figure class="clearfix">
+				<div class="poster">
+					<img id="poster" src="img_site/moutainsmin.jpg">
+					<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+
+					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					</audio>
+				</div>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
 
 							<span class="author">
 								<h4><strong>Ross Heng</strong></h4>
@@ -258,7 +407,7 @@
 				<philippe>Philippe,</philippe>
 				<arthur>Arthur</arthur>
 			</span>
-			<a href="#header" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
 		</section>
 	</footer>
 

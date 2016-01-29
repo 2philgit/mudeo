@@ -1,10 +1,11 @@
-/*BurgerMenu animation*/
+//BurgerMenu animation
 $("#burger_Menu").on("click", function(e){
 	e.preventDefault();
 	$("#main_Menu").stop(true).slideToggle(250);
 	$("#burger_Menu").toggleClass("active");
 });
-/*fin BurgerMenu animation*/
+//fin BurgerMenu animation
+
 
 /*Inscription/Connection switch*/
 //switch1
@@ -27,10 +28,15 @@ $("#connect_Link").on("click", function(e){
 });
 /*fin inscription/connection switch*/
 
+
 /*MDP oublié*/
 $("#forget_Mdp").on("click", function(e){
 	e.preventDefault();
 	$("#recover_Mdp").toggleClass("hide");
+	$("#recover_Button").toggleClass("hide");
 	$(".g-recaptcha").toggleClass("marge");//hack de merde
 });
 /*fin MDP oublié*/
+
+
+//scroll
