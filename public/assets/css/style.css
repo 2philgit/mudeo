@@ -397,7 +397,7 @@ HOME_CONTENT.HTML
 	display: inline-block;
 }
 #tri, #tri_Second{
-	width: 18.750em;
+	width: 20.75em;
 	height: 2em;
 	margin: auto;
 	text-align: center;
@@ -423,7 +423,7 @@ HOME_CONTENT.HTML
 #tri_All, #tri_Music{
 	border-right: 1px solid #FFF;
 }
-#tri_New, #tri_Like{
+#tri_New, #tri_Like, #tri_Pop{
 	border-right: 1px solid #557b83;
 }
 #tri_Second{
