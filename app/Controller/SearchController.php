@@ -14,7 +14,9 @@ class SearchController extends Controller
 	{
 		$user=$this->getUser();
 		if ($user) {
-		$this->show('user/home_user');
+			//$this->show('user/home_user');
+			$this->show('search/search_home');
+			//$this->show('search/home_user');
 		} else (die("pas connecté"));
 
 	}

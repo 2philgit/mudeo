@@ -23,25 +23,160 @@ function doSearch(){
 		.done(function(response){
 			console.log(response);
 			// showContent(response);
+		///////////////////////////
+			if (response != []) {
 
-			// vider la liste
-			$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
+				if (obj_search.type == "video") {
 
-			for (var i = 0; i < response.length; i++) {
-				var show = response[i];
-				var title = show.title;
-				var user_id = show.user_id;
-				var category = show.category;
-				// on crée une balise article et on lui ajoute une classe todo
-				var article = $("<article>");
-				article.addClass("show");
-				// on ajoute la variable dans l'article
-				// article.append(content);
-				article.append('<br />' + '<a rel="title" href="#">' + title + " " + category +'</a>');
-				// ajoute l'article crée dans la balise avec l'id "show-select"
-				$('#content_Container').append(article);
-			}
-			console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order);
+					 console.log("VIDEO");
+
+					// vider la liste
+					$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
+					console.log("videooooooo");
+					for (var i = 0; i < response.length; i++) {
+						var show = response[i];
+						var title = show.title;
+						var user_id = show.user_id;
+						var author = user_id;
+						var category = show.category;
+						var date = show.created;
+
+						// on crée une balise figure et on lui ajoute les classes show et clearfix
+						var figure = $("<figure>");
+						figure.addClass("show clearfix");
+
+						// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mavideo
+						var video = $("<video>");
+						video.addClass("clearfix").attr("id", "mavideo").attr("controls", "");
+
+						// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mavideo
+						var source = $("<source>");
+						source.attr("src", "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4");
+						source.attr("type", "video/mp4");
+
+						var p = $("<p>");
+						p.addClass("alert").html("Balise vidéo non supportée par le navigateur");
+
+
+						// on crée une balise figcaption et on lui ajoute la classe clearfix
+						var figcaption = $("<figcaption>");
+						figcaption.addClass("clearfix");
+						
+
+						// on crée une balise div et on lui ajoute les classes info_Top clearfix
+						var div = $("<div>");
+						div.addClass("info_Top clearfix");
+
+						var h3 = $("<h3>");
+						h3.append('<a href="content.html" title="Voir la vidéo">' + title + '</a>');
+
+						var span = $("<span>");
+						span.addClass("social_Nav").append('<a id="none" class="follow" href="" title="Suivre l\'auteur"><button>Suivre</button></a><a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j\'aime"></a>');
+
+
+						// on crée une nouvelle balise div et on lui ajoute les classes info_Bottom clearfix
+						var d = $("<div>");
+						d.addClass("info_Bottom clearfix").append('<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>');
+
+						var sp = $("<span>");
+						sp.addClass("author").append('<h4>' + author + '</h4><p>publier le ' + date + "21/01/2016" + '</p>');
+
+
+						// on ajoute la variable dans la video
+						// video.append(content);
+						// video.append('<br />' + '<a rel="title" href="#">' + title + " " + category +'</a>');
+						// ajoute l'video crée dans la balise avec l'id "show-select"
+						$().append();
+						$(d).append(sp);
+						$(div).append(h3).append(span);
+						$(figcaption).append(div).append(d);
+						$(video).append(source).append(p);
+						$(figure).append(video);
+						$(figure).append(figcaption);
+						$('#content_Container').append(figure);
+					}
+				} else { // le type, c'est de la musique ;)
+
+					console.log("MUSIQUE");
+
+					// vider la liste
+					$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
+					
+					for (var i = 0; i < response.length; i++) {
+						var show = response[i];
+						var title = show.title;
+						var user_id = show.user_id;
+						var author = user_id;
+						var category = show.category;
+						var date = show.created;
+						var url_file = show.url_file;
+
+						// on crée une balise figure et on lui ajoute les classes show et clearfix
+						var figure = $("<figure>");
+						figure.addClass("show clearfix");
+
+						// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mamusique
+						var video = $("<video>");
+						video.addClass("clearfix").attr("id", "mamusique").attr("controls", "").attr("poster","img_site/moutainsmin.jpg");
+
+						// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mamusique
+						var source = $("<source>");
+						// console.log(obj_search.url_file);
+						source.attr("src", url_file);
+						source.attr("type", "audio/mp3");
+
+						var p = $("<p>");
+						p.addClass("alert").html("Balise audio non supportée par le navigateur");
+
+
+						// on crée une balise figcaption et on lui ajoute la classe clearfix
+						var figcaption = $("<figcaption>");
+						figcaption.addClass("clearfix");
+						
+
+						// on crée une balise div et on lui ajoute les classes info_Top clearfix
+						var div = $("<div>");
+						div.addClass("info_Top clearfix");
+
+						var h3 = $("<h3>");
+						h3.append('<a href="content.html" title="écouter la musique">' + title + '</a>');
+
+						var span = $("<span>");
+						span.addClass("social_Nav").append('<a id="none" class="follow" href="" title="Suivre l\'auteur"><button>Suivre</button></a><a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j\'aime"></a>');
+
+
+						// on crée une nouvelle balise div et on lui ajoute les classes info_Bottom clearfix
+						var d = $("<div>");
+						d.addClass("info_Bottom clearfix").append('<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>');
+
+						var sp = $("<span>");
+						sp.addClass("author").append('<h4>' + author + '</h4><p>publier le ' + date + "21/01/2016" + '</p>');
+
+
+						// on ajoute la variable dans la video
+						// video.append(content);
+						// video.append('<br />' + '<a rel="title" href="#">' + title + " " + category +'</a>');
+						// ajoute l'video crée dans la balise avec l'id "show-select"
+						$().append();
+						$(d).append(sp);
+						$(div).append(h3).append(span);
+						$(figcaption).append(div).append(d);
+						$(video).append(source).append(p);
+						$(figure).append(video);
+						$(figure).append(figcaption);
+						$('#content_Container').append(figure);
+				}
+
+			} // fin du if sur response []
+
+
+			console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
+			} /* fin if de response vide */
+			// else $('#content_Container').html("Aucun résultat");
+		})
+		.fail(function(response){		// qd il y a une erreur
+			alert("Erreur de recherche"); // pratique pour localiser une erreur
+			console.log("Une erreur a été détectée");
 		});
 }
 
@@ -88,10 +223,11 @@ $(".select-type").click(function(){
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
 	if (typeof obj_search.type !== 'undefined') {
+		// CF $(this).addClass("selected").last().removeClass("selected");  CF
 		obj_search.type = $(this).attr('data-type');
 		}
 	console.log(obj_search);
-	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order);
+	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 	doSearch();
 	return false; // on desactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 });
@@ -108,7 +244,7 @@ $(".select-mode").click(function(){
 		obj_search.order = $(this).attr('data-order');
 		}
 	console.log(obj_search);
-	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order);
+	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 	doSearch();
 	return false; // on desactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 });
@@ -119,11 +255,11 @@ $(".select-category").click(function(){
 
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
-	if (typeof obj_search.type !== 'undefined') {
-		obj_search.type = $(this).attr('data-type');
+	if (typeof obj_search.category !== 'undefined') {
+		obj_search.category = $(this).attr('data-category');
 		}
 		console.log(obj_search);
-		console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order);
+		console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 		doSearch();
 return false; // on desactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 });
