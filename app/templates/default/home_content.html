@@ -84,6 +84,7 @@
 					<ul>
 						<!--class="selected_2" pour le tri sélectionner (nouveautés par défaut-->
 						<li><a id="tri_New" class="selected_2" href="" title="Voir les nouveaux contenus">Nouveautés</a></li>
+						<li><a id="tri_Pop" href="" title="Carotte dans cul de nonne">Popularité</a></li>
 						<li><a id="tri_Like" href="" title="Voir mes contenus préférés">J'aime</a></li>
 						<li><a id="tri_Mine" href="" title="Voir mes contenus">Upload</a></li>
 					</ul>
@@ -125,11 +126,14 @@
 
 				<!--Pour de l'audio-->
 				<figure class="clearfix">
-					<video id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
-					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+					<div class="poster">
+						<img id="poster" src="img_site/moutainsmin.jpg">
+						<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+						    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
-					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
-					</video>
+						    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+						</audio>
+					</div>
 					<figcaption class="clearfix">
 							<div class="info_Top clearfix">
 								<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>

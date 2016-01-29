@@ -4,6 +4,7 @@ body{
 	font-size: 1em;
 	background-color: #FFF;
 	color: #557b83;
+
 }
 a{
 	text-decoration: none;
@@ -149,7 +150,7 @@ header, #bottom_Part{
 	height: 3.125em;
 }
 #search_Icon{
-	line-height: 2.4em;
+	line-height: 2.5em;
 }
 #search_Icon{
 	padding: 0.25em 0.5em 0;
@@ -165,7 +166,7 @@ header, #bottom_Part{
 }
 #search{
 	width: 12em;
-	margin: 1em 0;
+	margin: 1.125em 0;
 }
 /*Fin Header*/
 
@@ -313,15 +314,32 @@ figure{
 	max-width: 320px;	
 	height: 100%;
 	margin: 1em auto; 
+	box-sizing: border-box;
 }
 /*video player*/
 video{
 	margin: 0 auto;
 	height: auto;
 }
+.poster{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	max-height: 8.5em;
+}
+audio{
+	position: relative;
+	bottom: 2em;
+	width: 100%;
+	z-index: 5;
+}
 figcaption{
 	height: 5em;
 	margin-bottom: 1em;
+}
+#poster{
+	margin: 0;
+	width: 100%;
 }
 .alert{
 	color: #000;
@@ -397,7 +415,7 @@ HOME_CONTENT.HTML
 	display: inline-block;
 }
 #tri, #tri_Second{
-	width: 18.750em;
+	width: 20.75em;
 	height: 2em;
 	margin: auto;
 	text-align: center;
@@ -423,7 +441,7 @@ HOME_CONTENT.HTML
 #tri_All, #tri_Music{
 	border-right: 1px solid #FFF;
 }
-#tri_New, #tri_Like{
+#tri_New, #tri_Like, #tri_Pop{
 	border-right: 1px solid #557b83;
 }
 #tri_Second{
@@ -689,20 +707,77 @@ FIN UPGRADE.HTML
 ********/
 
 
+/********
+PROFIL.HTML
+********/
+.wrap{
+	min-width: 320px;
+	overflow: hidden;
+}
+section h2:first-child{
+	padding-top: 3em;
+}
+#follower, #following{
+	margin: 1em auto 0;
+}
+#user_Part{
+	width: 18.75em;	
+	margin: 0 1.25em 0 0.625em;
+	float: left;
+}
+#user_Title, #photo, #user_Autre, 
+#describe_User{
+	width: 100%;
+	margin: 3em auto;
+}
+#photo img{
+	margin: auto;
+}
+
+#user_Part h2{
+	padding: 0.5em 0;
+}
+#user_Part button{
+	background-color: #a2d5ab;
+	color: #FFF;
+	margin: 2em 0 2em 7em ;
+}
+#user_Autre p{
+	padding: 0.5em 0;
+	font-weight: bold;
+}
+#user_Part #follower h2, #user_Part #following h2{
+	background-color: #39aea9;
+	color: #FFF;
+	padding-left: 0.25em;
+}
+.min_Follow li{
+	display: inline-block;
+	margin: 1em 0.1em;
+}
+#uploaded_Part{
+	margin-top: 4em;
+	float: left;
+}
+/********
+FIN PROFIL.HTML
+********/
+
+
 /*Footer*/
 #top_Part{
 	display: none;
 }
 #bottom_Part a{
 	line-height: 3em;
-	padding-left: 2em;
+	padding-left: 1em;
 	height: 3em;
 }
 #bottom_Part span{
 	width: 85%;
 	float: left;
 	margin-left: 0.5em;
-	font-size: 0.75em;
+	font-size: 0.5em;
 	line-height: 4em;
 }
 realised{
@@ -712,10 +787,10 @@ realised{
 	float: right;
 	margin-right: 0.5em;
 }
-
 /*Fin Footer*/
 
-/*Fin smartphone*/
+/*****Fin smartphone*****/
+
 
 /*Tablette*/
 @media  screen and (min-width: 640px){
@@ -726,6 +801,9 @@ realised{
 	/*Content*/
 	.home_Content #content_Container figure{
 		max-width: 640px;
+	}
+	.poster{
+		max-height: 17em;
 	}
 	/***
 	FIN HOME_CONTENT
@@ -778,6 +856,17 @@ realised{
 	}
 	/********
 	FIN CONTENT.HTML
+	********/
+
+	/********
+	PROFIL.HTML
+	********/
+	.wrap{
+		min-width: 640px;
+		overflow: hidden;
+	}
+	/********
+	FIN PROFIL.HTML
 	********/
 
 	/*Footer*/
@@ -1094,6 +1183,7 @@ realised{
 	}
 	#description textarea{
 		width: 100%;
+		max-width: 29em;
 		max-height: 18em;
 	}
 	#upload_Content input[type="submit"]{
