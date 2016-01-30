@@ -12,6 +12,14 @@ $(document).ready(function (){
 		$("#main_Menu").stop(true).slideToggle(250);
 		$("#burger_Menu").toggleClass("active");
 	});
+	//fin BurgerMenu animation	
+
+
+	//Menu utilisateur
+	$("#user_Profil").on("click", function(e){
+		e.preventDefault();
+		$("#user_Hover").stop(true).slideToggle(250).toggleClass("hide");
+	});
 	//fin BurgerMenu animation
 
 

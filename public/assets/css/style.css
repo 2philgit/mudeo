@@ -195,6 +195,7 @@ INDEX.HTML
 }
 #log_Section h2{
 	color: #FFF;
+	text-align: center;
 }
 #discover_More{
 	display: none;
@@ -849,7 +850,7 @@ FIN PROFIL_MODIFY.HTML
 	float: left;
 	margin-left: 0.5em;
 	font-size: 0.5em;
-	line-height: 4em;
+	line-height: 6em;
 }
 realised{
 	margin-left: 0.25em;
@@ -1052,13 +1053,32 @@ realised{
 		margin: 0 1em 0 1em;
 		padding: 0 1em;
 		line-height: 4em;
-		border-left: 1px solid;
+		border-left: 1px solid #39aea9;
 		height: 3.125em;
 	}
 	#user_Profil img{
 		width: 2em;
 	}
-
+	#user_Hover{
+		width: 8em;
+		position: fixed;
+		top: 3.22em;
+		right: 0.5%;
+		background-color: #FFF;
+	}
+	#user_Hover li{
+		padding: 0.5em;
+		font-size: 0.8em;
+		border-bottom: 1px solid;
+	}
+	#user_Hover li:hover a{
+		color: #FFF;
+	}
+	#user_Hover li:hover{
+		background-color: #39aea9;
+		color: #FFF;
+		border: none;
+	}
 
 	/***
 	INDEX
