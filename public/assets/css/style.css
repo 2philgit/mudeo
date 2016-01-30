@@ -19,6 +19,7 @@ a{
 	min-width: 20em;
 	max-width: 72.5em;	
 	margin: 0 auto;
+	overflow: hidden;
 }
 .wrap h2{
 	text-align: center;
@@ -332,8 +333,9 @@ video{
 }
 audio{
 	position: relative;
-	bottom: 2em;
-	width: 100%;
+	bottom: 2.3em;
+	width: 95%;
+	margin-left: 2.5%;
 	z-index: 5;
 }
 figcaption{
@@ -716,54 +718,52 @@ FIN UPGRADE.HTML
 /********
 PROFIL.HTML
 ********/
-.wrap{
-	min-width: 320px;
-	overflow: hidden;
-}
 section h2:first-child{
 	padding-top: 3em;
-}
-#follower, #following{
-	margin: 1em auto 0;
+	text-align: left;
 }
 #user_Part{
-	width: 18.75em;	
-	margin: 0 1.25em 0 0.625em;
-	float: left;
+	width: 18.75em;
+	margin: 0 auto;
 }
-#user_Title, #photo, #user_Autre, 
-#describe_User{
-	width: 100%;
-	margin: 3em auto;
+#user_Title p{
+	font-size: 0.75em;
+	line-height: 2em;
 }
-#photo img{
-	margin: auto;
-}
-
-#user_Part h2{
-	padding: 0.5em 0;
-}
-#user_Part button{
+#modify_Button button{
+	margin: 2em 12em;
+	width: 8em;
 	background-color: #a2d5ab;
 	color: #FFF;
-	margin: 2em 0 2em 7em ;
+}
+#photo img{
+	margin-left: 4em;
+}
+#user_Autre, #describe_User{
+	margin: 2em auto;
 }
 #user_Autre p{
-	padding: 0.5em 0;
+	line-height: 2em;
 	font-weight: bold;
 }
-#user_Part #follower h2, #user_Part #following h2{
+#follower h2, #following h2, #uploaded_Part h2{
+	padding: 0.5em 0.1em;
 	background-color: #39aea9;
 	color: #FFF;
-	padding-left: 0.25em;
 }
 .min_Follow li{
 	display: inline-block;
-	margin: 1em 0.1em;
+	margin: 1em 0.15em;
 }
-#uploaded_Part{
-	margin-top: 4em;
-	float: left;
+#uploaded_Part h2{
+	padding: 0.5em 0;
+	width: 12.301em;
+	margin: 1em auto;
+}
+#uploaded_Part #load_More{
+	width: 15em;
+	margin: auto;
+	float: none;
 }
 /********
 FIN PROFIL.HTML
@@ -882,9 +882,18 @@ realised{
 	/********
 	PROFIL.HTML
 	********/
-	.wrap{
-		min-width: 640px;
-		overflow: hidden;
+	#user_Part{
+		width: 27.5em;
+	}
+	#uploaded_Part h2{
+		width: 18.3em;
+	}
+	#uploaded_Part .poster{
+		max-height: 17em;
+	}
+	#uploaded_Part figure{
+		max-width: 40em; 
+		margin-bottom: 2em;
 	}
 	/********
 	FIN PROFIL.HTML
@@ -1332,6 +1341,59 @@ realised{
 	/********
 	FIN UPGRADE.HTML
 	********/
+
+
+	/********
+	PROFIL.HTML
+	********/
+	#profil{
+		padding-bottom: 8em;
+	}
+	#user_Part{
+		width: 25em;
+		float: left;
+		margin-left: 1em;
+	}
+	#follower h2, #following h2{
+		width: 100%;
+	}
+	#uploaded_Part{
+		margin-top: 8em;
+		float: right;
+		width: 41.25em;
+	}
+	#uploaded_Part h2{
+		width: 27.35em;
+		margin: 1em 0;
+	}
+	#uploaded_Part .poster{
+		max-height: 8.5em;
+	}
+	#uploaded_Container{
+		column-width: 320px;
+		column-gap: 1em;
+		-webkit-column-width: 20em;
+		-webkit-column-gap: 0.75em;
+		width: 100%;
+		min-width: 40em;
+		max-width: 41.25em;
+		margin: 1em auto;
+	}
+	#uploaded_Container figure{
+		max-width: 18em;
+		column-break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+		display: inline-block;
+		float: none;
+		margin: 0;
+	}
+	#uploaded_Part #load_More {
+		float: left;
+	}
+	/********
+	FIN PROFIL.HTML
+	********/
+
 
 	/*Footer*/
 	h5{
