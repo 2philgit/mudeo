@@ -9,6 +9,10 @@ body{
 a{
 	text-decoration: none;
 	color: #557b83;
+	transition: 500ms;
+}
+a, input[type="submit"]{
+	cursor: pointer;	
 }
 .clearfix:after{
 	display: block;
@@ -398,6 +402,7 @@ figcaption{
 	margin: 2em auto 3em;
 	background-color: #557b83;
 	color: #FFF;
+	transition: 500ms;
 }
 /*Fin video player*/
 /*Fin ContentSection*/
@@ -527,6 +532,7 @@ UPLOAD.HTML
 }
 .min_Advice{
 	margin-left: 2em;
+	font-size: 0.6em;
 }
 #upload_Content select{
 	width: 16em;
@@ -537,9 +543,6 @@ UPLOAD.HTML
 }
 #thumbs_Upload{
 	margin-top: 2em;
-}
-.min_Advice{
-	font-size: 0.6em;
 }
 input[type="file"]{
 	color: #39aea9;
@@ -720,7 +723,9 @@ PROFIL.HTML
 ********/
 section h2:first-child{
 	padding-top: 3em;
+	margin-left: 0.5em;
 	text-align: left;
+	font-weight: bold;
 }
 #user_Part{
 	width: 18.75em;
@@ -728,16 +733,14 @@ section h2:first-child{
 }
 #user_Title p{
 	font-size: 0.75em;
+	margin-left: 1.15em;
 	line-height: 2em;
 }
 #modify_Button button{
-	margin: 2em 12em;
+	margin: 2em 7.5em;
 	width: 8em;
 	background-color: #a2d5ab;
 	color: #FFF;
-}
-#photo img{
-	margin-left: 4em;
 }
 #user_Autre, #describe_User{
 	margin: 2em auto;
@@ -767,6 +770,68 @@ section h2:first-child{
 }
 /********
 FIN PROFIL.HTML
+********/
+
+
+/********
+PROFIL_MODIFY.HTML
+********/
+#modify_Form{
+	width: 18.75em;
+	margin: 0 auto 3em;
+}
+#conseil{
+	display: none;
+}
+.error{
+	min-height: 1.5em;
+    width: 100%;
+	padding: 0.5em 0;
+    font-size: 0.75em;
+    margin: auto;
+    text-align: center;
+    color: #c0392b;
+    float: left;
+}
+#modify_Form input{
+	margin-left: 4.5em;
+}
+#modify_Form input[type="file"]{
+	margin-left: 1.75em;
+}
+#modify_Form input[type="date"]{
+	margin-left: 5.75em;
+}
+#modify_Form textarea{
+	min-width: 18.75em;
+	max-width: 22em;
+	min-height: 10em;
+	margin: auto;
+}
+#modify_Form input[type="submit"]{
+	margin-left: 8em;
+    margin-bottom: 3em;
+    width: 6em;
+    height: 1.5em;
+    border-radius: 4px;
+    border: 1px solid #a2d5ab;
+    color: #a2d5ab;
+}
+#modify_Form h3{
+	line-height: 2em;
+}
+.add_Min{
+	font-size: 0.6em;
+	margin: 0 0 4em; 
+	color: #c1c1c1;
+}
+.field_Box{
+	margin: 1.5em auto;
+	border-bottom: 1px solid;
+	padding-bottom: 4em; 
+}
+/********
+FIN PROFIL_MODIFY.HTML
 ********/
 
 
@@ -895,21 +960,57 @@ realised{
 		max-width: 40em; 
 		margin-bottom: 2em;
 	}
+	#photo img{
+		margin-left: 4em;
+	}	
+	#modify_Button button {
+ 	   margin: 2em 12em;
+	}
 	/********
 	FIN PROFIL.HTML
 	********/
 
+
+	/********
+	PROFIL_MODIFY.HTML
+	********/
+	#modify_Form{
+		margin-left: 1em;
+		float: left;
+	}
+	#conseil{
+		width: 18em;
+		display: block;
+		float: right;
+		margin-right: 0.5em;
+	}
+	#conseil h2{
+		margin-top: 1.35em;
+		padding: 0.5em;
+		background-color: #39aea9;
+		color: #FFF;
+	}
+	#conseil .add_Min
+	{
+		margin: 1em 0  0 1.25em;
+	}
+	/********
+	FIN PROFIL_MODIFY.HTML
+	********/
+
+
 	/*Footer*/
 	#bottom_Part a{
-	line-height: 3.5em;
-}
+		line-height: 3.5em;
+	}
 /*Fin Tablette*/
 
 /*Menu complet*/
 @media (min-width: 1160px){
 	
 	a:hover{
-		text-decoration: underline;
+		color: #a2d5ab;
+		transition: 500ms;
 	}
 	.wrap h2{
 		text-align: left;
@@ -1041,6 +1142,12 @@ realised{
 	}
 	.follow button{
 		width: 5em;
+	}
+	#see_More button:hover{
+		border: 1px solid #557b83;
+		color: #557b83;
+		background-color: #FFF;
+		transition: 500ms;
 	}
 	/***
 	FIN INDEX
@@ -1394,6 +1501,37 @@ realised{
 	FIN PROFIL.HTML
 	********/
 
+	/********
+	PROFIL_MODIFY.HTML
+	********/
+	#modify_Form{
+		width: 40em;
+	}
+	#modify_Form input, #modify_Form input[type="submit"],
+	#modify_Form input[type="file"], #modify_Form input[type="date"]{
+		margin-left: 0;
+	}
+	#modify_Form .error h6{
+		float: left;
+	}
+	#conseil{
+		width: 20em;
+		margin-right: 4em;
+	}
+	#conseil h2{
+		margin-top: 1.35em;
+		padding: 0.5em;
+		background-color: #39aea9;
+		color: #FFF;
+	}
+	#conseil .add_Min
+	{
+		margin: 1em 0  0 1.25em;
+	}
+	/********
+	FIN PROFIL_MODIFY.HTML
+	********/
+
 
 	/*Footer*/
 	h5{
@@ -1406,7 +1544,7 @@ realised{
 	}
 	footer nav{
 		float: left;
-		margin-right: 2em;
+		margin-right: 2.5em;
 	}
 	footer nav li{
 		margin-bottom: 0.75em;

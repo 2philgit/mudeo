@@ -84,11 +84,7 @@
 					<ul>
 						<!--class="selected_2" pour le tri sélectionner (nouveautés par défaut-->
 						<li><a id="tri_New" class="selected_2" href="" title="Voir les nouveaux contenus">Nouveautés</a></li>
-<<<<<<< HEAD
 						<li><a id="tri_Pop" href="" title="Carotte dans cul de nonne">Popularité</a></li>
-=======
-						<li><a id="tri_Pop" href="" title="Voir mes contenus préférés">Popularité</a></li>
->>>>>>> origin/jerem
 						<li><a id="tri_Like" href="" title="Voir mes contenus préférés">J'aime</a></li>
 						<li><a id="tri_Mine" href="" title="Voir mes contenus">Upload</a></li>
 					</ul>
@@ -96,11 +92,18 @@
 			</div>
 		</section>
 
+		<section class="search-result clearfix">
+	        <ul>
+	            <li><h3>Recherche pour : "<strong><?php echo $_GET['input_search']; ?></strong>"</h3></li>
+	            <li><h3>Nombre d'élément(s) trouvé(s) : <?php if($_GET['input_search']=="") {echo "0";} else {echo count($results);} ?></h3></li>
+	        </ul>
+	    </section>
+
 		<!--Content section (fourre-tout)-->
 		<section id="latest_Content" class="home_Content clearfix">
 
 			<div id="content_Container">
-			<!--Pour une vidéo-->
+				<!--Pour une vidéo-->
 				<figure class="clearfix">
 					<video id="mavideo" class="clearfix" controls>
 					    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
@@ -185,7 +188,7 @@
 					</figcaption>
 				</figure>
 
-				
+					
 			</div>
 
 			<!--Uniquement sur la version desktop-->
@@ -279,7 +282,7 @@
 				<philippe>Philippe,</philippe>
 				<arthur>Arthur</arthur>
 			</span>
-			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+			<a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
 		</section>
 	</footer>
 

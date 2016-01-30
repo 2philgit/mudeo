@@ -62,16 +62,16 @@
 
 		<form id="logger" action ="" method="POST">
 			<input name="email" type="email" placeholder="Votre email">
-			<!--<div class="errorLogger">
+			<!--<div class="error_Logger">
 				<h6>Le champs email n'est pas au bon format !</h6>
 			</div>-->
 			<input name="password" type="text" placeholder="Votre mot de passe">
-			<!--<div class="errorLogger">
+			<!--<div class="error_Logger">
 				<h6>Le champs email n'est pas au bon format !</h6>
 			</div>-->
 			<input id="repeat_Password" class="hide" name="passwordRepeat" type="text" placeholder="Répétez votre mot de passe">
 			<div class="error_Logger">
-				<h6>Le champs email n'est pas au bon format !</h6>
+				<h6></h6>
 			</div>
 
 			<!--switch lien/button-->
@@ -108,10 +108,10 @@
 				<a id="forget_Mdp" href="">Mot de passe oublié?</a>
 				<!--Apparaît quand on click sur MDP oublié-->
 				<input id="recover_Mdp" class="hide" type="email" name="password_Recovery" placeholder="Tapez votre email">
-				<input id="recover_Button" class="hide" type="submit" value="Envoyer">
-				<!--<div class="errorLogger">
+				<div class="error_Logger">
 					<h6>Le champs email n'est pas au bon format !</h6>
-				</div>-->
+				</div>
+				<input id="recover_Button" class="hide" type="submit" value="Envoyer">
 
 			</div>
 
@@ -407,7 +407,7 @@
 				<philippe>Philippe,</philippe>
 				<arthur>Arthur</arthur>
 			</span>
-			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+			<a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
 		</section>
 	</footer>
 

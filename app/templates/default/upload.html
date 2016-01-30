@@ -81,7 +81,9 @@
 						<label for="video_Box">Video</label>
 						<input type="radio" name="music_Box" value="musique">
 						<label for="music_Box">Musique</label>
-						<h6 id="type_Error" class="upload_Error">Veuillez choisir un type de fichier !</h6>
+						<div class="error">
+							<h6 id="type_Error">Veuillez choisir un type de fichier !</h6>
+						</div>
 					</div>	
 
 					<!--License de partage-->
@@ -96,8 +98,10 @@
 							<option value="CC_BY_SA"> CC BY-SA</option>
 							<option value="CC0">CC0/option>
 						</optgroup>
-					</select>	
-					<h6 id="license_Error" class="upload_Error">Veuillez choisir un type de fichier !</h6>
+					</select>					
+					<div class="error">
+						<h6 id="license_Error">Veuillez choisir un type de fichier !</h6>
+					</div>	
 		
 					<!--Type de contenu-->
 					<select name="rate" id="rating">
@@ -106,7 +110,9 @@
 							<option value="sensible">Contenu violent</option>
 							<option value="porn">Mature</option>
 					</select>
-					<h6 id="rating_Error" class="upload_Error">Veuillez choisir un type de fichier !</h6>
+					<div class="error">
+						<h6 id="rating_Error">Veuillez choisir un type de fichier !</h6>
+					</div>
 				</div>
 				<!--fin type de fichier-->
 			</div>
@@ -121,7 +127,9 @@
 					<p class="min_Advice">Formats: .mov, .mpeg4, .avi, .wmv, .flv, h264, .mp3, .alac, .flac, .aac, .wma, .mp4<p>
 					<label for="file_upload">Ou glisser un fichier ici</label>
 				</div>
-					<h6 id="file_Error" class="upload_Error">Le fichier n'est pas au bon format!</h6>
+				<div class="error">
+					<h6 id="file_Error">Le fichier n'est pas au bon format!</h6>
+				</div>
 			</div>
 			<!--Fin upload-->
 
@@ -135,7 +143,9 @@
 					<!--Limite la taille du fichier-->
 					<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
 					<p class="min_Advice">Formats: jpg, png, gif<p>
-					<h6 id="thumb_Error" class="upload_Error">Le fichier n'est pas au bon format !</h6>
+					<div class="error">
+						<h6 id="thumb_Error">Le fichier n'est pas au bon format !</h6>
+					</div>
 				</div>
 				<!--Fin miniature-->
 
@@ -143,7 +153,9 @@
 				<div id="basic_Info">
 
 					<input type="text" name="title" placeholder="Titre du contenu">
-					<h6 id="title_Error" class="upload_Error">Votre titre doit comporter au moins 3 caractères !</h6>
+					<div class="error">
+						<h6 id="title_Error">Votre titre doit comporter au moins 3 caractères !</h6>
+					</div>
 
 					<select name="catégorie" id="contenu_Categorie">
 						<option value="selectionner">Choisir une catégorie</option>
@@ -181,10 +193,14 @@
 							<option value="musique du monde">Musique du monde</option>						
 						</optgroup>
 					</select>
-					<h6 id="categorie_Error" class="upload_Error">Veuillez choisir une catégorie !</h6>
+					<div class="error">
+						<h6 id="categorie_Error">Veuillez choisir une catégorie !</h6>
+					</div>
 
 					<input type="text" name="keyword" placeholder="Mots clés(3 caractères min)">
-					<h6 id="keyword_Error" class="upload_Error">Veuillez entrer au moins 3 caractères !</h6>
+					<div class="error">
+						<h6 id="keyword_Error">Veuillez entrer au moins 3 caractères !</h6>
+					</div>
 				</div>
 				<!--Fin info, catégorie & keyword-->
 				<!--Description-->
@@ -242,7 +258,7 @@
 				<philippe>Philippe,</philippe>
 				<arthur>Arthur</arthur>
 			</span>
-			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+			<a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
 		</section>
 	</footer>
 
