@@ -46,6 +46,17 @@ function dateFormatFR($date, $format = 0){
 	return $date_format;
 }
 
+function isComfirmedAccount($id){
+
+	$usermanager = new \Manager\UserManager();
+
+	$user = $usermanager->find($id);
+
+	if(empty($user['token']) || $user['token'] = "")  $response = true; else $response = false;
+
+	return $response;
+}
+
 function confirmAccount($token){
 
 	if($token != 0 && $token < time()){

@@ -66,15 +66,17 @@
 
 				<div id="status">
 				</div>				<!--Mot de passe oublié-->
-				<a id="forget_Mdp" href="">Mot de passe oublié?</a>
-		<form>
-				<!--Apparaît quand on click sur MDP oublié-->
-				<input id="recover_Mdp" class="hide" type="email" name="password_Recovery" placeholder="Tapez votre email"></input>
-				<!--<div class="errorLogger">
-					<h6>Le champs email n'est pas au bon format !</h6>
-				</div>-->
-		</form>
+				<span id="">Mot de passe oublié?</span>
+				<form action="<?=$this->url('forget')?>" method="POST">
+						<!--Apparaît quand on click sur MDP oublié-->
+						<input id="" class="" type="email" name="emailPasswordRecovery" placeholder="Tapez votre email" />
+						<div class="errorLogger">
+							<h6><?=$_SESSION['error']['forgetpassword']?></h6>
+						</div>
+				</form>
 			</div>
+
+			
 
 			<!--Captcha google-->
 			<div class="g-recaptcha hide marge" data-sitekey="6LfqUBYTAAAAAECHlJlb4E3z3y8IGzOxqvRQxbq2" ></div>			<!--Blabla certifier opquast de merde-->

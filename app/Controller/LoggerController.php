@@ -72,7 +72,7 @@ class LoggerController extends Controller
 						$passwordError = "Please tcheck your email and confirm your registration !";
 						// on redirige l"utilisateur
 
-						$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+						$lien = '<a href="'.$this->generateUrl('mailConfimationAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 						$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 						$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
@@ -201,56 +201,52 @@ die('iuf');
 	}
 
 	public function forgetpassword(){
-		$passwordError = "";
-		//die('eee');
+	
+		$_SESSION['error']['forgetpassword'] = "";
+	
 		if(isset($_POST['emailPasswordRecovery'])){
 			
-			$emailPasswordRecovery = $_POST['emailPasswordRecovery'];
-
-			$usermanager = new \Manager\UserManager();
-			
 			if($usermanager->emailExists($emailPasswordRecovery)){
-					
 				
-				$token = \W\Security\StringUtils::randomString(32);
-				$tokentime = time() + (20*60);
+				$usermanager = new \Manager\UserManager();
+				$user = $usermanager->getUserByUsernameOrEmail($emailPasswordRecovery);				
 
-				$user = $usermanager->getUserByUsernameOrEmail($emailPasswordRecovery);
-	
-				$passwordError = "Please tcheck your email for change your password !";
-				// on redirige l"utilisateur
+				if(isConfirmedAccount($user['id'])){ //On ne peut pas réinitialiser son password si le compte n'est pas confirmé 
 
-				$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
-				$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
+					$emailPasswordRecovery = $_POST['emailPasswordRecovery'];
+				
+					$token = \W\Security\StringUtils::randomString(32);
+					$tokentime = time() + (20*60);
+		
+					$_SESSION['error']['forgetpassword'] = "Please tcheck your email for change your password !";
+					
+					$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+					$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
-				$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
-				$msg .= "<h4>MFF Corp.</h4><br/><br/>";
-				$msg .= "Pour pouvoir changer de mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
-				$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
+					$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
+					$msg .= "<h4>MFF Corp.</h4><br/><br/>";
+					$msg .= "Pour pouvoir changer de mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
+					$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
 
-				require_once 'assets/inc/mailer.php';
+					require_once 'assets/inc/mailer.php';
 
-				smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);
+					smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);
 
 
+				}else{
+					$_SESSION['error']['forgetpassword'] = "Confirmez votre compte sur votre adresse mail ".$user['email']." avant de pouvoir utiliser cette fonctionalité";
+				}	
 
 			}else{
-				$passwordError = "Email inexistant !";
-			}
-
-
-
-			$this->show('Default/home', [
-			"passwordError" => $passwordError
-			//"email_confirm" => $email_confirm 
-			]);
+				$_SESSION['error']['forgetpassword'] = "Email inexistant !";
+			}		
 
 		}else{
-
+			$_SESSION['error']['forgetpassword'] = "Veuillez remplir le champ !";
 		}
 		
-		$this->show('logger/forgetpassword', [
-			"passwordError" => $passwordError
+		$this->show('Default/home', [
+			"error" => $_SESSION['error']['forgetpassword']
 			]);					
 	}
 
@@ -355,7 +351,7 @@ die('iuf');
 									$passwordError = "Please tcheck your email and confirm your registration !";
 									// on redirige l"utilisateur
 
-									$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+									$lien = '<a href="'.$this->generateUrl('mailConfimationAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 									$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 									$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";

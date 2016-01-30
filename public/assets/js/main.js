@@ -33,11 +33,11 @@ $("#connect_Link").on("click", function(e){
 /*fin inscription/connection switch*/
 
 /*MDP oublié*/
-$("#forget_Mdp").on("click", function(e){
-	//e.preventDefault();
-	$("#recover_Mdp").toggleClass("hide");
-	$(".g-recaptcha").toggleClass("marge");//hack de merde
-});
+// $("#forget_Mdp").on("click", function(e){
+// 	//e.preventDefault();
+// 	$("#recover_Mdp").toggleClass("hide");
+// 	$(".g-recaptcha").toggleClass("marge");//hack de merde
+// });
 /*fin MDP oublié*/
 
 /*Soumission du formulaire de connection*/
