@@ -20,7 +20,7 @@ $(document).ready(function (){
 		e.preventDefault();
 		$("#user_Hover").stop(true).slideToggle(250).toggleClass("hide");
 	});
-	//fin BurgerMenu animation
+	//fin menu utilisateur
 
 
 	/*Inscription/Connection switch*/
@@ -54,6 +54,11 @@ $(document).ready(function (){
 	});
 	/*fin MDP oublié*/
 
+	/*if ($(window).width() < 1160){
+		if (!$("#user_Hover").hasClass("hide")) {
+			$("#user_Hover").stop(true).slideToggle(250).toggleClass("hide");		
+		};
+	};*/
 });
 
 

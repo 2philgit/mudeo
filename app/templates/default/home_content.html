@@ -93,10 +93,8 @@
 		</section>
 
 		<section class="search-result clearfix">
-	        <ul>
-	            <li><h3>Recherche pour : "<strong><?php echo $_GET['input_search']; ?></strong>"</h3></li>
-	            <li><h3>Nombre d'élément(s) trouvé(s) : <?php if($_GET['input_search']=="") {echo "0";} else {echo count($results);} ?></h3></li>
-	        </ul>
+	            <h3>Recherche pour : "<strong><?php echo $_GET['input_search']; ?></strong>"</h3>
+	            <h3>Nombre d'élément trouvé: <?php if($_GET['input_search']=="") {echo "0";} else {echo count($results);} ?></h3>
 	    </section>
 
 		<!--Content section (fourre-tout)-->

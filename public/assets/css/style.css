@@ -477,6 +477,17 @@ HOME_CONTENT.HTML
 #tri_Complet{
 	display: none;
 }
+/*Résultat recherche*/	
+.search-result{
+	width: 100%;
+	float: left;
+	margin-bottom: 1em;
+}
+.search-result h3{
+	font-size: 1em; 
+	margin: auto;
+	width: 20em;
+}
 /*contenu (fourre-tout)*/
 #load_More{
 	float: left;
@@ -488,7 +499,6 @@ HOME_CONTENT.HTML
 #load_More a{
 	border-top: 1px solid #557b83;
 }
-
 /********
 FIN HOME_CONTENT.HTML
 ********/
@@ -889,6 +899,9 @@ realised{
 	.poster{
 		max-height: 17em;
 	}
+	.search-result h3{
+		width: 40em;	
+	}
 	/***
 	FIN HOME_CONTENT
 	***/
@@ -1060,26 +1073,38 @@ realised{
 		width: 2em;
 	}
 	#user_Hover{
-		width: 8em;
+		width: 100%;
+		top: 3.5em;
 		position: fixed;
-		top: 3.22em;
-		right: 0.5%;
+	}
+	#user_Hover ul{
+		width: 8em;
 		background-color: #FFF;
+		float: right;
+		margin-top: 0.5em;
 	}
 	#user_Hover li{
 		padding: 0.5em;
 		font-size: 0.8em;
 		border-bottom: 1px solid;
 	}
-	#user_Hover li:hover a{
+	/*#user_Hover li:hover a{
 		color: #FFF;
 	}
 	#user_Hover li:hover{
 		background-color: #39aea9;
 		color: #FFF;
 		border: none;
+	}*/
+	#user_Hover ul::before{
+		position: relative;
+		top: -1.5em;
+		right: -5.6em;
+		border-right: 7px solid transparent;
+		border-bottom: 8px solid #FFF;
+		border-left: 7px solid transparent;
+		content: '';
 	}
-
 	/***
 	INDEX
 	***/
@@ -1243,6 +1268,10 @@ realised{
 		min-width: 640px;
 		margin-left: 0; 
 	}
+	.search-result h3{
+		width: 100%;	
+	}
+
 	/***
 	FIN HOME_CONTENT
 	***/
