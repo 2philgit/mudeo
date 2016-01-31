@@ -1,3 +1,8 @@
+/*Menu Recherche home*/
+
+// par défaut menu caché, il apparaîtra lorsqu'une recherche aura été effectuée
+$("#tri_Section").hide(); 
+
 // initialisation de l'objet requête recherche
 // par défaut : tri par ordre alphabétique (A>Z) sur tous les médias (vidéo et musique) toutes catégories
 obj_search = {
