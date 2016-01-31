@@ -72,8 +72,7 @@ class LoggerController extends Controller
 						$passwordError = "Please tcheck your email and confirm your registration !";
 						// on redirige l"utilisateur
 
-						// $lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
-						$lien ="";
+						$lien = '<a href="'.$this->generateUrl('mailConfimationAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 						$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 						$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
@@ -106,9 +105,10 @@ class LoggerController extends Controller
 		
 			if($_POST)
 			{
-				
+			die('ttt');	
 				if($_POST['logger'] == null || $_POST['password'] == null){
-					$passwordError = "vide!";
+					$error[0] = 1;
+					$error[1] = "vide!";
 				}
 				else{
 
@@ -123,7 +123,7 @@ class LoggerController extends Controller
 						$username = $logger;
 
 						if ($usermanager->usernameExists($username) ){
-				//die('E');									
+												
 							if($auth->isValidLoginInfo($username,$password)){
 
 								$user = $usermanager->getUserByUsernameOrEmail($username);
@@ -134,37 +134,25 @@ class LoggerController extends Controller
 									setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', '127.0.0.1', false, true);
 								}
 								
-								if($user['token_timestamp'] != 0 && $user['token_timestamp'] < time()){
-									$passwordError = "Please check your mail for confirmation's account !";
-								}
-								if($user['token_timestamp'] != 0 && time() > $user['token_timestamp']){
+								$error = \confirmAccount($user['token_timestamp']);	
 
-									$usermanager->delete($_SESSION['user']['id']);		
-									$auth->logUserOut();
-									setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-									$passwordError = "Account deleted Mother Fucker!";
-								}else{
-									$passwordError = "Log correct !";
-								}								
-								
-
-								$this->redirectToRoute('home_user', [
-									// "passwordError" => $passwordError
-									]);		
 							}else{
-								$passwordError = "Wrong login/mp couple!";
+								$error[0] = 1;
+								$error[1] = "Wrong login/mp couple!";								
 							}
 
-
 						}else{ 
-
-							$passwordError = "Login not found!";
+							$error[0] = 1;
+							$error[1] = "Login not found!";
 						}
+
+						\displayInfo($error);
+						//if($error[0] == 2) $this->redirectToRoute('userhome'); else $this->redirectToRoute('home');
 
 					}else{ //sinon le log contient un @ c'est un email dc verification dans la BDD sur le champ email
 
 						$email = $logger;
-
+die('iuf');
 						if ($usermanager->emailExists($email) ){
 
 							if($auth->isValidLoginInfo($email,$password)){
@@ -172,35 +160,24 @@ class LoggerController extends Controller
 							$user = $usermanager->getUserByUsernameOrEmail($email);
 							$auth->logUserIn($user);
 
+							
 							if(isset($_POST['remember'])){
 
 								setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'localhost', false, true);
 							}		
 							
-							if($user['token_timestamp'] != 0 && $user['token_timestamp'] < time()){
-									$passwordError = "Please check your mail for confirmation's account !";
-								}
+							$error = \confirmAccount($user['token_timestamp']);
 
-								if($user['token_timestamp'] != 0 && time() > $user['token_timestamp']){
-
-									$usermanager->delete($_SESSION['user']['id']);		
-									$auth->logUserOut();
-									setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-									$passwordError = "Account deleted Mother Fucker!";
-								}else{
-									$passwordError = "Log correct !";
-								}				
-
-								$this->redirectToRoute('home_user', [
-									// "passwordError" => $passwordError
-									]);		
+								$this->redirectToRoute('home');		
 							}else{
-								$passwordError = "Wrong email/mp couple!";
+								$error[0] = 1;
+								$error[1] = "Wrong email/mp couple!";
 							}
 							
 						}else{
 
-							$passwordError = "Email not found";
+							$error[0] = 1;
+							$error[1] = "Email not found";
 						}			
 					}
 			
@@ -208,11 +185,11 @@ class LoggerController extends Controller
 				
 			}
 		
-		$passwordError = "Log with success !";
+		// $error[0] = 2;
+		// $error[1] = "Log with success !";
 
-		$this->redirectToRoute('home', [
-			"passwordError" => $passwordError
-			]);					
+		\displayInfo($error);
+		if($error[0] == 2) $this->redirectToRoute('userhome'); else $this->redirectToRoute('home');	
 	}
 
 	public function logout(){
@@ -224,56 +201,52 @@ class LoggerController extends Controller
 	}
 
 	public function forgetpassword(){
-		$passwordError = "";
-		//die('eee');
+	
+		$_SESSION['error']['forgetpassword'] = "";
+	
 		if(isset($_POST['emailPasswordRecovery'])){
 			
-			$emailPasswordRecovery = $_POST['emailPasswordRecovery'];
-
-			$usermanager = new \Manager\UserManager();
-			
 			if($usermanager->emailExists($emailPasswordRecovery)){
-					
 				
-				$token = \W\Security\StringUtils::randomString(32);
-				$tokentime = time() + (20*60);
+				$usermanager = new \Manager\UserManager();
+				$user = $usermanager->getUserByUsernameOrEmail($emailPasswordRecovery);				
 
-				$user = $usermanager->getUserByUsernameOrEmail($emailPasswordRecovery);
-	
-				$passwordError = "Please tcheck your email for change your password !";
-				// on redirige l"utilisateur
+				if(isConfirmedAccount($user['id'])){ //On ne peut pas réinitialiser son password si le compte n'est pas confirmé 
 
-				$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
-				$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
+					$emailPasswordRecovery = $_POST['emailPasswordRecovery'];
+				
+					$token = \W\Security\StringUtils::randomString(32);
+					$tokentime = time() + (20*60);
+		
+					$_SESSION['error']['forgetpassword'] = "Please tcheck your email for change your password !";
+					
+					$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+					$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
-				$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
-				$msg .= "<h4>MFF Corp.</h4><br/><br/>";
-				$msg .= "Pour pouvoir changer de mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
-				$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
+					$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
+					$msg .= "<h4>MFF Corp.</h4><br/><br/>";
+					$msg .= "Pour pouvoir changer de mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
+					$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
 
-				require_once 'assets/inc/mailer.php';
+					require_once 'assets/inc/mailer.php';
 
-				smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);
+					smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);
 
 
+				}else{
+					$_SESSION['error']['forgetpassword'] = "Confirmez votre compte sur votre adresse mail ".$user['email']." avant de pouvoir utiliser cette fonctionalité";
+				}	
 
 			}else{
-				$passwordError = "Email inexistant !";
-			}
-
-
-
-			$this->show('Default/home', [
-			"passwordError" => $passwordError
-			//"email_confirm" => $email_confirm 
-			]);
+				$_SESSION['error']['forgetpassword'] = "Email inexistant !";
+			}		
 
 		}else{
-
+			$_SESSION['error']['forgetpassword'] = "Veuillez remplir le champ !";
 		}
 		
-		$this->show('logger/forgetpassword', [
-			"passwordError" => $passwordError
+		$this->show('Default/home', [
+			"error" => $_SESSION['error']['forgetpassword']
 			]);					
 	}
 
@@ -291,7 +264,7 @@ class LoggerController extends Controller
 		$passwordError = "";
 
 		if($_POST){
-
+			die('register');
 			$isValid = true;
 			
 			if($_POST['login'] == null || $_POST['email'] == null || $_POST['password1'] == null || $_POST['password2'] == null || $_POST['birthday'] == null ){
@@ -378,7 +351,7 @@ class LoggerController extends Controller
 									$passwordError = "Please tcheck your email and confirm your registration !";
 									// on redirige l"utilisateur
 
-									$lien = '<a href="'.$this->generateUrl('mail',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+									$lien = '<a href="'.$this->generateUrl('mailConfimationAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 									$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 									$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
@@ -413,6 +386,5 @@ class LoggerController extends Controller
 			"passwordError" => $passwordError
 			]);					
 	}
-
 
 }

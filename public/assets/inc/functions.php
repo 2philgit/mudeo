@@ -2,9 +2,9 @@
 
 function displayInfo($donnees){
 
-	if($donnees[0] == 1){
+	if($donnees[0] == 2){
 		$_SESSION['message']['success'] = $donnees[1];
-	}else if($donnees[0] == 2){
+	}else if($donnees[0] == 1){
 		$_SESSION['message']['error'] = $donnees[1];
 	}else if($donnees[0] == 3){
 		$_SESSION['message']['info'] = $donnees[1];
@@ -44,4 +44,36 @@ function dateFormatFR($date, $format = 0){
 	}
 
 	return $date_format;
+}
+
+function isComfirmedAccount($id){
+
+	$usermanager = new \Manager\UserManager();
+
+	$user = $usermanager->find($id);
+
+	if(empty($user['token']) || $user['token'] = "")  $response = true; else $response = false;
+
+	return $response;
+}
+
+function confirmAccount($token){
+
+	if($token != 0 && $token < time()){
+		$error[0] = 3;
+		$error[1] = "Log correct but please check your mail for confirmation's account !";
+	}
+	if($token != 0 && time() > $token){
+
+		$usermanager->delete($_SESSION['user']['id']);		
+		$auth->logUserOut();
+		setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
+		$error[0] = 3;
+		$error[1] = "Your account don't confirm during 3 days so I deleted it Mother Fucker!";
+	}else{
+		$error[0] = 2;
+		$error[1] = "Log correct !";		
+	}				
+
+	return $error;
 }

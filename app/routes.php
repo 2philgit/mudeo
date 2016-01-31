@@ -10,9 +10,13 @@
 		['GET', '/logout', 'Logger#logout', 'logout'],
 		['GET', '/profile', 'User#profile', 'profile'],
 		['GET|POST', '/forget', 'Logger#forgetpassword', 'forget'],
-		['GET', '/mail/[:token]/[:id]', 'Mail#mail', 'mail'],
+		
+		['GET|POST', '/confirmation/[:token]/[:id]', 'Mail#mailConfimationAccount', 'mailAccount'],
+		['GET|POST', '/passwordRecovery/[:token]/[:id]', 'Mail#mailPasswordRecovery', 'mailPassword'],
+		
 		['GET', '/deleteaccount', 'User#deleteaccount', 'deleteAccount'],
 		['GET', '/veriftoken', 'Logger#veriftoken', 'verifToken'],
+		['GET', '/userhome', 'User#userhome', 'userhome'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
 		['GET', '/recherche/', 'Search#search', 'home_user'], // search_home?????

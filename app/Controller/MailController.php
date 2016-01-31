@@ -7,7 +7,7 @@ use \W\Controller\Controller;
 class MailController extends Controller
 {
 
-	public function mail($token,$id)
+	public function mailConfimationAccount($token,$id)
 	{
 		$passwordError = '';
 
@@ -30,7 +30,7 @@ class MailController extends Controller
 
 				$passwordError = "Account validate! Mother Fucker";
 			}else{
-				$passwordError = "Link don't accept!";
+				$passwordError = "Link don't accept! You can re-generate a mail <a href=".$this->generateUrl('regenerateMailAccount',['token'=>$token,'id'=>$id]).">click here</a>";
 			}
 		}else{
 				$passwordError = "Missing argument";
@@ -38,4 +38,5 @@ class MailController extends Controller
 
 		$this->show('default/home',['passwordError' => $passwordError]);
 	}
+	
 }

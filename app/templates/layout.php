@@ -1,16 +1,15 @@
-<?php //session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 	
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	  
   <title><?= $this->e($title) ?></title>
   
   <!--CSS/reset+perso-->
   <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
   
   <!--Font-->
   <!--Favicon-->
@@ -29,8 +28,8 @@
 <pre><?php debug($_SESSION); ?> </pre>
 
 <script type="text/javascript">
-	   // Load the SDK asynchronously
-	  (function(d, s, id){
+     // Load the SDK asynchronously
+    (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
@@ -50,15 +49,18 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      getProfileImage();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
+        getProfileImage();
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
+        getProfileImage();
     }
   }
 
@@ -92,6 +94,31 @@
   //
   // These three cases are handled in the callback function.
 
+  function getProfileImage() {
+ 
+    var $photo = $('.photo'),
+        $btn = $('.btn-fb'),
+        $fbPhoto = $('img.fb-photo');
+ 
+    //uploading
+    $btn.text('Uploading...');
+ 
+    FB.api("/me/picture?width=180&height=180",  function(response) {
+ 
+        var profileImage = response.data.url.split('https://')[1], //remove https to avoid any cert issues
+            randomNumber = Math.floor(Math.random()*256);
+ 
+       //remove if there and add image element to dom to show without refresh
+       if( $fbPhoto.length ){
+           $fbPhoto.remove();
+       }
+         //add random number to reduce the frequency of cached images showing
+       $photo.append('<img class=\"fb-photo img-polaroid\" src=\"http://' + profileImage + '?' + randomNumber + '\">');
+        $btn.addClass('hide');
+    }); 
+}
+  
+
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
@@ -105,11 +132,31 @@
       console.log(response);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-    });
+        var login = response.name;
+    //     $.ajax({
+    //         "url": <?=$this->url('register')?>, 
+    //         "type": "POST", 
+    //         "data": login
+    //     })
+    //     .done(function(response){
+
+    //     })
+
+    // });
   }
 </script>
-
-
+<!-- Affichage des erreurs  -->
+          <?php if (isset($_SESSION['message']['success'])){ 
+                echo '<h6 id="error-label" style="color: green;">'.$_SESSION['message']['success'].'</h6>';
+              unset($_SESSION['message']);              
+            }else if(isset($_SESSION['message']['error'])){
+              echo '<h6 id="error-label" style="color: red;">'.$_SESSION['message']['error'].'</h6>';
+              unset($_SESSION['message']);
+            }else if(isset($_SESSION['message']['info'])){
+              echo '<h6 id="error-label" style="color: blue;">'.$_SESSION['message']['info'].'</h6>';
+              unset($_SESSION['message']);
+            }//var_dump($_COOKIE);
+       ?>
 
 	<!--Header-->
   <header id="top_Anchor">
@@ -134,9 +181,9 @@
         <!--Compte upgrade-->
         <li><a href="helpCenter.html">Abonnement</a></li>
       </ul>
-
-    <!-- <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?php//$this->assetUrl("img_site/user/$_SESSION['user']['urlpicture']")?>" alt="profil"></a> -->
-    <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="profil"></a>
+ 
+    <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl("img_site/user/".$w_user['urlpicture'])?>" alt="profil"></a>
+    <!-- <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?php//$this->assetUrl('img_site/user/user.png')?>" alt="profil"></a> -->
       <?php if(isset($_SESSION['user'])) echo "<span id='linkUserMenu'>".$_SESSION['user']['username']." (<a href='".$this->url('logout')."'>Deconnect</a>) </span>"; ?>
       <form id="search_Field" method="GET" action="<?php echo $this->url('home_user') ?>" novalidate>
         <input id="search" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input>
@@ -145,7 +192,6 @@
 
     </nav>
   </header>
-
 
 		<!-- <section> -->
 			<?= $this->section('main_content') ?>
@@ -193,5 +239,6 @@
 			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
 	</div>
+
 </body>
 </html>

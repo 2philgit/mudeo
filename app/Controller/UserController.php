@@ -46,8 +46,13 @@ class UserController extends Controller
 		// 	]);					
 
 		$this->redirectToRoute('home',["passwordError"=>$passwordError]);
-	
 
 
 	}
+
+	public function userhome(){
+		$this->show('user/userhome');
+	}
+
+
 }
