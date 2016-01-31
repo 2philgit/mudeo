@@ -2,6 +2,8 @@
 	
 	$w_routes = array(
 		['GET|POST', '/', 'Default#home', 'home'],
+
+		// user
 		['GET|POST', '/registerQ', 'Logger#quickRegister', 'quickRegister'],
 		['GET|POST', '/register', 'Logger#register', 'register'],
 		['GET|POST', '/auth', 'Logger#log', 'log'],

@@ -7,7 +7,6 @@ obj_search = {
 	"type": "vm", // (type média) pour sélectionner vidéo, musique ou les 2
 	"category": "" // pour sélectionner les catégories
 }
-str_result = "";
 type_flag = false;
 category_flag = false; // pour vérifier si on a déjà sélectionner l'un des types (vidéo, musqiue ou tout)
 console.log("INIT" + category_flag);
@@ -23,43 +22,16 @@ function doSearch(){
 		"data": obj_search
 	})
 	.done(function(response){
-
-
-	/* Liste autocompletion : */
-
-		//var liste = [ "Draggable", "Droppable", "Resizable", "Selectable", "Sortable" ];
-		var list_keys = [];
-		for (var i = 0; i < response.length; i++) {
-			var show = response[i];
-			var key = show.keywords;
-			list_keys[i] = key;
-		}
-		console.log("TABLEAUUUUUUUUUUUUUUUUU : " + list_keys);
-
-		$('#search').autocomplete({
-		source : list_keys,
-		//minLength : 2
-	});
-
-
-
 		var line_result = $("<p>");
 		//console.log(response);
 		//console.log("LONGUEUR AJAX : " + response.length);
 		// showContent(response);
 	///////////////////////////
-		$('#search-result').html(""); // On remplace le contenu du html par une chaîne vide
-
 		if (response.length != 0) {
-			"Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length
-			// line_result initialisé au début de ".done"
-			if (obj_search.input_search !="") { 
-				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length;
-			} else { 
-				str_result = "Nombre d'élement(s) trouvé(s) : " + response.length;
-			}
 
-			line_result.html(str_result); // On affiche le nb de résultats de la recherche
+			$('#search-result').html(""); // On remplace le contenu du html par une chaîne vide
+			// line_result initialisé au début de ".done"
+			line_result.html("Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length); // On affiche le nb de résultats de la recherche
 			$('#search-result').append(line_result);
 
 			if (obj_search.type == "video") {
@@ -238,7 +210,6 @@ function doSearch(){
 	});
 }
 
-
 /*  POUR L'AUTOCOMPLETION LORS DE LA RECHERCHE */
 
 
@@ -249,11 +220,10 @@ function autocompletedSearch() {
 	// console.log(search);
 	// si 3 caractères
 	if (search.length >= 3) {
-
 		// on recupère l'adresse du lien
 		
 		obj_search.input_search = search;
-		//doSearch();
+		doSearch();
 
 	} else {
 		console.log("Pas 3 caractères");
@@ -266,11 +236,8 @@ function autocompletedSearch() {
 $("#search").on("keyup", autocompletedSearch);
 
 // mise sous écoute du bouton de recherche
-$('#search_Icon').on("click", function(e) {
-	//alert('Cliccckkkkk');
-	e.preventDefault();
-	doSearch();
-});
+// $('#button-search').on("click", function() {
+// })})
 
 
 // mise sous écoute de tous les liens de sélections de la recherche

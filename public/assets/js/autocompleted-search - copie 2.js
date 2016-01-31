@@ -23,26 +23,6 @@ function doSearch(){
 		"data": obj_search
 	})
 	.done(function(response){
-
-
-	/* Liste autocompletion : */
-
-		//var liste = [ "Draggable", "Droppable", "Resizable", "Selectable", "Sortable" ];
-		var list_keys = [];
-		for (var i = 0; i < response.length; i++) {
-			var show = response[i];
-			var key = show.keywords;
-			list_keys[i] = key;
-		}
-		console.log("TABLEAUUUUUUUUUUUUUUUUU : " + list_keys);
-
-		$('#search').autocomplete({
-		source : list_keys,
-		//minLength : 2
-	});
-
-
-
 		var line_result = $("<p>");
 		//console.log(response);
 		//console.log("LONGUEUR AJAX : " + response.length);
@@ -238,6 +218,14 @@ function doSearch(){
 	});
 }
 
+/* Liste autocompletion : */
+
+//var liste = [ "Draggable", "Droppable", "Resizable", "Selectable", "Sortable" ];
+
+//$('#search').autocomplete({
+//	source : liste
+//});
+
 
 /*  POUR L'AUTOCOMPLETION LORS DE LA RECHERCHE */
 
@@ -249,11 +237,10 @@ function autocompletedSearch() {
 	// console.log(search);
 	// si 3 caractères
 	if (search.length >= 3) {
-
 		// on recupère l'adresse du lien
 		
 		obj_search.input_search = search;
-		//doSearch();
+		doSearch();
 
 	} else {
 		console.log("Pas 3 caractères");
@@ -266,11 +253,8 @@ function autocompletedSearch() {
 $("#search").on("keyup", autocompletedSearch);
 
 // mise sous écoute du bouton de recherche
-$('#search_Icon').on("click", function(e) {
-	//alert('Cliccckkkkk');
-	e.preventDefault();
-	doSearch();
-});
+// $('#button-search').on("click", function() {
+// })})
 
 
 // mise sous écoute de tous les liens de sélections de la recherche

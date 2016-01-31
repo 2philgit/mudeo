@@ -29,7 +29,7 @@ class FileManager extends \W\Manager\Manager {
 							OR description LIKE '%$inputSearch%' 
 							OR licence_filter LIKE '%$inputSearch%'
 							OR content_type LIKE '%$inputSearch%'
-							OR files.created LIKE '%$inputSearch%')";
+							OR created LIKE '%$inputSearch%')";
 
 
 		// test sur le formulaire validé
@@ -71,16 +71,11 @@ class FileManager extends \W\Manager\Manager {
 
 					  $selectSearch .= " AND (category LIKE '%$category%')";
 				}
-				$username = "users.username";
-				$author = "author";
-				$id = "files.user_id = users.id";
 
-				//SELECT files.*, users.username AS author FROM users LEFT JOIN files ON files.user_id = users.id WHERE title LIKE '%ti%' ORDER BY title ASC
 						
 				// pdo	
 				// création de la requête de recherche (sur title)
-				//$statement = $this->dbh->prepare("SELECT * FROM files WHERE $selectSearch ORDER BY $column $order;");
-				$statement = $this->dbh->prepare("SELECT files.*, $username AS author FROM users LEFT JOIN files ON $id WHERE $selectSearch ORDER BY $column $order;");
+				$statement = $this->dbh->prepare("SELECT * FROM files WHERE $selectSearch ORDER BY $column $order;");
 				$statement->execute();
 				$result = $statement->fetchAll();
 

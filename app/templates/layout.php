@@ -188,9 +188,9 @@
     </section>
   </footer>
 
-			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+      <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
-      <script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
 
 	</div>
 </body>

@@ -86,11 +86,49 @@
 		</div>
 	</section>
 
+<!-- ************************************************************* -->
+
+<!--Tri section-->
+<section id="tri_Section" class="clearfix">
+
+	<div id="tri">
+	<!--Barre principal de tri pour smartphone et tablette-->
+		<nav id="tri_Min">
+			<ul>
+				<!--class="selected" pour le tri sélectionner (Tout par défaut)-->
+				<li><a id="tri_All" class="selected select-type" data-type="video" href="#" title="Voir tout les contenus">Tout</a></li>
+				<li><a id="tri_Music" class="select-type" data-type="musique" href="#" title="Voir seulement la musique">Musique</a></li>
+				<li><a id="tri_Video" class="select-type" data-type="vm" href="#" title="Voir seulement les vidéos">Vidéo</a></li>
+			</ul>
+		</nav>
+		<!--Barre pour la version Desktop-->
+		<nav id="tri_Desktop">
+			<h4>Tri par :</h4>
+			<ul>
+				<li><a id="tri_All" class="selected select-type" data-type="vm" href="#" title="Voir tous les contenus">Tout</a></li>
+				<li><a id="tri_Music" class="select-type" data-type="musique" href="#" title="Voir seulement la musique">Musique</a></li>
+				<li><a id="tri_Video" class="select-type" data-type="video" href="#" title="Voir seulement les vidéos">Vidéo</a></li>
+			</ul>
+		</nav>
+	</div>
+
+
+<!-- ******************************* -->
+<!-- Affichage de ce qui a été recherché ainsi que le nombre d'éléments trouvés -->
+	<section id="search-result">
+		
+	</section>
+<!-- ******************************* -->
+</section>
+<br/>
+
+<!-- ************************************************************* -->
+
 	<!--Content section-->
 	<section id="latest_Content" class="wrap clearfix">
 
 		<h2><strong>Découvrez les contenus produits par notre communauté</strong></h2>
-		<div id="content_Container" id="search-result">
+		<div id="content_Container">
 		<!--Pour une vidéo-->
 			<figure class="clearfix">
 				<video id="mavideo" controls>
@@ -98,7 +136,7 @@
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
 
-				    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
 				</video>
 				<figcaption>
 						<div class="info_Top">
@@ -125,11 +163,11 @@
 				<video id="mamusique" controls poster="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
-				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
 				</video>
 				<figcaption>
 						<div class="info_Top">
-							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<h3><a href="content.html" title="Ecouter la musique"><strong>Video title</strong></a></h3>
 							<span class="social_Nav">
 								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
 								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
@@ -153,7 +191,7 @@
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
 
-				    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
 				</video>
 				<figcaption>
 						<div class="info_Top">
@@ -180,4 +218,6 @@
 		</div>
 
 	</section>
+
+	      <script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search-logout.js') ?>"></script>
 <?php $this->stop('main_content') ?>

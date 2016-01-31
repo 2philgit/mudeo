@@ -52,9 +52,3 @@ $( "#inscription_Button" ).click(function() {
 $("#linkUserMenu").on("click",function(){
 	$("#userMenu").toggleClass('hide');
 });
-
-
-/*Menu Recherche home*/
-
-// par défaut menu caché, il apparaîtra lorsqu'une recherche aura été effectuée
-$("#tri_Section").hide(); 
