@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mudéo | Entre musique et vidéo</title>
+	<!--Tag for responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery CDN-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--Recaptcha Google-->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--CSS/reset+perso-->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--Font-->
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="img_site/favicon.png" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+</head>
+<body>
+
+	<!--Header-->
+	<header id="top_Anchor">
+		<nav class="wrap">
+
+			<!--Pour smartphone et tablette-->
+			<h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+			<!--Burger menu-->
+			<span id="burger_Menu"></span>
+			<!--Pour desktop-->
+			<h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
+
+			<ul id="main_Menu" class="hide">
+				<li><a href="home_content.html">Regarder</a></li>
+				<li><a href="upload.html">Mettre en ligne</a></li>
+				<!--Apparait seulement si non-connecté-->
+				<li><a href="index.html#logger">Connection</a></li>
+				<!--Apparait seulement si connecté sur smartphone et tablette-->
+				<li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+				<!--Seulement pour smartphone et tablette-->
+				<li><a class="desktop_Hide" href="aide.html">Aide</a></li>
+				<!--Compte upgrade-->
+				<li><a href="upgrade.html">Abonnement</a></li>
+			</ul>
+
+			<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
+
+			<form id="search_Field" method="GET">
+				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
+				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></span>
+			</form>
+
+		</nav>
+	</header>
+	
+
+	<!--Upload section-->
+	<section id="upload_Content" class="wrap clearfix">
+
+		<h2><strong>Télécharger un fichier</strong></h2>
+		<form id="file_Param" action="" method="POST">
+
+			<div id="desktop_Box" class="clearfix">
+				<!--Pour la version Desktop-->
+				<div id="warning_Mention" class="clearfix">
+					<h3>Ne téléchargez seulement</h3>
+					<ul>
+						<li><p>Que les fichiers dont vous avez les <a href=""><strong>droits</strong></a></li>	
+						<li><p>Qui ne violent pas nos <a href=""><strong>conditions</strong></a></li>
+						<li><p>Des questions? Voir <a href=""><strong>l'aide</strong></a></li>	
+						<li><p>Voir notre guide sur la <a href=""><strong>compression</strong></a></li>
+					</ul>
+				</div>
+				<!--Fin warning mention-->
+				<!--Type de fichier-->
+				<div id="select_Type">
+					<h4>Type de fichier :</h4>
+					<!--Checkbox-->
+					<div id="box_Row">
+						<input type="radio" name="video_Box" value="video">
+						<label for="video_Box">Video</label>
+						<input type="radio" name="music_Box" value="musique">
+						<label for="music_Box">Musique</label>
+						<div class="error">
+							<h6 id="type_Error">Veuillez choisir un type de fichier !</h6>
+						</div>
+					</div>	
+
+					<!--License de partage-->
+					<select name="license" id="contenu_License">
+							<option value="select">Choisir une license de contenu</option>
+						<optgroup label="Creative Commons">
+							<option value="CC_BY">CC BY</option>
+							<option value="CC_BY_NC">CC BY-NC</option>
+							<option value="CC_BY_NC_ND">CC BY-NC-ND</option>
+							<option value="CC_BY_NC_SA">CC BY-NC-SA</option>
+							<option value="CC_BY_ND">CC BY-ND</option>
+							<option value="CC_BY_SA"> CC BY-SA</option>
+							<option value="CC0">CC0/option>
+						</optgroup>
+					</select>					
+					<div class="error">
+						<h6 id="license_Error">Veuillez choisir un type de fichier !</h6>
+					</div>	
+		
+					<!--Type de contenu-->
+					<select name="rate" id="rating">
+							<option value="select">Choisir le type de contenu</option>
+							<option value="safe">Tout public</option>
+							<option value="sensible">Contenu violent</option>
+							<option value="porn">Mature</option>
+					</select>
+					<div class="error">
+						<h6 id="rating_Error">Veuillez choisir un type de fichier !</h6>
+					</div>
+				</div>
+				<!--fin type de fichier-->
+			</div>
+			<!--Fin desktop box-->
+
+			<!--Upload (+ drag'n'drop pour la version desktop)-->
+			<div id="upload_Zone" class="clearfix">
+				<div id="zone_Row">
+					<input type="file" name="file_Upload" value="Choisir un fichier" accept="video/mp4, video/avi, video/mov, audio/mp3, audio/aac">
+					<!--Limite la taille du fichier-->
+					<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
+					<p class="min_Advice">Formats: .mov, .mpeg4, .avi, .wmv, .flv, h264, .mp3, .alac, .flac, .aac, .wma, .mp4<p>
+					<label for="file_upload">Ou glisser un fichier ici</label>
+				</div>
+				<div class="error">
+					<h6 id="file_Error">Le fichier n'est pas au bon format!</h6>
+				</div>
+			</div>
+			<!--Fin upload-->
+
+			<!--Champs d'info-->
+			<div id="info">
+				<h4>Informations :</h4>
+
+				<!--Miniature-->
+				<div id="thumbs_Upload">
+					<input type="file" name="thumb" accept="image/jpg, image/png, image/gif">
+					<!--Limite la taille du fichier-->
+					<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
+					<p class="min_Advice">Formats: jpg, png, gif<p>
+					<div class="error">
+						<h6 id="thumb_Error">Le fichier n'est pas au bon format !</h6>
+					</div>
+				</div>
+				<!--Fin miniature-->
+
+				<!--Info & catégorie & keywords-->
+				<div id="basic_Info">
+
+					<input type="text" name="title" placeholder="Titre du contenu">
+					<div class="error">
+						<h6 id="title_Error">Votre titre doit comporter au moins 3 caractères !</h6>
+					</div>
+
+					<select name="catégorie" id="contenu_Categorie">
+						<option value="selectionner">Choisir une catégorie</option>
+						<!--Classement par type de fichier video/musique-->
+						<optgroup label="Vidéo">
+						    <option value="Animation">Animation</option>
+							<option value="Arts &amp; Design">Arts &amp; Design</option>
+							<option value="Caméra &amp; Techniques">Caméra &amp; Techniques</option>
+							<option value="Comédie">Comédie</option>
+							<option value="Documentaire">Documentaire</option>
+							<option value="Expérimental">Expérimental</option>
+							<option value="Fashion">Fashion</option>
+							<option value="Cuisine">Cuisine</option>
+							<option value="Education">Education</option>
+							<option value="Narration">Narration</option>
+							<option value="Personnel">Personnel</option>
+							<option value="Reportage">Reportage</option>
+							<option value="Sports">Sports</option>
+							<option value="Voyage">Voyage</option>
+							<option value="Clip">Clip</option>
+						</optgroup>
+
+						<optgroup label="Musique">
+							<option value="pop">Pop</option>
+							<option value="rock">Rock</option>
+							<option value="hiphop">HipHop</option>
+							<option value="jazz">Jazz</option>
+							<option value="classique">Classique</option>
+							<option value="blues">Blues</option>
+							<option value="metal">Metal</option>
+							<option value="r&amp;b">R&amp;B</option>
+							<option value="reggae">Reggae</option>
+							<option value="alternative">Alternative</option>
+							<option value="folk">Folk</option>
+							<option value="musique du monde">Musique du monde</option>						
+						</optgroup>
+					</select>
+					<div class="error">
+						<h6 id="categorie_Error">Veuillez choisir une catégorie !</h6>
+					</div>
+
+					<input type="text" name="keyword" placeholder="Mots clés(3 caractères min)">
+					<div class="error">
+						<h6 id="keyword_Error">Veuillez entrer au moins 3 caractères !</h6>
+					</div>
+				</div>
+				<!--Fin info, catégorie & keyword-->
+				<!--Description-->
+				<div id="description" class="clearfix">
+					<textarea name="describe" placeholder="Décrivez votre contenu">
+					</textarea>
+				</div>
+				<!--Fin description-->
+			</div>
+			<!--Fin champs info-->
+			<input type="submit" value="Valider">
+		</form>
+		<!--Fin formulaire-->
+
+	</section>
+
+
+	<!--Footer-->
+	<footer>
+		<!--Version Desktop uniquement-->
+		<section id="top_Part">
+			<div id="centered_Menu">
+				<nav id="mudeo_Menu">
+					<h5>Mudeo</h5>
+					<ul>
+						<li><a href="aide.html" title="A propos de mudeo">A propos de mudeo</a></li>
+						<li><a href="" title="Règles du site">Règles</a></li>
+						<li><a href="aide.html" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+						<li><a href="aide.html" title="Confidentialité">Confidentialité</a></li>
+					</ul>
+				</nav>
+				<nav id="aide_Menu">
+					<h5>Aide</h5>
+					<ul>
+						<li><a href="aide.html" title="Centre d'aide">Centre d'aide</a></li>
+						<li><a href="aide.html" title="FAQ">FAQ</a></li>
+						<li><a href="aide.html" title="Droit d'auteur">Droit d'auteur</a></li>
+					</ul>
+				</nav>
+				<nav id="Plus_Menu">
+					<h5>Plus</h5>
+					<ul>
+						<li><a href="aide.html" title="Mettre en ligne">Mettre en ligne</a></li>
+						<li><a href="aide.html" title="Plan du site">Plan du site</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section id="bottom_Part">
+			<span>
+				<realised>Réalisé par:</realised>
+				<jerem>Jeremie,</jerem>
+				<etienne>Etienne,</etienne>
+				<philippe>Philippe,</philippe>
+				<arthur>Arthur</arthur>
+			</span>
+			<a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+		</section>
+	</footer>
+
+<!--jQuery pour le site-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
