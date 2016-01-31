@@ -188,7 +188,7 @@ INDEX.HTML
 	background-position: 40%;
 	background-size: cover;
 	padding-bottom: 1em;
-	min-height: 32.5em;
+	min-height: 36.5em;
 }
 #log_Section h1{
 	visibility: hidden;
@@ -836,13 +836,74 @@ PROFIL_MODIFY.HTML
 	margin: 0 0 4em; 
 	color: #c1c1c1;
 }
-.field_Box{
+.field_Box, .help_Box{
 	margin: 1.5em auto;
 	border-bottom: 1px solid;
 	padding-bottom: 4em; 
 }
 /********
 FIN PROFIL_MODIFY.HTML
+********/
+
+
+/********
+AIDE.HTML
+********/
+#help_Section nav{
+	margin-top: 3em;
+}
+#help_Section a{
+	color: #39aea9;
+}
+#help_Section li, #help_Section h3{
+	margin: 0 0 1.5em;
+}
+.help_Box p{
+	color: #c1c1c1;
+	margin: 0.5em auto;
+}
+#still_Stuck {
+	margin: 1.5em auto 3em;
+	font-size: 0.75em;
+}
+.fast_Link, .help_Box{
+	margin-left: 0.5em;
+}
+/********
+FIN AIDE.HTML
+********/
+
+
+/********
+404.HTML
+********/
+#oops{
+	text-align: center;
+	padding-bottom: 3em;
+	color: #39aea9;
+}
+#oops figure{
+	min-width: 18.75em;
+	max-width: 33.125em;
+}
+#oops figure img{
+	width: 80%;
+}
+#oops h3{
+	font-size: 2em;
+	margin: 3em auto;
+}
+#oops p{
+	margin-bottom: 2em;
+}
+#oops button{
+	color: #FFF;
+	background-color: #39aea9;
+	height: 3em;
+	width: 12em;
+}
+/********
+FIN 404.HTML
 ********/
 
 
@@ -1111,7 +1172,7 @@ realised{
 	/*logsection*/
 	/*Logger*/
 	#log_Section{
-		min-height: 35.625em;
+		min-height: 40em;
 		max-width: 100%; 
 	}
 	#log_Section h2{
@@ -1577,8 +1638,23 @@ realised{
 	{
 		margin: 1em 0  0 1.25em;
 	}
+	#modify_Form textarea{
+		max-height: 25em;
+		max-width: 48em;
+	}
 	/********
 	FIN PROFIL_MODIFY.HTML
+	********/
+
+
+	/********
+	AIDE.HTML
+	********/
+	.fast_Link, .help_Box{
+		margin-left: auto;
+	}
+	/********
+	FIN AIDE.HTML
 	********/
 
 

@@ -1,10 +1,15 @@
 $(document).ready(function (){
+	
 	//scroll
-    $("#back_To").click(function (){
-        $('html, body').animate({
-            scrollTop: $("#top_Anchor").offset().top
-        }, 1000);
-    });
+   $('a[href^="#"]').click(function(){
+		var the_id = $(this).attr("href");
+
+		$('html, body').animate({
+			scrollTop:$(the_id).offset().top
+		}, 'slow');
+		return false;
+	});
+
 
 	//BurgerMenu animation
 	$("#burger_Menu").on("click", function(e){
