@@ -96,12 +96,12 @@
 	</section>
 
 	<!--Content section-->
-	<section id="latest_Content" class="wrap clearfix">
+	<section id="latest_Content" class="wrap index_Content clearfix">
 
 		<h2><strong>Découvrez les contenus produits par notre communauté</strong></h2>
 		<div id="content_Container">
 
-		<!--Pour une vidéo-->
+			<!--Pour une vidéo-->
 			<figure class="clearfix">
 				<video id="mavideo" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
@@ -116,12 +116,11 @@
 							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
 							<span class="social_Nav">
 								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
-
 								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
 							</span>
 						</div>
 						<div class="info_Bottom">
-							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>"></a>
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
 
 							<span class="author">
 								<h4><strong>Ross Heng</strong></h4>
@@ -133,22 +132,24 @@
 
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
-				<video id="mamusique" controls poster="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
-				    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
-				    
+				<div class="poster">
+					<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+					<audio id="mamusique" class="clearfix" controls>
+					    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
 
-				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
-				</video>
-				<figcaption>
-						<div class="info_Top">
-							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					</audio>
+				</div>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Ecouter la musique"><strong>Musique title</strong></a></h3>
 							<span class="social_Nav">
 								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
 								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
 							</span>
 						</div>
-						<div class="info_Bottom">
-							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>"></a>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
 
 							<span class="author">
 								<h4><strong>Ross Heng</strong></h4>
@@ -177,7 +178,7 @@
 							</span>
 						</div>
 						<div class="info_Bottom">
-							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>"></a>
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
 
 							<span class="author">
 								<h4><strong>Ross Heng</strong></h4>
@@ -186,6 +187,152 @@
 						</div>
 				</figcaption>
 			</figure>
+
+			<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
+
+				</video>
+				<figcaption>
+						<div class="info_Top">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
+
+				</video>
+				<figcaption>
+						<div class="info_Top">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour de l'audio-->
+			<figure class="clearfix">
+				<div class="poster">
+					<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+					<audio id="mamusique" class="clearfix" controls>
+					    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
+
+					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					</audio>
+				</div>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Ecouter la musique"><strong>Musique title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
+
+				</video>
+				<figcaption>
+						<div class="info_Top">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour de l'audio-->
+			<figure class="clearfix">
+				<div class="poster">
+					<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+					<audio id="mamusique" class="clearfix" controls>
+					    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
+
+					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+					</audio>
+				</div>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Ecouter la musique"><strong>Musique title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user/user.png')?>"></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
 		</div>
 
 		<div id="see_More">

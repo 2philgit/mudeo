@@ -19,7 +19,8 @@
 		['GET', '/userhome', 'User#userhome', 'userhome'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
-		['GET', '/recherche/', 'Search#search', 'home_user'], // search_home?????
+		['GET', '/recherche/', 'Search#search', 'home_user'], // search_home home_user?????
+		['GET', '/recherche/', 'Search#search', 'home_nolog'], // search_home home_user?????
 		//['GET', '/recherche/', 'Search#resultSearch', 'home_search'],
 		['GET', '/autocompletion/', 'Search#completedSearch', 'completed_search'],
 	);

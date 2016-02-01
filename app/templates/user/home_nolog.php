@@ -34,7 +34,7 @@
 					<!--class="selected_2" pour le tri sélectionner (nouveautés par défaut)-->
 					<li><a id="tri_New" class="selected_2 select-mode" data-column="created" data-order="DESC" href="#" title="Voir les nouveaux contenus">Nouveautés</a></li>
 					<li><a id="tri_Pop" class="select-mode" data-column="nb_like" data-column="created" data-order="DESC" href="#" title="Voir les plus populaires">Popularité</a></li>
-					<li><a id="tri_Like" class="select-mode" data-column="like_me" data-order="DESC" href="#" title="Voir mes contenus préférés">J'aime</a></li>
+					<li><a id="tri_Like" class="select-mode" data-column="nb_like" data-order="DESC" href="#" title="Voir mes contenus préférés">J'aime</a></li>
 					<li><a id="tri_Mine" class="select-mode" data-column="upload&user" data-order="DESC" href="#" title="Voir mes contenus">Upload</a></li>
 				</ul>
 			</nav>

@@ -3,11 +3,18 @@
 <head>
 	
   <meta charset="UTF-8">
+  <title><?= $this->e($title) ?></title>
+  <!-- <title>Mudéo | Entre musique et vidéo</title> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-  <title><?= $this->e($title) ?></title>
-  
+  <!--Tag for responsive-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--jQuery CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!--Recaptcha Google-->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!--CSS/reset+perso-->
+
   <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
   
@@ -15,12 +22,6 @@
   <!--Favicon-->
   <link rel="icon" type="image/png" href="<?= $this->assetUrl('img_site/favicon.png') ?>" />
   <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
-
-  <!--jQuery CDN-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <!--Recaptcha Google-->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-	<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
 	
 </head>
 <body>
@@ -173,31 +174,56 @@
         <li><a href="<?php//$this->url('')?>">Regarder</a></li>
         <li><a href="<?php//$this->url('')?>">Mettre en ligne</a></li>
         <!--Apparait seulement si non-connecté-->
-        <li><a href="index.html#logger">Connection</a></li>
+        <li><a href="index.html#logger" title="Connection">Connection</a></li>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
-        <li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+        <li><a class="desktop_Hide" href="profil.html" title="Profil">Profil</a></li>
+        <!--Apparait seulement si connecté sur smartphone et tablette-->
+        <li><a class="desktop_Hide" href="index.html" title="Deconnection">Deconnection</a></li>
         <!--Seulement pour smartphone et tablette-->
-        <li><a class="desktop_Hide" href="helpCenter.html">Aide</a></li>
+        <li><a class="desktop_Hide" href="aide.html" title="Aide">Aide</a></li>
         <!--Compte upgrade-->
-        <li><a href="helpCenter.html">Abonnement</a></li>
+        <li><a href="upgrade.html" title="Abonnement">Abonnement</a></li>
       </ul>
  
-    <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl("img_site/user/".$w_user['urlpicture'])?>" alt="profil"></a>
-    <!-- <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?php//$this->assetUrl('img_site/user/user.png')?>" alt="profil"></a> -->
-      <?php if(isset($_SESSION['user'])) echo "<span id='linkUserMenu'>".$_SESSION['user']['username']." (<a href='".$this->url('logout')."'>Deconnect</a>) </span>"; ?>
-      <form id="search_Field" method="GET" action="<?php echo $this->url('home_user') ?>" novalidate>
-        <input id="search" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input>
+    <!--Apparait une fois l'utilisateur connecté en version Desktop-->
+    <!-- <span id="user_Profil"><img src="<?=$this->assetUrl("img_site/user/".$w_user['urlpicture'])?>" alt="photo de..."></span> -->
+    <span id="user_Profil"><img src="<?=$this->assetUrl("img_site/user/user.png")?>" alt="photo de..."></span>
+    
+
+    <?php if(isset($_SESSION['user'])) echo "<span id='linkUserMenu'>".$_SESSION['user']['username']." (<a href='".$this->url('logout')."'>Deconnect</a>) </span>";?>
+      
+    <!--Champs de recherche-->
+      <form id="search_Field" method="GET" action="<?php if(isset($_SESSION['user'])) { 
+                                                    echo $this->url('home_user'); 
+                                                    } else { echo $this->url('home_nolog'); 
+                                                    }
+                                                    ?>" novalidate> 
+        <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input>
+        <!-- <input id="search" type="search" name="input_search" data-url="<?php //echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input> -->
+        <datalist id="autocomplete">
+
+        </datalist>
+        
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
       </form>
 
     </nav>
   </header>
+  <div id="user_Hover" class="hide">
+    <nav class="wrap">
+      <ul>
+        <li><a href="profil.html" title="Profil">Profil</a></li>
+        <li><a href="index.html" title>Deconnection</a></li>
+      </ul>
+    </nav>
+  </div>
 
 		<!-- <section> -->
 			<?= $this->section('main_content') ?>
 		<!-- </section> -->
 
-		  <footer>
+<!--Footer-->
+<footer>
     <!--Version Desktop uniquement-->
     <section id="top_Part">
       <div id="centered_Menu">
@@ -229,16 +255,23 @@
     </section>
 
     <section id="bottom_Part">
-      <span><p>&copy; 2016</p></span>
-      <a href="#header" title="Retour en haut"><img src="<?=$this->assetUrl('img_site/backtotop.png')?>" alt="Retour en haut"></a>
+      <span>
+        <realised>Réalisé par:</realised>
+        <jerem>Jeremie,</jerem>
+        <etienne>Etienne,</etienne>
+        <philippe>Philippe,</philippe>
+        <arthur>Arthur</arthur>
+      </span>
+      <a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="<?=$this->assetUrl('img_site/backtotop.png')?>" alt="Retour en haut"></a>
     </section>
   </footer>
 
-      <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
-			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
-			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
+   <!--jQuery pour le site-->
+  <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
+	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
-	</div>
+<!-- 	</div> -->
 
 </body>
 </html>

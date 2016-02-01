@@ -57,6 +57,8 @@ function isComfirmedAccount($id){
 
 function confirmAccount($token,$subscription){
 
+	$usermanager = new \Manager\UserManager();
+	
 	if($token != 0 && $token < time() && $subscription == 0){
 		$response[0] = true;
 		$response[1] = "Log correct but please check your mail for confirmation's account !";

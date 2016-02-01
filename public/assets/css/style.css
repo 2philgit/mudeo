@@ -154,6 +154,13 @@ header, #bottom_Part{
 	line-height: 3em;
 	height: 3.125em;
 }
+
+#search_Field {
+	position: absolute;
+	z-index: 50;
+}
+
+
 #search_Icon{
 	line-height: 2.5em;
 }
