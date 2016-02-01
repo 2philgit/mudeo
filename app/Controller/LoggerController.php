@@ -172,7 +172,7 @@ class LoggerController extends Controller
 									setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'localhost', false, true);
 								}		
 								
-								$return = \confirmAccount($user['token_timestamp'],$w_user['subscription']);
+								$return = \confirmAccount($user['token_timestamp'],$_SESSION['user']['subscription']);
 								
 								$isValid = $return[0];
 								$_SESSION['error']['log'] = $return[1];
@@ -240,11 +240,11 @@ class LoggerController extends Controller
 							
 							$usermanager->update([
 
-								'token' => $token,
+								'token' => password_hash($token, PASSWORD_DEFAULT),
 								'token_timestamp' => $tokentime]
 								,$user['id']);
 
-							$lien = '<a href="'.$this->generateUrl('mailPassword',"['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+							$lien = '<a href="'.$this->generateUrl('mailPassword',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 							$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 							$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";

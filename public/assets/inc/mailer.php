@@ -12,7 +12,7 @@ function smtpMailer($to, $from, $from_name, $subject, $body) {
 	$mail->IsSMTP(); // active SMTP
 	$mail->IsHTML(true);
 	$mail->CharSet = "utf-8";
-	$mail->SMTPDebug = 4;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
+	$mail->SMTPDebug = 0;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
 	$mail->SMTPAuth = true;  // Authentification SMTP active
 	$mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
 	$mail->Host = 'smtp.gmail.com';

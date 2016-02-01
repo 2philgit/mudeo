@@ -56,5 +56,37 @@ class UserController extends Controller
 		$this->show('user/userhome');
 	}
 
+	public function changePassword($id){
+
+		$this->show('user/changepassword');
+
+	}
+
+	public function controlChangePassword($id){
+die('uig');
+		unset($_SESSION['error']);
+
+		if($_POST){
+
+			if(\isIsset($_POST)){
+				if($password == $passwordRepeat){
+
+					$usermanager = new \Manager\UserManager();
+					$usermanager->update([
+
+								'password' => password_hash($password, PASSWORD_DEFAULT),
+								],$id);
+
+					$_SESSION['error']['controlChangePassword'] = "Changement effectuer !  ";
+
+				}else{
+						$_SESSION['error']['controlChangePassword'] = "Les mots de passe de correspondent pas !  ";
+					 }
+			}else{
+					$_SESSION['error']['controlChangePassword'] = "Veuillez remplir tous les champs ! ";
+				 }
+		}
+	}
+
 
 }
