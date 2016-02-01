@@ -50,28 +50,37 @@ function isComfirmedAccount($id){
 
 	$user = $usermanager->find($id);
 
-	if(empty($user['token']) || $user['token'] = "")  $response = true; else $response = false;
+	if($user['subscription'] =! 0)  $response = true; else $response = false;
 
 	return $response;
 }
 
 function confirmAccount($token,$subscription){
+	//die(time().'---'.$token.'---->'.$subscription);
+	if($token != 0 && time() < $token && $subscription == 0){
 
-	if($token != 0 && $token < time() && $subscription == 0){
 		$response[0] = true;
 		$response[1] = "Log correct but please check your mail for confirmation's account !";
-	}
-	if($token != 0 && time() > $token && $subscription == 0){
-
-		$usermanager->delete($_SESSION['user']['id']);		
-		$auth->logUserOut();
-		setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-		$response[0] = false;
-		$response[1] = "Your account don't confirm during 3 days so I deleted it Mother Fucker!";
 	}else{
-		$response[0] = true;		
-		$response[1] = "Log correct !";		
-	}				
 
+		if($token != 0 && time() > $token && $subscription == 0){
+
+			$usermanager = new \Manager\UserManager();
+			$auth = new \W\Security\AuthentificationManager();
+
+			$usermanager->delete($_SESSION['user']['id']);		
+			$auth->logUserOut();
+			
+			setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
+			
+			$response[0] = false;
+			$response[1] = "Your account don't confirm during 3 days so I deleted it Mother Fucker!";
+		}else{
+
+			$response[0] = true;		
+			$response[1] = "Log correct !";		
+		}				
+	}
 	return $response;
 }
+

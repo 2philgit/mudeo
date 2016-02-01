@@ -1,0 +1,35 @@
+TODOLIST:
+
+
+
+1/balise strong des titres : enlever/-> généré un font-weight: bold. =>OK
+
+2/header : lien vers profil/->créer un bouton déconnexion apparaissant au survol. =>OK
+
+
+3/error message : corriger leur visibilité grâce à leur classe /-> visibility: hidden. Jouer sur les id pour les faire apparaitre.=>OK /!\autre solution trouvé
+
+
+4/correction du cahier des charges + faire un versionning de ce qu'on avait prévu (taff en cours pour la v1, éventuelle v2 et v3.)
+
+
+5/ Mettre un input envoi pour mot de passe oublié dans le header. =>OK
+
+
+6/Lien : cursor/->pointer en :hover =>OK
+
+
+7/Pour <audio>, pas de support du poster (attr)/-> mettre une balise img et faire le css =>OK
+
+
+8/intégrer profil.html et modify_profil.html =>OK
+
+
+9/Faire la page_bidon.html pour les liens du footer(et tous les liens légaux) =>OK
+
+10/Personnaliser la 404 =>OK
+
+11/Gérer les :hover sur les boutons =>OK
+
+12/Simplifier le CSS 
+12bis/gérer les différents navigateurs =>FUCK IE, chrome OK, firefox OK

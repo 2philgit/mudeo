@@ -9,13 +9,9 @@
 	<div id="logger">
 		<form id="logger_inscription" class="hide" action ="<?=$this->url('quickRegister')?>" method="POST" name="inscription">
 			<input name="email" type="email" placeholder="Votre email"></input>
-			<!--<div class="errorLogger">
-				<h6>Le champs email n'est pas au bon format !</h6>
-			</div>-->
+			
 			<input name="password" type="password" placeholder="Your password"></input>
-			<!--<div class="errorLogger">
-				<h6>Le champs email n'est pas au bon format !</h6>
-			</div>-->
+			
 
 			<input id="repeat_Password" class="" name="passwordRepeat" type="password" placeholder="Please confirm your password"></input>
 
@@ -76,10 +72,10 @@
 			<div id="other_Link" class="clearfix">
 								
 				<!--Mot de passe oublié-->
-				<span id="">Mot de passe oublié?</span>
+				<span id="forget_Mdp">Mot de passe oublié?</span>
 				<form action="<?=$this->url('forget')?>" method="POST" novalidate>
 						<!--Apparaît quand on click sur MDP oublié-->
-						<input id="" class="" type="email" name="emailPasswordRecovery" placeholder="Tapez votre email" />
+						<input id="recover_Mdp" class="hide" type="email" name="emailPasswordRecovery" placeholder="Tapez votre email" />
 						<div class="error_Logger">
 							<h6><?php if(isset($_SESSION['error']['forgetpassword'])) echo $_SESSION['error']['forgetpassword'];?></h6>
 						</div>

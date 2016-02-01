@@ -172,7 +172,7 @@ class LoggerController extends Controller
 									setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'localhost', false, true);
 								}		
 								
-								$return = \confirmAccount($user['token_timestamp'],$w_user['subscription']);
+								$return = \confirmAccount($user['token_timestamp'],$_SESSION['user']['subscription']);
 								
 								$isValid = $return[0];
 								$_SESSION['error']['log'] = $return[1];
@@ -240,7 +240,7 @@ class LoggerController extends Controller
 							
 							$usermanager->update([
 
-								'token' => $token,
+								'token' => password_hash($token, PASSWORD_DEFAULT),
 								'token_timestamp' => $tokentime]
 								,$user['id']);
 
