@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Controller;
@@ -405,6 +406,5 @@ class LoggerController extends Controller
 			"passwordError" => $_SESSION['error']['']
 			]);					
 	} */
-
 
 }

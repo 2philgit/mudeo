@@ -9,8 +9,7 @@ a{
 	text-decoration: none;
 	color: #557b83;
 }
-.clearfix:after{
-	display: block;
+.clearfix{
 	content: "";
 	clear: both;
 }
@@ -29,37 +28,36 @@ h4{
 	font-size: 1em;
 	color: #FFF;
 }
-/*Styles communs smartphone(optimisation)*/
+/*Styles communs(optimisation)*/
 input, textarea, figcaption{
 	border: 1px solid #c1c1c1;
 	background-color: #FFF;
 	height: 1.25em;
 }
-input, textarea, #main_Menu a, #logoMin a, #logo a, button, figcaption, 
-#connect_Button, #inscription_Button, #tri_All, #tri_Like, #tri_New, #tri_Music{
+input, textarea, #mainMenu a, #logoMin a, #logo a, button, figcaption{
 	box-sizing: border-box;
 }
-header, footer, #main_Menu, #main_Menu ul li{
+header, footer, #mainMenu{
 	width: 100%;
 }
-#logo_Min, #logo, #search, #connect_Button, #connect_Link, #other_Link a, 
-#facebook_Connect img, video, figcaption, .info_Top, .info_Bottom, 
-.info_Top h3, .social_Nav a, #tri_Second nav{
+#logoMin, #logo, #search, #connectButton, #connectLink, #otherLink a, 
+#facebookConnect img, video, figcaption, .infoTop, .infoBottom, 
+.infoTop h3, .socialNav a{
 	float: left;
 }
-#search_Field, #search_Icon, #join_Link, .social_Nav, #inscription_Button {
+#searchField, #searchIcon, #joinLink, .socialNav {
 	float: right;
 }
-#main_Menu, #burger_Menu, #burger_Menu::after, #burger_Menu::before{
+#mainMenu, #burgerMenu, #burgerMenu::after, #burgerMenu::before{
 	position: absolute;
 }
-#logo, .hide, #user_Profil{
+#logo, .hide, #userProfil{
 	display: none;
 }
-#remember_Me label, #join_Link, #connect_Link{
+#rememberMe label, #joinLink, #connectLink{
 	font-size: 0.75em;
 }
-header, figcaption, .follow button, #bottom_Part{
+header, figcaption, .follow button, #bottomPart{
 	background-color: #F2F2F2;
 }
 
@@ -67,86 +65,76 @@ header, figcaption, .follow button, #bottom_Part{
 header a{
 	color: #39aea9;
 }
-header, #bottom_Part{
+header, #bottomPart{
 	height: 3.125em;
 }
-#logo_Min, #logo{
+#logoMin, #logo{
 	line-height: 3.5em;
 }
-#logo_Min a, #logo a{
+#logoMin a, #logo a{
 	padding: 0.5em 0.5em;
 	height: 3.125em;
 }
 /*Burger Menu animation*/
-#burger_Menu, #burger_Menu::after, #burger_Menu::before{
+#burgerMenu, #burgerMenu::after, #burgerMenu::before{
 	display: block;
 	width: 0.875em;
 	height: 0.2em;
 	transition: all 250ms ease-in-out;
 }
-#burger_Menu{
+#burgerMenu{
 	top: 1.35em;
 	left: 3.5em;
 	background-color: #39aea9;
 }
-#burger_Menu::after, #burger_Menu::before{
+#burgerMenu::after, #burgerMenu::before{
 	width: 0.875em;
 	height: 0.2em;
 	content:"";
 	cursor: pointer;
 	background-color: #39aea9;
 }
-#burger_Menu::after{
+#burgerMenu::after{
 	top: -0.3em;
 }
-#burger_Menu::before{
+#burgerMenu::before{
 	top: 0.35em;
 }
-#burger_Menu.active::after, #burger_Menu.active::before{
+#burgerMenu.active::after, #burgerMenu.active::before{
 	top: 0;
 }
-#burger_Menu.active{
+#burgerMenu.active{
 	background-color: transparent; 
 }
-#burger_Menu.active::before{
+#burgerMenu.active::before{
  	transform: rotate(45deg);
  }	
-#burger_Menu.active::after{
+#burgerMenu.active::after{
 	 transform: rotate(-45deg);
 }
 /*Fin Burger Menu animation*/
-#main_Menu{
+#mainMenu{
 	top: 50px;
 	left: 0;
 	text-align: center;
 	background-color: rgba(255, 255, 255, 0.9);
-	z-index: 50;
 }
-#main_Menu li{
+#mainMenu li{
 	border-bottom: 1px solid #39aea9;
 }
-#main_Menu a{
+#mainMenu a{
 	padding: 0.4em 6em;
 	line-height: 2em;
 }
-#search_Field, #search_Icon{
+#searchField, #searchIcon{
 	line-height: 3em;
 	height: 3.125em;
 }
-#search_Icon{
-	line-height: 2.4em;
+#searchIcon{
+	line-height: 2.8em;
 }
-#search_Icon{
+#searchIcon{
 	padding: 0.25em 0.5em 0;
-}
-#search_Icon input{
-	 /* Remove default */
-  	border: none;
-  	width: 20px;
-  	height: 19px;
-  	background-color: #f2f2f2;
-  	background-image: url(../img_site/search.png);
-  	background-repeat: no-repeat;
 }
 #search{
 	width: 12em;
@@ -154,13 +142,12 @@ header, #bottom_Part{
 }
 /*Fin Header*/
 
-
 /********
 INDEX.HTML
 ********/
 
 /*logSection*/
-#log_Section{
+#logSection{
 	text-align: center;
 	background-image: url(../img_site/moutains.jpg);
 	background-repeat: no-repeat;
@@ -168,13 +155,13 @@ INDEX.HTML
 	background-size: cover;
 	padding-bottom: 1em;
 }
-#log_Section h1{
+#logSection h1{
 	visibility: hidden;
 }
-#log_Section h2{
+#logSection h2{
 	color: #FFF;
 }
-#discover_More{
+#discoverMore{
 	display: none;
 }
 /*Logger*/
@@ -185,14 +172,14 @@ INDEX.HTML
 	background-color: rgba(85, 123, 131, 0.5); 
 	border-radius: 0.188em;
 }
-#logger input, #other_Link a, .g-recaptcha, #logger p, #logger button, #connect_Button, #inscription_Button{
+#logger input, #otherLink a, .g-recaptcha, #logger p, #logger button{
 	margin-top: 0.75em;
 }
-#logger p, #other_Link a{
+#logger p, #otherLink a{
 	color: #FFF;
 	font-size: 0.75em;
 }
-#other_Link a{
+#otherLink a{
 	padding: 0 3em;
 }
 #logger p{
@@ -210,7 +197,7 @@ INDEX.HTML
 	margin-top: 2em;
 }
 .g-recaptcha.marge{
-	margin-top: 1em;
+	margin-top: 4em;
 }
 .g-recaptcha, #rc-imageselect{
 	margin-left: 0.25em;
@@ -220,7 +207,7 @@ INDEX.HTML
 	-webkit-transform-origin:0 0;
 }
 /*champs d'erreur*/
-.error_Logger{
+.errorLogger{
 	padding: 0.5em 0;
 	font-size: 0.75em;
 	width: 100%;
@@ -234,42 +221,42 @@ INDEX.HTML
 	width: 10.625em;
 	margin: 0.5em auto;
 }
-button, #connect_Button, #inscription_Button{
+button{
 	border: none;
 	border-radius: 0.375em;
 	height: 1.875em;
 }
-#connect_Button, #inscription_Button{
+#connectButton, #inscriptionButton{
 	background-color: #a2d5ab;	
 	color: #FFF;
 }
-#join_Link, #connect_Link{
+#joinLink, #connectLink{
 	line-height: 3.8em;
 	color: #FFF;
 }
 /*otherLink*/
-#other_Link{
+#otherLink{
 	margin-top: 0.5em;
 }
-#other_Link a{
+#otherLink a{
 	height: 1.75em;
 	display: block;
 }
 /*Se souvenir de moi div*/
-#remember_Me{
+#rememberMe{
 	display: inline-block;
 	margin-bottom: 0.5em;
 	width: 100%;
 }
-#remember_Me label{
+#rememberMe label{
 	margin-bottom: 0.25em;
 	color: #FFF;
 }
-#remember_Me label, #join_Link, #connect_Link{
+#rememberMe label, #joinLink, #connectLink{
 	font-size: 0.75em;
 }
 /*Facebook connection*/
-#facebook_Connect p{
+#facebookConnect p{
 	font-size: 1em;
 	line-height: 2em;
 	display: inline-block;
@@ -278,15 +265,15 @@ button, #connect_Button, #inscription_Button{
 
 
 /*ContentSection*/
-#latest_Content, figure, video, figcaption{
+#latestContent, figure, video, figcaption{
 	width: 100%;
 }
-#latest_Content h2{
+#latestContent h2{
 	font-weight: bold;
 	text-align: center;
 	margin: 1em auto 2em ;
 }
-#content_Container{
+#contentContainer{
 	width: 100%;
 	min-width: 320px;
 	max-width: 640px;
@@ -295,13 +282,11 @@ button, #connect_Button, #inscription_Button{
 figure{
 	min-width: 320px;
 	max-width: 320px;	
-	height: 100%;
 	margin: 1em auto; 
 }
 /*video player*/
 video{
 	margin: 0 auto;
-	height: auto;
 }
 figcaption{
 	height: 5em;
@@ -311,16 +296,16 @@ figcaption{
 	color: #000;
 }
 /*Player info*/
-.info_Top, .info_Bottom{
+.infoTop, .infoBottom{
 	height: 2em;
 	width: 80%;
 	margin-left: 10%;
 }
-.info_Top h3{
+.infoTop h3{
 	font-weight: bold;
 	line-height: 2em;
 }
-.social_Nav{
+.socialNav{
 	line-height: 2em;
 }
 .follow button{
@@ -334,27 +319,27 @@ figcaption{
 .like img{
 	margin: 0.4em 0 0 0.75em;
 }
-.info_Bottom a{
+.infoBottom a{
 	float: left;
 	margin-right: 1em;
 }
-.user_Min{
+.userMin{
 	width: 2em;
 }
-.info_Bottom span{
+.infoBottom span{
 	font-size: 0.6em;
 	width: 60%;
 	line-height: 1.75em;
 }
-.info_Bottom h4{
+.infoBottom h4{
 	font-size: 1.5em;
 	color: #a2d5ab;
 }
-#see_More{
+#seeMore{
 	width: 8em;
 	margin: auto;
 }
-#see_More button{
+#seeMore button{
 	width: 100%;
 	margin: 2em auto 3em;
 	background-color: #557b83;
@@ -367,122 +352,26 @@ figcaption{
 FIN INDEX.HTML
 ********/
 
-
-/********
-HOME_CONTENT.HTML
-********/
-
-/*Barre de tri*/
-#tri_Section{
-	margin: 0 auto;
-	padding: 2em 0 3em;
-}
-#tri ul li, #tri_Second ul li{
-	display: inline-block;
-}
-#tri, #tri_Second{
-	width: 18.750em;
-	height: 2em;
-	margin: auto;
-	text-align: center;
-}
-#tri{
-	margin-top: 1em;
-	background-color: #39aea9;
-}
-#tri ul li a{
-	line-height: 2em;
-	padding: 0.407em 1.46em;
-	color: #FFF;
-}
-#tri_Min ul li a:hover{
-	background-color: : #a2d5ab;
-}
-.selected{
-	background-color: #a2d5ab;
-}
-#tri_Desktop{
-	display: none;
-}
-#tri_All, #tri_Music{
-	border-right: 1px solid #FFF;
-}
-#tri_New, #tri_Like{
-	border-right: 1px solid #557b83;
-}
-#tri_Second{
-	font-size: 0.75em;
-}
-#tri_Second nav{
-	margin: 1em -3.5em 1em;	
-}
-#tri-second h4{
-	font-size: 0.75em;
-	float: left;
-}
-#tri_Second ul li a{
-	padding: 0.25em 0.5em;
-}
-#tri_Second ul li a:hover{
-	font-weight: bold;
-}
-.selected_2{
-	color: #a2d5ab;
-}
-#tri_Complet{
-	display: none;
-}
-/*contenu (fourre-tout)*/
-#load_More{
-	float: left;
-	font-size: 0.75em;
-	margin: 3em 0 4em 1em;
-	height: 3em;
-	width: 100%;
-}
-#load_More a{
-	border-top: 1px solid #557b83;
-}
-
-/********
-FIN HOME_CONTENT.HTML
-********/
-
-
 /*Footer*/
-#top_Part{
+#topPart{
 	display: none;
 }
-#bottom_Part p, #bottom_Part a{
+#bottomPart p, #bottomPart a{
 	line-height: 4em;
 	font-size: 0.75em;
 }
-#bottom_Part span{
+#bottomPart span{
 	float: left;
 	margin-left: 1em;
 }
-#bottom_Part a{
+#bottomPart a{
 	float: right;
 	margin-right: 1em;
 }
 /*Fin Footer*/
 
-/*Fin smartphone*/
-
 /*Tablette*/
 @media  screen and (min-width: 640px){
-	/***
-	HOME_CONTENT
-	***/
-
-	/*Content*/
-	.home_Content #content_Container figure{
-		max-width: 640px;
-	}
-
-	/***
-	FIN HOME_CONTENT
-	***/
 	
 }
 /*Fin Tablette*/
@@ -494,13 +383,13 @@ FIN HOME_CONTENT.HTML
 		text-decoration: underline;
 	}
 	/*header*/
-	#burger_Menu, #logo_Min{
+	#burgerMenu, #logoMin{
 		display: none;
 	}
 	#logo{
 		display: block;
 	}
-	#main_Menu{
+	#mainMenu{
 		position: relative;
 		display: inline-block;
 		width: 50%;
@@ -508,11 +397,11 @@ FIN HOME_CONTENT.HTML
 		left: 0;
 		background-color: #F2F2F2;
 	}
-	#main_Menu li{
+	#mainMenu li{
 		border: none;
 		display: inline-block;
 	}
-	#main_Menu a{
+	#mainMenu a{
 		padding: 0;
 		margin: 0 1em;
 		line-height: 3em;
@@ -520,25 +409,9 @@ FIN HOME_CONTENT.HTML
 	#search{
 		width: 16em;
 	}
-	.desktop_Hide{
+	.desktopHide{
 		display: none;
 	}
-	#user_Profil{
-		float: right;
-		display: block;
-		width: 1em;
-		margin: 0 1em 0 1em;
-		padding: 0 1em;
-		line-height: 4em;
-		border-left: 1px solid;
-		height: 3.125em;
-	}
-	#user_Profil img{
-		width: 2em;
-	}
-	/***
-	INDEX
-	***/
 
 	/*logsection*/
 	/*Logger*/
@@ -546,28 +419,28 @@ FIN HOME_CONTENT.HTML
 		width: 21.25em; 
 		min-height: 20em;
 	}
+	button{
+		height: 2.25em;
+		width: 8em;
+	}
 	section input{
 		height: 2.5em;
 		width: 21em;
-	}
-	button, #connect_Button, #inscription_Button{
-		height: 2.25em;
-		width: 8em;
 	}
 	input[type="checkbox"]{
 		height: 1.25em;
 		width: 1.25em;
 	}
-	#remember_Me label{
+	#rememberMe label{
 	}
-	#switch, #other_Link{
+	#switch, #otherLink{
 		width: 17.5em;
 		margin: 0.5em auto;
 	}
-	#join_Link, #inscription_Button{
+	#joinLink, #inscriptionButton{
 		float: right;
 	}
-	#logger .last_P{
+	#logger .lastP{
 		margin-top: 1em;
 	}
 	/*Google captcha*/
@@ -580,7 +453,7 @@ FIN HOME_CONTENT.HTML
 	}
 
 	/*Content*/
-	#content_Container{
+	#contentContainer{
 		column-width: 320px;
 		column-gap: 1em;
 		width: 75%;
@@ -588,7 +461,7 @@ FIN HOME_CONTENT.HTML
 		max-width: 1160px;
 		margin: 1em auto;
 	}
-	#content_Container figure{
+	#contentContainer figure{
 		min-width: 290px;
 		max-width: 320px;
 		column-break-inside: avoid;
@@ -600,89 +473,13 @@ FIN HOME_CONTENT.HTML
 		background-color: #000;
 		min-height: 180px;
 	}
-	/***
-	FIN INDEX
-	***/
-
-
-	/***
-	HOME_CONTENT
-	***/
-	/*Tri*/
-	#tri_Section, #tri-Desktop, .home_Content #content_Container,
-	#tri_Desktop h4, #tri_Desktop ul, #tri_Second{
-		float: left;
-	}
-	#tri_Second nav{
-		margin-left: 0;
-	}
-	#tri_Min{
-		display: none;
-	}
-	#tri{
-		width: 37.5em;
-	}
-	#tri_Desktop{
-		display: block;
-	}
-	#tri_Desktop h4{
-		line-height: 1.75em;
-		margin-left: 1em;
-	}
-	#tri_Desktop ul{
-		margin-left: 2em;
-	}
-	#tri_Complet{
-		float: right;
-		display: block;
-		width: 386px;
-		padding-bottom: 1em;
-	}
-	#tri_Complet h4{
-		text-align: center;
-		color: #557b83;
-		font-size: 1.5em;
-		padding-bottom: 0.5em;
-		border-bottom: 1px solid;
-	}
-	#tri_Complet h5{
-		margin-top: 1em;
-	}
-	#tri_Complet h5:first-child{
-		color: #39aea9;
-	}
-	#tri_Complet h5:nth-child(2n){
-		color: #a2d5ab;
-	}
-	#tri_Complet nav{
-		border-bottom: 1px solid;
-		padding: 1em;
-	}
-	#tri_Complet nav ul li{
-		margin-bottom: 0.5em;
-	}
-	#tri_Complet nav ul li a:hover{
-		color: #a2d5ab;
-	}
-	/*Content*/
-	.home_Content #content_Container{
-		min-width: 640px;
-		max-width: 774px;
-	}
-	.home_Content #content_Container figure{
-		min-width: 640px;
-	}
-
-	/***
-	FIN HOME_CONTENT
-	***/
 
 	/*Footer*/
 	h5{
 		font-size: 1.15em;
 		margin-bottom: 1.5em;
 	}
-	#centered_Menu{
+	#centeredMenu{
 		width: 30em;
 		margin: 1.5em auto;
 	}
@@ -694,13 +491,16 @@ FIN HOME_CONTENT.HTML
 		margin-bottom: 0.75em;
 		font-size: 0.85em;
 	}
-	#mudeo_Menu h5{
+	#mudeoMenu h5{
 		color: #39aea9;
 	}
-	#aide_Menu h5{
+	#aideMenu h5{
 		color: #a2d5ab;
 	}
-	#top_Part{
+	#plusMenu h5{
+		color: ;
+	}
+	#topPart{
 		display: block;
 		height: 12.5em;
 		background-color: #F2F2F2;
@@ -708,17 +508,14 @@ FIN HOME_CONTENT.HTML
 		border-bottom: 1px solid #c1c1c1;
 		box-sizing: border-box;
 	}
-	#bottom_Part{
+	#bottomPart{
 		background-color: #FFF;
-	}
-	#bottom_Part a{
-		padding: 0 1em;
 	}
 }
 
 /*Desktop*/
 @media screen and (min-width: 1280px){
-	#centered_Menu{
+	#centeredMenu{
 		margin: 1.5em auto;
 	}
 }

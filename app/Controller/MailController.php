@@ -38,4 +38,5 @@ class MailController extends Controller
 
 		$this->show('default/home',['passwordError' => $passwordError]);
 	}
+	
 }

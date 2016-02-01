@@ -142,7 +142,7 @@
 
     //     })
 
-    // });
+    });
   }
 </script>
 <!-- Affichage des erreurs  -->
@@ -185,8 +185,8 @@
     <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?=$this->assetUrl("img_site/user/".$w_user['urlpicture'])?>" alt="profil"></a>
     <!-- <a id="user_Profil" href="profil.html" title="accès au profil"><img src="<?php//$this->assetUrl('img_site/user/user.png')?>" alt="profil"></a> -->
       <?php if(isset($_SESSION['user'])) echo "<span id='linkUserMenu'>".$_SESSION['user']['username']." (<a href='".$this->url('logout')."'>Deconnect</a>) </span>"; ?>
-      <form id="search_Field" method="GET">
-        <input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
+      <form id="search_Field" method="GET" action="<?php echo $this->url('home_user') ?>" novalidate>
+        <input id="search" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input>
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
       </form>
 
@@ -234,7 +234,8 @@
     </section>
   </footer>
 
-			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+      <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+			<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 			<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
 	</div>

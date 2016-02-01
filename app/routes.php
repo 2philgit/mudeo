@@ -2,6 +2,8 @@
 	
 	$w_routes = array(
 		['GET|POST', '/', 'Default#home', 'home'],
+
+		// user
 		['GET|POST', '/registerQ', 'Logger#quickRegister', 'quickRegister'],
 		['GET|POST', '/register', 'Logger#register', 'register'],
 		['GET|POST', '/auth', 'Logger#log', 'log'],
@@ -17,4 +19,7 @@
 		['GET', '/userhome', 'User#userhome', 'userhome'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
+		['GET', '/recherche/', 'Search#search', 'home_user'], // search_home?????
+		//['GET', '/recherche/', 'Search#resultSearch', 'home_search'],
+		['GET', '/autocompletion/', 'Search#completedSearch', 'completed_search'],
 	);

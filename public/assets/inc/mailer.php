@@ -28,4 +28,3 @@ function smtpMailer($to, $from, $from_name, $subject, $body) {
 	if(!$mail->Send()) {
 		$errorMail = 'Mail error: '.$mail->ErrorInfo;
 	}
-}
