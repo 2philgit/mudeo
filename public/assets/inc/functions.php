@@ -15,17 +15,15 @@ function displayInfo($donnees){
 
 function isIsset($donnees){
 	
-	$cles = array_keys($donnees);
-	$count = count($donnees);
-	$return = "true";
+	// $cles = array_keys($donnees);
+	// $count = count($donnees);
 
 	foreach($donnees as $key => $value){
-		if($value == ""){
-			$return = "null";
+		if($value == null){
+			return null;
 		}
 	}
-
-	return $return;
+	return true;
 }
 
 function dateFormatFR($date, $format = 0){
@@ -57,23 +55,23 @@ function isComfirmedAccount($id){
 	return $response;
 }
 
-function confirmAccount($token){
+function confirmAccount($token,$subscription){
 
-	if($token != 0 && $token < time()){
-		$error[0] = 3;
-		$error[1] = "Log correct but please check your mail for confirmation's account !";
+	if($token != 0 && $token < time() && $subscription == 0){
+		$response[0] = true;
+		$response[1] = "Log correct but please check your mail for confirmation's account !";
 	}
-	if($token != 0 && time() > $token){
+	if($token != 0 && time() > $token && $subscription == 0){
 
 		$usermanager->delete($_SESSION['user']['id']);		
 		$auth->logUserOut();
 		setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-		$error[0] = 3;
-		$error[1] = "Your account don't confirm during 3 days so I deleted it Mother Fucker!";
+		$response[0] = false;
+		$response[1] = "Your account don't confirm during 3 days so I deleted it Mother Fucker!";
 	}else{
-		$error[0] = 2;
-		$error[1] = "Log correct !";		
+		$response[0] = true;		
+		$response[1] = "Log correct !";		
 	}				
 
-	return $error;
+	return $response;
 }

@@ -16,7 +16,7 @@ function smtpMailer($to, $from, $from_name, $subject, $body) {
 	$mail->SMTPAuth = true;  // Authentification SMTP active
 	$mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
 	$mail->Host = 'smtp.gmail.com';
-	$mail->Port = 25;
+	$mail->Port = 465;
 	$mail->Username = GMailUSER;
 	$mail->Password = GMailPWD;
 	$mail->SetFrom($from, $from_name);
@@ -26,8 +26,6 @@ function smtpMailer($to, $from, $from_name, $subject, $body) {
 	$mail->setLanguage('fr', '/optional/path/to/language/directory/');
 	//debug($mail);
 	if(!$mail->Send()) {
-		$passwordError = 'Mail error: '.$mail->ErrorInfo;
-	} else {
-		$passwordError = 'Un email vient de vous être envoyé. Cliquez sur le lien présent dans ce mail pour activer votre compte.';
+		$errorMail = 'Mail error: '.$mail->ErrorInfo;
 	}
 }

@@ -16,13 +16,15 @@ class UserController extends Controller
 			$usermanager = new \Manager\UserManager();
 
 			if(isset($_POST['loginUpdate'])) $login = $_POST['loginUpdate']; else $passwordError = 'vide!';
-			if ($usermanager->usernameExists($login) ){
-				$passwordError = "Login déja existant !";
-			}else{
-				//$usermanager->update([$login],$_SESSION['user']['id']);
-				$passwordError = 'Success !';
+				
+				if ($usermanager->usernameExists($login) ){
+				
+					$passwordError = "Login déja existant !";
+				}else{
+					//$usermanager->update([$login],$_SESSION['user']['id']);
+					$passwordError = 'Success !';
+				}
 			}
-		}
 
 		$this->show('user/profile', [
 			"passwordError" => $passwordError
