@@ -18,6 +18,8 @@
 		['GET', '/userhome', 'User#userhome', 'userhome'],
 		['GET|POST', '/changePassword/[:id]', 'User#changepassword', 'changepassword'],
 		['GET|POST', '/controlPassword/[:id]', 'User#controlChangePassword', 'controlChangePassword'],
+		['GET|POST', '/profileModify', 'User#profilmodify', 'profilmodify'],
+		['GET|POST', '/control', 'User#controlProfilModify', 'controlProfilModify'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
 	);

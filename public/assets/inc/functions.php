@@ -83,3 +83,4 @@ function confirmAccount($token,$subscription){
 	}
 	return $response;
 }
+
