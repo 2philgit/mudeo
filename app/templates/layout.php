@@ -142,7 +142,7 @@
 
     //     })
 
-    // });
+    });
   }
 </script>
 <!-- Affichage des erreurs  -->
