@@ -244,7 +244,7 @@ class LoggerController extends Controller
 								'token_timestamp' => $tokentime]
 								,$user['id']);
 
-							$lien = '<a href="'.$this->generateUrl('mailPassword',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+							$lien = '<a href="'.$this->generateUrl('mailPassword',"['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 							$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 							$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";

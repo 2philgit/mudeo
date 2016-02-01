@@ -7,7 +7,7 @@ use \W\Controller\Controller;
 class MailController extends Controller
 {
 
-	public function mailConfimationAccount($token,$id)
+	public function mailConfirmationAccount($token,$id)
 	{
 		$passwordError = '';
 

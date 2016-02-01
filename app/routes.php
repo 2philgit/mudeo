@@ -9,7 +9,7 @@
 		['GET', '/profile', 'User#profile', 'profile'],
 		['GET|POST', '/forget', 'Logger#forgetpassword', 'forget'],
 		
-		['GET|POST', '/confirmation/[:token]/[:id]', 'Mail#mailConfimationAccount', 'mailAccount'],
+		['GET|POST', '/confirmation/[:token]/[:id]', 'Mail#mailConfirmationAccount', 'mailAccount'],
 		['GET|POST', '/passwordRecovery/[:token]/[:id]', 'Mail#mailPasswordRecovery', 'mailPassword'],
 		
 		['GET', '/deleteaccount', 'User#deleteaccount', 'deleteAccount'],
