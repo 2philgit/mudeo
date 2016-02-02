@@ -159,6 +159,7 @@
    <!--jQuery pour le site-->
   <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
+  <script type="text/javascript" src="<?= $this->assetUrl('js/draganddrop.js') ?>"></script>
 
     <!-- <section js> -->
       <?= $this->section('js') ?>
