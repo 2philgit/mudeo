@@ -32,6 +32,29 @@ FIN DES DECLARATION & INITIALISATION des variables
 DECLARATION DES FONCTIONS UTILISEES DANS CE SCRIPT 
 ***/
 
+// fonction permettant la création et l'affichage de la liste des mots-clés proposés dans la bdd 
+function autocompleted(response) {
+	//$("#autocomplete").css("display", "block");
+	$("#autocomplete").html("");
+	var list_keys = [];
+	var ul = $("<ul>");
+	var key_verif = ""; 
+
+	for (var i = 0; i < response.length; i++) {
+		var show = response[i];
+		var key = show.keywords;
+		var option = $("<option>");
+
+		// vérifie que le mot n'a pas déjà été ajouté si non : l'ajoute 
+		if (key != key_verif) {
+			option.attr("value", key);
+			list_keys[i] = key;
+			key_verif = key;
+			$("#autocomplete").append(option);
+		}
+	}
+}
+
 // fonction pour construire le html pour les fichiers vidéo
 function buildFigureVideo(id_file, author, title, date) {
 	
@@ -166,33 +189,9 @@ function doSearch(){
 	})
 	.done(function(response){ // si requête valide : faire
 
-	/* Liste autocompletion : */
-		$("#autocomplete").css("display", "block");
-		$("#autocomplete").html("");
-		var list_keys = [];
-		var ul = $("<ul>");
+		// appel de la fonction autocompleted (permettant l'affichage de la liste des mots-clés sous le imput)
+		autocompleted(response);
 		
-
-		for (var i = 0; i < response.length; i++) {
-			var show = response[i];
-			var key = show.keywords;
-			list_keys[i] = key;
-			var li = $("<li>");
-			$(li).append(key);
-			$(ul).append(li);
-		}
-		
-		$("#autocomplete").append(ul);
-		console.log("TABLEAUUUUUUUUUUUUUUUUU : " + list_keys);
-
-		// $('#search').autocomplete({
-		// source : list_keys,
-		//minLength : 2
-
-
-
-		//$("#autocomplete").append
-	//});
 
 		var line_result = $("<p>");
 		//console.log(response);

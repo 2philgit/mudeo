@@ -11,18 +11,18 @@
 			<nav id="tri_Min">
 				<ul>
 					<!--class="selected" pour le tri sélectionner (Tout par défaut)-->
-					<li><a id="tri_All" class="selected select-type" data-type="video" href="#" title="Voir tout les contenus">Tout</a></li>
-					<li><a id="tri_Music" class="select-type" data-type="musique" href="#" title="Voir seulement la musique">Musique</a></li>
-					<li><a id="tri_Video" class="select-type" data-type="vm" href="#" title="Voir seulement les vidéos">Vidéo</a></li>
+					<li><a id="tri_All" class="selected select-type" data-type="video" href="#tri" title="Voir tout les contenus">Tout</a></li>
+					<li><a id="tri_Music" class="select-type" data-type="musique" href="#tri" title="Voir seulement la musique">Musique</a></li>
+					<li><a id="tri_Video" class="select-type" data-type="vm" href="#tri" title="Voir seulement les vidéos">Vidéo</a></li>
 				</ul>
 			</nav>
 			<!--Barre pour la version Desktop-->
 			<nav id="tri_Desktop" class="clearfix">
 				<h4>Tri par :</h4>
 				<ul>
-					<li><a id="tri_All" class="selected select-type" data-type="vm" href="#" title="Voir tous les contenus">Tout</a></li>
-					<li><a id="tri_Music" class="select-type" data-type="musique" href="#" title="Voir seulement la musique">Musique</a></li>
-					<li><a id="tri_Video" class="select-type" data-type="video" href="#" title="Voir seulement les vidéos">Vidéo</a></li>
+					<li><a id="tri_All" class="selected select-type" data-type="vm" href="#tri" title="Voir tous les contenus">Tout</a></li>
+					<li><a id="tri_Music" class="select-type" data-type="musique" href="#tri" title="Voir seulement la musique">Musique</a></li>
+					<li><a id="tri_Video" class="select-type" data-type="video" href="#tri" title="Voir seulement les vidéos">Vidéo</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -130,38 +130,38 @@
 			<nav>
 				<h5>Video</h5>
 				<ul>
-					<li><a class="select-category" data-category="animation" href="#" title="animation">Animation</a></li>
-					<li><a class="select-category" data-category="arts&design" href="#" title="art et design">Arts &amp; Design</a></li>
-					<li><a class="select-category" data-category="camera&tech" href="#" title="caméra et techniques">Caméra &amp; Techniques</a></li>
-					<li><a class="select-category" data-category="comedie" href="#" title="comédie">Comédie</a></li>
-					<li><a class="select-category" data-category="documentaire" href="#" title="documentaire">Documentaire</a></li>
-					<li><a class="select-category" data-category="experimental" href="#" title="expérimental">Expérimental</a></li>
-					<li><a class="select-category" data-category="fashion" href="#" title="fashion">Fashion</a></li>
-					<li><a class="select-category" data-category="cuisine" href="#" title="cuisine">Cuisine</a></li>
-					<li><a class="select-category" data-category="education" href="#" title="education">Education</a></li>
-					<li><a class="select-category" data-category="narration" href="#" title="narration">Narration</a></li>
-					<li><a class="select-category" data-category="personnel" href="#" title="personnel">Personnel</a></li>
-					<li><a class="select-category" data-category="reportage" href="#" title="reportage">Reportage</a></li>
-					<li><a class="select-category" data-category="sports" href="#" title="sports">Sports</a></li>
-					<li><a class="select-category" data-category="voyage" href="#" title="voyage">Voyage</a></li>
-					<li><a class="select-category" data-category="clip" href="#" title="clip">Clip</a></li>
+					<li><a class="select-category" data-category="animation" href="#tri" title="animation">Animation</a></li>
+					<li><a class="select-category" data-category="arts&design" href="#tri" title="art et design">Arts &amp; Design</a></li>
+					<li><a class="select-category" data-category="camera&tech" href="#tri" title="caméra et techniques">Caméra &amp; Techniques</a></li>
+					<li><a class="select-category" data-category="comedie" href="#tri" title="comédie">Comédie</a></li>
+					<li><a class="select-category" data-category="documentaire" href="#tri" title="documentaire">Documentaire</a></li>
+					<li><a class="select-category" data-category="experimental" href="#tri" title="expérimental">Expérimental</a></li>
+					<li><a class="select-category" data-category="fashion" href="#tri" title="fashion">Fashion</a></li>
+					<li><a class="select-category" data-category="cuisine" href="#tri" title="cuisine">Cuisine</a></li>
+					<li><a class="select-category" data-category="education" href="#tri" title="education">Education</a></li>
+					<li><a class="select-category" data-category="narration" href="#tri" title="narration">Narration</a></li>
+					<li><a class="select-category" data-category="personnel" href="#tri" title="personnel">Personnel</a></li>
+					<li><a class="select-category" data-category="reportage" href="#tri" title="reportage">Reportage</a></li>
+					<li><a class="select-category" data-category="sports" href="#tri" title="sports">Sports</a></li>
+					<li><a class="select-category" data-category="voyage" href="#tri" title="voyage">Voyage</a></li>
+					<li><a class="select-category" data-category="clip" href="#tri" title="clip">Clip</a></li>
 				</ul>
 			</nav>
 			<nav>
 				<h5>Musique</h5>
 				<ul>
-					<li><a class="select-category" data-category="pop" href="#" title="pop">Pop</a></li>
-					<li><a class="select-category" data-category="rock" href="#" title="rock">Rock</a></li>
-					<li><a class="select-category" data-category="hiphop" href="#" title="hiphop">HipHop</a></li>
-					<li><a class="select-category" data-category="jazz" href="#" title="jazz">Jazz</a></li>
-					<li><a class="select-category" data-category="classique" href="#" title="classique">Classique</a></li>
-					<li><a class="select-category" data-category="blues" href="#" title="blues">Blues</a></li>
-					<li><a class="select-category" data-category="metal" href="#" title="metal">Metal</a></li>
-					<li><a class="select-category" data-category="rnb" href="#" title="r&amp;b">R&amp;B</a></li>
-					<li><a class="select-category" data-category="reggae" href="#" title="reggae">Reggae</a></li>
-					<li><a class="select-category" data-category="alt" href="#" title="alternative">Alternative</a></li>
-					<li><a class="select-category" data-category="folk" href="#" title="folk">Folk</a></li>
-					<li><a class="select-category" data-category="monde" href="#" title="musique du monde">Musique du monde</a></li>
+					<li><a class="select-category" data-category="pop" href="#tri" title="pop">Pop</a></li>
+					<li><a class="select-category" data-category="rock" href="#tri" title="rock">Rock</a></li>
+					<li><a class="select-category" data-category="hiphop" href="#tri" title="hiphop">HipHop</a></li>
+					<li><a class="select-category" data-category="jazz" href="#tri" title="jazz">Jazz</a></li>
+					<li><a class="select-category" data-category="classique" href="#tri" title="classique">Classique</a></li>
+					<li><a class="select-category" data-category="blues" href="#tri" title="blues">Blues</a></li>
+					<li><a class="select-category" data-category="metal" href="#tri" title="metal">Metal</a></li>
+					<li><a class="select-category" data-category="rnb" href="#tri" title="r&amp;b">R&amp;B</a></li>
+					<li><a class="select-category" data-category="reggae" href="#tri" title="reggae">Reggae</a></li>
+					<li><a class="select-category" data-category="alt" href="#tri" title="alternative">Alternative</a></li>
+					<li><a class="select-category" data-category="folk" href="#tri" title="folk">Folk</a></li>
+					<li><a class="select-category" data-category="monde" href="#tri" title="musique du monde">Musique du monde</a></li>
 				</ul>
 			</nav>
 			
@@ -177,6 +177,7 @@
 
 <?php $this->stop('main_content') ?>
 
+ <!-- Est inséré au layout afin de permettre la mise sous écoute du fomulaire de recherche sans que les résultats ne soient envoyés dans le container de la home d'accueil > -->
 <?php $this->start('js') ?>
       <script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
 <?php $this->stop('js') ?>

@@ -56,15 +56,19 @@
 
       <ul id="main_Menu" class="hide">
         <li><a href="<?=$this->url('home_nolog')?>">Regarder</a></li>
+
+        <!-- Lien "Mettre en ligne" n'apparaît dans le menu que si le user est connecté -->
         <?php if(isset($_SESSION['user'])) { ?>
         <li><a href="<?=$this->url('upload_files')?>">Mettre en ligne</a></li>
         <?php } ?>
         <!--Apparait seulement si non-connecté-->
-        <li><a href="index.html#logger" title="Connection">Connection</a></li>
+        <?php if(!isset($_SESSION['user'])) { ?>
+        <li><a href="<?=$this->url('quickRegister')?>" title="Connexion">Connexion</a></li>
+        <?php } ?>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
         <li><a class="desktop_Hide" href="profil.html" title="Profil">Profil</a></li>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
-        <li><a class="desktop_Hide" href="index.html" title="Deconnection">Deconnection</a></li>
+        <li><a class="desktop_Hide" href="index.html" title="Deconnexion">Déconnexion</a></li>
         <!--Seulement pour smartphone et tablette-->
         <li><a class="desktop_Hide" href="aide.html" title="Aide">Aide</a></li>
         <!--Compte upgrade-->
@@ -86,9 +90,9 @@
        
         
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
-      
+        <!-- balise datalist à placer hors de la balise form pour permettre son affichage -->
         <datalist id="autocomplete">
-
+ 
         </datalist>
       </form>
     </nav>
@@ -162,9 +166,9 @@
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
   <script type="text/javascript" src="<?= $this->assetUrl('js/draganddrop.js') ?>"></script>
 
-    <!-- <section js> -->
+    <!-- <section js : insertion du lien des pages home (connecté et non connecté) > -->
       <?= $this->section('js') ?>
-    <!-- </section js> -->
+    <!-- </section js > -->
 
 <!-- 	</div> -->
 

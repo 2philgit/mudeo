@@ -25,7 +25,7 @@
 		['GET|POST', '/control', 'User#controlProfilModify', 'controlProfilModify'],
 		['GET|POST', '/uploadUser', 'User#uploaduserpicture', 'uploadUserPicture'],
 
-		// recherche
+		// recherche (2 routes différentes si le user est connecté (home_user) ou non (home_nolog) )
 		['GET', '/recherche/', 'Search#search', 'home_user'],
 		['GET', '/recherche/', 'Search#search', 'home_nolog'],
 		['GET', '/autocompletion/', 'Search#completedSearch', 'completed_search'],

@@ -189,6 +189,7 @@
 </div>
 <?php $this->stop('main_content') ?>
 
+ <!-- Est inséré au layout afin de permettre la mise sous écoute du fomulaire de recherche sans que les résultats ne soient envoyés dans le container de la home d'accueil > -->
 <?php $this->start('js') ?>
       <script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
 <?php $this->stop('js') ?>
