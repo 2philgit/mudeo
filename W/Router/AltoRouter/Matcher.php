@@ -22,7 +22,6 @@ class Matcher
 			$controllerFullName = 'Controller\\'.$controllerName."Controller";
 			
 			$controller = new $controllerFullName();
-			
 			//appelle la méthode, en lui passant les paramètres d'URL en arguments 
 			call_user_func_array(array($controller, $methodName), $match['params']);
 		}
