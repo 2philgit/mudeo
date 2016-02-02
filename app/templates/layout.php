@@ -55,8 +55,10 @@
       <h1 id="logo"><a href="<?=$this->url('home')?>" title="mudéo, renvoi à l'accueil"><img src="<?=$this->assetUrl('img_site/logo.png')?>" alt="mudéo"></a></h1>
 
       <ul id="main_Menu" class="hide">
-        <li><a href="<?php//$this->url('')?>">Regarder</a></li>
-        <li><a href="<?php//$this->url('')?>">Mettre en ligne</a></li>
+        <li><a href="<?=$this->url('home_nolog')?>">Regarder</a></li>
+        <?php if(isset($_SESSION['user'])) { ?>
+        <li><a href="<?=$this->url('upload_files')?>">Mettre en ligne</a></li>
+        <?php } ?>
         <!--Apparait seulement si non-connecté-->
         <li><a href="index.html#logger" title="Connection">Connection</a></li>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
@@ -156,7 +158,6 @@
 
    <!--jQuery pour le site-->
   <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
-	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
     <!-- <section js> -->

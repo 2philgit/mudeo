@@ -12,7 +12,12 @@ class FileController extends Controller
 	 */
 	public function uploadFiles()
 	{
-		$this->show('file/upload_files');
+		$user=$this->getUser();
+		if ($user) {
+			$this->show('file/upload_files');
+		} else
+		$this->redirectToRoute('home');
+		
 	}
 
 
