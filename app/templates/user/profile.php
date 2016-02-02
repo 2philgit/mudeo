@@ -8,27 +8,26 @@
 			
 			<!--Nom + date + pays-->
 			<div id="user_Title">
-				<h2><strong>Ross Hang</strong></h2>
-				<p>Inscrit depuis le 21/01/2016</p>
+				<h2><strong><?=$_SESSION['user']['username']?></strong></h2>
+				<p>Inscrit depuis le <?=\dateFormatFR($_SESSION['user']['created'])?></p>
 			</div>
 
 			<!--Photo-->
 			<div id="photo">
-				<img src="img_site/user_big.png" alt="photo de...">
+				<img src="<?=$this->assetUrl('img_site/user/'.$_SESSION["user"]["urlpicture"])?>" alt="photo de...">
 			</div>
 			<!--Pour modifier le profil-->
 			<a id="modify_Button" href="<?=$this->url('profilmodify')?>" title="modifier mon profil"><button>Modifier le profil</button></a>
 			<!--Autre info utilisateur-->
 			<div id="user_Autre">
 				<p><?=$_SESSION['user']['email']?></p>
-				<p><?=$_SESSION['user']['birthday']?></p>
+				<p><?=\dateFormatFR($_SESSION['user']['birthday'])?></p>
 				<p><?=$_SESSION['user']['country']?></p>
 			</div>
 
 			<!--Description de l'utilisateur-->
 			<div id="describe_User">
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p><?=$_SESSION['user']['biography']?></p>
 			</div>
 
 			<!--Ceux qui le suivent-->
