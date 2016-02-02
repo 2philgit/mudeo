@@ -27,7 +27,7 @@
 
 			<!--Description de l'utilisateur-->
 			<div id="describe_User">
-				<p><?=$_SESSION['user']['biography']?></p>
+				<p><?=trim($_SESSION['user']['biography'])?></p>
 			</div>
 
 			<!--Ceux qui le suivent-->

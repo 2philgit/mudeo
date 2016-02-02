@@ -85,47 +85,39 @@ function confirmAccount($token,$subscription){
 }
 
 function uploadUserPicture(){
+// die(var_dump($_FILES));
+	if(!empty($_FILES['photo_user']['name'])){
 
 		$file_name = $_FILES['photo_user']['name'];
-        $file_size = $_FILES['photo_user']['size'];
-        $tmp_file = $_FILES['photo_user']['tmp_name'];
-        $file_type = $_FILES['photo_user']['type'];
-        $error = $_FILES['photo_user']['error'];
-        $size_max = 4194304;
+	    $file_size = $_FILES['photo_user']['size'];
+	    $tmp_file = $_FILES['photo_user']['tmp_name'];
+	    $file_type = $_FILES['photo_user']['type'];
+	    $error = $_FILES['photo_user']['error'];
+	    $size_max = 4194304;
 
 		$file_name = preg_replace("/[^a-zA-Z0-9.]/", "", $file_name);
 
 		$content_dir = "assets/img_site/user/";
-					
-				if( !is_uploaded_file($tmp_file) )
-				{
-					exit("Le fichier est introuvable");
-				}
-				
-
-				if( !move_uploaded_file($tmp_file, $content_dir.$file_name ) )
-				{
-					
-					exit("Impossible de copier l'image ");
-
-				}
-				else
-				{
-
-					//on insere en BDD
-
-
-				// $userManager->update([
-				// 	"urlpicture" => $file_name,
-				// 	]);
-				// }
 			
-}
+		if(!is_uploaded_file($tmp_file)){
 
+			$_SESSION['error']['controlProfilModify'] = "Le fichier est introuvable";
+			return "";
 
+		}elseif(!move_uploaded_file($tmp_file, $content_dir.$file_name)){
+			
+			$_SESSION['error']['controlProfilModify'] = "Impossible de copier l'image ";
+			return "";
+		}
+		else{
+			$_SESSION['error']['controlProfilModify'] = "Votre profil a bien été modifié ! ";
+			return $file_name;
+		}
 
-		
-		return $file_name;
+	}else{
 
+		$_SESSION['error']['controlProfilModify'] = "Votre profil a bien été modifié ! ";
+		return $_SESSION['user']['urlpicture'];
+	}
 }
 

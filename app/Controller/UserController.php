@@ -112,7 +112,7 @@ die('uig');
 						if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 
 							$urlphoto = \uploadUserPicture(); 
-							
+							//die($urlphoto);
 							$usermanager = new \Manager\UserManager();
 							$usermanager->update([
 
@@ -121,7 +121,7 @@ die('uig');
 							'email' => $email,
 							'birthday' => $birthday,
 							'country' => $country,
-							'biography' => $bio,
+							'biography' => trim($bio),
 							],$_SESSION['user']['id']);
 
 							$user = $usermanager->getUserByUsernameOrEmail($email);
@@ -129,7 +129,7 @@ die('uig');
 							$auth = new \W\Security\AuthentificationManager();
 							$auth->logUserIn($user);
 
-							$_SESSION['error']['controlProfilModify'] = "Votre profil a bien été modifié ! ";
+							// $_SESSION['error']['controlProfilModify'] = "Votre profil a bien été modifié ! ";
 
 						}else{
 							$_SESSION['error']['controlProfilModify'] = "L'email n'est pas dans un format valide ! ";
