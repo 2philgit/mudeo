@@ -84,3 +84,50 @@ function confirmAccount($token,$subscription){
 	return $response;
 }
 
+function uploadUserPicture(){
+
+		$file_name = $_FILES['photo_user']['name'];
+        $file_size = $_FILES['photo_user']['size'];
+        $tmp_file = $_FILES['photo_user']['tmp_name'];
+        $file_type = $_FILES['photo_user']['type'];
+        $error = $_FILES['photo_user']['error'];
+        $size_max = 4194304;
+die($file_name);
+		$file_name = preg_replace("/[^a-zA-Z0-9.]/", "", $file_name);
+
+		
+				$avatar="$dir_img.$file_name";	
+
+				die($avatar);	
+				
+				
+
+				if( !move_uploaded_file($tmp_file, $content_dir.$dir_img . $file_name ) )
+				{
+					
+					exit("Impossible de copier l'image ");
+
+				}
+				else
+				{
+
+					//on insere en BDD
+
+
+				$userManager->update([
+					"urlpicture" => $file_name,
+					]);
+				}
+			
+
+
+
+
+		if( !is_uploaded_file($tmp_file) )
+		{
+			exit("Le fichier est introuvable");
+		}
+		return $file_name;
+
+}
+

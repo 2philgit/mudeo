@@ -100,23 +100,26 @@ die('uig');
 		if($_POST){		
 
 				//if(\isIsset($_POST)){
-
+					
 					if(isset($_POST['nom'])) $login = $_POST['nom'];
-					if(isset($_POST['photo_user'])) $photo = $_POST['photo_user'];
+					
+					if(isset($_POST['photo_user'])) { $urlphoto = \uploadUserPicture(); }
+
 					if(isset($_POST['user_mail'])) $email = $_POST['user_mail'];
 					if(isset($_POST['birthday'])) $birthday = $_POST['birthday'];
 					if(isset($_POST['country'])) $country = $_POST['country'];
 					if(isset($_POST['bio'])) $bio = $_POST['bio'];
-
+//die();
 					if(preg_match("#^([A-Z]|[a-z])(a-z)*(_)?[a-z]+$#", $login)){
 
 						if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 
+							
 							$usermanager = new \Manager\UserManager();
 							$usermanager->update([
 
 							'username' => $login,
-							'urlpicture' => $photo,
+							'urlpicture' => "img_site/user/".$urlphoto,
 							'email' => $email,
 							'birthday' => $birthday,
 							'country' => $country,
@@ -146,6 +149,5 @@ die('uig');
 		$this->redirectToRoute('profilmodify');
 
 	}
-
-
 }
+

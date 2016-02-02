@@ -20,6 +20,7 @@
 		['GET|POST', '/controlPassword/[:id]', 'User#controlChangePassword', 'controlChangePassword'],
 		['GET|POST', '/profileModify', 'User#profilmodify', 'profilmodify'],
 		['GET|POST', '/control', 'User#controlProfilModify', 'controlProfilModify'],
+		['GET|POST', '/uploadUser', 'User#uploaduserpicture', 'uploadUserPicture'],
 		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
 		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
 	);

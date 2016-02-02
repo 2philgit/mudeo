@@ -6,7 +6,7 @@
 	<section id="modif_Profil" class="wrap">
 		<h2>Modifier mon profil</h2>
 		<!--Formulaire de modification du profil-->
-		<form id="modify_Form" action="<?=$this->url('controlProfilModify')?>" method="POST" novalidate>
+		<form enctype="multipart/form-data" id="modify_Form" action="<?=$this->url('controlProfilModify')?>" method="POST">
 			<div id="nom" class="field_Box">
 				<h3>Login</h3>
 				<p class="add_Min">Comment voulez-vous que l'on vous appelles?</p>
@@ -18,7 +18,7 @@
 			<div id="photo_Profil" class="field_Box">
 				<h3>Photo de profil</h3>
 				<p class="add_Min">Les formats .jpg, .png, .gif sont acceptés. Taille 400 x 400px maximum</p>
-				<input type="file" name="photo_User" value="Télécharger une photo" accept="image/png, image/jpg, image/gif">
+				<input id="uploadUserPicture" type="file" name="photo_user" accept="image/png, image/jpg, image/gif"/>
 				<!-- <div class="error">
 					<h6>Le format d'image n'est pas valide !</h6>
 				</div> -->
