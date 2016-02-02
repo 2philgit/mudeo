@@ -70,11 +70,11 @@ class FileManager extends \W\Manager\Manager {
 				//////////////////////////SELECT * FROM films,acteurs,films_acteurs WHERE films.id=film_id AND acteur_id=acteurs.id 
 				// SELECT * FROM `likes-files` WHERE `user_id` = 4 
 				// SELECT file_id FROM `likes-files` WHERE `user_id` = 4 
-				if ($_GET['column'] == "like_me") {
-					$selectSearch = " user_id = " . $_SESSION['user']['id'];                                                                                               ;
-					$column = "created";
+				//if ($_GET['column'] == "like_me") {
+				//	$selectSearch = " user_id = " . $_SESSION['user']['id'];                                                                                               ;
+				//	$column = "created";
 					//$order = "DESC";
-				}
+				//}
 
 
 				if ($_GET['category']) {

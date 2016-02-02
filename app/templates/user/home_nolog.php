@@ -26,20 +26,7 @@
 				</ul>
 			</nav>
 		</div>
-		
-		<!--Barre secondaire pour les utilisateurs connectés-->
-		<div id="tri_Second">
-			<nav>
-				<ul>
-					<!--class="selected_2" pour le tri sélectionner (nouveautés par défaut)-->
-					<li><a id="tri_New" class="selected_2 select-mode" data-column="created" data-order="DESC" href="#" title="Voir les nouveaux contenus">Nouveautés</a></li>
-					<li><a id="tri_Pop" class="select-mode" data-column="nb_like" data-column="created" data-order="DESC" href="#" title="Voir les plus populaires">Popularité</a></li>
-					<li><a id="tri_Like" class="select-mode" data-column="nb_like" data-order="DESC" href="#" title="Voir mes contenus préférés">J'aime</a></li>
-					<li><a id="tri_Mine" class="select-mode" data-column="upload&user" data-order="DESC" href="#" title="Voir mes contenus">Upload</a></li>
-				</ul>
-			</nav>
-		</div>
-	</section>
+		<p>HOME NO LOG</p>
 
 	<!-- ******************************* -->
 	<!-- Affichage de ce qui a été recherché ainsi que le nombre d'éléments trouvés -->
@@ -84,7 +71,7 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-						<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+						<img class="poster_Img" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 						<audio id="mamusique" class="clearfix" controls>
 						    <source src="<?=$this->assetUrl('medias/files/musics/asap.mp3')?>" type="audio/mp3">
 

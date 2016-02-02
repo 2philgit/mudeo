@@ -1,8 +1,3 @@
-/*Menu Recherche home*/
-
-// par défaut menu caché, il apparaîtra lorsqu'une recherche aura été effectuée
-$("#tri_Section").hide(); 
-
 // initialisation de l'objet requête recherche
 // par défaut : tri par ordre alphabétique (A>Z) sur tous les médias (vidéo et musique) toutes catégories
 obj_search = {
@@ -69,7 +64,7 @@ function doSearch(){
 		$('#search-result').html(""); // On remplace le contenu du html par une chaîne vide
 
 		if (response.length != 0) {
-			
+			"Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length
 			// line_result initialisé au début de ".done"
 			if (obj_search.input_search !="") { 
 				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length;
@@ -78,10 +73,10 @@ function doSearch(){
 			}
 
 			line_result.html(str_result); // On affiche le nb de résultats de la recherche
-			$('#search-result').append(line_result);
+			$('.search-result').append(line_result);
 
 			if (obj_search.type == "video") {
-				 console.log("VIDEO");
+				 console.log("VIDEO" + obj_search.type);
 				// vider la liste
 				$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
 
@@ -93,43 +88,43 @@ function doSearch(){
 					// var author = user_id;
 					var category = show.category;
 					var date = show.created;
-					//date = convertDate(date);
 
 					// on crée une balise figure et on lui ajoute la classe clearfix
 					var figure = $("<figure>");
 					figure.addClass("clearfix");
 
-					// on crée une balise vidéo et on lui ajoute l'id mavideo
+					// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mavideo
 					var video = $("<video>");
-					video.attr("id", "mavideo").attr("controls", "");
+					video.addClass("clearfix").attr("id", "mavideo").attr("controls", "");
 
-					// on crée une balise source à laquelle on ajoute les attributs src et type
+					// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mavideo
 					var source = $("<source>");
 					source.attr("src", "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4");
 					source.attr("type", "video/mp4");
 
 					var p = $("<p>");
-					p.addClass("alert").html("Balise vidéo non supportée par le navigateur. Veuillez le mettre à jour");
+					p.addClass("alert").html("Votre navigateur ne supporte pas la balise vidéo ! Mettez-le à jour !");
 
 
-					// on crée une balise figcaption
+					// on crée une balise figcaption et on lui ajoute la classe clearfix
 					var figcaption = $("<figcaption>");
+					figcaption.addClass("clearfix");
 					
 
-					// on crée une balise div et on lui ajoute la classe info_Top
+					// on crée une balise div et on lui ajoute les classes info_Top clearfix
 					var div = $("<div>");
-					div.addClass("info_Top");
+					div.addClass("info_Top clearfix");
 
 					var h3 = $("<h3>");
 					h3.append('<a href="content.html" title="Voir la vidéo">' + title + '</a>');
 
 					var span = $("<span>");
-					span.addClass("social_Nav").append('<a id="none" class="follow" href="" title="Suivre l\'auteur"><button>Suivre</button></a><a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j\'aime"></a>');
+					span.addClass("social_Nav").append('<a id="none" class="follow" href="" title="Suivre l\'auteur"><button>Suivre</button></a><a id="none" class="like" href="" title="Aimer le contenu"><img src="assets/img_site/like.png" alt="j\'aime"></a>');
 
 
-					// on crée une nouvelle balise div et on lui ajoute la classe info_Bottom
+					// on crée une nouvelle balise div et on lui ajoute les classes info_Bottom clearfix
 					var d = $("<div>");
-					d.addClass("info_Bottom").append('<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>');
+					d.addClass("info_Bottom clearfix").append('<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>');
 
 					var sp = $("<span>");
 					sp.addClass("author").append('<h4>' + author + '</h4><p>publier le ' + date + "21/01/2016" + '</p>');
@@ -150,7 +145,7 @@ function doSearch(){
 			
 			} else { // le type, c'est de la musique ;)
 
-				console.log("MUSIQUE");
+				console.log("MUSIQUE" + obj_search.type);
 
 				// vider la liste
 				$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
@@ -161,48 +156,53 @@ function doSearch(){
 					var user_id = show.user_id;
 					var author = show.author;
 					// var author = user_id;
+					// var url_file = "<?=$this->assetUrl('../musics/asap.mp3')?>";
 					var category = show.category;
 					var date = show.created;
-					//date = convertDate(date);
 					var url_file = show.url_file;
 
 					// on crée une balise figure et on lui ajoute la classe clearfix
 					var figure = $("<figure>");
 					figure.addClass("clearfix");
 
-					// on crée une balise vidéo et on lui ajoute l'id mamusique
-					var video = $("<video>");
-					video.attr("id", "mamusique").attr("controls", "").attr("poster","<?=$this->assetUrl('img_site/moutainsmin.jpg')?>");
+					// on crée une balise div et on lui ajoute la classe poster 
+					var da= $("<div>");
+					da.addClass("poster");
 
-					// on crée une balise vidéo et on lui ajoute la classe clearfix et l'id mamusique
+					// on crée une balise img et on lui ajoute l'id poster
+					var img= $("<img>");
+					img.attr("id", "poster").attr("src","assets/img_site/moutainsmin.jpg");
+
+					// on crée une balise audio et on lui ajoute la classe clearfix et l'id mamusique 
+					var audio= $("<audio>");
+					audio.addClass("clearfix").attr("id", "mamusique").attr("controls","");
+
+					// on crée une balise source
 					var source = $("<source>");
-					// console.log(obj_search.url_file);
-					// source.attr("src", url_file);
-					//source.attr("src", "<?=$this->assetUrl('medias/files/musics/asap.mp3')?>");
-					source.attr("src", "<?=$this->assetUrl('medias/files/musics/asap.mp3')?>").attr("type", "audio/mp3");
+					source.attr("src", "assets/musics/asap.mp3").attr("type", "audio/mp3");
 
 					var p = $("<p>");
-					p.addClass("alert").html("Balise video non supportée par le navigateur. Veuillez le mettre à jour");
+					p.addClass("alert").html("Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !");
 
 
-					// on crée une balise figcaption
+					// on crée une balise figcaption et on lui ajoute la classe clearfix
 					var figcaption = $("<figcaption>");
+					figcaption.addClass("clearfix");
 					
 
-					// on crée une balise div et on lui ajoute la classe info_Top
+					// on crée une balise div et on lui ajoute les classes info_Top clearfix
 					var div = $("<div>");
-					div.addClass("info_Top");
+					div.addClass("info_Top clearfix");
 
 					var h3 = $("<h3>");
 					h3.append('<a href="content.html" title="écouter la musique">' + title + '</a>');
 
 					var span = $("<span>");
-					span.addClass("social_Nav").append('<a id="none" class="follow" href="" title="Suivre l\'auteur"><button>Suivre</button></a><a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j\'aime"></a>');
+					span.addClass("social_Nav").append('<a id="none" class="follow" href="" title="Suivre l\'auteur"><button>Suivre</button></a><a id="none" class="like" href="" title="Aimer le contenu"><img src="assets/img_site/like.png" alt="j\'aime"></a>');
 
-
-					// on crée une nouvelle balise div et on lui ajoute la classe info_Bottom
+					// on crée une nouvelle balise div et on lui ajoute les classes info_Bottom clearfix
 					var d = $("<div>");
-					d.addClass("info_Bottom").append('<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>');
+					d.addClass("info_Bottom clearfix").append('<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>');
 
 					var sp = $("<span>");
 					sp.addClass("author").append('<h4>' + author + '</h4><p>publier le ' + date + "21/01/2016" + '</p>');
@@ -215,8 +215,9 @@ function doSearch(){
 					$(d).append(sp);
 					$(div).append(h3).append(span);
 					$(figcaption).append(div).append(d);
-					$(video).append(source).append(p);
-					$(figure).append(video);
+					$(audio).append(source).append(p);
+					$(da).append(img).append(audio);
+					$(figure).append(da);
 					$(figure).append(figcaption);
 					$('#content_Container').append(figure);
 
@@ -228,7 +229,7 @@ function doSearch(){
 
 			console.log("AUCUN RESULTATS");
 			line_result.html("Aucun résultat");
-			$('#search-result').append(line_result);
+			$('.search-result').append(line_result);
 			// $('#content_Container').html("Nous sommes désolés, aucun élément ne correspond à votre recherche. <br/> Veuillez reformuler votre demande.");
 
 			console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);

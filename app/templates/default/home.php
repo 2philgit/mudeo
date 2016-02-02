@@ -343,6 +343,5 @@
 
 	</section>
 	
-	<script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search-logout.js') ?>"></script>
 
 <?php $this->stop('main_content') ?>

@@ -40,7 +40,7 @@
 			</nav>
 		</div>
 	</section>
-
+	<p>HOME LOGGGG</p>
 	<!-- ******************************* -->
 	<!-- Affichage de ce qui a été recherché ainsi que le nombre d'éléments trouvés -->
 	<section class="search-result clearfix">
@@ -163,7 +163,7 @@
 			<nav>
 				<h5>Musique</h5>
 				<ul>
-					<li><a class="select-category" data-category="pop" href="#" title="pop">Pop</a></li>
+					<li><a class="select-category" data-category="pop" data-type="musique" href="#" title="pop">Pop</a></li>
 					<li><a class="select-category" data-category="rock" href="#" title="rock">Rock</a></li>
 					<li><a class="select-category" data-category="hiphop" href="#" title="hiphop">HipHop</a></li>
 					<li><a class="select-category" data-category="jazz" href="#" title="jazz">Jazz</a></li>

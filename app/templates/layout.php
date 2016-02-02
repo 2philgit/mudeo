@@ -195,7 +195,7 @@
     <!--Champs de recherche-->
       <form id="search_Field" method="GET" action="<?php if(isset($_SESSION['user'])) { 
                                                     echo $this->url('home_user'); 
-                                                    } else { echo $this->url('home'); 
+                                                    } else { echo $this->url('home_nolog'); 
                                                     }
                                                     ?>" novalidate> 
         <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input>
@@ -270,6 +270,7 @@
   <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
+  
 
 <!-- 	</div> -->
 

@@ -19,7 +19,7 @@ class SearchController extends Controller
 			//$this->show('search/home_user');
 		} else
 		//(die("pas connecté"));
-		$this->show('default/home');
+		$this->show('user/home_nolog');
 
 	}
 
