@@ -100,11 +100,8 @@ die('uig');
 		if($_POST){		
 
 				//if(\isIsset($_POST)){
-					
+					//die(var_dump($_FILES));
 					if(isset($_POST['nom'])) $login = $_POST['nom'];
-					
-					if(isset($_POST['photo_user'])) { $urlphoto = \uploadUserPicture(); }
-
 					if(isset($_POST['user_mail'])) $email = $_POST['user_mail'];
 					if(isset($_POST['birthday'])) $birthday = $_POST['birthday'];
 					if(isset($_POST['country'])) $country = $_POST['country'];
@@ -114,12 +111,13 @@ die('uig');
 
 						if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 
+							$urlphoto = \uploadUserPicture(); 
 							
 							$usermanager = new \Manager\UserManager();
 							$usermanager->update([
 
 							'username' => $login,
-							'urlpicture' => "img_site/user/".$urlphoto,
+							'urlpicture' => $urlphoto,
 							'email' => $email,
 							'birthday' => $birthday,
 							'country' => $country,

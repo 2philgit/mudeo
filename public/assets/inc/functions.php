@@ -92,17 +92,18 @@ function uploadUserPicture(){
         $file_type = $_FILES['photo_user']['type'];
         $error = $_FILES['photo_user']['error'];
         $size_max = 4194304;
-die($file_name);
+
 		$file_name = preg_replace("/[^a-zA-Z0-9.]/", "", $file_name);
 
-		
-				$avatar="$dir_img.$file_name";	
-
-				die($avatar);	
+		$content_dir = "assets/img_site/user/";
+					
+				if( !is_uploaded_file($tmp_file) )
+				{
+					exit("Le fichier est introuvable");
+				}
 				
-				
 
-				if( !move_uploaded_file($tmp_file, $content_dir.$dir_img . $file_name ) )
+				if( !move_uploaded_file($tmp_file, $content_dir.$file_name ) )
 				{
 					
 					exit("Impossible de copier l'image ");
@@ -114,19 +115,16 @@ die($file_name);
 					//on insere en BDD
 
 
-				$userManager->update([
-					"urlpicture" => $file_name,
-					]);
-				}
+				// $userManager->update([
+				// 	"urlpicture" => $file_name,
+				// 	]);
+				// }
 			
+}
 
 
 
-
-		if( !is_uploaded_file($tmp_file) )
-		{
-			exit("Le fichier est introuvable");
-		}
+		
 		return $file_name;
 
 }
