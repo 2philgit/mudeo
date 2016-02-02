@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 //scroll
 $('a[href^="#"]').click(function(){
 	var the_id = $(this).attr("href");
+=======
+	//scroll
+   $('a[href^="#"]').click(function(){
+		var the_id = $(this).attr("href");
+>>>>>>> origin/jerem
 
 	$('html, body').animate({
 		scrollTop:$(the_id).offset().top
@@ -57,6 +63,7 @@ $("#forget_Mdp").on("click", function(e){
 });
 /*fin MDP oublié*/
 
+<<<<<<< HEAD
 
 /*Stop la lecture si l'élément n'est plus visible dans le navigateur*/
 //Fonction trouvée sur Stack Overflow
@@ -76,6 +83,43 @@ $(document).on("scroll", function() {
 	  	}
 	})
 });
+=======
+	
+	/*Stop la lecture si l'élément n'est plus visible dans le navigateur*/
+	//Fonction trouvée sur Stack Overflow
+	function isInView(el) {
+		var rect = el.getBoundingClientRect();           // absolute position of video element
+	  	return !(rect.top > $(window).height() || rect.bottom < 0);   // visible?
+	}
+	
+	$(document).on("scroll", function() {
+	  	$(".player").each(function() {
+	  		//Si c'est visible
+		    if (isInView($(this)[0])) {
+		      	//On test que le contenu n'est pas déjà en pause, auquel cas on le met en pause
+		      	if (!$(this)[0].paused){
+		      	 	$(this)[0].pause();
+		      	} 
+		  	}
+		})
+	});
+
+	/*Arrête de lire le contenu si un autre est activé*/
+	$(".player").each(function(){
+		$(this).bind("play", stopPlaying); 
+	})
+
+	function stopPlaying(e){
+		var currentPlayingId = $(e.currentTarget).attr("id");
+		$(".player").each(function(){
+			var elementId = $(this).attr("id");
+			if(elementId != currentPlayingId){
+				$(this)[0].pause();
+			}
+		});
+	}
+	/**IMPORTANT : RAJOUTER LA CLASSE PLAYER SUR LES BALISE VIDEO ET AUDIO**/
+>>>>>>> origin/jerem
 
 
 /*Arrête de lire le contenu si un autre est activé*/
