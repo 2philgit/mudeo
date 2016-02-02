@@ -1,6 +1,7 @@
 <?php
 	
 	$w_routes = array(
+
 		['GET|POST', '/', 'Default#home', 'home'],
 
 		// user
@@ -23,10 +24,14 @@
 		['GET|POST', '/profileModify', 'User#profilmodify', 'profilmodify'],
 		['GET|POST', '/control', 'User#controlProfilModify', 'controlProfilModify'],
 		['GET|POST', '/uploadUser', 'User#uploaduserpicture', 'uploadUserPicture'],
-		// ['GET|POST', '/connect-with-facebook', 'Facebooklogin#login', 'facebooklogin'],
-		// ['GET|POST', '/fb-callback', 'Facebooklogin#fbcallback', 'fbcallback'],
-		['GET', '/recherche/', 'Search#search', 'home_user'], // search_home home_user?????
-		['GET', '/recherche/', 'Search#search', 'home_nolog'], // search_home home_user?????
-		//['GET', '/recherche/', 'Search#resultSearch', 'home_search'],
+
+		// recherche
+		['GET', '/recherche/', 'Search#search', 'home_user'],
+		['GET', '/recherche/', 'Search#search', 'home_nolog'],
 		['GET', '/autocompletion/', 'Search#completedSearch', 'completed_search'],
+
+		// file upload
+		['GET|POST', '/telechargement/video/','File#uploadFiles','upload_files' ],
+		['POST', '/telechargement/video/add','File#addFiles','add_files' ],
+		
 	);

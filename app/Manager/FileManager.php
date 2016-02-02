@@ -106,4 +106,14 @@ class FileManager extends \W\Manager\Manager {
 		//}
 
 	}
+
+
+// namespace Manager;
+
+
+
+// class FileManager extends \W\Manager\Manager
+// {
+	
+	
 }
