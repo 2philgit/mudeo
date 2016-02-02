@@ -42,7 +42,7 @@
 		<div id="content_Container">
 		<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" class="clearfix" controls>
+				<video id="mavideo" class="clearfix player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -72,7 +72,7 @@
 			<figure class="clearfix">
 				<div class="poster">
 						<img class="poster_Img" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
-						<audio id="mamusique" class="clearfix" controls>
+						<audio id="mamusique" class="clearfix player" controls>
 						    <source src="<?=$this->assetUrl('medias/files/musics/asap.mp3')?>" type="audio/mp3">
 
 						    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
@@ -98,7 +98,7 @@
 			</figure>
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
-				<video id="mamusique" class="clearfix" controls poster="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+				<video id="mamusique" class="clearfix player" controls poster="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 				    <source src="<?=$this->assetUrl('medias/files/musics/asap.mp3')?>" type="audio/mp3">
 
 				    <p class="alert">Votre navigateur ne supporte pas la balise video ! Mettez-le à jour !</p>
@@ -175,6 +175,8 @@
 	</section>
 </div>
 
-      <script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
-
 <?php $this->stop('main_content') ?>
+
+<?php $this->start('js') ?>
+      <script type="text/javascript" src="<?= $this->assetUrl('js/autocompleted-search.js') ?>"></script>
+<?php $this->stop('js') ?>

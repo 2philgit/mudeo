@@ -33,7 +33,7 @@ DECLARATION DES FONCTIONS UTILISEES DANS CE SCRIPT
 ***/
 
 // fonction pour construire le html pour les fichiers vidéo
-function buildFigureVideo(author, title, date) {
+function buildFigureVideo(id_file, author, title, date) {
 	
 	console.log("VIDEO" + obj_search.type);
 
@@ -41,9 +41,9 @@ function buildFigureVideo(author, title, date) {
 	var fig_v = $("<figure>");
 	fig_v.addClass("clearfix");
 
-	// création de la balise vidéo et ajout de la classe clearfix et l'id mavideo (+ ajout de l'attribut controls)
+	// création de la balise vidéo et ajout des classes clearfix et player ainsi que l'id mavideo (+ ajout de l'attribut controls)
 	var video = $("<video>");
-	video.addClass("clearfix").attr("id", "mavideo").attr("controls", "");
+	video.addClass("clearfix player").attr("id", id_file ).attr("controls", "");
 
 	// création de la balise source et ajout de ses attributs et valeurs  A REVOIR (à décomposer) 
 	var source_v = $("<source>");
@@ -90,7 +90,7 @@ function buildFigureVideo(author, title, date) {
 }
 
 // fonction pour construire le html pour les fichiers audio
-function buildFigureMusique(author, title, date) {
+function buildFigureMusique(id_file, author, title, date) {
 	
 	console.log("MUSIQUE" + obj_search.type);
 
@@ -102,17 +102,17 @@ function buildFigureMusique(author, title, date) {
 	var dv_m= $("<div>");
 	dv_m.addClass("poster");
 
-	// création de la balise img et ajout de l'id poster (avec 1 attribut src)
+	// création de la balise img et ajout de la classe poster_Img (avec 1 attribut src)
 	var img= $("<img>");
-	img.attr("id", "poster").attr("src","assets/img_site/moutainsmin.jpg");
+	img.addClass("poster_Img").attr("src", assetUrl + "img_site/moutainsmin.jpg");
 
-	// création de la balise audio et ajout de la classe clearfix et l'id mamusique (+ ajout de l'attribut controls)
+	// création de la balise vidéo et ajout des classes clearfix et player ainsi que l'id mamusique (+ ajout de l'attribut controls)
 	var audio= $("<audio>");
-	audio.addClass("clearfix").attr("id", "mamusique").attr("controls","");
+	audio.addClass("clearfix player").attr("id", "mamusique").attr("controls","");
 
 	// création de la balise source et ajout de ses attributs et valeurs  A REVOIR (à décomposer) 
 	var source_m = $("<source>");
-	source_m.attr("src", "assets/musics/asap.mp3").attr("type", "audio/mp3");
+	source_m.attr("src", assetUrl + "musics/asap.mp3").attr("type", "audio/mp3");
 
 	// création de la balise p et ajout de la classe alert et d'un message (en cas d'erreur de chargement)
 	var p_m = $("<p>");
@@ -201,8 +201,8 @@ function doSearch(){
 		$('.search-result').html(""); // On remplace le contenu du html par une chaîne vide
 
 		if (response.length != 0) {
-			"Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length
-			// line_result initialisé au début de ".done"
+		
+			// line_result initialisée au début de ".done"
 			if (obj_search.input_search !="") { 
 				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length;
 			} else { 
@@ -218,6 +218,7 @@ function doSearch(){
 			for (var i = 0; i < response.length; i++) {
 				var show = response[i];
 				var title = show.title;
+				var id_file = show.id;  // pour créer un balise id portant l'id des fichiers (id unique) qui permettra d'arrêter la lecture d'un fichier lorsqu'une lecture est lancée sur un autre fichier
 				var user_id = show.user_id;
 				var author = show.author;
 				// var author = user_id;
@@ -229,10 +230,10 @@ function doSearch(){
 
 
 				if (type == "vidéo") {
-					buildFigureVideo(author, title, date);
+					buildFigureVideo(id_file, author, title, date);
 
 				} else { // le type, c'est de la musique ;)
-					buildFigureMusique(author, title, date);
+					buildFigureMusique(id_file, author, title, date);
 					} // fin condition "musique"
 
 			} // fin du for "musique"
@@ -241,7 +242,17 @@ function doSearch(){
 			// vider la liste
 			$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
 			console.log("AUCUN RESULTATS");
-			line_result.html("Aucun résultat");
+
+			// line_result initialisée au début de ".done"
+			if (obj_search.input_search !="") { 
+				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Aucun résultat. Veuillez effectuer une nouvelle recherche.";
+			} else { 
+				str_result = "Aucun résultat. Veuillez effectuer une " +  "nouvelle recherche.";
+			}
+
+			line_result.html(str_result); // On affiche le nb de résultats de la recherche
+			$('.search-result').append(line_result);
+			// line_result.html("Aucun résultat");
 			$('.search-result').append(line_result);
 			// $('#content_Container').html("Nous sommes désolés, aucun élément ne correspond à votre recherche. <br/> Veuillez reformuler votre demande.");
 
@@ -255,23 +266,26 @@ function doSearch(){
 	})
 	.always(function(response){	// sera excécuté dans tous les cas
 
+		// if (hasClass("selected_2") || $("#search").val() == "" ) {
+		// 	console.log("NOUVELLE RECHERCHE");
+		// }
 		// test s'il y a un drapeau sur les types et les catégories
 		// = teste si une recherche a déjà été effectué avec ces critères
-		if (category_flag || type_flag) {
+		// if (category_flag || type_flag) {
 
-			// Réinitialisation de variables 
-			obj_search = {
-			"input_search": "",
-			"column" :"title",
-			"order": "ASC",
-			"type": "vm",
-			"category": ""
-			}
+		// 	// Réinitialisation de variables 
+		// 	obj_search = {
+		// 	"input_search": "",
+		// 	"column" :"title",
+		// 	"order": "ASC",
+		// 	"type": "vm",
+		// 	"category": ""
+		// 	}
 
-			type_flag = false;
-			category_flag = false;
+		// 	type_flag = false;
+		// 	category_flag = false;
 
-		}
+		// }
 		console.log("flag type :" + type_flag + " category :" + category_flag);
 	});
 }
@@ -306,13 +320,14 @@ LES MISES SOUS ECOUTES
 ***/
 
 // mise sous écoute du champ de recherche
+
 $("#search").on("keyup", autocompletedSearch);
 
-// mise sous écoute du bouton de recherche
-$('#search_Icon').on("click", function(e) {
+// mise sous écoute du formulaire de recherche
+$('#search_Field').on("submit", function(e) {
 	//alert('Cliccckkkkk');
 	e.preventDefault(); // pour éviter le fonctionnement normal du champ (renvoi de la demande/clic répétitif)
-	doSearch();
+	autocompletedSearch(); // à l'orogine doSearch() appellée, mais chgt pour récupérer les données dans le champ formulaire
 });
 
 
@@ -320,9 +335,8 @@ $('#search_Icon').on("click", function(e) {
 
 // pour les types (vidéo ou musique)
 $(".select-type").click(function(){
-
 	type_flag = true;
-	console.log("click type" + category_flag);
+	console.log("click type : " + type_flag);
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
 	if (typeof obj_search.type !== 'undefined') {
@@ -355,9 +369,9 @@ $(".select-mode").click(function(){
 
 // pour les catégories
 $(".select-category").click(function(){
-
+	type_flag = true;
 	category_flag = true;
-	console.log("click category  " + category_flag);
+	console.log("click category  " + type_flag + category_flag);
 
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
@@ -403,10 +417,25 @@ $("#tri_Complet a").click(function() {
  	$(this).addClass("selected_2");
  });
 
+// /* compteurs pour réinitialisation de la recherche */
+// function counter_click() {
+
+// 	if (counterClickType <3) { counterClickType +=1; } else { init_search();} 
+// 	if (counterClickMode <3) { counterClickMode +=1; } else { init_search();} 
+// 	if (counterClickCategory <3) { counterClickCategory +=1; } else { init_search();} 
+// }
+
+// function init_search {
+// 	counter_clickType = 0;
+// 	counter_clickMode = 0;
+// 	counter_clickCategory = 0;
+// }
+
 /* FIN DU CODE POUR LE MENU DE RECHERCHE (CE QUI EST SELECTIONNÉ) */
 
 /*** 
 FIN DES MISES SOUS ECOUTES 
 ***/
 
-
+/* Appel du submit du formulaire pour afficher le résultat de la recherche dans la home (connecté ou non)*/
+$('#search_Field').submit();

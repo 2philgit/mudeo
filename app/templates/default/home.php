@@ -103,7 +103,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo" class="clearfix player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -133,7 +133,7 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-					<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+					<img class="poster_Img" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 					<audio id="mamusique" class="clearfix" controls>
 					    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
 
@@ -161,7 +161,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo" class="clearfix player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -190,7 +190,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo" class="clearfix player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -219,7 +219,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo" class="clearfix player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -249,7 +249,7 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-					<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+					<img class="poster_Img" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 					<audio id="mamusique" class="clearfix" controls>
 					    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
 
@@ -277,7 +277,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo" class="clearfix player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -307,7 +307,7 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-					<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
+					<img class="poster_Img" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 					<audio id="mamusique" class="clearfix" controls>
 					    <source src="<?=$this->assetUrl('musics/asap.mp3')?>" type="audio/mp3">
 
@@ -342,6 +342,5 @@
 		</div>
 
 	</section>
-	
 
 <?php $this->stop('main_content') ?>

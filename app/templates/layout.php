@@ -198,7 +198,7 @@
                                                     } else { echo $this->url('home_nolog'); 
                                                     }
                                                     ?>" novalidate> 
-        <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input>
+        <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" value="<?php if (!empty($_GET['input_search'])) {echo $_GET['input_search']; }?>" autocomplete="off"></input>
         <!-- <input id="search" type="search" name="input_search" data-url="<?php //echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" autocomplete="off"></input> -->
         <datalist id="autocomplete">
 
@@ -266,11 +266,18 @@
     </section>
   </footer>
 
+<script type="text/javascript">
+  var assetUrl = "<?=$this->assetUrl('')?>";
+</script>
+
    <!--jQuery pour le site-->
   <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
-  
+
+    <!-- <section js> -->
+      <?= $this->section('js') ?>
+    <!-- </section js> -->
 
 <!-- 	</div> -->
 
