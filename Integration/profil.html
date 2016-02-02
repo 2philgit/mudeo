@@ -1,6 +1,59 @@
-<?php $this->layout('layout', ['title' => 'Profile']) ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mudéo | Entre musique et vidéo</title>
+	<!--Tag for responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery CDN-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--Recaptcha Google-->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--CSS/reset+perso-->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--Font-->
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="img_site/favicon.png" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+</head>
+<body>
 
-<?php $this->start('main_content') ?>
+	<!--Header-->
+	<header id="top_Anchor">
+		<nav class="wrap">
+
+			<!--Pour smartphone et tablette-->
+			<h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+			<!--Burger menu-->
+			<span id="burger_Menu"></span>
+			<!--Pour desktop-->
+			<h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
+
+			<ul id="main_Menu" class="hide">
+				<li><a href="home_content.html">Regarder</a></li>
+				<li><a href="upload.html">Mettre en ligne</a></li>
+				<!--Apparait seulement si non-connecté-->
+				<li><a href="index.html#logger">Connection</a></li>
+				<!--Apparait seulement si connecté sur smartphone et tablette-->
+				<li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+				<!--Seulement pour smartphone et tablette-->
+				<li><a class="desktop_Hide" href="aide.html">Aide</a></li>
+				<!--Compte upgrade-->
+				<li><a href="upgrade.html">Abonnement</a></li>
+			</ul>
+
+			<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
+
+			<form id="search_Field" method="GET">
+				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
+				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></span>
+			</form>
+
+		</nav>
+	</header>
+
+	<!--User profil-->
 	<section id="profil" class="wrap clearfix">
 
 		<!--Info de l'utilisateur-->
@@ -8,36 +61,37 @@
 			
 			<!--Nom + date + pays-->
 			<div id="user_Title">
-				<h2><strong><?=$_SESSION['user']['username']?></strong></h2>
-				<p>Inscrit depuis le <?=\dateFormatFR($_SESSION['user']['created'])?></p>
+				<h2><strong>Ross Hang</strong></h2>
+				<p>Inscrit depuis le 21/01/2016</p>
 			</div>
 
 			<!--Photo-->
 			<div id="photo">
-				<img src="<?=$this->assetUrl('img_site/user/'.$_SESSION["user"]["urlpicture"])?>" alt="photo de...">
+				<img src="img_site/user_big.png" alt="photo de...">
 			</div>
 			<!--Pour modifier le profil-->
-			<a id="modify_Button" href="<?=$this->url('profilmodify')?>" title="modifier mon profil"><button>Modifier le profil</button></a>
+			<a id="modify_Button" href="profil_modify.html" title="modifier mon profil"><button>Modifier le profil</button></a>
 			<!--Autre info utilisateur-->
 			<div id="user_Autre">
-				<p><?=$_SESSION['user']['email']?></p>
-				<p><?=\dateFormatFR($_SESSION['user']['birthday'])?></p>
-				<p><?=$_SESSION['user']['country']?></p>
+				<p>rosshang@gmail.com</p>
+				<p>01/01/01</p>
+				<p>France</p>
 			</div>
 
 			<!--Description de l'utilisateur-->
 			<div id="describe_User">
-				<p><?=$_SESSION['user']['biography']?></p>
+				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 
 			<!--Ceux qui le suivent-->
 			<div id="follower">
 				<h2>Ils vous suivent :</h2>
 				<ul class="min_Follow">
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
 				<ul>
 			</div>
 
@@ -45,10 +99,10 @@
 			<div id="following">
 				<h2>Vous suivez :</h2>
 				<ul class="min_Follow">
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
-					<li><a href="" title="Voir le profil de...."><img src="<?=$this->assetUrl('img_site/user/user.png')?>" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
+					<li><a href="" title="Voir le profil de...."><img src="img_site/user.png" alt="Photo de..."></a></li>
 				<ul>
 			</div>
 
@@ -181,5 +235,54 @@
 		</section>
 
 	</section>
+	
 
-<?php $this->stop('main_content') ?>
+	<!--Footer-->
+	<footer>
+		<!--Version Desktop uniquement-->
+		<section id="top_Part">
+			<div id="centered_Menu">
+				<nav id="mudeo_Menu">
+					<h5>Mudeo</h5>
+					<ul>
+						<li><a href="aide.html" title="A propos de mudeo">A propos de mudeo</a></li>
+						<li><a href="" title="Règles du site">Règles</a></li>
+						<li><a href="aide.html" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+						<li><a href="aide.html" title="Confidentialité">Confidentialité</a></li>
+					</ul>
+				</nav>
+				<nav id="aide_Menu">
+					<h5>Aide</h5>
+					<ul>
+						<li><a href="aide.html" title="Centre d'aide">Centre d'aide</a></li>
+						<li><a href="aide.html" title="FAQ">FAQ</a></li>
+						<li><a href="aide.html" title="Droit d'auteur">Droit d'auteur</a></li>
+					</ul>
+				</nav>
+				<nav id="Plus_Menu">
+					<h5>Plus</h5>
+					<ul>
+						<li><a href="aide.html" title="Mettre en ligne">Mettre en ligne</a></li>
+						<li><a href="aide.html" title="Plan du site">Plan du site</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section id="bottom_Part">
+			<span>
+				<realised>Réalisé par:</realised>
+				<jerem>Jeremie,</jerem>
+				<etienne>Etienne,</etienne>
+				<philippe>Philippe,</philippe>
+				<arthur>Arthur</arthur>
+			</span>
+			<a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+		</section>
+	</footer>
+
+<!--jQuery pour le site-->
+<script src="js/main.js"></script>
+
+</body>
+</html>

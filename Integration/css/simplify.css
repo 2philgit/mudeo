@@ -1,0 +1,122 @@
+/*Desktop*/
+/*Ligne 1078 à 1674*/
+
+a:hover, #tri_Complet nav ul li a:hover,
+#upload_Zone, #upload_Zone:hover, #upload_Content input[type="submit"]:hover{
+	transition: 500ms;
+}
+#main_Menu, #main_Menu li, .index_Content #content_Container figure,
+#uploaded_Container figure{
+	display: inline-block;
+}
+#logo, #user_Profil, #tri_Desktop, #tri_Complet, 
+#warning_Mention, #zone_Row label, #question, #top_Part{
+	display: block;
+}
+#main_Menu, #user_Hover ul::before{
+	position: relative;
+}
+#user_Profil, #user_Hover ul, #join_Link, #inscription_Button, 
+#tri_Complet, #upload_Zone, #uploaded_Part{
+	float: right;
+}
+#tri_Section, #tri-Desktop, .home_Content #content_Container,
+#tri_Desktop h4, #tri_Desktop ul, #tri_Second, #desktop_Box, 
+#warning_Mention, #select_Type, #info, #description, 
+#thumbs_Upload, #basic_Info, #upload_Content input[type="submit"],
+#abonnement table, .img_Cook, #user_Part, #uploaded_Part #load_More,
+#modify_Form .error h6, footer nav{
+	float: left;
+}
+.home_Content #content_Container, .home_Content #content_Container figure{
+	min-width: 40em;
+}
+.search-result h3, #file_Param, #select_Type,
+#box_Row, #info, #description textarea, 
+#comments_Form h3, #show_Comments h3, .comment_Box,
+#follower h2, #following h2{
+	width: 100%;
+}
+#warning_Mention, #upload_Zone:hover, #describe, #top_Part{
+	background-color: #f2f2f2;
+}
+#warning_Mention, #describe{
+	border: 1px solid c1c1c1;
+}
+#desktop_Box, #warnin_Mention{
+	width: 18.75em;
+}
+#warning_Mention, #describe, .comment_Box, #top_Part{
+	box-sizing: border-box;
+}
+#upload_Content input[type="submit"]:hover, #comments_Form h3,
+#show_Comments h3, #conseil h2{
+	color: #FFF;
+}
+/*Tablette*/
+/*Ligne 939 à 1083*/ 
+
+
+
+/*Smartphone*/
+/*Ligne 0 à 936*/
+/*Styles communs smartphone(optimisation)*/
+input, textarea, figcaption{
+	border: 1px solid #c1c1c1;
+	background-color: #FFF;
+	height: 1.25em;
+}
+input, textarea, #main_Menu a, #logoMin a, #logo a, button, figcaption, 
+#connect_Button, #inscription_Button, #tri_All, #tri_Like, #tri_New,
+#tri_Music, figure{
+	box-sizing: border-box;
+}
+header, footer, #main_Menu, #main_Menu ul li, .error_Logger, .upload_Error, 
+#remember_Me, #latest_Content, figure, video, figcaption, #content_Container{
+	width: 100%;
+}
+#logo_Min, #logo, #search, #connect_Button, #connect_Link, #other_Link a, 
+#facebook_Connect img, video, figcaption, .info_Top, .info_Bottom, 
+.info_Top h3, .social_Nav a, #tri_Second nav, .error_Logger, .upload_Error{
+	float: left;
+}
+#search_Field, #search_Icon, #join_Link, .social_Nav, #inscription_Button {
+	float: right;
+}
+#main_Menu, #burger_Menu, #burger_Menu::after, #burger_Menu::before{
+	position: absolute;
+}
+#logo, .hide, #user_Profil{
+	display: none;
+}
+#burger_Menu, #burger_Menu::after, #burger_Menu::before, #other_Link a{
+	display: block;
+}
+#remember_Me, #facebook_Connect p{
+	display: inline-block;
+}
+#remember_Me label, #join_Link, #connect_Link, #logger p, #other_Link a, 
+.error_Logger, .upload_Error{
+	font-size: 0.75em;
+}
+header, figcaption, .follow button, #bottom_Part{
+	background-color: #F2F2F2;
+}
+#upload_Content, #abonnement{
+	margin-top: 3.75em;
+}
+header{
+	border-bottom: 1px solid #c1c1c1;
+}
+header, #bottom_Part, #logo_Min a, #logo a, #search_Field, #search_Icon{
+	height: 3.125em;
+}
+#main_Menu, #log_Section, #log_Section h2, .error_Logger, .upload_Error, 
+#latest_Content h2{
+	text-align: center;
+}
+h4, #log_Section h2, #logger p, #other_Link a, 
+#connect_Button, #inscription_Button, #recover_Button, #join_Link, 
+#connect_Link, #remember_Me label{
+	color: #FFF;
+}

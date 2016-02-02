@@ -74,7 +74,7 @@ class LoggerController extends Controller
 
 								require_once 'assets/inc/mailer.php';
 
-								if(isset($errorMail)) $_SESSION['error']['quickRegister'] = $error; else $_SESSION['error']['quickRegister'] = "Please tcheck your email and confirm your registration !"; 
+								if(isset($errorMail)) $_SESSION['error']['quickRegister'] = $errorMail; else $_SESSION['error']['quickRegister'] = "Please tcheck your email and confirm your registration !"; 
 
 								smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);							
 								
@@ -138,10 +138,11 @@ class LoggerController extends Controller
 
 							if(isset($_POST['remember'])){
 
-								setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', '127.0.0.1', false, true);
+								setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'localhost', false, true);
 							}
 							
-							$_SESSION['error']['log'] = \confirmAccount($user['token_timestamp']);	
+							$return = \confirmAccount($user['token_timestamp']);
+							$_SESSION['error']['log'] = $return[1];	
 
 						}else{
 								$isValid = false;
@@ -173,7 +174,7 @@ class LoggerController extends Controller
 								}		
 								
 								$return = \confirmAccount($user['token_timestamp'],$_SESSION['user']['subscription']);
-								
+
 								$isValid = $return[0];
 								$_SESSION['error']['log'] = $return[1];
 
@@ -240,7 +241,7 @@ class LoggerController extends Controller
 							
 							$usermanager->update([
 
-								'token' => $token,
+								'token' => password_hash($token, PASSWORD_DEFAULT),
 								'token_timestamp' => $tokentime]
 								,$user['id']);
 

@@ -26,7 +26,28 @@ $("#user_Profil").on("click", function(e){
 //fin menu utilisateur
 
 
-/*Inscription/Connection switch*/
+	// /*Inscription/Connection switch*/
+	// //switch1
+	// $("#join_Link").on("click", function(e){
+	// 	e.preventDefault();
+	// 	$("#repeat_Password").toggleClass("hide");
+	// 	$(".g-recaptcha").toggleClass("hide");
+	// 	$("#logger p").toggleClass("hide");
+	// 	$("#switch_2").removeClass("hide");
+	// 	$("#switch_1").addClass("hide");
+	// });
+	// //switch2
+	// $("#connect_Link").on("click", function(e){
+	// 	e.preventDefault();
+	// 	$("#repeat_Password").toggleClass("hide");
+	// 	$(".g-recaptcha").toggleClass("hide");
+	// 	$("#logger p").toggleClass("hide");
+	// 	$("#switch_1").removeClass("hide");
+	// 	$("#switch_2").addClass("hide");
+	// });
+	// /*fin inscription/connection switch*/
+
+	/*Inscription/Connection switch*/
 //switch1
 $("#join_Link").on("click", function(e){
 	e.preventDefault();
