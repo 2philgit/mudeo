@@ -737,6 +737,10 @@ section h2:first-child{
 	margin: auto;
 	float: none;
 }
+#photo img{	
+	max-width: 19.063em;
+	max-height: 16.875em;
+}
 /********
 FIN PROFIL.HTML
 ********/
@@ -1127,6 +1131,7 @@ realised{
 		cursor: pointer;
 	}
 	#user_Profil img{
+		border-radius: 50%;
 		width: 2em;
 	}
 	#user_Hover{
