@@ -167,21 +167,22 @@ function doSearch(){
 	.done(function(response){ // si requête valide : faire
 
 	/* Liste autocompletion : */
-		$("#autocomplete").show();
+		$("#autocomplete").css("display", "block");
 		$("#autocomplete").html("");
 		var list_keys = [];
 		var ul = $("<ul>");
-		var li = $("<li>");
+		
 
 		for (var i = 0; i < response.length; i++) {
 			var show = response[i];
 			var key = show.keywords;
 			list_keys[i] = key;
-			var p = $("<h1>");
-			
+			var li = $("<li>");
+			$(li).append(key);
+			$(ul).append(li);
 		}
-		$(p).html(list_keys);
-		$("#autocomplete").append(p);
+		
+		$("#autocomplete").append(ul);
 		console.log("TABLEAUUUUUUUUUUUUUUUUU : " + list_keys);
 
 		// $('#search').autocomplete({

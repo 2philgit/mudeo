@@ -194,10 +194,10 @@ header, #bottom_Part{
 	line-height: 3em;
 }
 
-#search_Field {
+/*#search_Field {
 	position: relative;
 	z-index: 50;
-}
+}*/
 
 #search_Icon{
 	line-height: 2.5em;

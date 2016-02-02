@@ -83,13 +83,13 @@
                                                     ?>" novalidate> 
         <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" value="<?php if (!empty($_GET['input_search'])) {echo $_GET['input_search']; }?>" autocomplete="off"></input>
 
-        <datalist id="autocomplete">
-
-        </datalist>
+       
         
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
       </form>
+      <datalist id="autocomplete">
 
+      </datalist>
     </nav>
   </header>
 

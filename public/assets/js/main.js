@@ -88,10 +88,6 @@ $( "#inscription_Button" ).click(function() {
   $( "#logger_inscription" ).submit();
 });
 
-$("#linkUserMenu").on("click",function(){
-	$("#userMenu").toggleClass('hide');
-});
-
 /*Stop la lecture si l'élément n'est plus visible dans le navigateur*/
 //Fonction trouvée sur Stack Overflow
 function isInView(el) {
