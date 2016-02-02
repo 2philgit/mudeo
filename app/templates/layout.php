@@ -86,10 +86,11 @@
        
         
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
-      </form>
-      <datalist id="autocomplete">
+      
+        <datalist id="autocomplete">
 
-      </datalist>
+        </datalist>
+      </form>
     </nav>
   </header>
 
