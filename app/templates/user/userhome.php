@@ -40,12 +40,14 @@
 			</nav>
 		</div>
 	</section>
-	<p>HOME LOGGGG</p>
+	
 	<!-- ******************************* -->
 	<!-- Affichage de ce qui a été recherché ainsi que le nombre d'éléments trouvés -->
 	<section class="search-result clearfix">
-	    <!-- <h3>Recherche pour : "<strong><?php //echo $_GET['input_search']; ?></strong>"</h3>
-	    <h3>Nombre d'élément trouvé: <?php //if($_GET['input_search']=="") {echo "0";} else {echo count($results);} ?></h3>-->
+		<ul>
+			<li id="msg-search"></li>
+			<li id="new-search"><a href="<?=$this->url('userhome')?>" title="nouvelle recherche">Nouvelle recherche</a></li>
+		</ul>
     </section>
 	<!-- ******************************* -->
 

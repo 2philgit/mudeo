@@ -85,11 +85,11 @@
                                                     } else { echo $this->url('home_nolog'); 
                                                     }
                                                     ?>" novalidate> 
-        <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" value="<?php if (!empty($_GET['input_search'])) {echo $_GET['input_search']; }?>" autocomplete="off"></input>
 
-       
-        
+        <!-- data-url permet de récupérer l'url passée en GET avec la chaîne de caractères tapée dans le champ recherche -->
+        <input id="search" list="autocomplete" type="search" name="input_search" data-url="<?php echo $this->url('completed_search') ?>" placeholder="Rechercher dans mudeo" value="<?php if (!empty($_GET['input_search'])) {echo $_GET['input_search']; }?>" autocomplete="off"></input>
         <span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
+        
         <!-- balise datalist à placer hors de la balise form pour permettre son affichage -->
         <datalist id="autocomplete">
  

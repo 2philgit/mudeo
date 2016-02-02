@@ -8,8 +8,7 @@ class FileManager extends \W\Manager\Manager {
 
 	public function search() {
 
-		//$result_string = "";
-
+		// Déclaration et affectation des variables (un objet similaire est créé en JS)
 		$inputSearch = $_GET['input_search'];
 		$column = "title";
 		if (!empty($_GET['column'])) {$column = $_GET['column'];}
@@ -20,6 +19,7 @@ class FileManager extends \W\Manager\Manager {
 		$category = "";
 		if (!empty($_GET['category'])) {$category = $_GET['category'];}
 
+		// RECHERCHE PAR DEFAUT (requête partielle affectée par défaut (recherche sur "tous" les champs))
 		$selectSearch = "(title LIKE '%$inputSearch%'
 							OR user_id LIKE '%$inputSearch%'
 							OR file_type LIKE '%$inputSearch%'
@@ -39,7 +39,6 @@ class FileManager extends \W\Manager\Manager {
 
 				// Sélection des critères d'option des résultats de recherche
 
-				//if (!empty($inputSearch)) {
 				switch ($_GET['type']) {
 					    case "video":
 					        $selectSearch .= " AND (content_type LIKE 'vidéo')";
@@ -83,7 +82,6 @@ class FileManager extends \W\Manager\Manager {
 						
 				// pdo	
 				// création de la requête de recherche (sur title)
-				//$statement = $this->dbh->prepare("SELECT * FROM files WHERE $selectSearch ORDER BY $column $order;");
 				$statement = $this->dbh->prepare("SELECT files.*, $username AS author FROM users LEFT JOIN files ON $id WHERE $selectSearch ORDER BY $column $order;");
 				$statement->execute();
 				$result = $statement->fetchAll();

@@ -2,6 +2,8 @@
 Script JS gérant la recherche 
 *****************************/
 
+// cache par défaut le lien "nouvelle recherche" (sera visible que lorsqu'une recherche aura été effectuée)
+$("#new-search").hide();
 
 /*** 
 DECLARATION & INITIALISATION des variables 
@@ -17,12 +19,30 @@ obj_search = {
 	"category": "" // pour sélectionner les catégories
 }
 
+// pour le message retourné pour une recherche
 str_result = "";
+
 // flag pour vérifier si on a déjà sélectionné l'un des types (vidéo, musqiue ou tout) ou l'une des catégories
 type_flag = false;
 category_flag = false;
 
 console.log("INIT" + category_flag);
+
+
+// Réinitialisation de variables 
+function initSeach() {
+		obj_search = {
+		"input_search": "",
+		"column" :"title",
+		"order": "ASC",
+		"type": "vm",
+		"category": ""
+		}
+
+		type_flag = false;
+		category_flag = false;
+		str_result = "";
+}
 
 /*** 
 FIN DES DECLARATION & INITIALISATION des variables 
@@ -33,24 +53,24 @@ DECLARATION DES FONCTIONS UTILISEES DANS CE SCRIPT
 ***/
 
 // fonction permettant la création et l'affichage de la liste des mots-clés proposés dans la bdd 
-function autocompleted(response) {
+function autocompletedKeywords(response) {
 	//$("#autocomplete").css("display", "block");
 	$("#autocomplete").html("");
 	var list_keys = [];
-	var ul = $("<ul>");
 	var key_verif = ""; 
 
 	for (var i = 0; i < response.length; i++) {
 		var show = response[i];
 		var key = show.keywords;
-		var option = $("<option>");
+		var option = $("<option>"); // création de la balise option
 
 		// vérifie que le mot n'a pas déjà été ajouté si non : l'ajoute 
+		// (en ajoutant l'attribut value à la balise option)
 		if (key != key_verif) {
 			option.attr("value", key);
 			list_keys[i] = key;
 			key_verif = key;
-			$("#autocomplete").append(option);
+			$("#autocomplete").append(option); // ajout de la balise option dans la balise datalist (ayant comme id autocomplete)
 		}
 	}
 }
@@ -189,28 +209,29 @@ function doSearch(){
 	})
 	.done(function(response){ // si requête valide : faire
 
-		// appel de la fonction autocompleted (permettant l'affichage de la liste des mots-clés sous le imput)
-		autocompleted(response);
+		// appel de la fonction autocompletedKeywords (permettant l'affichage de la liste des mots-clés sous l'input)
+		autocompletedKeywords(response);
 		
-
+		// création de line_result (utilisée pour construire le message des résultats de la recherche)
 		var line_result = $("<p>");
-		//console.log(response);
-		//console.log("LONGUEUR AJAX : " + response.length);
-		// showContent(response);
-	///////////////////////////
-		$('.search-result').html(""); // On remplace le contenu du html par une chaîne vide
+
+		// Remplacement du contenu du html de la balise (ici le message pour le résultat de la recherche) par une chaîne vide
+		$('#msg-search').html(""); 
+
 
 		if (response.length != 0) {
-		
-			// line_result initialisée au début de ".done"
-			if (obj_search.input_search !="") { 
+
+			// line_result créée au début de ".done"
+			// test sur la présence ou non d'une chaîne de caractère dans le champ de recherche
+			if (obj_search.input_search !="") { // s'il y a qqch
 				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length;
 			} else { 
 				str_result = "Nombre d'élement(s) trouvé(s) : " + response.length;
 			}
 
 			line_result.html(str_result); // On affiche le nb de résultats de la recherche
-			$('.search-result').append(line_result);
+			$('#msg-search').append(line_result);
+			
 
 			// vider la liste
 			$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
@@ -218,7 +239,10 @@ function doSearch(){
 			for (var i = 0; i < response.length; i++) {
 				var show = response[i];
 				var title = show.title;
-				var id_file = show.id;  // pour créer un balise id portant l'id des fichiers (id unique) qui permettra d'arrêter la lecture d'un fichier lorsqu'une lecture est lancée sur un autre fichier
+
+				// pour créer un balise id portant l'id des fichiers (id unique) qui permettra d'arrêter la lecture d'un fichier lorsqu'une lecture est lancée sur un autre fichier
+				var id_file = show.id; 
+
 				var user_id = show.user_id;
 				var author = show.author;
 				// var author = user_id;
@@ -239,8 +263,10 @@ function doSearch(){
 			} // fin du for "musique"
 		
 		} else { // si response [] => pas de résultats
+
 			// vider la liste
 			$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
+
 			console.log("AUCUN RESULTATS");
 
 			// line_result initialisée au début de ".done"
@@ -251,11 +277,8 @@ function doSearch(){
 			}
 
 			line_result.html(str_result); // On affiche le nb de résultats de la recherche
-			$('.search-result').append(line_result);
-			// line_result.html("Aucun résultat");
-			$('.search-result').append(line_result);
-			// $('#content_Container').html("Nous sommes désolés, aucun élément ne correspond à votre recherche. <br/> Veuillez reformuler votre demande.");
-
+			$('#msg-search').append(line_result);
+			
 			console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 		}
 	
@@ -266,6 +289,9 @@ function doSearch(){
 	})
 	.always(function(response){	// sera excécuté dans tous les cas
 
+		// affiche le lien pour effectuer une nouvelle recherche (A AMELIORER avec des flags ?)
+		$("#new-search").show();
+		
 		// if (hasClass("selected_2") || $("#search").val() == "" ) {
 		// 	console.log("NOUVELLE RECHERCHE");
 		// }
@@ -296,19 +322,20 @@ function doSearch(){
 // fonction permettant l'affichage dans le contenant
 function autocompletedSearch() {
 
-// test sur le nb de caractères sur le champ de recherche (3 caractères minimum)
+	// test sur le nb de caractères sur le champ de recherche (3 caractères minimum)
 	search = $("#search").val();
 	// console.log(search);
-	// si 3 caractères
-	if (search.length >= 3) {
 
-		// on recupère l'adresse du lien
+	// si 2 caractères entrés 
+	if (search.length >= 2) {
 		
+		// l'objet recherche récupère la chaîne de caractères entrée dans le champ de recherche
 		obj_search.input_search = search;
+		// appel de la fonction permettant de traiter la recherche en JS
 		doSearch();
 
 	} else {
-		console.log("Pas 3 caractères");
+		console.log("Pas 2 caractères entrés");
 	}
 }
 /*** 
@@ -326,8 +353,8 @@ $("#search").on("keyup", autocompletedSearch);
 // mise sous écoute du formulaire de recherche
 $('#search_Field').on("submit", function(e) {
 	//alert('Cliccckkkkk');
-	e.preventDefault(); // pour éviter le fonctionnement normal du champ (renvoi de la demande/clic répétitif)
-	autocompletedSearch(); // à l'orogine doSearch() appellée, mais chgt pour récupérer les données dans le champ formulaire
+	e.preventDefault(); // pour éviter le fonctionnement normal du champ (renvoi de la demande/clic répétitif) (évite au formulaire de se soumettre)
+	autocompletedSearch(); // à l'origine doSearch() appellée, mais chgt pour récupérer les données dans le champ formulaire
 });
 
 
@@ -335,40 +362,47 @@ $('#search_Field').on("submit", function(e) {
 
 // pour les types (vidéo ou musique)
 $(".select-type").click(function(){
+
 	type_flag = true;
 	console.log("click type : " + type_flag);
+
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
 	if (typeof obj_search.type !== 'undefined') {
-		// CF $(this).addClass("selected").last().removeClass("selected");  CF
 		obj_search.type = $(this).attr('data-type');
 		}
+
 	console.log(obj_search);
 	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
+
 	doSearch();
-	return false; // on desactive le lien (pour éviter chargement du contenu ds une nouvelle page)
+	return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 });
 
-// pour le mode de vue (nouveauté, like, upload)
+// pour le mode de vue (nouveauté, likes, upload)
 $(".select-mode").click(function(){
 
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
-	if (typeof obj_search.column !== 'undefined') {
+
+	if (typeof obj_search.column !== 'undefined') { // test pour vérifier que le champ n'est pas indéfini
 		obj_search.column = $(this).attr('data-column');
 		}
 	if (typeof obj_search.order !== 'undefined') {
 		obj_search.order = $(this).attr('data-order');
 		}
+
 	console.log(obj_search);
 	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
+
 	doSearch();
-	return false; // on desactive le lien (pour éviter chargement du contenu ds une nouvelle page)
+	return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 });
 
 
 // pour les catégories
 $(".select-category").click(function(){
+
 	type_flag = true;
 	category_flag = true;
 	console.log("click category  " + type_flag + category_flag);
@@ -382,7 +416,7 @@ $(".select-category").click(function(){
 		console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 		doSearch();
 
-return false; // on desactive le lien (pour éviter chargement du contenu ds une nouvelle page)
+return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 
 });
 
