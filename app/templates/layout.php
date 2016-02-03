@@ -103,7 +103,7 @@
     <nav class="wrap">
       <ul>
         <li><a href="<?=$this->url('profile')?>" title="Profil">Profil</a></li>
-        <li><a href="<?=$this->url('logout')?>" title>Deconnection</a></li>
+        <li><a href="<?=$this->url('logout')?>" title>Déconnexion</a></li>
       </ul>
     </nav>
   </div>

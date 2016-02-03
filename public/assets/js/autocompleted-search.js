@@ -22,27 +22,8 @@ obj_search = {
 // pour le message retourné pour une recherche
 str_result = "";
 
-// flag pour vérifier si on a déjà sélectionné l'un des types (vidéo, musqiue ou tout) ou l'une des catégories
-type_flag = false;
-category_flag = false;
-
-console.log("INIT" + category_flag);
-
-
-// Réinitialisation de variables 
-function initSeach() {
-		obj_search = {
-		"input_search": "",
-		"column" :"title",
-		"order": "ASC",
-		"type": "vm",
-		"category": ""
-		}
-
-		type_flag = false;
-		category_flag = false;
-		str_result = "";
-}
+// création de line_result (utilisée pour construire le message des résultats de la recherche)
+var line_result = $("<p>");
 
 /*** 
 FIN DES DECLARATION & INITIALISATION des variables 
@@ -78,7 +59,6 @@ function autocompletedKeywords(response) {
 // fonction pour construire le html pour les fichiers vidéo
 function buildFigureVideo(id_file, author, title, date) {
 	
-	console.log("VIDEO" + obj_search.type);
 
 	// création de la balise figure et ajout de la classe clearfix
 	var fig_v = $("<figure>");
@@ -133,9 +113,8 @@ function buildFigureVideo(id_file, author, title, date) {
 }
 
 // fonction pour construire le html pour les fichiers audio
-function buildFigureMusique(id_file, author, title, date) {
+function buildFigureMusic(id_file, author, title, date) {
 	
-	console.log("MUSIQUE" + obj_search.type);
 
 	// création de la balise figure et ajout de la classe clearfix
 	var fig_m = $("<figure>");
@@ -199,12 +178,12 @@ function buildFigureMusique(id_file, author, title, date) {
 
 // fonction effectuant une recherche et récupérant son résultat
 function doSearch(){
+
 	// faire une requête Ajax (URL\autocompletion...)
 	// récupère les données de la bdd résultantes de la recherche sql (au format Json)
 	$.ajax({
 		"url":$("#search").attr('data-url'),
 		"type": "GET",
-		// "data": $('#form-search').serialize()
 		"data": obj_search
 	})
 	.done(function(response){ // si requête valide : faire
@@ -212,8 +191,6 @@ function doSearch(){
 		// appel de la fonction autocompletedKeywords (permettant l'affichage de la liste des mots-clés sous l'input)
 		autocompletedKeywords(response);
 		
-		// création de line_result (utilisée pour construire le message des résultats de la recherche)
-		var line_result = $("<p>");
 
 		// Remplacement du contenu du html de la balise (ici le message pour le résultat de la recherche) par une chaîne vide
 		$('#msg-search').html(""); 
@@ -257,7 +234,7 @@ function doSearch(){
 					buildFigureVideo(id_file, author, title, date);
 
 				} else { // le type, c'est de la musique ;)
-					buildFigureMusique(id_file, author, title, date);
+					buildFigureMusic(id_file, author, title, date);
 					} // fin condition "musique"
 
 			} // fin du for "musique"
@@ -267,7 +244,6 @@ function doSearch(){
 			// vider la liste
 			$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
 
-			console.log("AUCUN RESULTATS");
 
 			// line_result initialisée au début de ".done"
 			if (obj_search.input_search !="") { 
@@ -279,40 +255,24 @@ function doSearch(){
 			line_result.html(str_result); // On affiche le nb de résultats de la recherche
 			$('#msg-search').append(line_result);
 			
-			console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 		}
 	
 	})
 	.fail(function(response){	// si requête non-valide : erreur
-		alert("Erreur de recherche"); // pratique pour localiser une erreur
+
+		$('#content_Container').html(""); // ici on remplace le contenu du html par une chaîne vide
+		str_result = "Nous sommes désolés, il y a eu une erreur lors de la recherche.";
+		line_result.html(str_result); // On affiche le message d'erreur
+		$('#msg-search').append(line_result);
+
+		//alert("Erreur de recherche");  // (utiliser pour les tests)
 		console.log("Une erreur a été détectée");
 	})
 	.always(function(response){	// sera excécuté dans tous les cas
 
 		// affiche le lien pour effectuer une nouvelle recherche (A AMELIORER avec des flags ?)
 		$("#new-search").show();
-		
-		// if (hasClass("selected_2") || $("#search").val() == "" ) {
-		// 	console.log("NOUVELLE RECHERCHE");
-		// }
-		// test s'il y a un drapeau sur les types et les catégories
-		// = teste si une recherche a déjà été effectué avec ces critères
-		// if (category_flag || type_flag) {
-
-		// 	// Réinitialisation de variables 
-		// 	obj_search = {
-		// 	"input_search": "",
-		// 	"column" :"title",
-		// 	"order": "ASC",
-		// 	"type": "vm",
-		// 	"category": ""
-		// 	}
-
-		// 	type_flag = false;
-		// 	category_flag = false;
-
-		// }
-		console.log("flag type :" + type_flag + " category :" + category_flag);
+	
 	});
 }
 
@@ -324,7 +284,6 @@ function autocompletedSearch() {
 
 	// test sur le nb de caractères sur le champ de recherche (3 caractères minimum)
 	search = $("#search").val();
-	// console.log(search);
 
 	// si 2 caractères entrés 
 	if (search.length >= 2) {
@@ -335,7 +294,6 @@ function autocompletedSearch() {
 		doSearch();
 
 	} else {
-		console.log("Pas 2 caractères entrés");
 	}
 }
 /*** 
@@ -343,7 +301,7 @@ FIN DE LA DECLARATION DES FONCTIONS UTILISEES DANS CE SCRIPT
 ***/
 
 /*** 
-LES MISES SOUS ECOUTES 
+LES MISES SOUS ECOUTE
 ***/
 
 // mise sous écoute du champ de recherche
@@ -364,7 +322,6 @@ $('#search_Field').on("submit", function(e) {
 $(".select-type").click(function(){
 
 	type_flag = true;
-	console.log("click type : " + type_flag);
 
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
@@ -372,8 +329,6 @@ $(".select-type").click(function(){
 		obj_search.type = $(this).attr('data-type');
 		}
 
-	console.log(obj_search);
-	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 
 	doSearch();
 	return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
@@ -392,8 +347,6 @@ $(".select-mode").click(function(){
 		obj_search.order = $(this).attr('data-order');
 		}
 
-	console.log(obj_search);
-	console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 
 	doSearch();
 	return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
@@ -405,15 +358,12 @@ $(".select-category").click(function(){
 
 	type_flag = true;
 	category_flag = true;
-	console.log("click category  " + type_flag + category_flag);
 
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
 	if (typeof obj_search.category !== 'undefined') {
 		obj_search.category = $(this).attr('data-category');
 		}
-		console.log(obj_search);
-		console.log(obj_search.type + " " + obj_search.column + " " + obj_search.order + " " + obj_search.category);
 		doSearch();
 
 return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
@@ -451,19 +401,6 @@ $("#tri_Complet a").click(function() {
  	$(this).addClass("selected_2");
  });
 
-// /* compteurs pour réinitialisation de la recherche */
-// function counter_click() {
-
-// 	if (counterClickType <3) { counterClickType +=1; } else { init_search();} 
-// 	if (counterClickMode <3) { counterClickMode +=1; } else { init_search();} 
-// 	if (counterClickCategory <3) { counterClickCategory +=1; } else { init_search();} 
-// }
-
-// function init_search {
-// 	counter_clickType = 0;
-// 	counter_clickMode = 0;
-// 	counter_clickCategory = 0;
-// }
 
 /* FIN DU CODE POUR LE MENU DE RECHERCHE (CE QUI EST SELECTIONNÉ) */
 

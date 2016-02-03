@@ -13,8 +13,8 @@ class FileController extends Controller
 	public function uploadFiles()
 	{
 		// si user connecté, permet l'affichage de la page upload_files, si non : redirige vers la home (si lien apparant dans le menu en non-connecté)
-		if ($user) {
-		$user=$this->getUser();  
+		$user=$this->getUser();
+		if ($user) { 
 			$this->show('file/upload_files');
 		} else
 		$this->redirectToRoute('home'); 

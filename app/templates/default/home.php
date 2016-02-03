@@ -85,7 +85,7 @@
 			
 		<div id="discover_More">
 			<h4>Découvrir mudéo</h4>
-			<a href=""><img src="img_site/discover.png"></a>			
+			<a href="#discover_More"><img src="<?=$this->assetUrl('img_site/discover.png')?>"></a>		
 		</div>
 	</section>
 

@@ -165,19 +165,6 @@
         <!--Fin formulaire-->
 
     </section>
-    <!--Footer-->
-
-
-<!--jQuery pour le site-->
-<script src="js/main.js"></script>
-
-</body>
-</html>
-
-  	
-		
-	
-	
 
 
 <?php $this->stop('main_content') ?>
