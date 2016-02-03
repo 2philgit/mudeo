@@ -59,7 +59,7 @@
 				<h3>Votre bio</h3>
 				 <p class="add_Min">Que voulez-vous dire à notre membres? Qu'est-ce que vous faites? Qu'aimez-vous? Quels sont vos objectifs? etc...</p>
 				<textarea type="text" name="bio" placeholder="Dites nous tout">
-					<?php if(isset($_SESSION['user']['biography'])) echo trim($_SESSION['user']['biography']); ?>
+					<?php if(isset($_SESSION['user']['biography'])) echo $_SESSION['user']['biography']; ?>
 				</textarea>
 				
 			</div>
@@ -67,7 +67,11 @@
 				<h6><?php if(isset($_SESSION['error']['controlProfilModify'])) echo $_SESSION['error']['controlProfilModify'];?></h6>
 			</div>
 			<input type="submit" value="Valider">
+
 		</form>
+
+		<a id="delete_Account" href="<?=$this->url('deleteAccount');?>" title="Supprimer votre compte">Supprimer votre compte </a>
+		
 		<div id="conseil">
 			<h2>Votre profil</h2>
 			<p class="add_Min">Votre profil correspond à ce que les gens sauront de vous sur mudeo, alors présenter le meilleur de vous. C'est votre chance de décrire qui vous êtes, vos compétences, vos rêves et bien plus...</p>

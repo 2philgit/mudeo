@@ -72,7 +72,7 @@
 			<div id="other_Link" class="clearfix">
 								
 				<!--Mot de passe oublié-->
-				<span id="forget_Mdp">Mot de passe oublié?</span>
+				<a id="forget_Mdp">Mot de passe oublié?</a>
 				<form action="<?=$this->url('forget')?>" method="POST" novalidate>
 						<!--Apparaît quand on click sur MDP oublié-->
 						<input id="recover_Mdp" class="hide" type="email" name="emailPasswordRecovery" placeholder="Tapez votre email" />
