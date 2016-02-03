@@ -77,3 +77,5 @@ class FileManager extends \W\Manager\Manager {
 				return $result;
 
 	}
+
+}
