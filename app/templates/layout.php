@@ -6,7 +6,8 @@
   <title><?= $this->e($title) ?></title>
   <!-- <title>Mudéo | Entre musique et vidéo</title> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	  
+  <!--Meta-->
+	<meta name="description" content="Rejoignez notre communauté de créateurs de vidéos et de musiques passionnés, et bénéficiez d'outils de grande qualité pour héberger, partager vos contenus sans pubs.">
   <!--Tag for responsive-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--jQuery CDN-->
