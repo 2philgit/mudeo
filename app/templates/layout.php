@@ -72,7 +72,7 @@
         <!--Seulement pour smartphone et tablette-->
         <li><a class="desktop_Hide" href="aide.html" title="Aide">Aide</a></li>
         <!--Compte upgrade-->
-        <li><a href="upgrade.html" title="Abonnement">Abonnement</a></li>
+        <li><a href="<?=$this->url('upgrade')?>" title="Abonnement">Abonnement</a></li> 
       </ul>
  
     <!--Apparait une fois l'utilisateur connecté en version Desktop-->

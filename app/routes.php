@@ -33,5 +33,8 @@
 		// file upload
 		['GET|POST', '/telechargement/video/','File#uploadFiles','upload_files' ],
 		['POST', '/telechargement/video/add','File#addFiles','add_files' ],
-		
+
+
+		// pour abonnement
+		['GET|POST', '/abonnement/','Upgrade#upgrade','upgrade' ],
 	);
