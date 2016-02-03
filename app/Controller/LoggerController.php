@@ -29,55 +29,57 @@ class LoggerController extends Controller
 			    {
 			    	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				   
-					    if ($password == $passwordRepeat) {
-							
-							$usermanager = new \Manager\UserManager();				
-
-							if (!$usermanager->emailExists($email) ){
+				   		if(preg_match("#{8,12}#", $password)){
+					    
+						    if ($password == $passwordRepeat) {
 								
-								// on insère en bdd
+								$usermanager = new \Manager\UserManager();				
+
+								if (!$usermanager->emailExists($email) ){
 									
-								$token = \W\Security\StringUtils::randomString(32);
+									// on insère en bdd
+										
+									$token = \W\Security\StringUtils::randomString(32);
 
-								$tokentime = time() + (20*60);
-								
-								$usermanager->insert([
-									"id" => "",
-									"username" => $email,
-									"email" => $email,
-									"password" => password_hash($password, PASSWORD_DEFAULT),
-									"birthday" => date("Y-m-d H:i:s"),
-									"country" => "",
-									"urlpicture" => "",
-									"biography" => "",
-									"subscription" => 1,
-									"created" => date("Y-m-d H:i:s"),
-									"token" => password_hash($token, PASSWORD_DEFAULT),
-									"token_timestamp" => $tokentime
-								]);
-								
-								$user = $usermanager->getUserByUsernameOrEmail($email);
+									$tokentime = time() + (20*60);
+									
+									$usermanager->insert([
+										"id" => "",
+										"username" => $email,
+										"email" => $email,
+										"password" => password_hash($password, PASSWORD_DEFAULT),
+										"birthday" => "",
+										"country" => "",
+										"urlpicture" => "",
+										"biography" => "",
+										"subscription" => 1,
+										"created" => date("Y-m-d H:i:s"),
+										"token" => password_hash($token, PASSWORD_DEFAULT),
+										"token_timestamp" => $tokentime
+									]);
+									
+									$user = $usermanager->getUserByUsernameOrEmail($email);
 
-								$auth = new \W\Security\AuthentificationManager();
-								$auth->logUserIn($user);
+									$auth = new \W\Security\AuthentificationManager();
+									$auth->logUserIn($user);
 
-								//
-								// on redirige l"utilisateur
+									//
+									// on redirige l"utilisateur
 
-								$lien = '<a href="'.$this->generateUrl('mailAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
-								$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
+									$lien = '<a href="'.$this->generateUrl('mailAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+									$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
-								$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
-								$msg .= "<h4>MFF Corp.</h4><br/><br/>";
-								$msg .= "Pour pouvoir confirmer l'activation de votre compte sur le réseau de partage musique et vidéos de Mudéo pour le compte de <span style='font-weight:bold;'>".strtoupper($email)."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
-								$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
+									$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
+									$msg .= "<h4>MFF Corp.</h4><br/><br/>";
+									$msg .= "Pour pouvoir confirmer l'activation de votre compte sur le réseau de partage musique et vidéos de Mudéo pour le compte de <span style='font-weight:bold;'>".strtoupper($email)."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
+									$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 3 jours en fait !!!!! ";
 
-								require_once 'assets/inc/mailer.php';
+									require_once 'assets/inc/mailer.php';
 
-								if(isset($errorMail)) $_SESSION['error']['quickRegister'] = $errorMail; else $_SESSION['error']['quickRegister'] = "Please tcheck your email and confirm your registration !"; 
+									if(isset($errorMail)) $_SESSION['error']['quickRegister'] = $errorMail; else $_SESSION['error']['quickRegister'] = "Un mail vous a été envoyer. Veuillez cliquer sur le lien pour confirmer votre inscription !"; 
 
-								smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);							
-								
+									smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);							
+									
 								}else{
 										$isValid = false;
 										$_SESSION['error']['quickRegister'] = "Email déjà utilisé !";							
@@ -85,8 +87,13 @@ class LoggerController extends Controller
 
 							}else{
 									$isValid = false;
-									$_SESSION['error']['quickRegister']= "Les mots de passe ne correspondent pas !";
-								 }					 
+									$_SESSION['error']['quickRegister'] = "Les mots de passe ne correspondent pas !";
+								 }	
+						
+						}else{
+								$isValid = false;
+								$_SESSION['error']['quickRegister'] = "Le mot de passe doivent faire entre 8 et 12 caractères !";
+							 }				 
 						
 					}else{
 							$isValid = false;
@@ -95,7 +102,7 @@ class LoggerController extends Controller
 			    
 			    }else{
 			    		$isValid = false;
-			    		$_SESSION['error']['quickRegister'] = 'La tu es un robot ! DEGAGE !!!!';
+			    		$_SESSION['error']['quickRegister'] = 'Là tu es un robot ! DEGAGE !!!!';
 					 }
 
 			}else{
@@ -180,12 +187,12 @@ class LoggerController extends Controller
 
 							}else{
 									$isValid = false;
-									$_SESSION['error']['log'] = "Wrong email/mp couple!";
+									$_SESSION['error']['log'] = "Mauvais couple email/mot de passe !";
 								 }
 							
 						}else{
 								$isValid = false;
-								$_SESSION['error']['log'] = "Email not found";
+								$_SESSION['error']['log'] = "Email pas présent dans la base ! ";
 							 }
 
 					}else{
@@ -279,132 +286,5 @@ class LoggerController extends Controller
 		$this->show('Default/home');					
 	}
 
-	/*public function register(){
-
-		$_SESSION['error'][''] = "";
-
-		if($_POST){
-			die('register');
-			$isValid = true;
-			
-			if($_POST['login'] == null || $_POST['email'] == null || $_POST['password1'] == null || $_POST['password2'] == null || $_POST['birthday'] == null ){
-
-				$isValid = false;
-				$_SESSION['error'][''] = "vide!";
-
-			}else{
-
-				if(strpos($_POST['login'],'@') !== false){
-					$_SESSION['error'][''] = "@ don't accept for the login";
-				}else{
-
-				$login = $_POST['login'];
-				$email = $_POST['email'];
-				$password1 = $_POST['password1'];
-				$password2 = $_POST['password2'];				
-				$birthday = $_POST['birthday'];				
-
-				isset($_POST['country']) ? $country = $_POST['country'] : $country = "";
-				isset($_POST['urlpicture']) ? $urlpicture = $_POST['urlpicture'] : $urlpicture = "";
-				isset($_POST['biography']) ? $biography = $_POST['biography'] : $biography = "";
-
-				
-
-				if ($password1 != $password2) {
-					$isValid = false;
-					$_SESSION['error']['']= "Les mots de passe ne correspondent pas !";
-				}
-				else{
-					$password = $password1;
-				}
-
-				$usermanager = new \Manager\UserManager();				
-
-				if ($usermanager->emailExists($email) ){
-					$isValid = false;
-					$_SESSION['error'][''] = "Email déjà utilisé !";
-				}else{
-					
-					if($usermanager->usernameExists($login) == false){
-					// si c'est valide 
-						if(isset($_POST['g-recaptcha-response'])){ $captcha = $_POST['g-recaptcha-response'];}
-
-					    if(!$captcha)
-					    {
-					        $_SESSION['error'][''] = 'Il faut cocher le captcha !';					        
-					    }else{
-					    	 	$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfqUBYTAAAAADkoRy9mGz7cDUl_4aJz27jUR4oV&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
-					    		
-					    	 	$response = json_decode($response, true);
-
-							    if($response["success"] == false)
-							    {
-							        $_SESSION['error'][''] = 'La tu es un robot ! DEGAGE !!!!';
-							    }
-							    else
-							    {
-							        if ($isValid) {
-									
-									$token = \W\Security\StringUtils::randomString(32);
-									$tokentime = time() + (3*60);
-									
-									$usermanager->insert([
-										"id" => "",
-										"username" => $email,
-										"email" => $email,
-										"password" => password_hash($password, PASSWORD_DEFAULT),
-										"birthday" => date("Y-m-d H:i:s"),
-										"country" => "",
-										"urlpicture" => "",
-										"biography" => "",
-										"subscription" => 1,
-										"created" => date("Y-m-d H:i:s"),
-										"token" => $token,
-										"token_timestamp" => $tokentime
-									]);
-
-									$user = $usermanager->getUserByUsernameOrEmail($login);
-
-									$auth = new \W\Security\AuthentificationManager();
-									$auth->logUserIn($user);									
-
-									$_SESSION['error'][''] = "Please tcheck your email and confirm your registration !";
-									// on redirige l"utilisateur
-
-									$lien = '<a href="'.$this->generateUrl('mailConfimationAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
-									$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
-
-									$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
-									$msg .= "<h4>MFF Corp.</h4><br/><br/>";
-									$msg .= "Pour pouvoir confirmer l'activation de votre compte sur le réseau de partage musique et vidéos de Mudéo pour le compte de <span style='font-weight:bold;'>".strtoupper($email)."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
-									$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
-
-									require_once 'assets/inc/mailer.php';
-
-									smtpmailer('mudeo.wf3@gmail.com', 'oday972@gmail.com', 'Admin', 'Vérification de la création de compte Mudéo', $msg);
-				
-									$this->show('logger/register',[
-												"passwordError" => $_SESSION['error']['']	]);									
-									
-								}else{
-									$isValid = false;
-									$_SESSION['error'][''] = "Login déjà utilisé !";
-								}
-							}
-					    }
-					}
-					   
-						
-				}				
-			}
-		}
-	}
-
-
-
-		$this->show('logger/register', [
-			"passwordError" => $_SESSION['error']['']
-			]);					
-	} */
 
 }

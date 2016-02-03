@@ -1,6 +1,4 @@
-
-
-     // Load the SDK asynchronously
+   // Load the SDK asynchronously
     (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -71,20 +69,12 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api("/me/user", function(response) {
-      //console.log('Successful login for: ' + response.name);
+    FB.api("/picture", function(response) {
+
       console.log(response);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-       // var login = response.name;
-    //     $.ajax({
-    //         "url": <?=$this->url('register')?>, 
-    //         "type": "POST", 
-    //         "data": login
-    //     })
-    //     .done(function(response){
-
-    //     })
+      
 
      });
   }

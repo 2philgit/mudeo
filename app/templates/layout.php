@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,8 +10,7 @@
 	  
   <!--Tag for responsive-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--jQuery CDN-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
   <!--Recaptcha Google-->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!--CSS/reset+perso-->
@@ -25,23 +25,6 @@
 	
 </head>
 <body>
-
-<!-- <pre><?php //debug($_SESSION); ?> </pre> -->
-  <script src="<?=$this->assetUrl('js/facebook.js')?>" async defer></script>
-
-
-<!-- Affichage des erreurs  -->
-          <?php if (isset($_SESSION['message']['success'])){ 
-                echo '<h6 id="error-label" style="color: green;">'.$_SESSION['message']['success'].'</h6>';
-              unset($_SESSION['message']);              
-            }else if(isset($_SESSION['message']['error'])){
-              echo '<h6 id="error-label" style="color: red;">'.$_SESSION['message']['error'].'</h6>';
-              unset($_SESSION['message']);
-            }else if(isset($_SESSION['message']['info'])){
-              echo '<h6 id="error-label" style="color: blue;">'.$_SESSION['message']['info'].'</h6>';
-              unset($_SESSION['message']);
-            }
-       ?>
 
 	<!--Header-->
   <header id="top_Anchor">
@@ -156,7 +139,8 @@
       <a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="<?=$this->assetUrl('img_site/backtotop.png')?>" alt="Retour en haut"></a>
     </section>
   </footer>
-
+  
+<!-- Pour éviter d'écrire les chemins en dur en JS  Et dans concaténé avec le reste de l'url-->
 <script type="text/javascript">
   var assetUrl = "<?=$this->assetUrl('')?>";
 </script>
@@ -164,13 +148,12 @@
    <!--jQuery pour le site-->
   <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
+  <script src="<?=$this->assetUrl('js/facebook.js')?>" async defer></script>
   <script type="text/javascript" src="<?= $this->assetUrl('js/draganddrop.js') ?>"></script>
 
     <!-- <section js : insertion du lien des pages home (connecté et non connecté) > -->
       <?= $this->section('js') ?>
     <!-- </section js > -->
-
-<!-- 	</div> -->
 
 </body>
 </html>

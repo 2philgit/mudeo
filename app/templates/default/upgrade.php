@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Accueil']) ?>
+<?php $this->layout('layout', ['title' => 'Abonnement']) ?>
 
 <?php $this->start('main_content'); ?>
 

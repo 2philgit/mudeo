@@ -18,7 +18,6 @@ class MailController extends Controller
 			$user = $usermanager->find($id);
 			
 			$tokenVerif = $user['token'];			 
-
 			if(password_verify($token,$tokenVerif)){		
 				
 				
@@ -28,12 +27,12 @@ class MailController extends Controller
 								'token' => '',
 								'token_timestamp' => 0],$id);
 
-				$_SESSION['error']['forgetpassword'] = "Account validate! Mother Fucker";
+				$_SESSION['error']['forgetpassword'] = "Votre compte a bien été créer ! ";
 			}else{
-				$_SESSION['error']['forgetpassword'] = "Link don't accept! You can re-generate a mail <a href=".$this->generateUrl('regenerateMailAccount',['token'=>$token,'id'=>$id]).">click here</a>";
+				$_SESSION['error']['forgetpassword'] = "Le lien n'est plus valide ! ";
 			}
 		}else{
-				$_SESSION['error']['forgetpassword'] = "Missing argument";
+				$_SESSION['error']['forgetpassword'] = "Il manque des parametres au lien !";
 		}
 
 		$this->show('default/home');
@@ -46,27 +45,31 @@ class MailController extends Controller
 		if(isset($token) && isset($id)){
 
 			$usermanager = new \Manager\UserManager();
+			$auth = new \W\Security\AuthentificationManager();
 			
 			$user = $usermanager->find($id);
 			
 			$tokenVerif = $user['token'];			 
 
 			if(password_verify($token,$tokenVerif)){		
-			
+				
+				$usermanager->update([
+
+								'token' => '',
+								'token_timestamp' => 0,
+								],$id);
+				
+				$auth->logUserIn($user);
+				
 				$_SESSION['error']['forgetpassword'] = "Vous pouvez changer votre mot de passe ! ";
-				$this->redirectToRoute('changepassword',['id'=>$id]);
+				$this->show('user/changepassword',['id'=>$id]);
 			}else{
-				$_SESSION['error']['forgetpassword'] = "Link don't accept! You can re-generate a mail <a href=".$this->generateUrl('regenerateMailAccount',['token'=>$token,'id'=>$id]).">click here</a>";
+				$_SESSION['error']['forgetpassword'] = "Le lien n'est plus valide ! ";
 			}
 		}else{
-				$_SESSION['error']['forgetpassword'] = "Missing argument";
+				$_SESSION['error']['forgetpassword'] = "Il manque des parametres au lien !";
 		}
 
 		$this->show('default/home');
 	}
-
-	public function regenerateMailAccount(){
-
-	}
-	
 }
