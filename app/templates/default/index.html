@@ -11,7 +11,7 @@
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<!--CSS/reset+perso-->
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet"  media="only screen and (color)" href="css/style.css">
 	<!--Font-->
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="img_site/favicon.png" />
@@ -52,7 +52,7 @@
 			<form id="search_Field" method="GET">
 				<input id="search" list="autocomplete" type="search" name="search_Input" placeholder="Rechercher dans mudeo">
 				<datalist id="autocomplete">
-					
+					<option>test</option>
 				</datalist>
 				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></span>
 			</form>
@@ -96,7 +96,7 @@
 					<!--Lien pour faire apparaître le button S'inscrire-->
 					<a id="join_Link" href="#logger" title="S'inscrire">Inscription</a>
 				</div>
-
+			
 				<!--Switch2 : s'inscrire-->
 				<div id="switch_2" class="hide clearfix">
 					<!--Lien pour faire apparaître le button Se connecter-->
@@ -106,7 +106,7 @@
 				</div>
 
 			</div>
-
+			
 			<!--lien de connection/récupération-->
 			<div id="other_Link" class="clearfix">
 				<!--Se souvenir de moi-->
@@ -133,10 +133,6 @@
 			<p class="hide last_P">En vous inscrivant, vous acceptez nos <a href="" title="conditions d'utilisation"><strong>conditions d'utilisation</strong></a> et notre <a href="" title="politique de confidentialité"><strong>politique de confidentialité</strong></a>.</p>
 		</form>
 		
-		<div id="discover_More">
-			<h4>Découvrir mudéo</h4>
-			<a href=""><img src="img_site/discover.png"></a>			
-		</div>
 	</section>
 
 	<!--Content section-->
@@ -144,9 +140,9 @@
 
 		<h2><strong>Découvrez les contenus produits par notre communauté</strong></h2>
 		<div id="content_Container">
-		<!--Pour une vidéo-->
+			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo1" class="player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -175,8 +171,8 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-					<img id="poster" src="img_site/moutainsmin.jpg">
-					<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+					<img class="poster_Img" src="img_site/moutainsmin.jpg">
+					<audio id="mamusique1" class="player clearfix" controls poster="img_site/moutainsmin.jpg">
 					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
 					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
@@ -203,7 +199,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo 2" class="player"controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -231,7 +227,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo3" class="player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -259,7 +255,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo4" class="player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -288,8 +284,8 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-					<img id="poster" src="img_site/moutainsmin.jpg">
-					<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+					<img class="poster_Img" src="img_site/moutainsmin.jpg">
+					<audio id="mamusique2" class="player clearfix" controls poster="img_site/moutainsmin.jpg">
 					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
 					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
@@ -316,7 +312,7 @@
 
 			<!--Pour une vidéo-->
 			<figure class="clearfix">
-				<video id="mavideo" controls>
+				<video id="mavideo5" class="player" controls>
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
 				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
@@ -345,8 +341,8 @@
 			<!--Pour de l'audio-->
 			<figure class="clearfix">
 				<div class="poster">
-					<img id="poster" src="img_site/moutainsmin.jpg">
-					<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+					<img class="poster_Img" src="img_site/moutainsmin.jpg">
+					<audio id="mamusique3" class="player clearfix" controls poster="img_site/moutainsmin.jpg">
 					    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
 					    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>

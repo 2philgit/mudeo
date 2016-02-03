@@ -77,9 +77,9 @@
 					<h4>Type de fichier :</h4>
 					<!--Checkbox-->
 					<div id="box_Row">
-						<input type="radio" name="video_Box" value="video">
+						<input type="radio" name="choix" value="video">
 						<label for="video_Box">Video</label>
-						<input type="radio" name="music_Box" value="musique">
+						<input type="radio" name="choix" value="musique">
 						<label for="music_Box">Musique</label>
 						<div class="error">
 							<h6 id="type_Error">Veuillez choisir un type de fichier !</h6>
@@ -96,7 +96,7 @@
 							<option value="CC_BY_NC_SA">CC BY-NC-SA</option>
 							<option value="CC_BY_ND">CC BY-ND</option>
 							<option value="CC_BY_SA"> CC BY-SA</option>
-							<option value="CC0">CC0/option>
+							<option value="CC0">CC0</option>
 						</optgroup>
 					</select>					
 					<div class="error">
@@ -207,6 +207,9 @@
 				<div id="description" class="clearfix">
 					<textarea name="describe" placeholder="Décrivez votre contenu">
 					</textarea>
+					<div class="error">
+						<h6 id="keyword_Error">Veuillez entrer au moins 3 caractères !</h6>
+					</div>
 				</div>
 				<!--Fin description-->
 			</div>

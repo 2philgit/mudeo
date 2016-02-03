@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //scroll
 $('a[href^="#"]').click(function(){
 	var the_id = $(this).attr("href");
@@ -8,7 +9,6 @@ $('a[href^="#"]').click(function(){
 	return false;
 });
 
-
 //BurgerMenu animation
 $("#burger_Menu").on("click", function(e){
 	e.preventDefault();
@@ -16,7 +16,6 @@ $("#burger_Menu").on("click", function(e){
 	$("#burger_Menu").toggleClass("active");
 });
 //fin BurgerMenu animation	
-
 
 //Menu utilisateur
 $("#user_Profil").on("click", function(e){
@@ -47,7 +46,7 @@ $("#user_Profil").on("click", function(e){
 	// });
 	// /*fin inscription/connection switch*/
 
-	/*Inscription/Connection switch*/
+/*Inscription/Connection switch*/
 //switch1
 $("#join_Link").on("click", function(e){
 	e.preventDefault();
@@ -78,19 +77,6 @@ $("#forget_Mdp").on("click", function(e){
 });
 /*fin MDP oublié*/
 
-/*Soumission du formulaire de connection*/
-$( "#connect_Button" ).click(function() {
-  $( "#logger_login" ).submit();
-});
-
-/*Soumission du formulaire d'inscription rapide*/
-$( "#inscription_Button" ).click(function() {
-  $( "#logger_inscription" ).submit();
-});
-
-$("#linkUserMenu").on("click",function(){
-	$("#userMenu").toggleClass('hide');
-});
 
 /*Stop la lecture si l'élément n'est plus visible dans le navigateur*/
 //Fonction trouvée sur Stack Overflow
@@ -111,6 +97,20 @@ $(document).on("scroll", function() {
 	})
 });
 
+/*Soumission du formulaire de connection*/
+$( "#connect_Button" ).click(function() {
+  $( "#logger_login" ).submit();
+});
+
+/*Soumission du formulaire d'inscription rapide*/
+$( "#inscription_Button" ).click(function() {
+  $( "#logger_inscription" ).submit();
+});
+
+$("#linkUserMenu").on("click",function(){
+	$("#userMenu").toggleClass('hide');
+});
+
 
 /*Arrête de lire le contenu si un autre est activé*/
 $(".player").each(function(){
@@ -128,4 +128,3 @@ function stopPlaying(e){
 }
 /**IMPORTANT : RAJOUTER LA CLASSE PLAYER SUR LES BALISE VIDEO ET AUDIO**/
 /**IMPORTANT : CHAQUE BALISE AUDIO ET VIDEO DOIVENT AVOIR UN ID (le titre par exemple)**/
-
