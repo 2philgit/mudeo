@@ -24,7 +24,6 @@ str_result = "";
 
 // création de line_result (utilisée pour construire le message des résultats de la recherche)
 var line_result = $("<p>");
-
 /*** 
 FIN DES DECLARATION & INITIALISATION des variables 
 ***/
@@ -272,7 +271,6 @@ function doSearch(){
 
 		// affiche le lien pour effectuer une nouvelle recherche (A AMELIORER avec des flags ?)
 		$("#new-search").show();
-	
 	});
 }
 
@@ -321,14 +319,11 @@ $('#search_Field').on("submit", function(e) {
 // pour les types (vidéo ou musique)
 $(".select-type").click(function(){
 
-	type_flag = true;
-
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
 	if (typeof obj_search.type !== 'undefined') {
 		obj_search.type = $(this).attr('data-type');
 		}
-
 
 	doSearch();
 	return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
@@ -347,7 +342,6 @@ $(".select-mode").click(function(){
 		obj_search.order = $(this).attr('data-order');
 		}
 
-
 	doSearch();
 	return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
 });
@@ -356,14 +350,12 @@ $(".select-mode").click(function(){
 // pour les catégories
 $(".select-category").click(function(){
 
-	type_flag = true;
-	category_flag = true;
-
 	// on va se charger en Ajax de cette soumission
 	// on déclenche maintenant la requête en Ajax
 	if (typeof obj_search.category !== 'undefined') {
 		obj_search.category = $(this).attr('data-category');
 		}
+
 		doSearch();
 
 return false; // Désactive le lien (pour éviter chargement du contenu ds une nouvelle page)
