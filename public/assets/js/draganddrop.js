@@ -319,8 +319,41 @@ function check_form()
                     contentType: false,
                     processData: false
                 })
-                .done(function(response){
-                    console.log(response);
+                    .done(function(data){
+                        console.log(data);
+                        if( data.image = "" ){
+                             $("#thumb_Error").html("fichier deposé non valide");
+                        }
+                        else if( data.music !="" ){
+                            $("#file_Error").html("fichier musique deposé non supporté");
+                        
+                        }else if( data.video  != "" ){
+                            $("#file_Error").html("fichier video deposé non supporté");
+                        }else{
+                                console.log("tout est good");
+                                swal({
+                                      title: "bravo!",
+                                      text: "votre fichier a bien été enregistré !.",
+                                      imageUrl: "/img_site/like.png"
+                                });
+                                $('.confirm').click(function(){
+                                    $(this).data('clicked', true);
+
+                                });
+                                if($('.confirm').data('clicked')) {
+                                    window.location.reload(true);
+                                }else{
+
+                                };
+                                
+                                
+                                                       
+                            
+                        }
+                     
+
+                     
+                   
                 });
 
 

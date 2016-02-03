@@ -17,7 +17,7 @@
 
   <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-  
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
   <!--Font-->
   <!--Favicon-->
   <link rel="icon" type="image/png" href="<?= $this->assetUrl('img_site/favicon.png') ?>" />
@@ -158,7 +158,9 @@
   <script type="text/javascript" src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
-
+  <script src="<?= $this->assetUrl('js/sweetalert.min.js') ?>"></script>
+  <script src="<?= $this->assetUrl('js/sweetalert-dev.js') ?>"></script>
+    
     <!-- <section js> -->
       <?= $this->section('js') ?>
     <!-- </section js> -->
