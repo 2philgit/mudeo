@@ -17,7 +17,7 @@ class FunctionsController extends Controller
 			$usermanager->delete($_SESSION['user']['id']);		
 			$auth->logUserOut();
 			setcookie("auth", "", time()-3600, '/', 'localhost', false, true);
-			$passwordError = "Account deleted Mother Fucker!";
+			$passwordError = "Votre compte à été supprimer ! ";
 		}else{
 			$passwordError = "Log correct !";		
 		}				
