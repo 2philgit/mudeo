@@ -139,6 +139,8 @@ class FileController extends Controller
 			'audio/x-ms-wma',
 			'audio/mp3',
 			'audio/vnd.rn-realaudio',
+			'audio/mp4',
+
 			];
 
 			$mime_video = [
@@ -261,7 +263,7 @@ class FileController extends Controller
 				$fileManager->insert([
 					"id"			=>"",
 					"title" 		=>$title,
-					"user_id"		=>"1",
+					"user_id"		=>"",
 					"file_type"		=>$file_type,
 					"file_size"		=>$file_size,
 					"url_file" 		=>$url,
