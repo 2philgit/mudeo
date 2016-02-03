@@ -1,20 +1,20 @@
 
-
+<!-- <option disable>Selectionner votre pays</option> -->
 <optgroup label="Afrique">
-<option value="afriqueDuSud">Afrique Du Sud</option>
-<option value="algerie">Algérie</option>
-<option value="angola">Angola</option>
-<option value="benin">Bénin</option>
-<option value="botswana">Botswana</option>
-<option value="burkina">Burkina</option>
-<option value="burundi">Burundi</option>
-<option value="cameroun">Cameroun</option>
-<option value="capVert">Cap-Vert</option>
-<option value="republiqueCentre-Africaine">République Centre-Africaine</option>
-<option value="comores">Comores</option>
-<option value="republiqueDemocratiqueDuCongo">République Démocratique Du Congo</option>
-<option value="congo">Congo</option>
-<option value="coteIvoire">Côte d'Ivoire</option>
+<option value="Afrique Du Sud">Afrique Du Sud</option>
+<option value="Algerie">Algérie</option>
+<option value="Angola">Angola</option>
+<option value="Benin">Bénin</option>
+<option value="Botswana">Botswana</option>
+<option value="Burkina">Burkina</option>
+<option value="Burundi">Burundi</option>
+<option value="Cameroun">Cameroun</option>
+<option value="Cap-Vert">Cap-Vert</option>
+<option value="Republique Centre-Africaine">République Centre-Africaine</option>
+<option value="Comores">Comores</option>
+<option value="Republique Democratique Du Congo">République Démocratique Du Congo</option>
+<option value="Congo">Congo</option>
+<option value="CoteIvoire">Côte d'Ivoire</option>
 <option value="djibouti">Djibouti</option>
 <option value="egypte">Égypte</option>
 <option value="ethiopie">Éthiopie</option>
@@ -63,7 +63,7 @@
 <option value="belize">Belize</option>
 <option value="bolivie">Bolivie</option>
 <option value="bresil">Brésil</option>
-<option value="canada">Canada</option>
+<option value="Canada">Canada</option>
 <option value="chili">Chili</option>
 <option value="colombie">Colombie</option>
 <option value="costaRica">Costa Rica</option>
@@ -155,7 +155,7 @@
 <option value="espagne">Espagne</option>
 <option value="estonie">Estonie</option>
 <option value="finlande">Finlande</option>
-<option value="france">France</option>
+<option value="France">France</option>
 <option value="grece">Grèce</option>
 <option value="hongrie">Hongrie</option>
 <option value="irlande">Irlande</option>

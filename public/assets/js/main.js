@@ -98,12 +98,11 @@ $("#connect_Link").on("click", function(e){
 	  $( "#logger_inscription" ).submit();
 	});
 
-	//$('#Pays').on("click",function(){
+	$( "#btnchangepsw" ).click(function() {
+	  $( "#formChangePassword" ).submit();
+	});
 
-		var valeur = "France";
-		$('#selectCountry option[value='+valeur+']').attr("selected", "selected");
-		//$('#selectCountry').attr("selected","selected");
-	//});
+	
 
 });
 

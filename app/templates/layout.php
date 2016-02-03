@@ -10,6 +10,7 @@
   <!--CSS/reset+perso-->
   <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  <!-- <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>"> -->
   
   
   <!--Font-->
@@ -26,20 +27,14 @@
 </head>
 <body>
 
-<!-- <pre><?php //debug($_SESSION); ?> </pre> -->
+<pre><?php //debug($_SESSION); ?> </pre>
   <script src="<?=$this->assetUrl('js/facebook.js')?>" async defer></script>
 
 <!-- Affichage des erreurs  -->
-          <?php if (isset($_SESSION['message']['success'])){ 
-                echo '<h6 id="error-label" style="color: green;">'.$_SESSION['message']['success'].'</h6>';
-              unset($_SESSION['message']);              
-            }else if(isset($_SESSION['message']['error'])){
-              echo '<h6 id="error-label" style="color: red;">'.$_SESSION['message']['error'].'</h6>';
-              unset($_SESSION['message']);
-            }else if(isset($_SESSION['message']['info'])){
-              echo '<h6 id="error-label" style="color: blue;">'.$_SESSION['message']['info'].'</h6>';
-              unset($_SESSION['message']);
-            }
+          <?php 
+     // echo " <p class='alert alert-danger'> " . $_SESSION['eror'] . " </p>"  ;
+      //unset($_SESSION['error']);
+    
        ?>
 
 	<!--Header-->
@@ -73,7 +68,7 @@
       </a>
       <?php //} ?> -->
 
-      <a id="user_Profil" title="accès au profil"><img src="<?php if(isset($_SESSION['user'])) echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']); else echo $this->assetUrl("img_site/user/user.png"); ?>" alt="profil">   
+      <a id="user_Profil" title="accès au profil"><img src="<?php if(isset($_SESSION['user'])){ if(empty($_SESSION['user']['urlpicture'])){echo $this->assetUrl("img_site/user/user.png");}else{echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']);}} else {echo $this->assetUrl("img_site/user/user.png"); }?>" alt="profil">   
       </a>
   
       

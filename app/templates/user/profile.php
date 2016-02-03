@@ -14,7 +14,7 @@
 
 			<!--Photo-->
 			<div id="photo">
-				<img src="<?=$this->assetUrl('img_site/user/'.$_SESSION["user"]["urlpicture"])?>" alt="photo de...">
+				<img src="<?php if(isset($_SESSION['user'])){ if(empty($_SESSION['user']['urlpicture'])){echo $this->assetUrl("img_site/user/user.png");}else{echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']);}} else {echo $this->assetUrl("img_site/user/user.png"); }?>" alt="profil">
 			</div>
 			<!--Pour modifier le profil-->
 			<a id="modify_Button" href="<?=$this->url('profilmodify')?>" title="modifier mon profil"><button>Modifier le profil</button></a>

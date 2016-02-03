@@ -27,7 +27,7 @@
 			<p class="hide last_P">En vous inscrivant, vous acceptez nos <a href="" title="conditions d'utilisation"><strong>conditions d'utilisation</strong></a> et notre <a href="" title="politique de confidentialité"><strong>politique de confidentialité</strong></a>.</p>
 
 			<div class="error_Logger">
-				<h6><?php if(isset($_SESSION['error']['quickRegister'])) echo $_SESSION['error']['quickRegister'];?></h6>
+				 <h6><?php if(isset($_SESSION['error']['quickRegister'])) echo $_SESSION['error']['quickRegister'];?></h6>
 			</div>
 		</form>
 
@@ -83,7 +83,7 @@
 			</div>			
 	</div>	
 
-		
+	</section>
 		
 
 <?php $this->stop('main_content') ?>

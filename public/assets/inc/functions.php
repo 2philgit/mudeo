@@ -50,8 +50,8 @@ function isComfirmedAccount($id){
 
 	$user = $usermanager->find($id);
 
-	if($user['subscription'] =! 0)  $response = true; else $response = false;
-
+	if($user['subscription'] == 0)  $response = false; else $response = true;
+	//die($response);
 	return $response;
 }
 

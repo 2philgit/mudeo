@@ -63,22 +63,32 @@ class UserController extends Controller
 	}
 
 	public function controlChangePassword($id){
-die('uig');
+//die('uig');
 		unset($_SESSION['error']);
 
 		if($_POST){
 
 			if(\isIsset($_POST)){
-				if($password == $passwordRepeat){
+				
+				$password = $_POST['password'];
+				$passwordRepeat = $_POST['passwordRepeat'];
 
-					$usermanager = new \Manager\UserManager();
-					$usermanager->update([
+				if(preg_match("#{8,12}#", $password)){
 
-								'password' => password_hash($password, PASSWORD_DEFAULT),
-								],$id);
+					if($password == $passwordRepeat){
+
+						$usermanager = new \Manager\UserManager();
+						$usermanager->update([
+
+									'password' => password_hash($password, PASSWORD_DEFAULT),								
+									],$id);
 
 					$_SESSION['error']['controlChangePassword'] = "Changement effectuer !  ";
+					$this->redirectToRoute('home');
 
+					}else{
+							$_SESSION['error']['controlChangePassword'] = "Le mot de passe doit faire entre 8 et 12 caractères !  ";
+						 }
 				}else{
 						$_SESSION['error']['controlChangePassword'] = "Les mots de passe de correspondent pas !  ";
 					 }
