@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
   
   <!--Font-->
   <!--Favicon-->
@@ -149,6 +150,8 @@
 	<script type="text/javascript" src="<?= $this->assetUrl('js/main.js') ?>"></script>
   <script src="<?=$this->assetUrl('js/facebook.js')?>" async defer></script>
   <script type="text/javascript" src="<?= $this->assetUrl('js/draganddrop.js') ?>"></script>
+  <script src="<?= $this->assetUrl('js/sweetalert.min.js') ?>"></script>
+  <script src="<?= $this->assetUrl('js/sweetalert-dev.js') ?>"></script>
 
     <!-- <section js : insertion du lien des pages home (connecté et non connecté) > -->
       <?= $this->section('js') ?>

@@ -85,6 +85,7 @@
 
                 <!--Miniature-->
                 <div id="thumbs_Upload">
+
                     <input type="file" name="thumb" id="thumbs"accept="image/jpg, image/png, image/gif">
                     <!--Limite la taille du fichier-->
                     <input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
@@ -165,6 +166,14 @@
         <!--Fin formulaire-->
 
     </section>
+
+</body>
+</html>
+
+  	
+		
+	
+	
 
 
 <?php $this->stop('main_content') ?>

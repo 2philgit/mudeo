@@ -12,13 +12,7 @@ class FileController extends Controller
 	 */
 	public function uploadFiles()
 	{
-		// si user connecté, permet l'affichage de la page upload_files, si non : redirige vers la home (si lien apparant dans le menu en non-connecté)
-		$user=$this->getUser();
-		if ($user) { 
-			$this->show('file/upload_files');
-		} else
-		$this->redirectToRoute('home'); 
-		
+		$this->show('file/upload_files');
 	}
 
 
@@ -34,8 +28,8 @@ class FileController extends Controller
 	public function addFiles()
 	{	
 
-		print_r($_FILES);
-		die();
+		
+		
 		
 		$title 			=$_POST['title'];
 		$category 		="";
@@ -45,19 +39,30 @@ class FileController extends Controller
 		$keyword		=$_POST['keyword'];
 		$content_filter =$_POST['rate'];
 
-
+		
+		/****************************
+		fichier en upload video ou musique
+		*****************************/
 		$file_name 		=$_FILES['fichier']['name'];
 		$file_size		=$_FILES['fichier']['size'];
 		$tmp_file		=$_FILES['fichier']['tmp_name'];
 		$file_type		=$_FILES['fichier']['type'];
 		$error			=$_FILES['fichier']['error'];
-		$size_max		=4194304;
+		
+		
 
-
-
-
-		var_dump($_POST);
-
+		/****************************
+		fichier en upload img
+		*****************************/
+		
+		$imgFile_name 		=$_FILES['thumb']['name'];
+		$imgFile_size		=$_FILES['thumb']['size'];
+		$imgTmp_file		=$_FILES['thumb']['tmp_name'];
+		$imgFile_type		=$_FILES['thumb']['type'];
+		$imgError			=$_FILES['thumb']['error'];
+		
+		
+		
 
 
 		$content_dir="assets/";
@@ -67,7 +72,7 @@ class FileController extends Controller
 		$url ="";
 		$avatar="";
 
-
+		$data = array( "image" => "", "video" => "", "music" => "" );
 
 
 		// validation des données
@@ -78,7 +83,7 @@ class FileController extends Controller
 
 
 		//enleve tout caratères non desiré dans le nom du fichier qui n'est pas de A-z 09 ou un point.
-		$file_name = preg_replace("/[^a-zA-Z0-9.]/", "", $file_name);
+		$file_name = preg_replace("/[^a-zA-Z0-9.]/","",$file_name);
 
 
 
@@ -95,10 +100,16 @@ class FileController extends Controller
 
 		if( !is_uploaded_file($tmp_file) )
 		{
+			$isvalid = false;
 			exit("Le fichier est introuvable");
+		}else if (!is_uploaded_file($imgTmp_file)){
+			exit("Le fichier est introuvable");
+			$isvalid = false;
 		}
 
-		    	// verifie si il y a des données dans le formulaire
+		    	/*********************************************
+				verifie si il y a des données dans le formulaire
+		    	***********************************************/ 
 		if($_POST){
 			$title 			=$_POST['title'];
 			$category 		="";
@@ -107,17 +118,19 @@ class FileController extends Controller
 			$content_type 	=$_POST['fileType'];
 
 
-			if (!empty($_POST['musicCategorie'] )) {
-				$category = $_POST['musicCategorie'];
-			}else if(!empty($_POST['videoCategorie'])){
-				$category = $_POST['videoCategorie'];
+			if (!empty($_POST['musicCategory'] )) {
+				$category = $_POST['musicCategory'];
+			}else if(!empty($_POST['movieCategory'])){
+				$category = $_POST['movieCategory'];
 			};
 
 
 
 
 
-
+			/*************************
+			les extensions autorisées.
+			*************************/
 
 			$mime_audio = [
 			'audio/mpeg',
@@ -151,70 +164,74 @@ class FileController extends Controller
 
 			$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
 			$actualMime =  finfo_file($finfo, $tmp_file) ;
+			$imgActualMime = finfo_file($finfo, $imgTmp_file);
 			
 
-			// echo "$finfo";
-			echo "***";
-			echo "$actualMime";
-			echo "***";
-			// echo "$tmp_file";
+			
 
 			if (in_array($actualMime, $mime_audio ) )
 			{
-				echo "audio";
-
-				$url="$dir_audio.$file_name  ";
+				
+				$url=$dir_audio.$file_name;
 				
 				//changement de nom
 
 				//copie dans le fichier audio
-				if( !move_uploaded_file($tmp_file, $content_dir.$dir_audio . $file_name ) )
+				if( !move_uploaded_file($tmp_file, $content_dir.$dir_audio.$file_name ) )
 				{
-					
+					$data["music"] = "error musique file ";
 					exit("Impossible de copier le fichier audio");
 				}
 				else
 				{
 					
-					echo "Le fichier a bien été uploadé";
 				}
 			}
 			elseif (in_array($actualMime, $mime_video ) )
 			{
-				echo "video";
-
-				$url="$dir_video.$file_name";
 				
+				$url=$dir_video.$file_name;
+				/****************************
+					changement de nom et 
+				copie dans le fichier video
 
-					//changement de nom
-
-				//copie dans le fichier video
-				if( !move_uploaded_file($tmp_file, $content_dir.$dir_video . $file_name ) )
+				****************************/
+				if( !move_uploaded_file($tmp_file, $content_dir.$dir_video.$file_name ) )
 				{
-					
+					$data["video"] = "error music file";
 					exit("Impossible de copier le fichier  video ");
+
 				}
 				else
 				{
 					
-					echo "la video a bien été uploadé";
+					
 				}
-
-			}
-			elseif (in_array($actualMime, $mime_image ) )
+			}	
+			else if(in_array($actualMime, $mime_image ) )
 			{
-				$avatar="$dir_img.$file_name";
+				
+				$isValid = false;
+				$data["image"] = "error file ";
+			}
+
+			
+
+
+			if (in_array($imgActualMime, $mime_image ) )
+			{
+				$avatar=$dir_img.$imgFile_name;
 			
 				
-				echo "format d'image authorisée";
 					//changement de nom
 
 					//copie dans le fichier video
 
-				if( !move_uploaded_file($tmp_file, $content_dir.$dir_img . $file_name ) )
+				if( !move_uploaded_file($imgTmp_file, $content_dir.$dir_img.$imgFile_name ) )
 				{
-					
+					$data["image"] = "error img file ";
 					exit("Impossible de copier l'image ");
+					$isValid = false;
 
 				}
 				else
@@ -224,23 +241,15 @@ class FileController extends Controller
 				}
 
 
-			}
-			else
-			{
-				echo "le format de fichier n'est pas reconnu";
-				$isValid = false;
-			}
 
 			finfo_close($finfo);  
 
-			echo "$url";
+
 
 			
-
+						
 			$fileManager = new \Manager\FileManager();
 	
-
-
 			//si c'est valide
 
 			if ($isValid){
@@ -269,6 +278,8 @@ class FileController extends Controller
 
 					]);
 
+				
+				
 
 
 			}
@@ -277,10 +288,8 @@ class FileController extends Controller
 
 			};
 
-			print_r($_POST);
-
-
-			var_dump($_POST);
+			header("Content-Type: application/json; charset=UTF-8");
+			echo json_encode($data);
 		}
-	}
+	}}
 }

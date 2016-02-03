@@ -58,16 +58,6 @@ class FileManager extends \W\Manager\Manager {
 					//$order = "DESC";
 				}
 
-				// SELECT files.*, users.username AS author, 'likes-files.file_id' AS likes FROM users LEFT JOIN files ON files.user_id = users.id WHERE title LIKE '%ti%' ORDER BY title ASC
-				//////////////////////////SELECT * FROM films,acteurs,films_acteurs WHERE films.id=film_id AND acteur_id=acteurs.id 
-				// SELECT * FROM `likes-files` WHERE `user_id` = 4 
-				// SELECT file_id FROM `likes-files` WHERE `user_id` = 4 
-				//if ($_GET['column'] == "like_me") {
-				//	$selectSearch = " user_id = " . $_SESSION['user']['id'];                                                                                               ;
-				//	$column = "created";
-					//$order = "DESC";
-				//}
-
 
 				if ($_GET['category']) {
 
@@ -77,8 +67,6 @@ class FileManager extends \W\Manager\Manager {
 				$username = "users.username";
 				$author = "author";
 				$id = "files.user_id = users.id";
-
-				//SELECT files.*, users.username AS author FROM users LEFT JOIN files ON files.user_id = users.id WHERE title LIKE '%ti%' ORDER BY title ASC
 						
 				// pdo	
 				// création de la requête de recherche (sur title)
@@ -89,4 +77,3 @@ class FileManager extends \W\Manager\Manager {
 				return $result;
 
 	}
-}
