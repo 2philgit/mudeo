@@ -104,7 +104,7 @@ h4, #log_Section h2, #logger p, #other_Link a,
 #connect_Button, #inscription_Button, #recover_Button, #join_Link, 
 #connect_Link, #remember_Me label, .follow button.following, #see_More button,
 #tri ul li a,#basic_Abo button, #plus_Abo tfoot, #plus_Abo button,#pro_Abo tfoot,
-#pro_Abo button, #modify_Button button, #follower h2, 
+#pro_Abo button, #modify_Button button, #follower h2, #conseil h2,
 #following h2, #uploaded_Part h2, #oops button{
 	color: #FFF;
 }
@@ -203,7 +203,7 @@ header, #bottom_Part{
 	 /* Remove default */
   	border: none;
   	width: 1.25em;
-  	height: 1.188em;
+  	height: 1.75em;
   	background-image: url(../img_site/search.png);
   	background-repeat: no-repeat;
 }
@@ -738,10 +738,6 @@ section h2:first-child{
 	margin: auto;
 	float: none;
 }
-#photo img{	
-	max-width: 19.063em;
-	max-height: 16.875em;
-}
 /********
 FIN PROFIL.HTML
 ********/
@@ -1137,7 +1133,6 @@ realised{
 		cursor: pointer;
 	}
 	#user_Profil img{
-		border-radius: 50%;
 		width: 2em;
 	}
 	#user_Hover{
