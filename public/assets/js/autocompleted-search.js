@@ -224,7 +224,7 @@ function doSearch(){
 			// line_result créée au début de ".done"
 			// test sur la présence ou non d'une chaîne de caractère dans le champ de recherche
 			if (obj_search.input_search !="") { // s'il y a qqch
-				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élement(s) trouvé(s) : " + response.length;
+				str_result = "Recherche sur : " + '"' + obj_search.input_search + '"' + "-" + " Nombre d'élément(s) trouvé(s) : " + response.length;
 			} else { 
 				str_result = "Nombre d'élement(s) trouvé(s) : " + response.length;
 			}
