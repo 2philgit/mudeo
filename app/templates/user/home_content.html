@@ -1,0 +1,566 @@
+<<<<<<< HEAD:app/templates/user/home_content.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mudéo | Entre musique et vidéo</title>
+	<!--Tag for responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery CDN-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--Recaptcha Google-->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--CSS/reset+perso-->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--Font-->
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="img_site/favicon.png" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+</head>
+<body>
+
+	<!--Header-->
+	<header id="top_Anchor">
+		<nav class="wrap">
+
+			<!--Pour smartphone et tablette-->
+			<h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+			<!--Burger menu-->
+			<span id="burger_Menu"></span>
+			<!--Pour desktop-->
+			<h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
+
+			<ul id="main_Menu" class="hide">
+				<li><a href="home_content.html">Regarder</a></li>
+				<li><a href="upload.html">Mettre en ligne</a></li>
+				<!--Apparait seulement si non-connecté-->
+				<li><a href="index.html#logger">Connection</a></li>
+				<!--Apparait seulement si connecté sur smartphone et tablette-->
+				<li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+				<!--Seulement pour smartphone et tablette-->
+				<li><a class="desktop_Hide" href="help_Center.html">Aide</a></li>
+				<!--Compte upgrade-->
+				<li><a href="helpCenter.html">Abonnement</a></li>
+			</ul>
+
+			<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
+
+			<form id="search_Field" method="GET">
+				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
+				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
+			</form>
+
+		</nav>
+	</header>
+
+	<!--Tri section-->
+	<section id="tri_Section" class="clearfix">
+
+		<div id="tri">
+		<!--Barre principal de tri pour smartphone et tablette-->
+			<nav id="tri_Min">
+				<ul>
+					<!--class="selected" pour le tri sélectionner (Tout par défaut)-->
+					<li><a id="tri_All" class="selected" href="" title="Voir tout les contenus">Tout</a></li>
+					<li><a id="tri_Music" href="" title="Voir seulement la musique">Musique</a></li>
+					<li><a id="tri_Video" href="" title="Voir seulement les vidéos">Vidéo</a></li>
+				</ul>
+			</nav>
+			<!--Barre pour la version Desktop-->
+			<nav id="tri_Desktop">
+				<h4>Tri par :</h4>
+				<ul>
+					<li><a id="tri_All" class="selected" href="" title="Voir tout les contenus">Tout</a></li>
+					<li><a id="tri_Music" href="" title="Voir seulement la musique">Musique</a></li>
+					<li><a id="tri_Video" href="" title="Voir seulement les vidéos">Vidéo</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<!--Barre secondaire pour les utilisateurs connectés-->
+		<div id="tri_Second">
+			<nav>
+				<ul>
+					<!--class="selected_2" pour le tri sélectionner (nouveautés par défaut-->
+					<li><a id="tri_New" class="selected_2" href="Voir les nouveaux contenus">Nouveautés</a></li>
+					<li><a id="tri_Like" href="" title="Voir mes contenus préférés">J'aime</a></li>
+					<li><a id="tri_Mine" href="" title="Voir mes contenus">Upload</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	
+
+	<!--Content section (fourre-tout)-->
+	<section id="latest_Content" class="wrap home_Content clearfix">
+
+		<div id="content_Container">
+		<!--Pour une vidéo-->
+			<figure class="clearfix">
+				<video id="mavideo" class="clearfix" controls>
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+				    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+				    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+				</video>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+			<!--Pour de l'audio-->
+			<figure class="clearfix">
+				<video id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+
+				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+				</video>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+			<!--Pour de l'audio-->
+			<figure class="clearfix">
+				<video id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+				    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+
+				    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+				</video>
+				<figcaption class="clearfix">
+						<div class="info_Top clearfix">
+							<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+							<span class="social_Nav">
+								<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+								<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+							</span>
+						</div>
+						<div class="info_Bottom clearfix">
+							<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+							<span class="author">
+								<h4><strong>Ross Heng</strong></h4>
+								<p>publier le 21/01/2016</p>
+							</span>
+						</div>
+				</figcaption>
+			</figure>
+
+		</div>
+
+		<!--Uniquement sur la version desktop-->
+		<section id="tri_Complet">
+				<h4>Catégories</h4>
+			<nav>
+				<h5>Video</h5>
+				<ul>
+					<li><a href="" title="animation">Animation</a></li>
+					<li><a href="" title="art et design">Arts &amp; Design</a></li>
+					<li><a href="" title="caméra et techniques">Caméra &amp; Techniques</a></li>
+					<li><a href="" title="comédie">Comédie</a></li>
+					<li><a href="" title="documentaire">Documentaire</a></li>
+					<li><a href="" title="expérimental">Expérimental</a></li>
+					<li><a href="" title="fashion">Fashion</a></li>
+					<li><a href="" title="cuisine">Cuisine</a></li>
+					<li><a href="" title="education">Education</a></li>
+					<li><a href="" title="narration">Narration</a></li>
+					<li><a href="" title="personnel">Personnel</a></li>
+					<li><a href="" title="reportage">Reportage</a></li>
+					<li><a href="" title="sports">Sports</a></li>
+					<li><a href="" title="voyage">Voyage</a></li>
+					<li><a href="" title="clip">Clip</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h5>Musique</h5>
+				<ul>
+					<li><a href="" title="pop">Pop</a></li>
+					<li><a href="" title="rock">Rock</a></li>
+					<li><a href="" title="hiphop">HipHop</a></li>
+					<li><a href="" title="jazz">Jazz</a></li>
+					<li><a href="" title="classique">Classique</a></li>
+					<li><a href="" title="blues">Blues</a></li>
+					<li><a href="" title="metal">Metal</a></li>
+					<li><a href="" title="r&amp;b">R&amp;B</a></li>
+					<li><a href="" title="reggae">Reggae</a></li>
+					<li><a href="" title="alternative">Alternative</a></li>
+					<li><a href="" title="folk">Folk</a></li>
+					<li><a href="" title="musique du monde">Musique du monde</a></li>
+				</ul>
+			</nav>
+			
+		</section>	
+
+		<!--Pour charger plus de contenu-->
+		<div id="load_More" class="clearfix">
+			<a href="home_content.html" title="Charger plus de contenu">Charger plus de contenu</a>
+		</div>
+
+	</section>
+	
+
+	<!--Footer-->
+	<footer>
+		<!--Version Desktop uniquement-->
+		<section id="top_Part">
+			<div id="centered_Menu">
+				<nav id="mudeo_Menu">
+					<h5>Mudeo</h5>
+					<ul>
+						<li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
+						<li><a href="" title="Règles du site">Règles</a></li>
+						<li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+						<li><a href="" title="Confidentialité">Confidentialité</a></li>
+					</ul>
+				</nav>
+				<nav id="aide_Menu">
+					<h5>Aide</h5>
+					<ul>
+						<li><a href="" title="Centre d'aide">Centre d'aide</a></li>
+						<li><a href="" title="FAQ">FAQ</a></li>
+						<li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
+					</ul>
+				</nav>
+				<nav id="Plus_Menu">
+					<h5>Plus</h5>
+					<ul>
+						<li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
+						<li><a href="" title="Plan du site">Plan du site</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section id="bottom_Part">
+			<span><p>&copy; 2016</p></span>
+			<a href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+		</section>
+	</footer>
+
+<!--jQuery pour le site-->
+<script src="js/main.js"></script>
+
+</body>
+=======
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mudéo | Entre musique et vidéo</title>
+	<!--Tag for responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery CDN-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--Recaptcha Google-->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--CSS/reset+perso-->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--Font-->
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="img_site/favicon.png" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img_site/favicon.png" /><![endif]-->
+</head>
+<body>
+
+	<!--Header-->
+	<header id="top_Anchor">
+		<nav class="wrap">
+
+			<!--Pour smartphone et tablette-->
+			<h1 id="logo_Min"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo_min.png" alt="mudéo"></a></h1>
+			<!--Burger menu-->
+			<span id="burger_Menu"></span>
+			<!--Pour desktop-->
+			<h1 id="logo"><a href="index.html" title="mudéo, renvoi à l'accueil"><img src="img_site/logo.png" alt="mudéo"></a></h1>
+
+			<ul id="main_Menu" class="hide">
+				<li><a href="home_content.html">Regarder</a></li>
+				<li><a href="upload.html">Mettre en ligne</a></li>
+				<!--Apparait seulement si non-connecté-->
+				<li><a href="index.html#logger">Connection</a></li>
+				<!--Apparait seulement si connecté sur smartphone et tablette-->
+				<li><a class="desktop_Hide" href="profil.html">Profil</a></li>
+				<!--Seulement pour smartphone et tablette-->
+				<li><a class="desktop_Hide" href="aide.html">Aide</a></li>
+				<!--Compte upgrade-->
+				<li><a href="upgrade.html">Abonnement</a></li>
+			</ul>
+
+			<a id="user_Profil" href="profil.html" title="accès au profil"><img src="img_site/user.png" alt="profil"></a>
+
+			<form id="search_Field" method="GET">
+				<input id="search" type="search" name="search_Input" placeholder="Rechercher dans mudeo"></input>
+				<span id="search_Icon"><input type="submit" name="search_Submit" value=""></input></span>
+			</form>
+
+		</nav>
+	</header>
+	
+	<div class="wrap">
+		<!--Tri section-->
+		<section id="tri_Section" class="clearfix">
+
+			<div id="tri">
+			<!--Barre principal de tri pour smartphone et tablette-->
+				<nav id="tri_Min">
+					<ul>
+						<!--class="selected" pour le tri sélectionner (Tout par défaut)-->
+						<li><a id="tri_All" class="selected" href="" title="Voir tout les contenus">Tout</a></li>
+						<li><a id="tri_Music" href="" title="Voir seulement la musique">Musique</a></li>
+						<li><a id="tri_Video" href="" title="Voir seulement les vidéos">Vidéo</a></li>
+					</ul>
+				</nav>
+				<!--Barre pour la version Desktop-->
+				<nav id="tri_Desktop" class="clearfix">
+					<h4>Tri par :</h4>
+					<ul>
+						<li><a id="tri_All" class="selected" href="" title="Voir tout les contenus">Tout</a></li>
+						<li><a id="tri_Music" href="" title="Voir seulement la musique">Musique</a></li>
+						<li><a id="tri_Video" href="" title="Voir seulement les vidéos">Vidéo</a></li>
+					</ul>
+				</nav>
+			</div>
+			
+			<!--Barre secondaire pour les utilisateurs connectés-->
+			<div id="tri_Second">
+				<nav>
+					<ul>
+						<!--class="selected_2" pour le tri sélectionner (nouveautés par défaut-->
+						<li><a id="tri_New" class="selected_2" href="" title="Voir les nouveaux contenus">Nouveautés</a></li>
+						<li><a id="tri_Pop" href="" title="Carotte dans cul de nonne">Popularité</a></li>
+						<li><a id="tri_Like" href="" title="Voir mes contenus préférés">J'aime</a></li>
+						<li><a id="tri_Mine" href="" title="Voir mes contenus">Upload</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section class="search-result clearfix">
+	            <h3>Recherche pour : "<strong><?php echo $_GET['input_search']; ?></strong>"</h3>
+	            <h3>Nombre d'élément trouvé: <?php if($_GET['input_search']=="") {echo "0";} else {echo count($results);} ?></h3>
+	    </section>
+
+		<!--Content section (fourre-tout)-->
+		<section id="latest_Content" class="home_Content clearfix">
+
+			<div id="content_Container">
+				<!--Pour une vidéo-->
+				<figure class="clearfix">
+					<video id="mavideo" class="clearfix" controls>
+					    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+					    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+					    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+					    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+					</video>
+					<figcaption class="clearfix">
+							<div class="info_Top clearfix">
+								<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+								<span class="social_Nav">
+									<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+									<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+								</span>
+							</div>
+							<div class="info_Bottom clearfix">
+								<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+								<span class="author">
+									<h4><strong>Ross Heng</strong></h4>
+									<p>publier le 21/01/2016</p>
+								</span>
+							</div>
+					</figcaption>
+				</figure>
+
+				<!--Pour de l'audio-->
+				<figure class="clearfix">
+					<div class="poster">
+						<img id="poster" src="img_site/moutainsmin.jpg">
+						<audio id="mamusique" class="clearfix" controls poster="img_site/moutainsmin.jpg">
+						    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
+
+						    <p class="alert">Votre navigateur ne supporte pas la balise audio ! Mettez-vous à jour !</p>
+						</audio>
+					</div>
+					<figcaption class="clearfix">
+							<div class="info_Top clearfix">
+								<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+								<span class="social_Nav">
+									<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+									<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+								</span>
+							</div>
+							<div class="info_Bottom clearfix">
+								<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+								<span class="author">
+									<h4><strong>Ross Heng</strong></h4>
+									<p>publier le 21/01/2016</p>
+								</span>
+							</div>
+					</figcaption>
+				</figure>
+
+				<!--Pour une vidéo-->
+				<figure class="clearfix">
+					<video id="mavideo" class="clearfix" controls>
+					    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+					    <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm">
+					    <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg">
+
+					    <p class="alert">Ton navigateur ne supporte pas la balise vidéo ! Met toi à jour connard !</p>
+					</video>
+					<figcaption class="clearfix">
+							<div class="info_Top clearfix">
+								<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
+								<span class="social_Nav">
+									<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
+									<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+								</span>
+							</div>
+							<div class="info_Bottom clearfix">
+								<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+
+								<span class="author">
+									<h4><strong>Ross Heng</strong></h4>
+									<p>publier le 21/01/2016</p>
+								</span>
+							</div>
+					</figcaption>
+				</figure>
+
+					
+			</div>
+
+			<!--Uniquement sur la version desktop-->
+			<section id="tri_Complet">
+					<h4>Catégories</h4>
+				<nav>
+					<h5>Video</h5>
+					<ul>
+						<li><a href="" title="animation">Animation</a></li>
+						<li><a href="" title="art et design">Arts &amp; Design</a></li>
+						<li><a href="" title="caméra et techniques">Caméra &amp; Techniques</a></li>
+						<li><a href="" title="comédie">Comédie</a></li>
+						<li><a href="" title="documentaire">Documentaire</a></li>
+						<li><a href="" title="expérimental">Expérimental</a></li>
+						<li><a href="" title="fashion">Fashion</a></li>
+						<li><a href="" title="cuisine">Cuisine</a></li>
+						<li><a href="" title="education">Education</a></li>
+						<li><a href="" title="narration">Narration</a></li>
+						<li><a href="" title="personnel">Personnel</a></li>
+						<li><a href="" title="reportage">Reportage</a></li>
+						<li><a href="" title="sports">Sports</a></li>
+						<li><a href="" title="voyage">Voyage</a></li>
+						<li><a href="" title="clip">Clip</a></li>
+					</ul>
+				</nav>
+				<nav>
+					<h5>Musique</h5>
+					<ul>
+						<li><a href="" title="pop">Pop</a></li>
+						<li><a href="" title="rock">Rock</a></li>
+						<li><a href="" title="hiphop">HipHop</a></li>
+						<li><a href="" title="jazz">Jazz</a></li>
+						<li><a href="" title="classique">Classique</a></li>
+						<li><a href="" title="blues">Blues</a></li>
+						<li><a href="" title="metal">Metal</a></li>
+						<li><a href="" title="r&amp;b">R&amp;B</a></li>
+						<li><a href="" title="reggae">Reggae</a></li>
+						<li><a href="" title="alternative">Alternative</a></li>
+						<li><a href="" title="folk">Folk</a></li>
+						<li><a href="" title="musique du monde">Musique du monde</a></li>
+					</ul>
+				</nav>
+				
+			</section>	
+
+			<!--Pour charger plus de contenu-->
+			<div id="load_More" class="clearfix">
+				<a href="home_content.html" title="Charger plus de contenu">Charger plus de contenu</a>
+			</div>
+
+		</section>
+	</div>
+
+	<!--Footer-->
+	<footer>
+		<!--Version Desktop uniquement-->
+		<section id="top_Part">
+			<div id="centered_Menu">
+				<nav id="mudeo_Menu">
+					<h5>Mudeo</h5>
+					<ul>
+						<li><a href="aide.html" title="A propos de mudeo">A propos de mudeo</a></li>
+						<li><a href="" title="Règles du site">Règles</a></li>
+						<li><a href="aide.html" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+						<li><a href="aide.html" title="Confidentialité">Confidentialité</a></li>
+					</ul>
+				</nav>
+				<nav id="aide_Menu">
+					<h5>Aide</h5>
+					<ul>
+						<li><a href="aide.html" title="Centre d'aide">Centre d'aide</a></li>
+						<li><a href="aide.html" title="FAQ">FAQ</a></li>
+						<li><a href="aide.html" title="Droit d'auteur">Droit d'auteur</a></li>
+					</ul>
+				</nav>
+				<nav id="Plus_Menu">
+					<h5>Plus</h5>
+					<ul>
+						<li><a href="aide.html" title="Mettre en ligne">Mettre en ligne</a></li>
+						<li><a href="aide.html" title="Plan du site">Plan du site</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section id="bottom_Part">
+			<span>
+				<realised>Réalisé par:</realised>
+				<jerem>Jeremie,</jerem>
+				<etienne>Etienne,</etienne>
+				<philippe>Philippe,</philippe>
+				<arthur>Arthur</arthur>
+			</span>
+			<a id="back_To" href="#top_Anchor" title="Retour en haut"><img src="img_site/backtoTop.png" alt="Retour en haut"></a>
+		</section>
+	</footer>
+
+<!--jQuery pour le site-->
+<script src="js/main.js"></script>
+
+</body>
+>>>>>>> etienne:Integration/home_content.html
+</html>

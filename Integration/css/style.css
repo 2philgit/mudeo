@@ -1,21 +1,39 @@
+/*Smartphone : ligne 5 à 885*/
+/*Tablette : ligne 888 à 1025*/
+/*Desktop : ligne 1028 à 1629*/
 /*Pour tous*/
 body{
 	font-family: Verdana, Arial, Sans-serif;
 	font-size: 1em;
 	background-color: #FFF;
 	color: #557b83;
+
 }
 a{
 	text-decoration: none;
 	color: #557b83;
+	transition: 500ms;
 }
-.clearfix{
+a, input[type="submit"]{
+	cursor: pointer;	
+}
+a, input[type="submit"], 
+#burger_Menu::after, #burger_Menu::before, #oops a button{
+	cursor: pointer;	
+}
+.clearfix:after{
+	display: block;
 	content: "";
 	clear: both;
 }
 .wrap{
+	min-width: 20em;
 	max-width: 72.5em;	
 	margin: 0 auto;
+	overflow: hidden;
+}
+.wrap h2{
+	text-align: center;
 }
 strong{
 	font-weight: bold;
@@ -24,144 +42,221 @@ h2{
 	font-size: 1.5em;
 	padding-top: 1.5em;
 }
+h3{
+	font-size: 1.25em
+}
 h4{
-	font-size: 1em;
+<<<<<<< HEAD
+	font-size: 1.125em;
 	color: #FFF;
 }
-/*Styles communs(optimisation)*/
+h5{
+	font-size: 1.125em;
+}
+/*Styles communs smartphone(optimisation)*/
+=======
+	color: #FFF;
+}
+h4, h5{
+	font-size: 1.125em;
+}
+/*Styles communs smartphone*/
+>>>>>>> etienne
 input, textarea, figcaption{
 	border: 1px solid #c1c1c1;
 	background-color: #FFF;
 	height: 1.25em;
 }
-input, textarea, #mainMenu a, #logoMin a, #logo a, button, figcaption{
+input, textarea, #main_Menu a, #logoMin a, #logo a, button, figcaption, 
+#connect_Button, #inscription_Button, #tri_All, #tri_Like, #tri_New,
+#tri_Music, figure, #abonnement table, #abonnement tr{
 	box-sizing: border-box;
 }
-header, footer, #mainMenu{
-	width: 100%;
+header, footer, #main_Menu, #main_Menu ul li, .error_Logger, .upload_Error, 
+#remember_Me, #latest_Content, figure, video, figcaption, #content_Container, 
+.poster, #poster, #see_More button, .search-result, #load_More, #comments_Form textarea, .error{
+	width: 100%; 
 }
-#logoMin, #logo, #search, #connectButton, #connectLink, #otherLink a, 
-#facebookConnect img, video, figcaption, .infoTop, .infoBottom, 
-.infoTop h3, .socialNav a{
+#logo_Min, #logo, #search, #connect_Button, #connect_Link, #other_Link a, 
+#logo_Min, #logo, #search, #connect_Button, #connect_Link, #other_Link a, 
+#facebook_Connect img, video, figcaption, .info_Top, .info_Bottom, .info_Top h3, 
+.social_Nav a, #tri_Second nav, .error_Logger, .upload_Error, .info_Bottom a, 
+#tri-second h4, .search-result, #load_More, .user_Box img, .error, #bottom_Part span{
 	float: left;
 }
-#searchField, #searchIcon, #joinLink, .socialNav {
+#search_Field, #search_Icon, #join_Link, .social_Nav, #inscription_Button, 
+#comments_Form input, #bottom_Part a{
 	float: right;
 }
-#mainMenu, #burgerMenu, #burgerMenu::after, #burgerMenu::before{
+#main_Menu, #burger_Menu, #burger_Menu::after, #burger_Menu::before{
 	position: absolute;
 }
-#logo, .hide, #userProfil{
+#logo, .hide, #user_Profil, #tri_Complet, #warning_Mention, #upload_Zone label,
+#question, #top_Part{
 	display: none;
 }
-#rememberMe label, #joinLink, #connectLink{
+#burger_Menu, #burger_Menu::after, #burger_Menu::before, #other_Link a{
+	display: block;
+}
+#remember_Me, #facebook_Connect p, #tri ul li, #tri_Second ul li, #upload_Content input{
+	display: inline-block;
+}
+#remember_Me label, #join_Link, #connect_Link, #logger p, #other_Link a, 
+.error_Logger, .upload_Error, #tri_Second, #tri-second h4, .img_Cook p, #user_Title p{
 	font-size: 0.75em;
 }
-header, figcaption, .follow button, #bottomPart{
+header, figcaption, .follow button, #bottom_Part{
 	background-color: #F2F2F2;
 }
-
+#upload_Content, #abonnement{
+	margin-top: 3.75em;
+}
+<<<<<<< HEAD
+=======
+header{
+	border-bottom: 1px solid #c1c1c1;
+}
+header, #bottom_Part, #logo_Min a, #logo a, #search_Field, #search_Icon{
+	height: 3.125em;
+}
+#main_Menu, #log_Section, #log_Section h2, .error_Logger, .upload_Error, 
+#latest_Content h2, #tri, #tri_Second, .img_Cook, .error, #oops{
+	text-align: center;
+}
+h4, #log_Section h2, #logger p, #other_Link a, 
+#connect_Button, #inscription_Button, #recover_Button, #join_Link, 
+#connect_Link, #remember_Me label, .follow button.following, #see_More button,
+#tri ul li a,#basic_Abo button, #plus_Abo tfoot, #plus_Abo button,#pro_Abo tfoot,
+#pro_Abo button, #modify_Button button, #follower h2, 
+#following h2, #uploaded_Part h2, #oops button{
+	color: #FFF;
+}
+a, #see_More button, #tri_Min ul li a:hover, #upload_Content input[type="submit"],
+#modify_Form input[type="submit"]:hover, #modify_Form input[type="submit"]{
+	transition: 500ms;
+}
+header, figcaption, .follow button, #bottom_Part{
+	background-color: #F2F2F2;
+}
+#upload_Content, #abonnement{
+	margin-top: 3.75em;
+}
+>>>>>>> etienne
 /*Header*/
+header{
+	border-bottom: 1px solid #c1c1c1;
+}
 header a{
 	color: #39aea9;
 }
-header, #bottomPart{
+header, #bottom_Part{
 	height: 3.125em;
 }
-#logoMin, #logo{
+#logo_Min, #logo{
 	line-height: 3.5em;
 }
-#logoMin a, #logo a{
+#logo_Min a, #logo a{
 	padding: 0.5em 0.5em;
-	height: 3.125em;
 }
 /*Burger Menu animation*/
-#burgerMenu, #burgerMenu::after, #burgerMenu::before{
+#burger_Menu, #burger_Menu::after, #burger_Menu::before{
 	display: block;
 	width: 0.875em;
 	height: 0.2em;
 	transition: all 250ms ease-in-out;
 }
-#burgerMenu{
+#burger_Menu{
 	top: 1.35em;
 	left: 3.5em;
 	background-color: #39aea9;
 }
-#burgerMenu::after, #burgerMenu::before{
+#burger_Menu::after, #burger_Menu::before{
 	width: 0.875em;
 	height: 0.2em;
 	content:"";
-	cursor: pointer;
 	background-color: #39aea9;
 }
-#burgerMenu::after{
+#burger_Menu::after{
 	top: -0.3em;
 }
-#burgerMenu::before{
+#burger_Menu::before{
 	top: 0.35em;
 }
-#burgerMenu.active::after, #burgerMenu.active::before{
+#burger_Menu.active::after, #burger_Menu.active::before{
 	top: 0;
 }
-#burgerMenu.active{
+#burger_Menu.active{
 	background-color: transparent; 
 }
-#burgerMenu.active::before{
+#burger_Menu.active::before{
  	transform: rotate(45deg);
  }	
-#burgerMenu.active::after{
+#burger_Menu.active::after{
 	 transform: rotate(-45deg);
 }
 /*Fin Burger Menu animation*/
-#mainMenu{
-	top: 50px;
+#main_Menu{
+	top: 3.125em;
 	left: 0;
-	text-align: center;
 	background-color: rgba(255, 255, 255, 0.9);
+	z-index: 50;
 }
-#mainMenu li{
+#main_Menu li{
 	border-bottom: 1px solid #39aea9;
 }
-#mainMenu a{
+#main_Menu a{
 	padding: 0.4em 6em;
 	line-height: 2em;
 }
-#searchField, #searchIcon{
+#search_Field, #search_Icon{
 	line-height: 3em;
-	height: 3.125em;
 }
-#searchIcon{
-	line-height: 2.8em;
+#search_Icon{
+	line-height: 2.5em;
 }
-#searchIcon{
+#search_Icon{
 	padding: 0.25em 0.5em 0;
+}
+#search_Icon input{
+	 /* Remove default */
+  	border: none;
+  	width: 1.25em;
+  	height: 1.188em;
+  	background-color: #f2f2f2;
+  	background-image: url(../img_site/search.png);
+  	background-repeat: no-repeat;
 }
 #search{
 	width: 12em;
-	margin: 1em 0;
+	margin: 1.125em 0;
 }
 /*Fin Header*/
+
 
 /********
 INDEX.HTML
 ********/
 
 /*logSection*/
-#logSection{
-	text-align: center;
+#log_Section{
 	background-image: url(../img_site/moutains.jpg);
 	background-repeat: no-repeat;
 	background-position: 40%;
 	background-size: cover;
 	padding-bottom: 1em;
+	min-height: 36.5em;
 }
-#logSection h1{
+#log_Section h1{
 	visibility: hidden;
 }
-#logSection h2{
+<<<<<<< HEAD
+#log_Section h2{
 	color: #FFF;
+	text-align: center;
 }
-#discoverMore{
+=======
+>>>>>>> etienne
+#discover_More{
 	display: none;
 }
 /*Logger*/
@@ -172,14 +267,10 @@ INDEX.HTML
 	background-color: rgba(85, 123, 131, 0.5); 
 	border-radius: 0.188em;
 }
-#logger input, #otherLink a, .g-recaptcha, #logger p, #logger button{
+#logger input, #other_Link a, .g-recaptcha, #logger p, #logger button, #connect_Button, #inscription_Button{
 	margin-top: 0.75em;
 }
-#logger p, #otherLink a{
-	color: #FFF;
-	font-size: 0.75em;
-}
-#otherLink a{
+#other_Link a{
 	padding: 0 3em;
 }
 #logger p{
@@ -197,7 +288,7 @@ INDEX.HTML
 	margin-top: 2em;
 }
 .g-recaptcha.marge{
-	margin-top: 4em;
+	margin-top: 1em;
 }
 .g-recaptcha, #rc-imageselect{
 	margin-left: 0.25em;
@@ -207,105 +298,118 @@ INDEX.HTML
 	-webkit-transform-origin:0 0;
 }
 /*champs d'erreur*/
-.errorLogger{
+.error_Logger, .upload_Error{
 	padding: 0.5em 0;
-	font-size: 0.75em;
-	width: 100%;
 	margin: auto;
-	text-align: center;
 	color: red;
-	float: left;
 }
 /*switch button*/
 #switch{
 	width: 10.625em;
 	margin: 0.5em auto;
 }
-button{
+button, #connect_Button, #inscription_Button, #recover_Button{
 	border: none;
 	border-radius: 0.375em;
 	height: 1.875em;
 }
-#connectButton, #inscriptionButton{
+#connect_Button, #inscription_Button, #recover_Button{
 	background-color: #a2d5ab;	
-	color: #FFF;
 }
-#joinLink, #connectLink{
+#recover_Button{
+	margin-bottom: 1em;
+}
+#recover_Button{
+	margin-bottom: 1em;
+}
+#join_Link, #connect_Link{
 	line-height: 3.8em;
-	color: #FFF;
 }
 /*otherLink*/
-#otherLink{
+#other_Link{
 	margin-top: 0.5em;
 }
-#otherLink a{
+#other_Link a{
 	height: 1.75em;
-	display: block;
 }
 /*Se souvenir de moi div*/
-#rememberMe{
-	display: inline-block;
+#remember_Me{
 	margin-bottom: 0.5em;
-	width: 100%;
 }
-#rememberMe label{
+#remember_Me label{
 	margin-bottom: 0.25em;
-	color: #FFF;
-}
-#rememberMe label, #joinLink, #connectLink{
-	font-size: 0.75em;
 }
 /*Facebook connection*/
-#facebookConnect p{
+#facebook_Connect p{
 	font-size: 1em;
 	line-height: 2em;
-	display: inline-block;
 }
 /*Fin logSection*/
 
 
 /*ContentSection*/
-#latestContent, figure, video, figcaption{
-	width: 100%;
-}
-#latestContent h2{
+#latest_Content h2{
 	font-weight: bold;
-	text-align: center;
 	margin: 1em auto 2em ;
 }
-#contentContainer{
-	width: 100%;
-	min-width: 320px;
-	max-width: 640px;
+#content_Container{
+	min-width: 20em;
+	max-width: 40em;
 	margin: auto;
 }
 figure{
-	min-width: 320px;
-	max-width: 320px;	
+	min-width: 20em;
+	max-width: 20em;	
+	height: 100%;
 	margin: 1em auto; 
+	box-sizing: border-box;
 }
 /*video player*/
 video{
 	margin: 0 auto;
+	height: auto;
+}
+.poster{
+	margin: 0;
+<<<<<<< HEAD
+	width: 100%;
+=======
+>>>>>>> etienne
+	height: 100%;
+	max-height: 8.5em;
+}
+audio{
+	position: relative;
+	bottom: 2.3em;
+	width: 95%;
+	margin-left: 2.5%;
+	z-index: 5;
 }
 figcaption{
 	height: 5em;
 	margin-bottom: 1em;
 }
+#poster{
+	margin: 0;
+<<<<<<< HEAD
+	width: 100%;
+=======
+>>>>>>> etienne
+}
 .alert{
 	color: #000;
 }
 /*Player info*/
-.infoTop, .infoBottom{
+.info_Top, .info_Bottom{
 	height: 2em;
 	width: 80%;
 	margin-left: 10%;
 }
-.infoTop h3{
+.info_Top h3{
 	font-weight: bold;
-	line-height: 2em;
+	line-height: 1.75em;
 }
-.socialNav{
+.social_Nav{
 	line-height: 2em;
 }
 .follow button{
@@ -314,94 +418,1038 @@ figcaption{
 }
 .follow button.following{
 	background-color: #a2d5ab;
-	color: #FFF;	
 }
 .like img{
 	margin: 0.4em 0 0 0.75em;
 }
-.infoBottom a{
-	float: left;
+.info_Bottom a{
 	margin-right: 1em;
 }
-.userMin{
+.user_Min{
 	width: 2em;
 }
-.infoBottom span{
+.info_Bottom span{
 	font-size: 0.6em;
 	width: 60%;
 	line-height: 1.75em;
 }
-.infoBottom h4{
+.info_Bottom h4{
 	font-size: 1.5em;
 	color: #a2d5ab;
 }
-#seeMore{
+#see_More{
 	width: 8em;
 	margin: auto;
 }
-#seeMore button{
-	width: 100%;
+#see_More button{
 	margin: 2em auto 3em;
 	background-color: #557b83;
+<<<<<<< HEAD
 	color: #FFF;
+	transition: 500ms;
+=======
+>>>>>>> etienne
 }
 /*Fin video player*/
 /*Fin ContentSection*/
-
 /********
 FIN INDEX.HTML
 ********/
 
-/*Footer*/
-#topPart{
+
+/********
+HOME_CONTENT.HTML
+********/
+
+/*Barre de tri*/
+#tri_Section{
+	margin: 0 auto;
+	padding: 2em 0 3em;
+}
+#tri, #tri_Second{
+	width: 20.75em;
+	height: 2em;
+	margin: auto;
+}
+#tri{
+	margin-top: 1em;
+	background-color: #39aea9;
+}
+#tri ul li a{
+	line-height: 2em;
+	padding: 0.407em 1.46em;
+}
+#tri_Min ul li a:hover{
+	background-color: : #a2d5ab;
+}
+.selected{
+	background-color: #a2d5ab;
+}
+#tri_Desktop{
 	display: none;
 }
-#bottomPart p, #bottomPart a{
-	line-height: 4em;
+#tri_All, #tri_Music{
+	border-right: 1px solid #FFF;
+}
+<<<<<<< HEAD
+#tri_New, #tri_Like, #tri_Pop{
+	border-right: 1px solid #557b83;
+=======
+#tri_Music{
+	margin: 0 -0.38em
+>>>>>>> etienne
+}
+#tri_New, #tri_Like, #tri_Pop{
+	border-right: 1px solid #557b83;
+}
+#tri_Second nav{
+	margin: 1em -3.5em 1em;	
+}
+#tri_Second ul li a{
+	padding: 0.25em 0.5em;
+}
+#tri_Second ul li a:hover{
+	font-weight: bold;
+}
+.selected_2{
+	color: #a2d5ab;
+}
+
+/*Résultat recherche*/	
+.search-result{
+	margin-bottom: 1em;
+}
+.search-result h3{
+	font-size: 1em; 
+	margin: auto;
+	width: 20em;
+}
+/*Résultat recherche*/	
+.search-result{
+	width: 100%;
+	float: left;
+	margin-bottom: 1em;
+}
+.search-result h3{
+	font-size: 1em; 
+	margin: auto;
+	width: 20em;
+}
+/*contenu (fourre-tout)*/
+#load_More{
+	font-size: 0.75em;
+	margin: 3em 0 4em 1em;
+	height: 3em;
+}
+#load_More a{
+	border-top: 1px solid #557b83;
+}
+/********
+FIN HOME_CONTENT.HTML
+********/
+
+
+/********
+UPLOAD.HTML
+********/
+#upload_Content h4{
+	color: #39aea9;
+	margin-top: 1em;
+}
+#file_Param{
+	width: 13.75em;
+<<<<<<< HEAD
+	/*min-width: 220px;
+	max-width: 440px;*/
+	margin: 0 auto;
+}
+#warning_Mention{
+	display: none;
+}
+=======
+	margin: 0 auto;
+}
+>>>>>>> etienne
+#box_Row{
+	margin: 1em auto;
+}
+#box_Row label{
+	margin-right: 0.5em;
+}
+#select_Type{
+	margin: 2em auto 0;
+	padding-bottom: 3em;
+}
+#upload_Content input, #upload_Content select, #upload_Content textarea{
+	margin-top: 1.5em;
+}
+#upload_Content textarea{
+	width: 100%;
+	min-height: 10em;
+}
+#upload_Content input{
+<<<<<<< HEAD
+	display: inline-block;
+=======
+>>>>>>> etienne
+	margin-left: 1.5em;
+}
+.min_Advice{
+	margin-left: 2em;
+	font-size: 0.6em;
+}
+#upload_Content select{
+	width: 16em;
+	margin: 1.5em auto 0;
+} 
+<<<<<<< HEAD
+#upload_Zone label{
+	display: none;
+}
+=======
+>>>>>>> etienne
+#thumbs_Upload{
+	margin-top: 2em;
+}
+input[type="file"]{
+	color: #39aea9;
+	height: 1.65em;
+}
+#info, #upload_Zone{
+	border-top: 1px solid;
+<<<<<<< HEAD
+	padding-bottom: 4em;	
+}
+#basic_Info, #description{
+	padding-bottom: 4em;
+	border-bottom: 1px solid;
+}
+=======
+}
+#basic_Info, #description{
+	border-bottom: 1px solid;
+}
+#basic_Info, #description, #info, #upload_Zone{
+	padding-bottom: 4em;	
+}
+>>>>>>> etienne
+#upload_Content input[type="submit"]{
+	margin-left: 5em;
+	margin-bottom: 3em;
+	width: 6em;
+	height: 1.5em;
+	border-radius: 4px;
+	border: 1px solid #a2d5ab;
+	color: #a2d5ab;
+}
+/********
+FIN UPLOAD.HTML
+********/
+
+
+/********
+CONTENT.HTML
+********/
+#page_Content{
+	margin-top: 5em;
+}
+#page_Content figcaption{
+	margin-bottom: 0;
+}
+#page_Content .poster{
+	max-height: 14em;
+}
+#describe{
+	padding-bottom: 2em;
+}
+#describe h3, #comments_Form h3, #show_Comments h3{
+	padding-left: 1em;
+	margin-bottom: 2em;
+}
+#comments_Form h3{
+	padding-left: 0;
+}
+#describe p{
+	width: 90%;
+	margin: 0.5em auto;
+}
+#comments_Form{
+	padding: 1em;
+	margin-bottom: 2em;
+	background-color: #a2d5ab;
+	border-top: 1px solid #a2d5ab;
+	border-bottom: 1px solid #a2d5ab;
+}
+#comments_Form textarea{
+<<<<<<< HEAD
+	width: 100%;
+=======
+>>>>>>> etienne
+	max-width: 45.5em;
+	min-height: 10em;
+	max-height: 40em;
+}
+#comments_Form input{
+<<<<<<< HEAD
+	float: right;
+=======
+>>>>>>> etienne
+	width: 5em;
+	height: 1.75em;
+	margin: 1em auto 0.5em;
+	color: #557b83;
+}
+#show_Comments{
+	margin: 1em auto 2em;
+}
+.comment_Box{
+	width: 90%;
+	margin: 1em auto;
+	border: 1px solid #f2f2f2;
+	padding: 0.5em;
+}
+.user_Box{
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #f2f2f2;
+}
+<<<<<<< HEAD
+.user_Box img{
+	float: left;
+}
+=======
+>>>>>>> etienne
+.user_Box a:nth-child(2n){
+	margin-left: 1em;
+	line-height: 2.5em
+}
+.user_Box p{
+	margin-left: 6.75em;
 	font-size: 0.75em;
 }
-#bottomPart span{
-	float: left;
-	margin-left: 1em;
+.text_Box{
+	margin-top: 0.5em;
 }
-#bottomPart a{
+.text_Box p{
+	margin: 1em auto;
+}
+/********
+FIN CONTENT.HTML
+********/
+
+
+/********
+UPGRADE.HTML
+********/
+#abonnement table, #abonnement tr{
+<<<<<<< HEAD
+	box-sizing: border-box;
+=======
+>>>>>>> etienne
+	border: 1px solid #c1c1c1;
+}
+#abonnement table{
+	margin: 2em auto 4em;
+	text-align: center;
+	width: 18.75em;
+}
+#abonnement table thead{
+	background-color: #f2f2f2;
+}
+#abonnement table thead th{
+	height: 9.375em;
+}
+#basic_Abo button{
+	background-color: #557b83;
+<<<<<<< HEAD
+	color: #FFF;
+}
+#plus_Abo tfoot, #plus_Abo button{
+	background-color: #a2d5ab;
+	color: #FFF;
+}
+#pro_Abo tfoot, #pro_Abo button{
+	background-color: #557b83;
+	color: #FFF;
+=======
+}
+#plus_Abo tfoot, #plus_Abo button{
+	background-color: #a2d5ab;
+}
+#pro_Abo tfoot, #pro_Abo button{
+	background-color: #557b83;
+>>>>>>> etienne
+}
+#abonnement table h3, #abonnement table h5{
+	margin: 1.5em auto 0.5em
+}
+#abonnement table p{
+<<<<<<< HEAD
+	font-size: 0.75em;
+=======
+>>>>>>> etienne
+	padding-bottom: 1.5em;
+}
+/*seconde section*/
+#cooking{
+	background-color: #f8f7f7;
+	padding-bottom: 4em;
+	margin-bottom: 4em;
+}
+#cooking h2{
+	margin-bottom: 3em;
+}
+.img_Cook{
+<<<<<<< HEAD
+	text-align: center;
+=======
+>>>>>>> etienne
+	max-width: 8em;
+	min-width: 6.25em;
+	height: 8em;
+}
+.img_Cook figcaption{
+	background-color: transparent;
+	border: none;
+}
+<<<<<<< HEAD
+.img_Cook p{
+	font-size: 0.75em;
+}
+#question{
+	display: none;
+}
+=======
+>>>>>>> etienne
+/********
+FIN UPGRADE.HTML
+********/
+
+
+/********
+PROFIL.HTML
+********/
+section h2:first-child{
+	padding-top: 3em;
+	margin-left: 0.5em;
+	text-align: left;
+	font-weight: bold;
+}
+#user_Part{
+	width: 18.75em;
+	margin: 0 auto;
+}
+#user_Title p{
+<<<<<<< HEAD
+	font-size: 0.75em;
+=======
+>>>>>>> etienne
+	margin-left: 1.15em;
+	line-height: 2em;
+}
+#modify_Button button{
+	margin: 2em 7.5em;
+	width: 8em;
+<<<<<<< HEAD
+	background-color: #a2d5ab;
+	color: #FFF;
+=======
+	height: 3em;
+	background-color: #a2d5ab;
+>>>>>>> etienne
+}
+#user_Autre, #describe_User{
+	margin: 2em auto;
+}
+#user_Autre p{
+	line-height: 2em;
+	font-weight: bold;
+}
+#follower h2, #following h2, #uploaded_Part h2{
+	padding: 0.5em 0.1em;
+	background-color: #39aea9;
+<<<<<<< HEAD
+	color: #FFF;
+=======
+>>>>>>> etienne
+}
+.min_Follow li{
+	display: inline-block;
+	margin: 1em 0.15em;
+}
+#uploaded_Part h2{
+	padding: 0.5em 0;
+	width: 12.301em;
+	margin: 1em auto;
+}
+#uploaded_Part #load_More{
+	width: 15em;
+	margin: auto;
+	float: none;
+}
+/********
+FIN PROFIL.HTML
+********/
+
+
+/********
+PROFIL_MODIFY.HTML
+********/
+#modify_Form{
+	width: 18.75em;
+	margin: 0 auto 3em;
+}
+#conseil{
+<<<<<<< HEAD
+	display: none;
+}
+.error{
+	min-height: 1.5em;
+    width: 100%;
+	padding: 0.5em 0;
+    font-size: 0.75em;
+    margin: auto;
+    text-align: center;
+    color: #c0392b;
+    float: left;
+}
+#modify_Form input{
+	margin-left: 4.5em;
+}
+#modify_Form input[type="file"]{
+	margin-left: 1.75em;
+}
+#modify_Form input[type="date"]{
+	margin-left: 5.75em;
+}
+#modify_Form textarea{
+	min-width: 18.75em;
+	max-width: 22em;
+	min-height: 10em;
+	margin: auto;
+}
+#modify_Form input[type="submit"]{
+	margin-left: 8em;
+    margin-bottom: 3em;
+    width: 6em;
+    height: 1.5em;
+    border-radius: 4px;
+    border: 1px solid #a2d5ab;
+    color: #a2d5ab;
+}
+#modify_Form h3{
+	line-height: 2em;
+}
+.add_Min{
+	font-size: 0.6em;
+	margin: 0 0 4em; 
+	color: #c1c1c1;
+}
+.field_Box, .help_Box{
+	margin: 1.5em auto;
+	border-bottom: 1px solid;
+	padding-bottom: 4em; 
+}
+/********
+FIN PROFIL_MODIFY.HTML
+********/
+
+
+/********
+AIDE.HTML
+********/
+#help_Section nav{
+	margin-top: 3em;
+}
+#help_Section a{
+	color: #39aea9;
+}
+#help_Section li, #help_Section h3{
+	margin: 0 0 1.5em;
+}
+.help_Box p{
+	color: #c1c1c1;
+	margin: 0.5em auto;
+}
+#still_Stuck {
+	margin: 1.5em auto 3em;
+	font-size: 0.75em;
+}
+.fast_Link, .help_Box{
+	margin-left: 0.5em;
+}
+/********
+FIN AIDE.HTML
+********/
+
+
+/********
+404.HTML
+********/
+#oops{
+	text-align: center;
+	padding-bottom: 3em;
+	color: #39aea9;
+}
+#oops figure{
+	min-width: 18.75em;
+	max-width: 33.125em;
+}
+#oops figure img{
+	width: 80%;
+}
+#oops h3{
+	font-size: 2em;
+	margin: 3em auto;
+}
+#oops p{
+	margin-bottom: 2em;
+}
+#oops button{
+	color: #FFF;
+	background-color: #39aea9;
+	height: 3em;
+	width: 12em;
+}
+/********
+FIN 404.HTML
+********/
+
+
+/*Footer*/
+#top_Part{
+	display: none;
+}
+#bottom_Part a{
+	line-height: 3em;
+	padding-left: 1em;
+	height: 3em;
+=======
+	display: none;
+}
+.error{
+	min-height: 1.5em;
+	padding: 0.5em 0;
+    font-size: 0.75em;
+    margin: auto;
+    color: #c0392b;
+}
+#modify_Form input{
+	margin-left: 4.5em;
+}
+#modify_Form input[type="file"]{
+	margin-left: 1.75em;
+}
+#modify_Form input[type="date"]{
+	margin-left: 5.75em;
+}
+#modify_Form textarea{
+	min-width: 18.75em;
+	max-width: 22em;
+	min-height: 10em;
+	margin: auto;
+}
+#modify_Form input[type="submit"]{
+	margin-left: 8em;
+    margin-bottom: 3em;
+    width: 6em;
+    height: 1.5em;
+    border-radius: 4px;
+    border: 1px solid #a2d5ab;
+    color: #a2d5ab;
+}
+#modify_Form input[type="submit"]:hover{
+	color: #FFF;
+	background-color: #a2d5ab;
+}
+#modify_Form h3{
+	line-height: 2em;
+}
+.add_Min{
+	font-size: 0.6em;
+	margin: 0 0 4em; 
+	color: #c1c1c1;
+}
+.field_Box, .help_Box{
+	margin: 1.5em auto;
+	border-bottom: 1px solid;
+	padding-bottom: 4em; 
+}
+/********
+FIN PROFIL_MODIFY.HTML
+********/
+
+
+/********
+AIDE.HTML
+********/
+#help_Section nav{
+	margin-top: 3em;
+}
+#help_Section a{
+	color: #39aea9;
+}
+#help_Section li, #help_Section h3{
+	margin: 0 0 1.5em;
+}
+.help_Box p{
+	color: #c1c1c1;
+	margin: 0.5em auto;
+}
+#still_Stuck {
+	margin: 1.5em auto 3em;
+	font-size: 0.75em;
+>>>>>>> etienne
+}
+.fast_Link, .help_Box{
+	margin-left: 0.5em;
+}
+/********
+FIN AIDE.HTML
+********/
+
+
+/********
+404.HTML
+********/
+#oops{
+	padding-bottom: 3em;
+	color: #39aea9;
+}
+#oops figure{
+	min-width: 18.75em;
+	max-width: 33.125em;
+	height: auto;
+}
+#oops figure img{
+	width: 80%;
+}
+#oops h3{
+	font-size: 2em;
+	margin: 3em auto;
+}
+#oops p{
+	margin-bottom: 2em;
+}
+#oops button{
+	background-color: #39aea9;
+	height: 3em;
+	width: 12em;
+}
+/********
+FIN 404.HTML
+********/
+
+
+/*Footer*/
+#bottom_Part a{
+	line-height: 3em;
+	padding-left: 1em;
+	height: 3em;
+}
+#bottom_Part span{
+	width: 85%;
+<<<<<<< HEAD
+	float: left;
+=======
+>>>>>>> etienne
+	margin-left: 0.5em;
+	font-size: 0.5em;
+	line-height: 6em;
+}
+realised{
+	margin-left: 0.25em;
+}
+#bottom_Part a{
+<<<<<<< HEAD
 	float: right;
-	margin-right: 1em;
+=======
+>>>>>>> etienne
+	margin-right: 0.5em;
 }
 /*Fin Footer*/
+/*****Fin smartphone*****/
+
+<<<<<<< HEAD
+/*****Fin smartphone*****/
+
+=======
+>>>>>>> etienne
 
 /*Tablette*/
 @media  screen and (min-width: 640px){
 	
-}
+<<<<<<< HEAD
+	/***
+	INDEX
+	***/
+	.index_Content .poster{
+		max-height: 8.5em;
+	}
+	/***
+	FIN INDEX
+	***/
+	
+
+=======
+>>>>>>> etienne
+	/***
+	INDEX
+	***/
+	.index_Content .poster{
+		max-height: 8.5em;
+	}
+	/***
+	FIN INDEX
+	***/
+	
+
+	/***
+	HOME_CONTENT
+	***/
+	/*Content*/
+	.home_Content #content_Container figure{
+		max-width: 40em;
+	}
+	.poster{
+		max-height: 17em;
+	}
+	.search-result h3{
+		width: 40em;	
+	}
+<<<<<<< HEAD
+	.poster{
+		max-height: 17em;
+	}
+	.search-result h3{
+		width: 40em;	
+	}
+=======
+>>>>>>> etienne
+	/***
+	FIN HOME_CONTENT
+	***/
+
+
+	/********
+	UPLOAD.HTML
+	********/
+	#file_Param{
+		width: 32.5em;
+<<<<<<< HEAD
+		/*min-width: 220px;
+		max-width: 440px;*/
+=======
+>>>>>>> etienne
+		margin: 0 auto;
+	}
+	#box_Row{
+		width: 16.25em;
+		margin-left: auto;
+	}
+	#box_Row input[type="radio"]{
+		margin-left: 1.75em;
+	}
+	#upload_Content select{
+		margin-left: 11.5em;
+	}
+	#zone_Row, #thumbs_Upload{
+		width: 20em;
+		margin-left: 8em;
+	}
+	#basic_Info input{
+		margin-left: 13em;
+	}
+	#upload_Content input[type="submit"]{
+		margin-left: 16.5em;
+	}
+	/********
+	FIN UPLOAD.HTML
+	********/
+
+
+	/********
+	CONTENT.HTML
+	********/
+	#page_Content figure{
+<<<<<<< HEAD
+		max-width: 600px; 
+=======
+		max-width: 37.5em; 
+>>>>>>> etienne
+	}
+	#page_Content .poster{
+		max-height: 22em;
+	}
+	#comments_Form textarea{
+		max-width: 80.5em;
+		max-height: 30em;
+	}
+	/********
+	FIN CONTENT.HTML
+	********/
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> etienne
+	/********
+	PROFIL.HTML
+	********/
+	#user_Part{
+		width: 27.5em;
+	}
+	#uploaded_Part h2{
+		width: 18.3em;
+	}
+	#uploaded_Part .poster{
+		max-height: 17em;
+	}
+	#uploaded_Part figure{
+		max-width: 40em; 
+		margin-bottom: 2em;
+	}
+	#photo img{
+		margin-left: 4em;
+	}	
+	#modify_Button button {
+<<<<<<< HEAD
+ 	   margin: 2em 12em;
+=======
+ 	   	margin: 2em 12em;
+>>>>>>> etienne
+	}
+	/********
+	FIN PROFIL.HTML
+	********/
+
+
+	/********
+	PROFIL_MODIFY.HTML
+	********/
+	#modify_Form{
+		margin-left: 1em;
+<<<<<<< HEAD
+		float: left;
+	}
+	#conseil{
+		width: 18em;
+		display: block;
+		float: right;
+=======
+	}
+	#conseil{
+		width: 18em;
+>>>>>>> etienne
+		margin-right: 0.5em;
+	}
+	#conseil h2{
+		margin-top: 1.35em;
+		padding: 0.5em;
+		background-color: #39aea9;
+<<<<<<< HEAD
+		color: #FFF;
+=======
+>>>>>>> etienne
+	}
+	#conseil .add_Min
+	{
+		margin: 1em 0  0 1.25em;
+	}
+	/********
+	FIN PROFIL_MODIFY.HTML
+	********/
+
+
+	/*Footer*/
+	#bottom_Part a{
+		line-height: 3.5em;
+	}
 /*Fin Tablette*/
 
-/*Menu complet*/
-@media (min-width: 1160px){
+
+/*Version Desktop*/
+@media screen and (min-width: 1160px){
 	
 	a:hover{
-		text-decoration: underline;
+		color: #a2d5ab;
+		transition: 500ms;
+<<<<<<< HEAD
 	}
-	/*header*/
-	#burgerMenu, #logoMin{
+	.wrap h2{
+		text-align: left;
+=======
+>>>>>>> etienne
+	}
+	.wrap h2{
+		text-align: left;
+	}
+	/*Styles communs Desktop*/
+	#burger_Menu, #logo_Min{
 		display: none;
 	}
-	#logo{
+	a:hover, #tri_Complet nav ul li a:hover,
+	#upload_Zone, #upload_Zone:hover, #upload_Content input[type="submit"]:hover{
+		transition: 500ms;
+	}
+	#main_Menu, #main_Menu li, .index_Content #content_Container figure,
+	#uploaded_Container figure{
+		display: inline-block;
+	}
+	#logo, #user_Profil, #tri_Desktop, #tri_Complet, 
+	#warning_Mention, #zone_Row label, #question, #top_Part{
 		display: block;
 	}
-	#mainMenu{
+	#main_Menu, #user_Hover ul::before{
 		position: relative;
-		display: inline-block;
+	}
+	#user_Profil, #user_Hover ul, #join_Link, #inscription_Button, 
+	#tri_Complet, #upload_Zone, #uploaded_Part{
+		float: right;
+	}
+	#tri_Section, #tri-Desktop, .home_Content #content_Container,
+	#tri_Desktop h4, #tri_Desktop ul, #tri_Second, #desktop_Box, 
+	#warning_Mention, #select_Type, #info, #description, 
+	#thumbs_Upload, #basic_Info, #upload_Content input[type="submit"],
+	#abonnement table, .img_Cook, #user_Part, #uploaded_Part #load_More,
+	#modify_Form .error h6, footer nav{
+		float: left;
+	}
+	.home_Content #content_Container, .home_Content #content_Container figure{
+		min-width: 40em;
+	}
+	.search-result h3, #file_Param, #select_Type,
+	#box_Row, #info, #description textarea, 
+	#comments_Form h3, #show_Comments h3, .comment_Box,
+	#follower h2, #following h2{
+		width: 100%;
+	}
+	#warning_Mention, #upload_Zone:hover, #describe, #top_Part{
+		background-color: #f2f2f2;
+	}
+	#warning_Mention, #describe{
+		border: 1px solid #c1c1c1;
+	}
+	#desktop_Box, #warnin_Mention{
+		width: 18.75em;
+	}
+	#warning_Mention, #describe, .comment_Box, #top_Part{
+		box-sizing: border-box;
+	}
+	#upload_Content input[type="submit"]:hover, #comments_Form h3,
+	#show_Comments h3{
+		color: #FFF;
+	}
+	/*header*/
+	#main_Menu{
 		width: 50%;
 		top: 0;
 		left: 0;
 		background-color: #F2F2F2;
 	}
-	#mainMenu li{
+	#main_Menu li{
 		border: none;
-		display: inline-block;
 	}
-	#mainMenu a{
+	#main_Menu a{
 		padding: 0;
 		margin: 0 1em;
 		line-height: 3em;
@@ -409,38 +1457,99 @@ FIN INDEX.HTML
 	#search{
 		width: 16em;
 	}
-	.desktopHide{
+	.desktop_Hide{
 		display: none;
 	}
+	#user_Profil{
+		width: 1em;
+		margin: 0 1em 0 1em;
+		padding: 0 1em;
+		line-height: 4em;
+		border-left: 1px solid #39aea9;
+		height: 3.125em;
+		cursor: pointer;
+	}
+	#user_Profil img{
+		width: 2em;
+	}
+	#user_Hover{
+		width: 100%;
+		top: 3.5em;
+		position: fixed;
+	}
+	#user_Hover ul{
+		width: 8em;
+		background-color: #FFF;
+<<<<<<< HEAD
+		float: right;
+=======
+>>>>>>> etienne
+		margin-top: 0.5em;
+	}
+	#user_Hover li{
+		padding: 0.5em;
+		font-size: 0.8em;
+		border-bottom: 1px solid;
+	}
+<<<<<<< HEAD
+	/*#user_Hover li:hover a{
+		color: #FFF;
+	}
+	#user_Hover li:hover{
+		background-color: #39aea9;
+		color: #FFF;
+		border: none;
+	}*/
+	#user_Hover ul::before{
+		position: relative;
+=======
+	#user_Hover ul::before{
+>>>>>>> etienne
+		top: -1.5em;
+		right: -5.6em;
+		border-right: 7px solid transparent;
+		border-bottom: 8px solid #FFF;
+		border-left: 7px solid transparent;
+		content: '';
+	}
+<<<<<<< HEAD
+=======
 
+
+>>>>>>> etienne
+	/***
+	INDEX
+	***/
 	/*logsection*/
 	/*Logger*/
+	#log_Section{
+		min-height: 40em;
+		max-width: 100%; 
+	}
+	#log_Section h2{
+		text-align: center;
+	}
 	#logger{
 		width: 21.25em; 
 		min-height: 20em;
-	}
-	button{
-		height: 2.25em;
-		width: 8em;
 	}
 	section input{
 		height: 2.5em;
 		width: 21em;
 	}
+	button, #connect_Button, #inscription_Button, #recover_Button{
+		height: 2.25em;
+		width: 8em;
+	}
 	input[type="checkbox"]{
 		height: 1.25em;
 		width: 1.25em;
 	}
-	#rememberMe label{
-	}
-	#switch, #otherLink{
+	#switch, #other_Link{
 		width: 17.5em;
 		margin: 0.5em auto;
 	}
-	#joinLink, #inscriptionButton{
-		float: right;
-	}
-	#logger .lastP{
+	#logger .last_P{
 		margin-top: 1em;
 	}
 	/*Google captcha*/
@@ -451,71 +1560,627 @@ FIN INDEX.HTML
 		transform-origin:0 0;
 		-webkit-transform-origin:0 0;
 	}
-
+	#other_Link a{
+		margin-left: 2.9em;
+	}
 	/*Content*/
-	#contentContainer{
+	.info_Top, .info_Bottom {
+    	height: 2em;
+    	width: 90%;
+    	margin: 0 5%;
+	}
+	.index_Content #content_Container{
+<<<<<<< HEAD
 		column-width: 320px;
 		column-gap: 1em;
+		-webkit-column-width: 320px;
+=======
+		column-width: 20em;
+		column-gap: 1em;
+		-moz-column-width: 20em;
+		-moz-column-gap: 1em;
+		-webkit-column-width: 20em;
+>>>>>>> etienne
+		-webkit-column-gap: 1em;
 		width: 75%;
-		min-width: 1000px;
-		max-width: 1160px;
+		min-width: 62.5em;
+		max-width: 72.5em;
 		margin: 1em auto;
 	}
-	#contentContainer figure{
+	.index_Content #content_Container figure{
+<<<<<<< HEAD
 		min-width: 290px;
 		max-width: 320px;
 		column-break-inside: avoid;
+		-webkit-column-break-inside: avoid;
 		display: inline-block;
+=======
+		min-width: 18.125em;
+		max-width: 20em;
+		column-break-inside: avoid;
+		-moz-column-break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+>>>>>>> etienne
 		float: none;
 		margin: 0;
 	}
 	video{
 		background-color: #000;
-		min-height: 180px;
+		min-height: 11.25em;
 	}
+	.follow button{
+		width: 5em;
+	}
+	#see_More button:hover{
+		border: 1px solid #557b83;
+		color: #557b83;
+		background-color: #FFF;
+		transition: 500ms;
+	}
+	.follow button{
+		width: 5em;
+	}
+	#see_More button:hover{
+		border: 1px solid #557b83;
+		color: #557b83;
+		background-color: #FFF;
+		transition: 500ms;
+	}
+	/***
+	FIN INDEX
+	***/
+
+
+	/***
+	HOME_CONTENT
+	***/
+	/*Tri*/
+	#tri_Second nav{
+		margin-left: 0;
+	}
+	#tri_Min{
+		display: none;
+	}
+	#tri{
+		width: 40em;
+		margin-right: 35em;
+<<<<<<< HEAD
+	}
+	#tri_Desktop{
+		display: block;
+=======
+>>>>>>> etienne
+	}
+	#tri_Desktop h4{
+		line-height: 1.75em;
+		margin-left: 1em;
+	}
+	#tri_Desktop ul{
+		margin-left: 2em;
+	}
+	#tri_Complet{
+		width: 24.125em;
+		padding-bottom: 1em;
+	}
+	#tri_Complet h4{
+		text-align: center;
+		color: #557b83;
+		font-size: 1.5em;
+		padding-bottom: 0.5em;
+		border-bottom: 1px solid;
+	}
+	#tri_Complet h5{
+		margin-top: 1em;
+	}
+	#tri_Complet h5:first-child{
+		color: #39aea9;
+	}
+	#tri_Complet h5:nth-child(2n){
+		color: #a2d5ab;
+	}
+	#tri_Complet nav{
+		border-bottom: 1px solid;
+		padding: 1em;
+	}
+	#tri_Complet nav ul li{
+		margin-bottom: 0.5em;
+	}
+	#tri_Complet nav ul li a:hover{
+		color: #a2d5ab;
+		transition: 500ms;
+	}
+	/*Content*/
+	.home_Content #content_Container{
+		max-width: 48.375em;
+	}
+	.home_Content #content_Container figure{
+<<<<<<< HEAD
+		min-width: 640px;
+		margin-left: 0; 
+	}
+	.search-result h3{
+		width: 100%;	
+=======
+		margin-left: 0; 
+>>>>>>> etienne
+	}
+	/***
+	FIN HOME_CONTENT
+	***/
+
+
+	/********
+	UPLOAD.HTML
+	********/
+	#file_Param{
+<<<<<<< HEAD
+		width: 100%;
+		margin-top: 2em;
+	}
+	#desktop_Box{
+		float: left;
+		width: 18.75em;
+=======
+		margin-top: 2em;
+	}
+	#desktop_Box{
+>>>>>>> etienne
+		height: 25em;
+		margin-left: 0.5em;
+		padding-bottom: 4em;
+	}
+	#warning_Mention{
+<<<<<<< HEAD
+		display: block;
+		background-color: #f2f2f2;
+		width: 18.750em;
+		float: left;
+		border-radius: 6px;
+		border: 1px solid #c1c1c1;
+		padding: 1em;
+		box-sizing: border-box;
+=======
+		border-radius: 6px;
+		padding: 1em;
+>>>>>>> etienne
+	}
+	#warning_Mention ul li, #warning_Mention h3{
+		margin-bottom: 0.75em;
+	}
+	#warning_Mention p{
+		font-size: 0.75em;
+	}
+<<<<<<< HEAD
+	#select_Type{
+		float: left;
+		width: 100%;
+	}
+	#box_Row{
+		width: 100%;
+	}
+=======
+>>>>>>> etienne
+	#box_Row input[type="radio"]{
+		margin-left: 2.5em;
+		width: 1em;
+	}
+	#upload_Content select{
+		margin-left: 3em;
+	}
+	#upload_Zone{
+		width: 51.875em;
+<<<<<<< HEAD
+		float: right;
+=======
+>>>>>>> etienne
+		border: 1px dotted #c1c1c1;
+		border-radius: 6px;
+		height: 25em;
+		margin-right: 0.5em; 
+	}
+<<<<<<< HEAD
+	#upload_Zone:hover{
+		background-color: #f2f2f2;
+	}
+=======
+>>>>>>> etienne
+	#zone_Row{
+		width: auto;
+	}
+	#zone_Row input{
+		margin: 15em 0 0 11em;
+	}
+	#zone_Row label{
+<<<<<<< HEAD
+		display: block;
+=======
+>>>>>>> etienne
+		margin: 0.5em 0 0 12em;
+	}
+	#zone_Row .min_Advice{
+		margin-left: 15em;
+	}
+	#info{
+<<<<<<< HEAD
+		float: left;
+		height: 25em;
+		width: 100%;
+=======
+		height: 25em;
+>>>>>>> etienne
+		padding-bottom: 0;
+		margin: 2em 0.5em;
+	}
+	#info, #basic_Info, #description{
+		border: none;
+	}
+<<<<<<< HEAD
+	#thumbs_Upload{
+	}
+=======
+>>>>>>> etienne
+	#thumbs_Upload input{
+		margin-top: 7em;
+	}
+	#basic_Info input{
+		margin-left: 3.5em;
+	}
+	#basic_Info select{
+		margin-left: 5.75em;
+	}
+	#description, #thumbs_Upload, #basic_Info{
+<<<<<<< HEAD
+		float: left;
+=======
+>>>>>>> etienne
+		width: 23em;
+		margin-left: 0.5em;
+	}
+	#basic_Info{
+		border-left: 1px solid;
+		border-right: 1px solid;
+	}
+	#description textarea{
+<<<<<<< HEAD
+		width: 100%;
+=======
+>>>>>>> etienne
+		max-width: 29em;
+		max-height: 18em;
+	}
+	#upload_Content input[type="submit"]{
+<<<<<<< HEAD
+		float: left;
+=======
+>>>>>>> etienne
+		margin: 0 40em 5em;
+	}
+	#upload_Content input[type="submit"]:hover{
+		background-color: #a2d5ab;
+<<<<<<< HEAD
+		color: #FFF;
+	}
+
+=======
+	}
+>>>>>>> etienne
+	/********
+	FIN UPLOAD.HTML
+	********/
+
+
+	/********
+	CONTENT.HTML
+	********/
+	#page_Content figure{
+		max-width: 57.5em; 
+		margin-bottom: 0;
+	}
+	#page_Content .poster{
+		max-height: 29.5em;
+	}
+	#describe, #comments_Form, #show_Comments{
+		width: 57.5em;
+		padding: 0;
+		margin: auto;
+		overflow: hidden;
+	}
+	#describe h3{
+		margin: 1em 0;
+	}
+	#describe{
+<<<<<<< HEAD
+		background-color: #F2F2F2;
+		border: 1px solid #c1c1c1;
+		margin-top: 0;
+		box-sizing: border-box;
+=======
+		margin-top: 0;
+>>>>>>> etienne
+	}
+	#comments_Form{
+		margin: 2em auto;
+		background-color: transparent;
+		border: none;
+	}
+	#comments_Form textarea{
+		margin-left: 4em;
+		max-width: 60em;
+		min-height: 15em;
+		max-height: 40em;
+	}
+	#comments_Form input{
+		width: 8em;
+		height: 2.5em;
+		margin-right: 5em;
+		background-color: #a2d5ab;
+		color: #FFF;
+		border: none;
+		border-radius: 6px;
+	}
+	#comments_Form input:hover{
+		background-color: #FFF;
+		color: #a2d5ab;		
+		border: 1px solid #a2d5ab;
+<<<<<<< HEAD
+	}
+	#comments_Form h3, #show_Comments h3{
+		background-color: #a2d5ab;
+		width: 100%;
+		padding: 0.5em 0.5em; 
+		color: #FFF;
+	}
+	.comment_Box{
+		width: 100%;
+		box-sizing: border-box;
+=======
+		transition: 500ms;
+	}
+	#comments_Form h3, #show_Comments h3{
+		background-color: #a2d5ab;
+		padding: 0.5em 0.5em; 
+>>>>>>> etienne
+	}
+	#show_Comments{
+		margin-bottom: 3em;
+	}
+	/********
+	FIN CONTENT.HTML
+	********/
+
+
+	/********
+	UPGRADE.HTML
+	********/
+	#abonnement table{
+<<<<<<< HEAD
+		float: left;
+=======
+>>>>>>> etienne
+		margin-left: 4em;
+	}
+	#cooking{
+		margin-top: 2em;
+	}
+	#cooking h2, #question h2{
+		text-align: center;
+	}
+	#min_Cook{
+		width: 56em;
+		margin: auto;
+	}
+	.img_Cook{
+<<<<<<< HEAD
+		float: left;
+=======
+>>>>>>> etienne
+		margin-left: 1em; 
+	}
+	#cook_Question{
+		max-width: 100%;
+	}
+	#question{
+<<<<<<< HEAD
+		display: block;
+=======
+>>>>>>> etienne
+		text-align: center;
+		padding-bottom: 8em;
+	}
+	#question h2, #question p{
+		margin-bottom: 1em;
+	}
+	/********
+	FIN UPGRADE.HTML
+	********/
+
+
+	/********
+	PROFIL.HTML
+	********/
+	#profil{
+		padding-bottom: 8em;
+	}
+	#user_Part{
+		width: 25em;
+<<<<<<< HEAD
+		float: left;
+		margin-left: 1em;
+	}
+	#follower h2, #following h2{
+		width: 100%;
+	}
+	#uploaded_Part{
+		margin-top: 8em;
+		float: right;
+=======
+		margin-left: 1em;
+	}
+	#uploaded_Part{
+		margin-top: 8em;
+>>>>>>> etienne
+		width: 41.25em;
+	}
+	#uploaded_Part h2{
+		width: 27.35em;
+		margin: 1em 0;
+	}
+	#uploaded_Part .poster{
+		max-height: 8.5em;
+	}
+	#uploaded_Container{
+		column-width: 320px;
+		column-gap: 1em;
+<<<<<<< HEAD
+=======
+		-moz-column-width: 320px;
+		-moz-column-gap: 1em;
+>>>>>>> etienne
+		-webkit-column-width: 20em;
+		-webkit-column-gap: 0.75em;
+		width: 100%;
+		min-width: 40em;
+		max-width: 41.25em;
+		margin: 1em auto;
+	}
+	#uploaded_Container figure{
+		max-width: 18em;
+		column-break-inside: avoid;
+<<<<<<< HEAD
+		-webkit-column-break-inside: avoid;
+		display: inline-block;
+		float: none;
+		margin: 0;
+	}
+	#uploaded_Part #load_More {
+		float: left;
+	}
+=======
+		-moz-column-break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+		float: none;
+		margin: 0;
+	}
+>>>>>>> etienne
+	/********
+	FIN PROFIL.HTML
+	********/
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> etienne
+	/********
+	PROFIL_MODIFY.HTML
+	********/
+	#modify_Form{
+		width: 40em;
+	}
+	#modify_Form input, #modify_Form input[type="submit"],
+	#modify_Form input[type="file"], #modify_Form input[type="date"]{
+		margin-left: 0;
+	}
+<<<<<<< HEAD
+	#modify_Form .error h6{
+		float: left;
+	}
+=======
+>>>>>>> etienne
+	#conseil{
+		width: 20em;
+		margin-right: 4em;
+	}
+	#conseil h2{
+		margin-top: 1.35em;
+		padding: 0.5em;
+		background-color: #39aea9;
+<<<<<<< HEAD
+		color: #FFF;
+=======
+>>>>>>> etienne
+	}
+	#conseil .add_Min
+	{
+		margin: 1em 0  0 1.25em;
+	}
+	#modify_Form textarea{
+		max-height: 25em;
+		max-width: 48em;
+	}
+	/********
+	FIN PROFIL_MODIFY.HTML
+	********/
+
+
+	/********
+	AIDE.HTML
+	********/
+	.fast_Link, .help_Box{
+		margin-left: auto;
+	}
+	/********
+	FIN AIDE.HTML
+	********/
+
+<<<<<<< HEAD
+=======
+	/*404*/
+	#oops{
+		height: 41.5em;
+	}
+>>>>>>> etienne
 
 	/*Footer*/
 	h5{
 		font-size: 1.15em;
 		margin-bottom: 1.5em;
 	}
-	#centeredMenu{
+	#centered_Menu{
 		width: 30em;
 		margin: 1.5em auto;
 	}
 	footer nav{
+<<<<<<< HEAD
 		float: left;
-		margin-right: 2em;
+		margin-right: 2.5em;
+=======
+		margin-right: 2.25em;
+>>>>>>> etienne
 	}
 	footer nav li{
 		margin-bottom: 0.75em;
 		font-size: 0.85em;
 	}
-	#mudeoMenu h5{
+	#mudeo_Menu h5{
 		color: #39aea9;
 	}
-	#aideMenu h5{
+	#aide_Menu h5{
 		color: #a2d5ab;
 	}
-	#plusMenu h5{
-		color: ;
-	}
-	#topPart{
-		display: block;
+	#top_Part{
 		height: 12.5em;
-		background-color: #F2F2F2;
 		border-top: 1px solid #c1c1c1;
 		border-bottom: 1px solid #c1c1c1;
-		box-sizing: border-box;
 	}
-	#bottomPart{
+	#bottom_Part{
 		background-color: #FFF;
 	}
+	#bottom_Part a{
+		padding: 0 1em;
+	}
+	realised, jerem, etienne, philippe, arthur{
+		line-height: 4em;
+		padding: 0 0.1em;
+<<<<<<< HEAD
+		font-size: 0.75em;
+=======
+		font-size: 1em;
+>>>>>>> etienne
+	}
 }
-
-/*Desktop*/
+/*Desktop-2*/
 @media screen and (min-width: 1280px){
-	#centeredMenu{
+	#centered_Menu{
 		margin: 1.5em auto;
 	}
 }
