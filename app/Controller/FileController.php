@@ -263,7 +263,7 @@ class FileController extends Controller
 				$fileManager->insert([
 					"id"			=>"",
 					"title" 		=>$title,
-					"user_id"		=>"",
+					"user_id"		=>"13",
 					"file_type"		=>$file_type,
 					"file_size"		=>$file_size,
 					"url_file" 		=>$url,
