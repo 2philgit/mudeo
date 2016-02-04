@@ -22,6 +22,8 @@ obj_search = {
 // pour le message retourné pour une recherche
 str_result = "";
 
+search ="";
+
 // création de line_result (utilisée pour construire le message des résultats de la recherche)
 var line_result = $("<p>");
 /*** 
@@ -308,7 +310,7 @@ $("#search").on("keyup", autocompletedSearch);
 
 // mise sous écoute du formulaire de recherche
 $('#search_Field').on("submit", function(e) {
-	//alert('Cliccckkkkk');
+	
 	e.preventDefault(); // pour éviter le fonctionnement normal du champ (renvoi de la demande/clic répétitif) (évite au formulaire de se soumettre)
 	autocompletedSearch(); // à l'origine doSearch() appellée, mais chgt pour récupérer les données dans le champ formulaire
 });
@@ -367,7 +369,9 @@ return false; // Désactive le lien (pour éviter chargement du contenu ds une n
 
 // pour le menu "tri par"
 $("#tri a").click(function() {
-
+	if (search == "") {
+	$("#tri_Second a").removeClass("selected_2");
+	}
  	$("#tri a").each(function(){  // boucle sur tous les éléments enfants de la section avec l'id "tri"
  		$(this).removeClass("selected");
  	});
@@ -401,4 +405,6 @@ FIN DES MISES SOUS ECOUTES
 ***/
 
 /* Appel du submit du formulaire pour afficher le résultat de la recherche dans la home (connecté ou non)*/
-$('#search_Field').submit();
+$('#search_Field').submit(function() {
+	$("#tri_Second a").removeClass("selected_2");
+});

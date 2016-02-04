@@ -101,8 +101,8 @@ $("#connect_Link").on("click", function(e){
 		$(this).bind("play", stopPlaying); 
 	})
 
-	function stopPlaying(e){
-		var currentPlayingId = $(e.currentTarget).attr("id");
+	function stopPlaying(){
+		var currentPlayingId = $(this).attr("id");
 		$(".player").each(function(){
 			var elementId = $(this).attr("id");
 			if(elementId != currentPlayingId){
@@ -114,5 +114,3 @@ $("#connect_Link").on("click", function(e){
 	/**IMPORTANT : CHAQUE BALISE AUDIO ET VIDEO DOIVENT AVOIR UN ID (le titre par exemple)**/
 
 });
-
-

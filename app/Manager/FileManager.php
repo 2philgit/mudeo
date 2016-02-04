@@ -3,7 +3,7 @@
 namespace Manager;
 
 //la classe de base du framework pour les fichiers
-// par défaut, tous les champs utilses sont passés à la requête dans l'odre croissant de la colonne title (de la bdd)
+// par défaut, tous les champs utilsés sont passés à la requête dans l'odre croissant de la colonne title (de la bdd)
 class FileManager extends \W\Manager\Manager {
 
 	public function search() {
@@ -51,11 +51,10 @@ class FileManager extends \W\Manager\Manager {
 					        break;
 					}
 
-				//SELECT *  FROM `files` WHERE `user_id` = 1 ORDER BY `created` DESC
+
 				if ($_GET['column'] == "upload&user") {
 					$selectSearch = " user_id = " . $_SESSION['user']['id'];                                                                                               ;
 					$column = "created";
-					//$order = "DESC";
 				}
 
 
