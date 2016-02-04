@@ -66,13 +66,15 @@ class UserController extends Controller
 				$password = $_POST['password'];
 				$passwordRepeat = $_POST['passwordRepeat'];
 
-				if(preg_match("#{8,12}#", $password)){
+				if(preg_match("#^[a-zA-Z0-9]{8,12}#", $password)){
 
 					if($password == $passwordRepeat){
 
 						$usermanager = new \Manager\UserManager();
 						$usermanager->update([
-
+									
+									'token' => '',
+									'token_timestamp' => 0,
 									'password' => password_hash($password, PASSWORD_DEFAULT),								
 									],$id);
 
@@ -124,11 +126,12 @@ class UserController extends Controller
 							'country' => $country,
 							'biography' => trim($bio),
 							],$_SESSION['user']['id']);
-
+// die('rrrr');
 							$user = $usermanager->getUserByUsernameOrEmail($email);
 
 							$auth = new \W\Security\AuthentificationManager();
 							$auth->logUserIn($user);
+							$_SESSION['error']['controlProfilModify'] = "Votre profil a bien été modifié ! ";
 
 						}else{
 							$_SESSION['error']['controlProfilModify'] = "L'email n'est pas dans un format valide ! ";

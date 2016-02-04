@@ -152,8 +152,7 @@
                 <!--Fin info, catégorie & keyword-->
                 <!--Description-->
                 <div id="description" class="clearfix">
-                    <textarea name="describe" placeholder="Décrivez votre contenu">
-                    </textarea>
+                    <textarea name="describe" placeholder="Décrivez votre contenu"></textarea>
                     <div class="error">
                         <h6 id="describe_Error"></h6>
                         </div>

@@ -22,14 +22,14 @@ class LoggerController extends Controller
 				$passwordRepeat = $_POST['passwordRepeat'];
 				$captcha = $_POST['g-recaptcha-response'];
 
-	    	 	$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfqUBYTAAAAADkoRy9mGz7cDUl_4aJz27jUR4oV&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);	    		
+	    	 	$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LeqaRcTAAAAAKoJJAS6klv4BQ1vYwXLb2d5zZMs&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);	    		
 	    	 	$response = json_decode($response, true);
 
 			    if($response["success"])
 			    {
 			    	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				   
-				   		if(preg_match("#{8,12}#", $password)){
+				   		if(preg_match("#^[a-zA-Z0-9]{8,12}#", $password)){
 					    
 						    if ($password == $passwordRepeat) {
 								
@@ -52,7 +52,7 @@ class LoggerController extends Controller
 										"country" => "",
 										"urlpicture" => "",
 										"biography" => "",
-										"subscription" => 1,
+										"subscription" => 0,
 										"created" => date("Y-m-d H:i:s"),
 										"token" => password_hash($token, PASSWORD_DEFAULT),
 										"token_timestamp" => $tokentime
@@ -66,7 +66,7 @@ class LoggerController extends Controller
 									//
 									// on redirige l"utilisateur
 
-									$lien = '<a href="'.$this->generateUrl('mailAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
+									$lien = '<a href="'.$this->generateUrl('mailAccount',['token'=>$token,'id'=>$_SESSION['user']['id']],true).'">http://www.mudeo.dev/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
 									$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
 
 									$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
@@ -145,7 +145,7 @@ class LoggerController extends Controller
 
 							if(isset($_POST['remember'])){
 
-								setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'localhost', false, true);
+								setcookie("auth", $user['id'] . '-----' . sha1($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']), time()+3600 * 24 * 3, '/', 'mudeo.dev', false, true);
 							}
 							
 							$return = \confirmAccount($user['token_timestamp']);
@@ -253,12 +253,12 @@ class LoggerController extends Controller
 								,$user['id']);
 
 							$lien = '<a href="'.$this->generateUrl('mailPassword',['token'=>$token,'id'=>$user['id']],true).'">http://www.mudeo.com/verif/u675CXIV9YOLHbYIjhgc8O7UNM</a>';
-							$lien_img = "http://img.clubic.com/07220896-photo-logo-samsung-milk-music.jpg";
+							$lien_img = "od972.free.fr/logo.png";
 
 							$msg = "<img src='".$lien_img."' style='width:100px;height:100px'/> <h2>Mudéo </h2>";
 							$msg .= "<h4>MFF Corp.</h4><br/><br/>";
-							$msg .= "Pour pouvoir changer de mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
-							$msg .= "<br/><br/>Attention ce message s'auto-détruira dans 5.. 4.. 3.. 2.. 1.. bon dans 1 heure en fait !!!!! ";
+							$msg .= "Pour pouvoir changer votre mot de passe <span style='font-weight:bold;'>".strtoupper($user['username'])."</span>. Veuillez cliquer sur le lien suivant qui vous redirigera vers notre site<br/><br/>".$lien;
+							
 
 							require_once 'assets/inc/mailer.php';
 

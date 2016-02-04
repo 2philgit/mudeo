@@ -1,9 +1,5 @@
 <?php
-// http://www.berejeb.com/2009/09/envoyer-des-mails-avec-phpmailer-et-le-smtp-de-gmail/
-// require_once('../vendor/phpmailer/class.phpmailer.php'); 
-// require_once('../vendor/phpmailer/class.smtp.php'); 
-// require_once '../vendor/phpmailer/PHPMailerAutoload.php';
-//require '../../inc/functions.php';
+
 define('GMailUSER', 'mudeo.wf3@gmail.com'); // utilisateur Gmail
 define('GMailPWD', 'mudeowf32015'); // Mot de passe Gmail
 
@@ -28,3 +24,4 @@ function smtpMailer($to, $from, $from_name, $subject, $body) {
 	if(!$mail->Send()) {
 		$errorMail = 'Mail error: '.$mail->ErrorInfo;
 	}
+}

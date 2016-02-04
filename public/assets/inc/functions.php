@@ -85,7 +85,7 @@ function confirmAccount($token,$subscription){
 }
 
 function uploadUserPicture(){
-// die(var_dump($_FILES));
+
 	if(!empty($_FILES['photo_user']['name'])){
 
 		$file_name = $_FILES['photo_user']['name'];
@@ -110,7 +110,7 @@ function uploadUserPicture(){
 			return "";
 		}
 		else{
-			$_SESSION['error']['controlProfilModify'] = "Votre profil a bien été modifié ! ";
+			
 			return $file_name;
 		}
 

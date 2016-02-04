@@ -45,15 +45,7 @@
 
 			<?php $country = $_SESSION["user"]["country"];  ?>
 			
-			<script type="text/javascript">
-
-				function recupCountry(country){
-					$('#selectCountry option[value="'+country+'"]').attr("selected", "selected");
-				}
-				
-				recupCountry("<?= $country; ?>");
-				
-			</script>
+			
 
 			<div id="Biographie" class="field_Box">
 				<h3>Votre bio</h3>
@@ -79,4 +71,15 @@
 	</section>
 
 <?php $this->stop('main_content') ?>
->>>>>>> etienne
+
+<?php $this->start('js') ?>
+	<script type="text/javascript">
+
+		function recupCountry(country){
+			$('#selectCountry option[value="'+country+'"]').attr("selected", "selected");
+		}
+		
+		recupCountry("<?= $country; ?>");
+				
+	</script>
+<?php $this->stop('js') ?>

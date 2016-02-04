@@ -1,6 +1,3 @@
-/*Smartphone : ligne 5 à 885*/
-/*Tablette : ligne 888 à 1025*/
-/*Desktop : ligne 1028 à 1629*/
 /*Pour tous*/
 body{
 	font-family: Verdana, Arial, Sans-serif;
@@ -40,9 +37,6 @@ h2{
 h3{
 	font-size: 1.25em
 }
-h4{
-	color: #FFF;
-}
 h4, h5{
 	font-size: 1.125em;
 }
@@ -59,7 +53,7 @@ input, textarea, #main_Menu a, #logoMin a, #logo a, button, figcaption,
 }
 header, footer, #main_Menu, #main_Menu ul li, .error_Logger, .upload_Error, 
 #remember_Me, #latest_Content, figure, video, figcaption, #content_Container, 
-.poster, .poster_Img, #see_More button, .search-result, #load_More, #comments_Form textarea, .error{
+.poster, #poster, .poster_Img, #see_More button, .search-result, #load_More, #comments_Form textarea, .error{
 	width: 100%; 
 }
 #logo_Min, #logo, #search, #connect_Button, #connect_Link, #other_Link a, 
@@ -110,7 +104,7 @@ h4, #log_Section h2, #logger p, #other_Link a,
 #connect_Button, #inscription_Button, #recover_Button, #join_Link, 
 #connect_Link, #remember_Me label, .follow button.following, #see_More button,
 #tri ul li a,#basic_Abo button, #plus_Abo tfoot, #plus_Abo button,#pro_Abo tfoot,
-#pro_Abo button, #modify_Button button, #follower h2, 
+#pro_Abo button, #modify_Button button, #follower h2, #conseil h2,
 #following h2, #uploaded_Part h2, #oops button{
 	color: #FFF;
 }
@@ -118,7 +112,7 @@ a, #see_More button, #tri_Min ul li a:hover, #upload_Content input[type="submit"
 #modify_Form input[type="submit"]:hover, #modify_Form input[type="submit"]{
 	transition: 500ms;
 }
-header, figcaption, .follow button, #bottom_Part{
+header, figcaption, .follow button, #bottom_Part, #search_Icon input{
 	background-color: #F2F2F2;
 }
 #upload_Content, #abonnement{
@@ -194,10 +188,10 @@ header, #bottom_Part{
 	line-height: 3em;
 }
 
-/*#search_Field {
+#search_Field {
 	position: relative;
 	z-index: 50;
-}*/
+}
 
 #search_Icon{
 	line-height: 2.5em;
@@ -209,8 +203,7 @@ header, #bottom_Part{
 	 /* Remove default */
   	border: none;
   	width: 1.25em;
-  	height: 1.188em;
-  	background-color: #f2f2f2;
+  	height: 1.75em;
   	background-image: url(../img_site/search.png);
   	background-repeat: no-repeat;
 }
@@ -342,6 +335,9 @@ figure{
 video{
 	margin: 0 auto;
 	height: auto;
+}
+#poster{
+	margin: 0;
 }
 .poster{
 	margin: 0;
@@ -475,7 +471,7 @@ HOME_CONTENT.HTML
 .search-result{
 	margin-bottom: 1em;
 }
-.search-result h3{
+.search-result ul {
 	font-size: 1em; 
 	margin: auto;
 	width: 20em;
@@ -805,6 +801,11 @@ PROFIL_MODIFY.HTML
 	border-bottom: 1px solid;
 	padding-bottom: 4em; 
 }
+#delete_Account{
+	float: left;
+	margin-left: 5em;
+	font-size: 0.8em;
+}
 /********
 FIN PROFIL_MODIFY.HTML
 ********/
@@ -916,7 +917,7 @@ realised{
 	.poster{
 		max-height: 17em;
 	}
-	.search-result h3{
+	.search-result ul{
 		width: 40em;	
 	}
 	/***
@@ -1065,7 +1066,7 @@ realised{
 		position: relative;
 	}
 	#user_Profil, #user_Hover ul, #join_Link, #inscription_Button, 
-	#tri_Complet, #upload_Zone, #uploaded_Part{
+	#tri_Complet, #upload_Zone, #uploaded_Part, #delete_Account{
 		float: right;
 	}
 	#tri_Section, #tri-Desktop, .home_Content #content_Container,
@@ -1301,6 +1302,9 @@ realised{
 	#tri_Complet nav ul li a:hover{
 		color: #a2d5ab;
 		transition: 500ms;
+	}
+	.search-result ul{
+		float: left;	
 	}
 	/*Content*/
 	.home_Content #content_Container{

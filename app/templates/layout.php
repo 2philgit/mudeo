@@ -49,17 +49,17 @@
         <li><a href="<?=$this->url('quickRegister')?>" title="Connexion">Connexion</a></li>
         <?php } ?>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
-        <li><a class="desktop_Hide" href="profil.html" title="Profil">Profil</a></li>
+        <li><a class="desktop_Hide" href="<?=$this->url('profile')?>" title="Profil">Profil</a></li>
         <!--Apparait seulement si connecté sur smartphone et tablette-->
-        <li><a class="desktop_Hide" href="index.html" title="Deconnexion">Déconnexion</a></li>
+        <li><a class="desktop_Hide" href="<?=$this->url('logout')?>" title="Deconnexion">Déconnexion</a></li>
         <!--Seulement pour smartphone et tablette-->
-        <li><a class="desktop_Hide" href="aide.html" title="Aide">Aide</a></li>
+        <li><a class="desktop_Hide" href="<?=$this->url('help')?>" title="Aide">Aide</a></li>
         <!--Compte upgrade-->
         <li><a href="<?=$this->url('upgrade')?>" title="Abonnement">Abonnement</a></li> 
       </ul>
  
     <!--Apparait une fois l'utilisateur connecté en version Desktop-->
-    <a id="user_Profil" title="accès au profil"><img src="<?php if(isset($_SESSION['user'])) echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']); else echo $this->assetUrl("img_site/user/user.png"); ?>" alt="profil">   
+    <a id="user_Profil" title="accès au profil"><img src="<?php if(isset($_SESSION['user'])){ if(empty($_SESSION['user']['urlpicture'])){echo $this->assetUrl("img_site/user/user.png");}else{echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']);}} else {echo $this->assetUrl("img_site/user/user.png"); }?>" alt="profil">   
     </a>    
       
     <!--Champs de recherche-->
@@ -104,25 +104,25 @@
         <nav id="mudeo_Menu">
           <h5>Mudeo</h5>
           <ul>
-            <li><a href="" title="A propos de mudeo">A propos de mudeo</a></li>
-            <li><a href="" title="Règles du site">Règles</a></li>
-            <li><a href="" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
-            <li><a href="" title="Confidentialité">Confidentialité</a></li>
+            <li><a href="<?=$this->url('help')?>" title="A propos de mudeo">A propos de mudeo</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Règles du site">Règles</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Conditions d'utilisation">Conditions d'utilisation</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Confidentialité">Confidentialité</a></li>
           </ul>
         </nav>
         <nav id="aide_Menu">
           <h5>Aide</h5>
           <ul>
-            <li><a href="" title="Centre d'aide">Centre d'aide</a></li>
-            <li><a href="" title="FAQ">FAQ</a></li>
-            <li><a href="" title="Droit d'auteur">Droit d'auteur</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Centre d'aide">Centre d'aide</a></li>
+            <li><a href="<?=$this->url('help')?>" title="FAQ">FAQ</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Droit d'auteur">Droit d'auteur</a></li>
           </ul>
         </nav>
         <nav id="Plus_Menu">
           <h5>Plus</h5>
           <ul>
-            <li><a href="" title="Mettre en ligne">Mettre en ligne</a></li>
-            <li><a href="" title="Plan du site">Plan du site</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Mettre en ligne">Mettre en ligne</a></li>
+            <li><a href="<?=$this->url('help')?>" title="Plan du site">Plan du site</a></li>
           </ul>
         </nav>
       </div>

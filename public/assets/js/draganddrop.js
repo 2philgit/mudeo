@@ -251,18 +251,18 @@ var keywordRegexp = /^[A-Za-z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöø
 
 
 
-var fileDescription = $("#description").val().trim();
-var descriptionRegexp = /^[A-Za-z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ]/;
+// var fileDescription = $("#description").val().trim();
+// var descriptionRegexp = /^[A-Za-z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ]/;
 
-if( descriptionRegexp.test(fileDescription) === false )
-{
-    $("#describe_Error").html("sont autorisées seulement les caracteres alphabetique et numerique !");
-}
-    //pas d'erreur !!!
-    else 
-    {
-        $("#describe_Error").empty();
-    }
+// if( descriptionRegexp.test(fileDescription) === false )
+// {
+//     $("#describe_Error").html("sont autorisées seulement les caracteres alphabetique et numerique !");
+// }
+//     //pas d'erreur !!!
+//     else 
+//     {
+//         $("#describe_Error").empty();
+//     }
 
 
     var hasSelectedFile = $.trim( $('#uploadImput').val());
@@ -304,7 +304,8 @@ if( descriptionRegexp.test(fileDescription) === false )
 
     if (uploadFormHasError == false)
     {
-     var formElement = document.querySelector("#file_Param")        var fd= new FormData(formElement);
+     var formElement = document.querySelector("#file_Param");
+    var fd= new FormData(formElement);
      fd.append('fichier',fichier);
      $.ajax({
          url: "add",

@@ -62,7 +62,7 @@ class FileController extends Controller
 		$imgError			=$_FILES['thumb']['error'];
 		
 		
-		
+		print_r();
 
 
 		$content_dir="assets/";
@@ -263,7 +263,7 @@ class FileController extends Controller
 				$fileManager->insert([
 					"id"			=>"",
 					"title" 		=>$title,
-					"user_id"		=>"13",
+					"user_id"		=>"4",
 					"file_type"		=>$file_type,
 					"file_size"		=>$file_size,
 					"url_file" 		=>$url,

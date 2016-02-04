@@ -14,7 +14,7 @@
 
 			<!--Photo-->
 			<div id="photo">
-				<img src="<?php if(isset($_SESSION['user'])){ if(empty($_SESSION['user']['urlpicture'])){echo $this->assetUrl("img_site/user/user.png");}else{echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']);}} else {echo $this->assetUrl("img_site/user/user.png"); }?>" alt="profil">
+				<img src="<?php if(isset($_SESSION['user'])){ if(empty($_SESSION['user']['urlpicture'])){echo $this->assetUrl("img_site/user/user_big.png");}else{echo $this->assetUrl("img_site/user/".$_SESSION['user']['urlpicture']);}} else {echo $this->assetUrl("img_site/user/user_big.png"); }?>" alt="profil">
 			</div>
 			<!--Pour modifier le profil-->
 			<a id="modify_Button" href="<?=$this->url('profilmodify')?>" title="modifier mon profil"><button>Modifier le profil</button></a>
@@ -74,11 +74,11 @@
 									<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
 									<span class="social_Nav">
 										<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
-										<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+										<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
 									</span>
 								</div>
 								<div class="info_Bottom clearfix">
-									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>" alt="photo de..."></a>
 
 									<span class="author">
 										<h4><strong>Ross Heng</strong></h4>
@@ -91,7 +91,7 @@
 					<!--Audio-->
 					<figure class="clearfix">
 						<div class="poster">
-							<img id="poster" src="img_site/moutainsmin.jpg">
+							<img id="poster" src="<?=$this->assetUrl('img_site/moutainsmin.jpg')?>">
 							<audio id="mamusique" class="clearfix" controls>
 							    <source src="dossierbidon/musique/morceau.mp3" type="audio/mp3">
 
@@ -103,11 +103,11 @@
 									<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
 									<span class="social_Nav">
 										<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
-										<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+										<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
 									</span>
 								</div>
 								<div class="info_Bottom clearfix">
-									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>" alt="photo de..."></a>
 
 									<span class="author">
 										<h4><strong>Ross Heng</strong></h4>
@@ -130,11 +130,11 @@
 									<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
 									<span class="social_Nav">
 										<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
-										<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+										<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
 									</span>
 								</div>
 								<div class="info_Bottom clearfix">
-									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>" alt="photo de..."></a>
 
 									<span class="author">
 										<h4><strong>Ross Heng</strong></h4>
@@ -157,11 +157,11 @@
 									<h3><a href="content.html" title="Voir la vidéo"><strong>Video title</strong></a></h3>
 									<span class="social_Nav">
 										<a id="none" class="follow" href="" title="Suivre l'auteur"><button>Suivre</button></a>
-										<a id="none" class="like" href="" title="Aimer le contenu"><img src="img_site/like.png" alt="j'aime"></a>
+										<a id="none" class="like" href="" title="Aimer le contenu"><img src="<?=$this->assetUrl('img_site/like.png')?>" alt="j'aime"></a>
 									</span>
 								</div>
 								<div class="info_Bottom clearfix">
-									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="img_site/user.png" alt="photo de..."></a>
+									<a href="Profil.html" title="Voir le profil de ..."><img class="user_Min" src="<?=$this->assetUrl('img_site/user.png')?>" alt="photo de..."></a>
 
 									<span class="author">
 										<h4><strong>Ross Heng</strong></h4>
